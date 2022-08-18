@@ -1,24 +1,19 @@
+import 'package:floky/views/pages/pages.index.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      routes: PageIndex.getAppRoutes(),
+      initialRoute: PageIndex.initialRoute,
       title: 'FLoky',
-      theme: ThemeData(
-        primarySwatch: Colors.blueGrey,
-      ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Floky'),
-        ),
-        body: const Center(
-          child: Text('this is an names app Floky'),
-        ),
-      ),
+      theme: ThemeData(primarySwatch: Colors.blueGrey),
     );
   }
 }
