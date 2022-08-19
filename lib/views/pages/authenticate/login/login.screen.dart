@@ -10,12 +10,14 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       // appBar: AppBar(title: const Text('Floky'), elevation: 0),
       body: SafeArea(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Titles.title('Floky'),
-            const FormLogin(),
-          ],
+        child: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Titles.title('Floky'),
+              const FormLogin(),
+            ],
+          ),
         ),
       ),
     );
