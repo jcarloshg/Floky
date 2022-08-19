@@ -8,15 +8,15 @@ class InputPass extends StatefulWidget {
 }
 
 class _InputPassState extends State<InputPass> {
-  bool isShowPass = true;
+  bool isObscureText = true;
 
-  void onChangeShowPass() => setState(() => isShowPass = !isShowPass);
+  void onChangeShowPass() => setState(() => isObscureText = !isObscureText);
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       keyboardType: TextInputType.emailAddress,
-      obscureText: isShowPass,
+      obscureText: isObscureText,
       autocorrect: false,
       decoration: _inputDecoration(),
     );
