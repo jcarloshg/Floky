@@ -1,3 +1,4 @@
+import 'package:floky/views/pages/home/widgets/bottom_navigation_pages.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -8,12 +9,19 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  int _selectedIndex = 1;
+
+  void _onItemTapped(int index) => setState(() => _selectedIndex = index);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Floky'), elevation: 0),
-      body: const Center(
-        child: Text('HomeScreen'),
+      body: BottomNavigationPages.itemsBarPages[_selectedIndex].page,
+      bottomNavigationBar: BottomNavigationBar(
+        items: BottomNavigationPages.getNavigationPages(),
+        currentIndex: _selectedIndex,
+        // selectedItemColor: Colors.amber[800],
+        onTap: _onItemTapped,
       ),
     );
   }

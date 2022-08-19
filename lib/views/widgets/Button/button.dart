@@ -1,10 +1,8 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 class Button extends StatelessWidget {
   final String? label;
-  final Function? function;
+  final VoidCallback? function;
 
   const Button({Key? key, this.label, this.function}) : super(key: key);
 
@@ -15,7 +13,8 @@ class Button extends StatelessWidget {
       width: double.infinity,
       height: 45,
       child: MaterialButton(
-        onPressed: (function == null) ? () {} : function!(),
+        // onPressed: (function == null) ? () {} : function!(),
+        onPressed: function,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         color: Theme.of(context).primaryColor,
         child: _bodyButton(),

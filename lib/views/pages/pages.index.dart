@@ -13,53 +13,55 @@ class _Page {
 }
 
 class PageIndex {
-  static const initialRoute = 'HomeScreen';
+  static const initialRoute = 'LoginScreen';
 
-  static final pages = <_Page>[
-    //
-    // bottom navigation bar
-    //
-    _Page(
-      route: 'HomeScreen',
-      screen: const HomeScreen(),
-    ),
-    //
-    // authenticate
-    //
-    _Page(
-      route: 'LoginScreen',
-      screen: const LoginScreen(),
-    ),
-    //
-    // activities
-    //
-    _Page(
-      route: 'ActivitiesScreen',
-      screen: const ActivitiesScreen(),
-    ),
-    _Page(
-      route: 'PendingActivitiesScreen',
-      screen: const PendingActivitiesScreen(),
-    ),
-    //
-    // profile
-    //
-    _Page(
-      route: 'ProfileScreen',
-      screen: const ProfileScreen(),
-    ),
-  ];
+  // ============================================
+  // bottom navigation bar
+  // ============================================
+  static final homeScreen = _Page(
+    route: 'HomeScreen',
+    screen: const HomeScreen(),
+  );
 
-  static final pagesAuthenticate = <_Page>[
-    _Page(route: 'LoginScreen', screen: const LoginScreen()),
-  ];
+  // ============================================
+  // screens authenticate
+  // ============================================
+  static final loginScreen = _Page(
+    route: 'LoginScreen',
+    screen: const LoginScreen(),
+  );
+
+  static final activitiesScreen = _Page(
+    route: 'ActivitiesScreen',
+    screen: const ActivitiesScreen(),
+  );
+
+  // ============================================
+  // screens activities
+  // ============================================
+  static final pendingActivitiesScreen = _Page(
+    route: 'PendingActivitiesScreen',
+    screen: const PendingActivitiesScreen(),
+  );
+
+  // ============================================
+  // screens profile
+  // ============================================
+  static final profileScreen = _Page(
+    route: 'ProfileScreen',
+    screen: const ProfileScreen(),
+  );
 
   static Map<String, Widget Function(BuildContext context)> getAppRoutes() {
     Map<String, Widget Function(BuildContext)> appRoutes = {};
 
-    for (final page in pages) {
-      appRoutes.addAll({page.route: (BuildContext context) => page.screen});
-    }
+    // appRoutes.addAll({homeScreen.route: (BuildContext context) => homeScreen.screen});
+
+    appRoutes.addAll({homeScreen.route: (_) => homeScreen.screen});
+    appRoutes.addAll({loginScreen.route: (_) => loginScreen.screen});
+    appRoutes.addAll({activitiesScreen.route: (_) => activitiesScreen.screen});
+    appRoutes.addAll({pendingActivitiesScreen.route: (_) => pendingActivitiesScreen.screen});
+    appRoutes.addAll({profileScreen.route: (_) => profileScreen.screen});
 
     return appRoutes;
   }

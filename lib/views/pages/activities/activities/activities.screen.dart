@@ -5,10 +5,11 @@ class ActivitiesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Floky'), elevation: 0),
-      body: const Center(
-        child: Text('ActivitiesScreen here'),
+    return const Scaffold(
+      body: SafeArea(
+        child: Center(
+          child: Text('ActivitiesScreen here'),
+        ),
       ),
     );
   }
