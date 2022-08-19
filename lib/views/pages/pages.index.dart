@@ -18,22 +18,35 @@ class PageIndex {
     //
     // authenticate
     //
-    _Page(route: 'LoginScreen', screen: const LoginScreen()),
+    _Page(
+      route: 'LoginScreen',
+      screen: const LoginScreen(),
+    ),
     //
     // activities
     //
-    _Page(route: 'ActivitiesScreen', screen: const ActivitiesScreen()),
+    _Page(
+      route: 'ActivitiesScreen',
+      screen: const ActivitiesScreen(),
+    ),
     //
     // home
     //
-    _Page(route: 'HomeScreen', screen: const HomeScreen()),
     _Page(
-        route: 'PendingActivitiesScreen',
-        screen: const PendingActivitiesScreen()),
+      route: 'HomeScreen',
+      screen: const HomeScreen(),
+    ),
+    _Page(
+      route: 'PendingActivitiesScreen',
+      screen: const PendingActivitiesScreen(),
+    ),
     //
     // profile
     //
-    _Page(route: 'HomeScreen', screen: const ProfileScreen()),
+    _Page(
+      route: 'HomeScreen',
+      screen: const ProfileScreen(),
+    ),
   ];
 
   static final pagesAuthenticate = <_Page>[
