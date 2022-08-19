@@ -1,3 +1,13 @@
+// ! ============================================================
+// ! ============================================================
+// !
+// ! ALL PAGE ADD HERE
+// !
+// !                    ...please... 😥
+// !
+// ! ============================================================
+// ! ============================================================
+
 import 'package:floky/views/pages/activities/activities.index.dart';
 import 'package:floky/views/pages/authenticate/authenticate.index.dart';
 import 'package:floky/views/pages/home/home.index.dart';
@@ -60,7 +70,8 @@ class PageIndex {
     appRoutes.addAll({homeScreen.route: (_) => homeScreen.screen});
     appRoutes.addAll({loginScreen.route: (_) => loginScreen.screen});
     appRoutes.addAll({activitiesScreen.route: (_) => activitiesScreen.screen});
-    appRoutes.addAll({pendingActivitiesScreen.route: (_) => pendingActivitiesScreen.screen});
+    appRoutes.addAll(
+        {pendingActivitiesScreen.route: (_) => pendingActivitiesScreen.screen});
     appRoutes.addAll({profileScreen.route: (_) => profileScreen.screen});
 
     return appRoutes;
