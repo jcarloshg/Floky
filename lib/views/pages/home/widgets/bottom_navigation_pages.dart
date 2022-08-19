@@ -1,6 +1,4 @@
-import 'package:floky/views/pages/activities/activities.index.dart';
-import 'package:floky/views/pages/pending_activities/pending_activities.index.dart';
-import 'package:floky/views/pages/profile/profile.index.dart';
+import 'package:floky/views/pages/pages.index.dart';
 import 'package:flutter/material.dart';
 
 class ItemBarPage {
@@ -14,23 +12,25 @@ class ItemBarPage {
 class BottomNavigationPages {
   static final List<ItemBarPage> _itemsBarPages = <ItemBarPage>[
     ItemBarPage(
-      const ActivitiesScreen(),
+      PageIndex.activitiesScreen.screen,
       const Icon(Icons.explore),
       'Actividades',
     ),
     ItemBarPage(
-      const PendingActivitiesScreen(),
+      PageIndex.pendingActivitiesScreen.screen,
       const Icon(Icons.pending_actions),
       'Pendientes',
     ),
     ItemBarPage(
-      const ProfileScreen(),
+      PageIndex.profileScreen.screen,
       const Icon(Icons.person),
       'Perfil',
     ),
   ];
 
   static List<ItemBarPage> get itemsBarPages => _itemsBarPages;
+
+  static Widget getPage(int index) => _itemsBarPages[index].page;
 
   static List<BottomNavigationBarItem> getNavigationPages() {
     final List<BottomNavigationBarItem> navigationPages = [];

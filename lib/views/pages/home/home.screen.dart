@@ -16,7 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BottomNavigationPages.itemsBarPages[_selectedIndex].page,
+      body: BottomNavigationPages.getPage(_selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
         items: BottomNavigationPages.getNavigationPages(),
         currentIndex: _selectedIndex,
