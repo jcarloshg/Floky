@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../input_decorations.dart';
+
 class InputPass extends StatefulWidget {
   const InputPass({Key? key}) : super(key: key);
 
@@ -14,11 +16,15 @@ class _InputPassState extends State<InputPass> {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      keyboardType: TextInputType.emailAddress,
-      obscureText: isObscureText,
-      autocorrect: false,
-      decoration: _inputDecoration(),
+    return Container(
+      decoration: InputDecorations.getBoxDecoration(),
+      margin: InputDecorations.getMarginInputs(),
+      child: TextFormField(
+        keyboardType: TextInputType.emailAddress,
+        obscureText: isObscureText,
+        autocorrect: false,
+        decoration: _inputDecoration(),
+      ),
     );
   }
 
@@ -28,7 +34,9 @@ class _InputPassState extends State<InputPass> {
       hintText: "***",
       suffixIcon: IconButton(
         onPressed: onChangeShowPass,
-        icon: const Icon(Icons.abc_outlined),
+        icon: Icon(isObscureText
+            ? Icons.remove_red_eye
+            : Icons.remove_red_eye_outlined),
       ),
     );
   }

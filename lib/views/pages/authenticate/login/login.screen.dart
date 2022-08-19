@@ -1,4 +1,5 @@
 import 'package:floky/views/pages/authenticate/login/widgets/widgets.index.dart';
+import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -10,8 +11,11 @@ class LoginScreen extends StatelessWidget {
       // appBar: AppBar(title: const Text('Floky'), elevation: 0),
       body: SafeArea(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const [FormLogin()],
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Titles.title('Floky'),
+            const FormLogin(),
+          ],
         ),
       ),
     );
