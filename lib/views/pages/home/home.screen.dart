@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Floky'), elevation: 0),
-      body: const Center(child: Text('this is an names app Floky')),
+      body: const Center(
+        child: Text('HomeScreen'),
+      ),
     );
   }
 }

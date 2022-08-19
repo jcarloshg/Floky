@@ -1,6 +1,7 @@
 import 'package:floky/views/pages/activities/activities.index.dart';
 import 'package:floky/views/pages/authenticate/authenticate.index.dart';
 import 'package:floky/views/pages/home/home.index.dart';
+import 'package:floky/views/pages/pending_activities/pending_activities.index.dart';
 import 'package:floky/views/pages/profile/profile.index.dart';
 import 'package:flutter/material.dart';
 
@@ -12,9 +13,16 @@ class _Page {
 }
 
 class PageIndex {
-  static const initialRoute = 'LoginScreen';
+  static const initialRoute = 'HomeScreen';
 
   static final pages = <_Page>[
+    //
+    // bottom navigation bar
+    //
+    _Page(
+      route: 'HomeScreen',
+      screen: const HomeScreen(),
+    ),
     //
     // authenticate
     //
@@ -29,13 +37,6 @@ class PageIndex {
       route: 'ActivitiesScreen',
       screen: const ActivitiesScreen(),
     ),
-    //
-    // home
-    //
-    _Page(
-      route: 'HomeScreen',
-      screen: const HomeScreen(),
-    ),
     _Page(
       route: 'PendingActivitiesScreen',
       screen: const PendingActivitiesScreen(),
@@ -44,7 +45,7 @@ class PageIndex {
     // profile
     //
     _Page(
-      route: 'HomeScreen',
+      route: 'ProfileScreen',
       screen: const ProfileScreen(),
     ),
   ];
