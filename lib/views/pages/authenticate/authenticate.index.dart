@@ -1,1 +1,1 @@
-export 'package:floky/views/pages/authenticate/login.screen.dart';
+export 'package:floky/views/pages/authenticate/login/login.screen.dart';
