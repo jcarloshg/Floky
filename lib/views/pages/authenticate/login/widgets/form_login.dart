@@ -13,10 +13,10 @@ class FormLogin extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Titles.title('Iniciar sesión'),
+          Titles.title('Floky'),
           const InputEmail(),
           const InputPass(),
-          const Button(label: 'Ingresar')
+          const Button(label: 'Iniciar sesión')
         ],
       ),
     );
