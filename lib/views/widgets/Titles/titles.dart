@@ -5,7 +5,7 @@ class Titles {
     return Container(
       width: double.infinity,
       // decoration: BoxDecoration(border: Border.all()),
-      margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+      margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       child: Text(
         title ?? '[NOT_TITLE]',
         style: const TextStyle(
@@ -19,7 +19,8 @@ class Titles {
   static Widget subtitle(String? subtitle) {
     return Container(
       width: double.infinity,
-      margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
+      // decoration: BoxDecoration(border: Border.all()),
+      margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       child: Text(
         subtitle ?? '[NOT_SUBTITLE]',
         style: const TextStyle(
