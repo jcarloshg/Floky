@@ -5,8 +5,6 @@ class SearchBarActivities extends StatelessWidget {
   const SearchBarActivities({Key? key}) : super(key: key);
 
   void _openSearchScreen(BuildContext context) {
-    // ignore: avoid_print
-    print('SearchBarActivities - _openSearchScreen');
     showSearch(
       context: context,
       delegate: SearchActivitiesDelegate(),
@@ -30,7 +28,7 @@ class SearchBarActivities extends StatelessWidget {
 
   InputDecoration _inputDecoration(BuildContext context) {
     return InputDecoration(
-      hintText: "ej. Leer Thom Soyers",
+      hintText: "ej. Leer Tom Sawyer",
       border: const OutlineInputBorder(),
       suffixIcon: IconButton(
         onPressed: () => _openSearchScreen(context),

@@ -9,24 +9,26 @@ class ActivitiesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Container(
-          // decoration: BoxDecoration(border: Border.all()),
-          child: Column(
-            children: [
-              const SizedBox(height: 10),
-              Titles.title('Actividades'),
-              Titles.subtitle('Descubre actividades nuevas'),
-              const SearchBarActivities(),
-              Container(
-                width: double.infinity,
-                height: 200,
-                decoration: BoxDecoration(border: Border.all()),
-                margin:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                child: const Text('BUTTONS [READ WRITE speak listen ]'),
+        child: Column(
+          children: [
+            const SizedBox(height: 10),
+            Titles.title('Actividades'),
+            Titles.subtitle('Descubre actividades nuevas'),
+            const SearchBarActivities(),
+            Container(
+              width: double.infinity,
+              // decoration: BoxDecoration(border: Border.all()),
+              margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+              child: Column(
+                children: const [
+                  ButtonRead(),
+                  ButtonWrite(),
+                  ButtonSpeak(),
+                  ButtonListen(),
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
