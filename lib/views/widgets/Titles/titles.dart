@@ -24,7 +24,7 @@ class Titles {
       child: Text(
         subtitle ?? '[NOT_SUBTITLE]',
         style: const TextStyle(
-          fontSize: 20,
+          fontSize: 18,
           fontWeight: FontWeight.w600,
         ),
       ),

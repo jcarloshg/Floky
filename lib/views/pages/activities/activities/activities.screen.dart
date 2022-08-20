@@ -1,3 +1,4 @@
+import 'package:floky/views/pages/activities/activities/widgets/widgets.index.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
 
@@ -15,14 +16,7 @@ class ActivitiesScreen extends StatelessWidget {
               const SizedBox(height: 10),
               Titles.title('Actividades'),
               Titles.subtitle('Descubre actividades nuevas'),
-              Container(
-                width: double.infinity,
-                height: 30,
-                decoration: BoxDecoration(border: Border.all()),
-                margin:
-                    const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
-                child: const Text('[SEARCH_BAR]'),
-              ),
+              const SearchBarActivities(),
               Container(
                 width: double.infinity,
                 height: 200,
