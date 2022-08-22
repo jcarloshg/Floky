@@ -2,7 +2,7 @@ import 'package:floky/views/widgets/Button_Categories/button_categories_styles.d
 import 'package:flutter/material.dart';
 
 class ButtonRead extends StatelessWidget {
-  final String label = 'Read 📚';
+  final String label = 'Read';
   final VoidCallback? function;
 
   const ButtonRead({
@@ -22,8 +22,23 @@ class ButtonRead extends StatelessWidget {
   }
 
   Widget _bodyButton() {
-    return Center(
-      child: Text(label, style: ButtonCategoriesStyles.getTextStyle()),
+    return Row(
+      children: [
+        Flexible(
+          flex: 3,
+          child: SizedBox(
+            width: double.infinity,
+            child: Text(label, style: ButtonCategoriesStyles.getTextStyle()),
+          ),
+        ),
+        const Flexible(
+          flex: 1,
+          child: SizedBox(
+            width: double.infinity,
+            child: Text('📚'),
+          ),
+        ),
+      ],
     );
   }
 }

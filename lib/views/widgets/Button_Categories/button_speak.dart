@@ -2,7 +2,7 @@ import 'package:floky/views/widgets/Button_Categories/button_categories_styles.d
 import 'package:flutter/material.dart';
 
 class ButtonSpeak extends StatelessWidget {
-  final String label = 'Speak 🗣️';
+  final String label = 'Speak';
   final VoidCallback? function;
 
   const ButtonSpeak({
@@ -22,8 +22,23 @@ class ButtonSpeak extends StatelessWidget {
   }
 
   Widget _bodyButton() {
-    return Center(
-      child: Text(label, style: ButtonCategoriesStyles.getTextStyle()),
+    return Row(
+      children: [
+        Flexible(
+          flex: 3,
+          child: SizedBox(
+            width: double.infinity,
+            child: Text(label, style: ButtonCategoriesStyles.getTextStyle()),
+          ),
+        ),
+        const Flexible(
+          flex: 1,
+          child: SizedBox(
+            width: double.infinity,
+            child: Text('🗣️'),
+          ),
+        ),
+      ],
     );
   }
 }

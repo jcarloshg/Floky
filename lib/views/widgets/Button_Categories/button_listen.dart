@@ -2,7 +2,7 @@ import 'package:floky/views/widgets/Button_Categories/button_categories_styles.d
 import 'package:flutter/material.dart';
 
 class ButtonListen extends StatelessWidget {
-  final String label = 'Listen 🎧';
+  final String label = 'Listen';
   final VoidCallback? function;
 
   const ButtonListen({
@@ -16,17 +16,29 @@ class ButtonListen extends StatelessWidget {
       onPressed: () {},
       height: ButtonCategoriesStyles.heightButton,
       shape: ButtonCategoriesStyles.getRoundedRectangleBorder(),
-      color: Colors.blue.shade400,
+      color: Colors.grey.shade400,
       child: _bodyButton(),
     );
   }
 
   Widget _bodyButton() {
-    return Center(
-      child: Text(
-        label,
-        style: ButtonCategoriesStyles.getTextStyle(),
-      ),
+    return Row(
+      children: [
+        Flexible(
+          flex: 3,
+          child: SizedBox(
+            width: double.infinity,
+            child: Text(label, style: ButtonCategoriesStyles.getTextStyle()),
+          ),
+        ),
+        const Flexible(
+          flex: 1,
+          child: SizedBox(
+            width: double.infinity,
+            child: Text('🎧'),
+          ),
+        ),
+      ],
     );
   }
 }
