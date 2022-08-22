@@ -14,6 +14,7 @@ class ButtonListen extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialButton(
       onPressed: () {},
+      height: ButtonCategoriesStyles.heightButton,
       shape: ButtonCategoriesStyles.getRoundedRectangleBorder(),
       color: Colors.blue.shade400,
       child: _bodyButton(),

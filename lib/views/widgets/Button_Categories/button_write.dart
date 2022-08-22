@@ -14,6 +14,7 @@ class ButtonWrite extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialButton(
       onPressed: () {},
+      height: ButtonCategoriesStyles.heightButton,
       shape: ButtonCategoriesStyles.getRoundedRectangleBorder(),
       color: Colors.green.shade400,
       child: _bodyButton(),

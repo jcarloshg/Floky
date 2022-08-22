@@ -16,7 +16,7 @@ class SearchBarActivities extends StatelessWidget {
     return Container(
       // width: double.infinity,
       // decoration: BoxDecoration(border: Border.all()),
-      margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+      margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
       child: TextFormField(
         keyboardType: TextInputType.name,
         autocorrect: false,
@@ -29,7 +29,9 @@ class SearchBarActivities extends StatelessWidget {
   InputDecoration _inputDecoration(BuildContext context) {
     return InputDecoration(
       hintText: "ej. Leer Tom Sawyer",
-      border: const OutlineInputBorder(),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
       suffixIcon: IconButton(
         onPressed: () => _openSearchScreen(context),
         icon: const Icon(Icons.search),

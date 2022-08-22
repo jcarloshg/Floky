@@ -13,6 +13,7 @@ class ButtonRead extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
+      height: ButtonCategoriesStyles.heightButton,
       onPressed: () {},
       shape: ButtonCategoriesStyles.getRoundedRectangleBorder(),
       color: Colors.red.shade400,

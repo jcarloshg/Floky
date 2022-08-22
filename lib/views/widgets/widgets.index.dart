@@ -3,6 +3,7 @@ export 'package:floky/views/widgets/Button_Categories/button_listen.dart';
 export 'package:floky/views/widgets/Button_Categories/button_read.dart';
 export 'package:floky/views/widgets/Button_Categories/button_speak.dart';
 export 'package:floky/views/widgets/Button_Categories/button_write.dart';
+export 'package:floky/views/widgets/Button_Categories/grid_buttons_categories.dart';
 
 // inputs
 export 'package:floky/views/widgets/Inputs/InputEmail/input_email.dart';
