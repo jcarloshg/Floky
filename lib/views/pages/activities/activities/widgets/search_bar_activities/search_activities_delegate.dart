@@ -1,3 +1,4 @@
+import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
 
 class SearchActivitiesDelegate extends SearchDelegate {
@@ -37,11 +38,15 @@ class SearchActivitiesDelegate extends SearchDelegate {
   Widget buildSuggestions(BuildContext context) {
     // if (query.isEmpty) return _searchEmpty(context);
 
-    List<String> suggestions = [
-      'Speak 🗣️',
-      'Read 📚',
-      'Listen 🎧',
-      'Write 📝',
+    List<Widget> suggestions = [];
+
+    List<String> strings = [
+      '[Leer Batman]',
+      '[Speak with Character] 😀',
+      '[LISTEN FRIENDS]',
+      '[SPEAK WITH CHARACTER] 😀',
+      '[LEER BATMAN]',
+      '[Listen Friends]',
       '[Leer Batman]',
       '[Speak with Character] 😀',
       '[LISTEN FRIENDS]',
@@ -49,15 +54,22 @@ class SearchActivitiesDelegate extends SearchDelegate {
       '[LEER BATMAN]',
       '[Listen Friends]',
     ];
-    return ListView.builder(
-      itemCount: suggestions.length,
-      itemBuilder: (context, index) {
-        final suggestion = suggestions[index];
-        return ListTile(
+
+    suggestions.add(const SizedBox(height: 10));
+    suggestions.add(const GridButtonsCategories());
+
+    for (String suggestion in strings) {
+      suggestions.add(
+        ListTile(
           title: Text(suggestion),
           onTap: () => query = suggestion,
-        );
-      },
+        ),
+      );
+    }
+
+    return ListView.builder(
+      itemCount: suggestions.length,
+      itemBuilder: (_, index) => suggestions[index],
     );
   }
 
