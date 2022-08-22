@@ -26,7 +26,7 @@ class GridButtonsCategories extends StatelessWidget {
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           mainAxisSpacing: 8,
-          crossAxisSpacing: 5,
+          crossAxisSpacing: 8,
           mainAxisExtent: 45,
         ),
         itemBuilder: (BuildContext context, int index) => buttons[index],

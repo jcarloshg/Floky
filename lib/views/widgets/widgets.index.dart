@@ -1,4 +1,5 @@
 // button categories
+
 export 'package:floky/views/widgets/Button_Categories/button_listen.dart';
 export 'package:floky/views/widgets/Button_Categories/button_read.dart';
 export 'package:floky/views/widgets/Button_Categories/button_speak.dart';
@@ -14,3 +15,5 @@ export 'package:floky/views/widgets/Button/button.dart';
 
 // UI
 export 'package:floky/views/widgets/Titles/titles.dart';
+export 'package:floky/views/widgets/text_divider/text_divider.dart';
+export 'package:floky/views/widgets/card_activitie/activity_card.dart';
