@@ -1,3 +1,4 @@
+import 'package:floky/views/utils/utils.index.dart';
 import 'package:floky/views/widgets/Button_Categories/button_categories_styles.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +17,7 @@ class ButtonListen extends StatelessWidget {
       onPressed: () {},
       height: ButtonCategoriesStyles.heightButton,
       shape: ButtonCategoriesStyles.getRoundedRectangleBorder(),
-      color: Colors.grey.shade400,
+      color: ColorsCategories.listen,
       child: _bodyButton(),
     );
   }
