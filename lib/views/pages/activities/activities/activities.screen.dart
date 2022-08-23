@@ -17,7 +17,7 @@ class ActivitiesScreen extends StatelessWidget {
               Titles.subtitle('Descubre actividades nuevas'),
               const SearchBarActivities(),
               const GridButtonsCategories(),
-              const CarouselActivities(),
+              const CarouselActivities(label: 'Recomendaciones'),
             ],
           ),
         ),

@@ -28,10 +28,14 @@ class _ViewContent extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(15),
       child: Container(
+        height: double.infinity,
         decoration: _boxDecoration(),
-        child: Column(
-          children: const [
-            _TagCategory(),
+        child: Stack(
+          fit: StackFit.loose,
+          children: [
+            Container(color: Colors.deepPurple.shade100),
+            const Positioned(width: 125, bottom: 0, child: _TagCategory()),
+            const _TagLevel(level: 'A2'),
           ],
         ),
       ),
@@ -42,6 +46,30 @@ class _ViewContent extends StatelessWidget {
     return BoxDecoration(
       border: Border.all(color: Colors.green.shade500, width: 2),
       borderRadius: BorderRadius.circular(15),
+    );
+  }
+}
+
+class _TagLevel extends StatelessWidget {
+  final String level;
+
+  const _TagLevel({required this.level});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.amber,
+        borderRadius: BorderRadius.circular(150),
+      ),
+      height: 30,
+      width: 30,
+      child: Center(
+        child: Text(
+          level,
+          style: const TextStyle(color: Colors.white),
+        ),
+      ),
     );
   }
 }
@@ -65,13 +93,15 @@ class _TagCategory extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
+      height: 25,
       decoration: BoxDecoration(
         color: Colors.green.shade500,
       ),
-      child: const Text(
-        'Write',
-        textAlign: TextAlign.center,
-        style: TextStyle(color: Colors.white),
+      child: const Center(
+        child: Text(
+          'Write',
+          style: TextStyle(color: Colors.white),
+        ),
       ),
     );
   }

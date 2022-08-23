@@ -2,7 +2,8 @@ import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
 
 class CarouselActivities extends StatelessWidget {
-  const CarouselActivities({Key? key}) : super(key: key);
+  final String? label;
+  const CarouselActivities({Key? key, this.label}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +14,7 @@ class CarouselActivities extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
-          const TextDivider(label: 'Recomendaciones'),
+          if (label != null) TextDivider(label: label!),
           Flexible(
             flex: 1,
             child: ListView.builder(
