@@ -18,7 +18,7 @@ class GridButtonsCategories extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       // decoration: BoxDecoration(border: Border.all()),
-      margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+      margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
       height: 100,
       child: GridView.builder(
         itemCount: buttons.length,

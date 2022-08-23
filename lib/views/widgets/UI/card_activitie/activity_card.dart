@@ -6,9 +6,9 @@ class ActivityCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(border: Border.all()),
-      margin: const EdgeInsets.all(10),
-      height: 175,
+      // decoration: BoxDecoration(border: Border.all()),
+      margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+      height: 50,
       width: 125,
       child: Column(
         children: const [
@@ -25,12 +25,15 @@ class _ViewContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: _boxDecoration(),
-      child: Column(
-        children: const [
-          _TagCategory(),
-        ],
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(15),
+      child: Container(
+        decoration: _boxDecoration(),
+        child: Column(
+          children: const [
+            _TagCategory(),
+          ],
+        ),
       ),
     );
   }
