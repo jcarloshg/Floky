@@ -1,12 +1,12 @@
 import 'package:floky/views/utils/utils.index.dart';
-import 'package:floky/views/widgets/Button_Categories/button_categories_styles.dart';
+import 'package:floky/views/widgets/UI/Button_Categories/button_categories_styles.dart';
 import 'package:flutter/material.dart';
 
-class ButtonWrite extends StatelessWidget {
-  final String label = 'Write';
+class ButtonRead extends StatelessWidget {
+  final String label = 'Read';
   final VoidCallback? function;
 
-  const ButtonWrite({
+  const ButtonRead({
     Key? key,
     this.function,
   }) : super(key: key);
@@ -14,10 +14,10 @@ class ButtonWrite extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
-      onPressed: () {},
       height: ButtonCategoriesStyles.heightButton,
+      onPressed: () {},
       shape: ButtonCategoriesStyles.getRoundedRectangleBorder(),
-      color: ColorsCategories.write,
+      color: ColorsCategories.read,
       child: _bodyButton(),
     );
   }
@@ -36,7 +36,7 @@ class ButtonWrite extends StatelessWidget {
           flex: 1,
           child: SizedBox(
             width: double.infinity,
-            child: Text('📝'),
+            child: Text('📚'),
           ),
         ),
       ],

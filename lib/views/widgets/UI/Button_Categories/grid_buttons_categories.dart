@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:floky/views/widgets/Button_Categories/button_listen.dart';
-import 'package:floky/views/widgets/Button_Categories/button_read.dart';
-import 'package:floky/views/widgets/Button_Categories/button_speak.dart';
-import 'package:floky/views/widgets/Button_Categories/button_write.dart';
+import 'package:floky/views/widgets/UI/Button_Categories/button_listen.dart';
+import 'package:floky/views/widgets/UI/Button_Categories/button_read.dart';
+import 'package:floky/views/widgets/UI/Button_Categories/button_speak.dart';
+import 'package:floky/views/widgets/UI/Button_Categories/button_write.dart';
 
 class GridButtonsCategories extends StatelessWidget {
   const GridButtonsCategories({Key? key}) : super(key: key);

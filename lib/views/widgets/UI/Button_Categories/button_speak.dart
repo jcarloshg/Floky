@@ -1,12 +1,12 @@
 import 'package:floky/views/utils/utils.index.dart';
-import 'package:floky/views/widgets/Button_Categories/button_categories_styles.dart';
+import 'package:floky/views/widgets/UI/Button_Categories/button_categories_styles.dart';
 import 'package:flutter/material.dart';
 
-class ButtonRead extends StatelessWidget {
-  final String label = 'Read';
+class ButtonSpeak extends StatelessWidget {
+  final String label = 'Speak';
   final VoidCallback? function;
 
-  const ButtonRead({
+  const ButtonSpeak({
     Key? key,
     this.function,
   }) : super(key: key);
@@ -14,10 +14,10 @@ class ButtonRead extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
-      height: ButtonCategoriesStyles.heightButton,
       onPressed: () {},
+      height: ButtonCategoriesStyles.heightButton,
       shape: ButtonCategoriesStyles.getRoundedRectangleBorder(),
-      color: ColorsCategories.read,
+      color: ColorsCategories.speak,
       child: _bodyButton(),
     );
   }
@@ -36,7 +36,7 @@ class ButtonRead extends StatelessWidget {
           flex: 1,
           child: SizedBox(
             width: double.infinity,
-            child: Text('📚'),
+            child: Text('🗣️'),
           ),
         ),
       ],

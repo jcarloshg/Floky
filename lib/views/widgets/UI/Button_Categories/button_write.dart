@@ -1,12 +1,12 @@
 import 'package:floky/views/utils/utils.index.dart';
-import 'package:floky/views/widgets/Button_Categories/button_categories_styles.dart';
+import 'package:floky/views/widgets/UI/Button_Categories/button_categories_styles.dart';
 import 'package:flutter/material.dart';
 
-class ButtonListen extends StatelessWidget {
-  final String label = 'Listen';
+class ButtonWrite extends StatelessWidget {
+  final String label = 'Write';
   final VoidCallback? function;
 
-  const ButtonListen({
+  const ButtonWrite({
     Key? key,
     this.function,
   }) : super(key: key);
@@ -17,7 +17,7 @@ class ButtonListen extends StatelessWidget {
       onPressed: () {},
       height: ButtonCategoriesStyles.heightButton,
       shape: ButtonCategoriesStyles.getRoundedRectangleBorder(),
-      color: ColorsCategories.listen,
+      color: ColorsCategories.write,
       child: _bodyButton(),
     );
   }
@@ -36,7 +36,7 @@ class ButtonListen extends StatelessWidget {
           flex: 1,
           child: SizedBox(
             width: double.infinity,
-            child: Text('🎧'),
+            child: Text('📝'),
           ),
         ),
       ],
