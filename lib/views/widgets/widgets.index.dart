@@ -1,10 +1,7 @@
-
-
 //============================================================
-// inputs
+// compounds
 //============================================================
-export 'package:floky/views/widgets/carousel_activities/carousel_activities.dart';
-
+export 'package:floky/views/widgets/compounds/carousel_activities/carousel_activities.dart';
 
 //============================================================
 // inputs
@@ -29,3 +26,4 @@ export 'package:floky/views/widgets/UI/Button_Categories/grid_buttons_categories
 export 'package:floky/views/widgets/UI/Titles/titles.dart';
 export 'package:floky/views/widgets/UI/text_divider/text_divider.dart';
 export 'package:floky/views/widgets/UI/card_activitie/activity_card.dart';
+export 'package:floky/views/widgets/UI/card_recomendation/card_recomendation.dart';

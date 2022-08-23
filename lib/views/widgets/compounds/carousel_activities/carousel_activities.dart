@@ -10,18 +10,19 @@ class CarouselActivities extends StatelessWidget {
     return Container(
       // decoration: BoxDecoration(border: Border.all()),
       margin: const EdgeInsets.symmetric(vertical: 15),
-      height: 250,
       child: Column(
-        mainAxisSize: MainAxisSize.max,
+        mainAxisSize: MainAxisSize.min,
         children: [
           if (label != null) TextDivider(label: label!),
           Flexible(
             flex: 1,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: 10,
-              physics: const BouncingScrollPhysics(),
-              itemBuilder: (context, index) => const ActivityCard(),
+            child: SizedBox(
+              height: 200,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: 10,
+                itemBuilder: (context, index) => const ActivityCard(),
+              ),
             ),
           ),
         ],

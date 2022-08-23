@@ -16,6 +16,7 @@ class TextDivider extends StatelessWidget {
             label,
             style: TextStyle(
               fontWeight: FontWeight.w500,
+              fontSize: 16,
               color: Theme.of(context).primaryColor,
             ),
           ),

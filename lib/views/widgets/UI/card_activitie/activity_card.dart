@@ -7,9 +7,9 @@ class ActivityCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       // decoration: BoxDecoration(border: Border.all()),
-      margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+      margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
       height: 50,
-      width: 125,
+      width: 115,
       child: Column(
         children: const [
           Flexible(flex: 5, child: _ViewContent()),
@@ -29,12 +29,17 @@ class _ViewContent extends StatelessWidget {
       borderRadius: BorderRadius.circular(15),
       child: Container(
         height: double.infinity,
+        width: 115,
         decoration: _boxDecoration(),
         child: Stack(
           fit: StackFit.loose,
           children: [
             Container(color: Colors.deepPurple.shade100),
-            const Positioned(width: 125, bottom: 0, child: _TagCategory()),
+            const Positioned(
+              bottom: 0,
+              width: 115,
+              child: _TagCategory(),
+            ),
             const _TagLevel(level: 'A2'),
           ],
         ),
@@ -92,8 +97,8 @@ class _TagCategory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.infinity,
       height: 25,
+      width: 115,
       decoration: BoxDecoration(
         color: Colors.green.shade500,
       ),
