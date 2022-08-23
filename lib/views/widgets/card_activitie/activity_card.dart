@@ -5,18 +5,19 @@ class ActivityCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: _boxDecoration(),
-      height: 175,
-      width: 125,
-      child: Stack(
-        children: const [
-          Positioned(
-            // width: double.infinity,
-            bottom: 0,
-            child: TagCategory(),
-          ),
-        ],
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(15),
+      child: Container(
+        decoration: _boxDecoration(),
+        height: 175,
+        width: 125,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: const [
+            _ContentView(),
+            _TagCategory(),
+          ],
+        ),
       ),
     );
   }
@@ -29,15 +30,32 @@ class ActivityCard extends StatelessWidget {
   }
 }
 
-class TagCategory extends StatelessWidget {
-  const TagCategory({Key? key}) : super(key: key);
+class _ContentView extends StatelessWidget {
+  const _ContentView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 100,
+      height: 60,
+      width: 60,
+      color: Colors.teal,
+    );
+  }
+}
+
+class _TagCategory extends StatelessWidget {
+  const _TagCategory({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
       decoration: BoxDecoration(color: Colors.green.shade500),
-      child: const Text('Write'),
+      child: const Text(
+        'Write',
+        textAlign: TextAlign.center,
+        style: TextStyle(color: Colors.white),
+      ),
     );
   }
 }
