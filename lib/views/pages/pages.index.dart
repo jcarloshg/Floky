@@ -9,6 +9,7 @@
 // ! ============================================================
 
 import 'package:floky/views/pages/activities/activities.index.dart';
+import 'package:floky/views/pages/activities/results_activities/results_activities.screen.dart';
 import 'package:floky/views/pages/authenticate/authenticate.index.dart';
 import 'package:floky/views/pages/home/home.index.dart';
 import 'package:floky/views/pages/pending_activities/pending_activities.index.dart';
@@ -53,6 +54,10 @@ class PageIndex {
     route: 'PendingActivitiesScreen',
     screen: const PendingActivitiesScreen(),
   );
+  static final resultsActivitiesScreen = _Page(
+    route: 'ResultsActivitiesScreen',
+    screen: const ResultsActivitiesScreen(),
+  );
 
   // ============================================
   // screens profile
@@ -67,12 +72,36 @@ class PageIndex {
 
     // appRoutes.addAll({homeScreen.route: (BuildContext context) => homeScreen.screen});
 
-    appRoutes.addAll({homeScreen.route: (_) => homeScreen.screen});
-    appRoutes.addAll({loginScreen.route: (_) => loginScreen.screen});
-    appRoutes.addAll({activitiesScreen.route: (_) => activitiesScreen.screen});
     appRoutes.addAll(
-        {pendingActivitiesScreen.route: (_) => pendingActivitiesScreen.screen});
-    appRoutes.addAll({profileScreen.route: (_) => profileScreen.screen});
+      {
+        homeScreen.route: (_) => homeScreen.screen,
+      },
+    );
+    appRoutes.addAll(
+      {
+        loginScreen.route: (_) => loginScreen.screen,
+      },
+    );
+    appRoutes.addAll(
+      {
+        activitiesScreen.route: (_) => activitiesScreen.screen,
+      },
+    );
+    appRoutes.addAll(
+      {
+        pendingActivitiesScreen.route: (_) => pendingActivitiesScreen.screen,
+      },
+    );
+    appRoutes.addAll(
+      {
+        resultsActivitiesScreen.route: (_) => resultsActivitiesScreen.screen,
+      },
+    );
+    appRoutes.addAll(
+      {
+        profileScreen.route: (_) => profileScreen.screen,
+      },
+    );
 
     return appRoutes;
   }

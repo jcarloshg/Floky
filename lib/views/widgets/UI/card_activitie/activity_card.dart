@@ -34,7 +34,7 @@ class _ViewContent extends StatelessWidget {
         child: Stack(
           fit: StackFit.loose,
           children: [
-            Container(color: Colors.deepPurple.shade100),
+            Container(color: Colors.grey.shade300),
             const Positioned(
               bottom: 0,
               width: 115,

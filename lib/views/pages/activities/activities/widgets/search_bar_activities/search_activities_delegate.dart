@@ -28,10 +28,21 @@ class SearchActivitiesDelegate extends SearchDelegate {
 
   @override
   Widget buildResults(BuildContext context) {
-    // ignore: avoid_print
-    print(query);
     if (query.isEmpty) return _searchEmpty(context);
-    return Text(query);
+
+    final List<ActivityCard> cards = List.generate(
+      200,
+      (index) => const ActivityCard(),
+    );
+
+    return GridView(
+      physics: const BouncingScrollPhysics(),
+      gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+        mainAxisExtent: 200,
+        maxCrossAxisExtent: 150,
+      ),
+      children: cards,
+    );
   }
 
   @override
