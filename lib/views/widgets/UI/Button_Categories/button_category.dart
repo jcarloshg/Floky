@@ -1,3 +1,4 @@
+import 'package:floky/views/pages/pages.index.dart';
 import 'package:flutter/material.dart';
 import '../../../utils/utils.index.dart';
 
@@ -8,11 +9,18 @@ class ButtonCategory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
-      onPressed: () {},
       height: 50,
+      onPressed: () => _navigateActivities(context),
       shape: _roundedRectangleBorder(),
       color: category.color,
       child: _bodyButton(),
+    );
+  }
+
+  _navigateActivities(BuildContext context) {
+    Navigator.pushNamed(
+      context,
+      PageIndex.activitiesByCategoryScreen.route,
     );
   }
 
