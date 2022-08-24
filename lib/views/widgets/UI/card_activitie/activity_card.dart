@@ -6,10 +6,10 @@ class ActivityCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
       // decoration: BoxDecoration(border: Border.all()),
-      margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
-      height: 50,
-      width: 115,
+      // height: 50,
+      width: 100,
       child: Column(
         children: const [
           Flexible(flex: 5, child: _ViewContent()),
@@ -33,14 +33,14 @@ class _ViewContent extends StatelessWidget {
         decoration: _boxDecoration(),
         child: Stack(
           fit: StackFit.loose,
-          children: [
-            Container(color: Colors.grey.shade300),
-            const Positioned(
+          children: const [
+            // Container(color: Colors.grey.shade300),
+            Positioned(
               bottom: 0,
-              width: 115,
+              width: 100,
               child: _TagCategory(),
             ),
-            const _TagLevel(level: 'A2'),
+            _TagLevel(level: 'A2'),
           ],
         ),
       ),

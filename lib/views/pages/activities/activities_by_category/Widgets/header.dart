@@ -8,15 +8,10 @@ class Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(border: Border.all()),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          const SizedBox(height: 15),
-          Titles.title(category.name),
-          const SizedBox(height: 15),
-        ],
+    return SizedBox(
+      height: 75,
+      child: Center(
+        child: Titles.title('${category.name} ${category.icon}'),
       ),
     );
   }

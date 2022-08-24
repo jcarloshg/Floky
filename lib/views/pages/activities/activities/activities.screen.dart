@@ -18,8 +18,8 @@ class ActivitiesScreen extends StatelessWidget {
               const SearchBarActivities(),
               const GridButtonsCategories(),
               const CarouselActivities(label: 'Nuevas actividades'),
-              Container(
-                decoration: BoxDecoration(border: Border.all()),
+              SizedBox(
+                // decoration: BoxDecoration(border: Border.all()),
                 height: 200,
                 width: double.infinity,
                 child: ListView.builder(

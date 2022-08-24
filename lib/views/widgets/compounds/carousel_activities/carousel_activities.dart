@@ -18,7 +18,8 @@ class CarouselActivities extends StatelessWidget {
           Flexible(
             flex: 1,
             child: SizedBox(
-              height: 200,
+              // decoration: BoxDecoration(border: Border.all()),
+              height: 175,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: 10,
