@@ -11,6 +11,7 @@
 import 'package:floky/views/pages/activities/activities.index.dart';
 import 'package:floky/views/pages/activities/activities_by_category/activities_by_category.dart';
 import 'package:floky/views/pages/authenticate/authenticate.index.dart';
+import 'package:floky/views/pages/common/description_activitie/description_activitie.screen.dart';
 import 'package:floky/views/pages/home/home.index.dart';
 import 'package:floky/views/pages/pending_activities/pending_activities.index.dart';
 import 'package:floky/views/pages/profile/profile.index.dart';
@@ -32,6 +33,14 @@ class PageIndex {
   static final homeScreen = _Page(
     route: 'HomeScreen',
     screen: const HomeScreen(),
+  );
+
+  // ============================================
+  // common pages
+  // ============================================
+  static final descriptionActivitie = _Page(
+    route: 'descriptionActivitie',
+    screen: const DescriptionActivitie(),
   );
 
   // ============================================
@@ -75,6 +84,11 @@ class PageIndex {
     appRoutes.addAll(
       {
         homeScreen.route: (_) => homeScreen.screen,
+      },
+    );
+    appRoutes.addAll(
+      {
+        descriptionActivitie.route: (_) => descriptionActivitie.screen,
       },
     );
     appRoutes.addAll(

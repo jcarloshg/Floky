@@ -4,13 +4,6 @@ import 'package:flutter/material.dart';
 class SearchBarActivities extends StatelessWidget {
   const SearchBarActivities({Key? key}) : super(key: key);
 
-  void _openSearchScreen(BuildContext context) {
-    showSearch(
-      context: context,
-      delegate: SearchActivitiesDelegate(),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -23,6 +16,13 @@ class SearchBarActivities extends StatelessWidget {
         decoration: _inputDecoration(context),
         onTap: () => _openSearchScreen(context),
       ),
+    );
+  }
+
+  void _openSearchScreen(BuildContext context) {
+    showSearch(
+      context: context,
+      delegate: SearchActivitiesDelegate(),
     );
   }
 

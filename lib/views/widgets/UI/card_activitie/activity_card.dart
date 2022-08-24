@@ -1,3 +1,4 @@
+import 'package:floky/views/pages/pages.index.dart';
 import 'package:flutter/material.dart';
 
 class ActivityCard extends StatelessWidget {
@@ -5,17 +6,27 @@ class ActivityCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-      // decoration: BoxDecoration(border: Border.all()),
-      // height: 50,
-      width: 100,
-      child: Column(
-        children: const [
-          Flexible(flex: 5, child: _ViewContent()),
-          Flexible(flex: 1, child: _TitleActivitie(title: '[NOT_TITLE]')),
-        ],
+    return GestureDetector(
+      onTap: () => _navigateDescriptionActivitie(context),
+      child: Container(
+        margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+        // decoration: BoxDecoration(border: Border.all()),
+        // height: 50,
+        width: 100,
+        child: Column(
+          children: const [
+            Flexible(flex: 5, child: _ViewContent()),
+            Flexible(flex: 1, child: _TitleActivitie(title: '[NOT_TITLE]')),
+          ],
+        ),
       ),
+    );
+  }
+
+  _navigateDescriptionActivitie(BuildContext context) {
+    Navigator.pushNamed(
+      context,
+      PageIndex.descriptionActivitie.route,
     );
   }
 }
