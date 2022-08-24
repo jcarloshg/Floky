@@ -28,7 +28,9 @@ class ActivitiesScreen extends StatelessWidget {
                   itemBuilder: (context, index) => const CardRecomendation(),
                 ),
               ),
-              const CarouselActivities(),
+              const CarouselActivities(
+                label: 'Algunas que te prodiran interesar',
+              ),
             ],
           ),
         ),

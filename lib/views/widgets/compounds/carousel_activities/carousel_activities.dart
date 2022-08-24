@@ -2,18 +2,19 @@ import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
 
 class CarouselActivities extends StatelessWidget {
-  final String? label;
-  const CarouselActivities({Key? key, this.label}) : super(key: key);
+  final String label;
+  const CarouselActivities({Key? key, required this.label}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       // decoration: BoxDecoration(border: Border.all()),
-      margin: const EdgeInsets.symmetric(vertical: 15),
+      margin: const EdgeInsets.symmetric(vertical: 10),
       child: Column(
         mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          if (label != null) TextDivider(label: label!),
+          TextDivider(label: label),
           Flexible(
             flex: 1,
             child: SizedBox(

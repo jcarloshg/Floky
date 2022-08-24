@@ -8,7 +8,7 @@ class TextDivider extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       // decoration: BoxDecoration(border: Border.all()),
-      margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+      margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -16,11 +16,11 @@ class TextDivider extends StatelessWidget {
             label,
             style: TextStyle(
               fontWeight: FontWeight.w500,
-              fontSize: 16,
+              fontSize: 18,
               color: Theme.of(context).primaryColor,
             ),
           ),
-          Divider(color: Theme.of(context).primaryColor),
+          // Divider(color: Theme.of(context).primaryColor),
         ],
       ),
     );

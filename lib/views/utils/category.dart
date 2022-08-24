@@ -7,7 +7,7 @@ class Category {
 
   Category(this._name, this._icon, this._color);
 
-  get name => _name;
-  get icon => _icon;
-  get color => _color;
+  String get name => _name;
+  String get icon => _icon;
+  Color get color => _color;
 }

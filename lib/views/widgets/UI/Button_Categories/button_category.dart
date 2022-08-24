@@ -4,6 +4,7 @@ import '../../../utils/utils.index.dart';
 
 class ButtonCategory extends StatelessWidget {
   final Category category;
+
   const ButtonCategory({Key? key, required this.category}) : super(key: key);
 
   @override
