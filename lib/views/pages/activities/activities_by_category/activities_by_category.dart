@@ -13,6 +13,7 @@ class ActivitiesByCategoryScreen extends StatelessWidget {
             children: [
               const SizedBox(height: 15),
               Titles.title('ActivitiesByCategoryScreen'),
+              Titles.subtitle('ActivitiesByCategoryScreen'),
             ],
           ),
         ),
