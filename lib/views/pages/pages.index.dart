@@ -9,7 +9,7 @@
 // ! ============================================================
 
 import 'package:floky/views/pages/activities/activities.index.dart';
-import 'package:floky/views/pages/activities/results_activities/results_activities.screen.dart';
+import 'package:floky/views/pages/activities/activities_by_category/activities_by_category.dart';
 import 'package:floky/views/pages/authenticate/authenticate.index.dart';
 import 'package:floky/views/pages/home/home.index.dart';
 import 'package:floky/views/pages/pending_activities/pending_activities.index.dart';
@@ -54,9 +54,9 @@ class PageIndex {
     route: 'PendingActivitiesScreen',
     screen: const PendingActivitiesScreen(),
   );
-  static final resultsActivitiesScreen = _Page(
-    route: 'ResultsActivitiesScreen',
-    screen: const ResultsActivitiesScreen(),
+  static final activitiesByCategoryScreen = _Page(
+    route: 'ActivitiesByCategoryScreen',
+    screen: const ActivitiesByCategoryScreen(),
   );
 
   // ============================================
@@ -94,7 +94,8 @@ class PageIndex {
     );
     appRoutes.addAll(
       {
-        resultsActivitiesScreen.route: (_) => resultsActivitiesScreen.screen,
+        activitiesByCategoryScreen.route: (_) =>
+            activitiesByCategoryScreen.screen,
       },
     );
     appRoutes.addAll(
