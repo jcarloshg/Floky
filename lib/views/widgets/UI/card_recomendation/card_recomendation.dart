@@ -31,10 +31,11 @@ class CardRecomendation extends StatelessWidget {
         // border: Border.all(),
         borderRadius: BorderRadius.circular(10),
         gradient: LinearGradient(
-          begin: Alignment.bottomLeft,
-          end: Alignment.topRight,
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          stops: const [0.125, 0.9],
           colors: [
-            recomendation?.color ?? Theme.of(context).primaryColor,
+            recomendation?.color ?? Colors.blueGrey.shade300,
             Colors.white,
           ],
         ),
