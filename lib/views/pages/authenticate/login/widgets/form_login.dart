@@ -29,6 +29,10 @@ class FormLogin extends StatelessWidget {
             label: 'Iniciar sesión',
             function: () => navigateHome(context),
           ),
+          TextButton(
+            onPressed: () {},
+            child: const Text('Registrarse'),
+          )
         ],
       ),
     );

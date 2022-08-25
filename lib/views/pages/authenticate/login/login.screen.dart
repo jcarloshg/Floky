@@ -6,12 +6,31 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       // appBar: AppBar(title: const Text('Floky'), elevation: 0),
       body: SafeArea(
-        child: Center(
-          child: FormLogin(),
+        child: Container(
+          decoration: _boxDecoration(context),
+          child: const Center(
+            child: FormLogin(),
+          ),
         ),
+      ),
+    );
+  }
+
+  BoxDecoration _boxDecoration(BuildContext context) {
+    return BoxDecoration(
+      // border: Border.all(),
+      gradient: LinearGradient(
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+        stops: const [0.1, 0.5, 1],
+        colors: [
+          Theme.of(context).primaryColor.withOpacity(0.5),
+          Colors.white,
+          Theme.of(context).primaryColor.withOpacity(0.5),
+        ],
       ),
     );
   }

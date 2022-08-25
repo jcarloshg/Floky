@@ -25,7 +25,7 @@ class _Page {
 }
 
 class PageIndex {
-  static const initialRoute = 'HomeScreen';
+  static const initialRoute = 'LoginScreen';
 
   // ============================================
   // bottom navigation bar
