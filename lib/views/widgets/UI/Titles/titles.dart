@@ -17,13 +17,14 @@ class Titles {
     );
   }
 
-  static Widget subtitle(String? subtitle) {
+  static Widget subtitle(String? subtitle, {bool? isCenter = false}) {
     return Container(
       width: double.infinity,
       // decoration: BoxDecoration(border: Border.all()),
       margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
       child: Text(
         subtitle ?? '[NOT_SUBTITLE]',
+        textAlign: isCenter! ? TextAlign.center : TextAlign.left,
         style: TextStyle(
           color: Colors.blueGrey.shade600,
           fontSize: 18,

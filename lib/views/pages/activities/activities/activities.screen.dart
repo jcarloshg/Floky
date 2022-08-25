@@ -13,7 +13,7 @@ class ActivitiesScreen extends StatelessWidget {
           physics: const BouncingScrollPhysics(),
           child: Column(
             children: [
-              const SizedBox(height: 15),
+              const SizedBox(height: 30),
               Titles.title('Actividades'),
               Titles.subtitle('Descubre actividades nuevas'),
               const SearchBarActivities(),

@@ -1,3 +1,5 @@
+import 'package:floky/views/pages/profile/profile/widgets/widgets.index.dart';
+import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -5,11 +7,21 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       // appBar: AppBar(title: const Text('Floky'), elevation: 0),
       body: SafeArea(
-        child: Center(
-          child: Text('ProfileScreen here'),
+        child: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          child: Column(
+            // mainAxisAlignment: MainAxisAlignment.start,
+            // crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 30),
+              //  Titles.('Aqui puedes observar tu informacion'),
+              Titles.title('Tu información personal'),
+              const InfoPersonal()
+            ],
+          ),
         ),
       ),
     );
