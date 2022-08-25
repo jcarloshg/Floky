@@ -7,5 +7,5 @@ class InputDecorations {
       : const BoxDecoration();
 
   static EdgeInsets getMarginInputs() =>
-      const EdgeInsets.symmetric(vertical: 5, horizontal: 5);
+      const EdgeInsets.symmetric(vertical: 5, horizontal: 15);
 }

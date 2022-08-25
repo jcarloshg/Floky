@@ -2,6 +2,7 @@
 // compounds
 //============================================================
 
+
 export 'package:floky/views/widgets/compounds/carousel_activities/carousel_activities.dart';
 
 //============================================================
@@ -9,6 +10,8 @@ export 'package:floky/views/widgets/compounds/carousel_activities/carousel_activ
 //============================================================
 export 'package:floky/views/widgets/Inputs/InputEmail/input_email.dart';
 export 'package:floky/views/widgets/Inputs/InputPass/input_pass.dart';
+export 'package:floky/views/widgets/Inputs/input_name/input_name.dart';
+export 'package:floky/views/widgets/Inputs/input_phone_number/input_phone_number.dart';
 
 //============================================================
 // buttons

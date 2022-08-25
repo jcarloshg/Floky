@@ -11,7 +11,15 @@ class FormRegisterScreen extends StatelessWidget {
         child: SingleChildScrollView(
           physics: const NeverScrollableScrollPhysics(),
           child: Column(
-            children: [Titles.title('Formulario de registro')],
+            children: [
+              const SizedBox(height: 15),
+              Titles.title('Formulario de registro'),
+              Titles.subtitle('Ingresa tus datos correctamente'),
+              const InputName(),
+              const InputEmail(),
+              const InputPhoneNumber(),
+              Button(function: () {}, label: 'Continuar')
+            ],
           ),
         ),
       ),

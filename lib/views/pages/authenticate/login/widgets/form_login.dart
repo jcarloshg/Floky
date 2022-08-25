@@ -22,7 +22,7 @@ class FormLogin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(15),
+      margin: const EdgeInsets.all(5),
       // decoration: BoxDecoration(border: Border.all()),
       // padding: const EdgeInsets.all(15),
       child: Column(
