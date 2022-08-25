@@ -1,6 +1,7 @@
 //============================================================
 // compounds
 //============================================================
+
 export 'package:floky/views/widgets/compounds/carousel_activities/carousel_activities.dart';
 
 //============================================================
@@ -13,6 +14,7 @@ export 'package:floky/views/widgets/Inputs/InputPass/input_pass.dart';
 // buttons
 //============================================================
 export 'package:floky/views/widgets/UI/Button/button.dart';
+export 'package:floky/views/widgets/UI/button_secondary/button_secondary.dart';
 // button categories
 export 'package:floky/views/widgets/UI/Button_Categories/grid_buttons_categories.dart';
 

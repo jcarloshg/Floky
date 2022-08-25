@@ -1,7 +1,6 @@
 import 'package:floky/views/pages/pages.index.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class FormLogin extends StatelessWidget {
   const FormLogin({Key? key}) : super(key: key);
@@ -10,6 +9,13 @@ class FormLogin extends StatelessWidget {
     Navigator.pushReplacementNamed(
       context,
       PageIndex.homeScreen.route,
+    );
+  }
+
+  void navigateFormRegisterScreen(BuildContext context) {
+    Navigator.pushNamed(
+      context,
+      PageIndex.formRegisterScreen.route,
     );
   }
 
@@ -29,10 +35,14 @@ class FormLogin extends StatelessWidget {
             label: 'Iniciar sesión',
             function: () => navigateHome(context),
           ),
+          ButtonSecondary(
+            label: 'Registrarse',
+            function: () => navigateFormRegisterScreen(context),
+          ),
           TextButton(
             onPressed: () {},
-            child: const Text('Registrarse'),
-          )
+            child: const Text('Olvide mi contraseña'),
+          ),
         ],
       ),
     );
