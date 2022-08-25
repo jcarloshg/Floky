@@ -11,6 +11,7 @@
 import 'package:floky/views/pages/activities/activities.index.dart';
 import 'package:floky/views/pages/activities/activities_by_category/activities_by_category.dart';
 import 'package:floky/views/pages/authenticate/authenticate.index.dart';
+import 'package:floky/views/pages/authenticate/confirm_account/confirm_account.scree.dart';
 import 'package:floky/views/pages/authenticate/form_register/form_register.screen.dart';
 import 'package:floky/views/pages/common/description_activitie/description_activitie.screen.dart';
 import 'package:floky/views/pages/home/home.index.dart';
@@ -55,6 +56,11 @@ class PageIndex {
   static final formRegisterScreen = _Page(
     route: 'formRegisterScreen',
     screen: const FormRegisterScreen(),
+  );
+
+  static final confirmAccountScreen = _Page(
+    route: 'confirmAccountScreen',
+    screen: const ConfirmAccountScreen(),
   );
 
   static final activitiesScreen = _Page(
@@ -105,6 +111,11 @@ class PageIndex {
     appRoutes.addAll(
       {
         formRegisterScreen.route: (_) => formRegisterScreen.screen,
+      },
+    );
+    appRoutes.addAll(
+      {
+        confirmAccountScreen.route: (_) => confirmAccountScreen.screen,
       },
     );
     appRoutes.addAll(

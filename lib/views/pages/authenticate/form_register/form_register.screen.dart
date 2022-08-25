@@ -1,3 +1,4 @@
+import 'package:floky/views/pages/pages.index.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
 
@@ -19,11 +20,21 @@ class FormRegisterScreen extends StatelessWidget {
               const InputEmail(),
               const InputPhoneNumber(),
               const InputSchoolRegistration(),
-              Button(function: () {}, label: 'Continuar')
+              Button(
+                function: () => navigateConfirmAccountScreen(context),
+                label: 'Continuar',
+              )
             ],
           ),
         ),
       ),
+    );
+  }
+
+  void navigateConfirmAccountScreen(BuildContext context) {
+    Navigator.pushReplacementNamed(
+      context,
+      PageIndex.confirmAccountScreen.route,
     );
   }
 }
