@@ -3,6 +3,7 @@
 //============================================================
 
 
+
 export 'package:floky/views/widgets/compounds/carousel_activities/carousel_activities.dart';
 
 //============================================================
@@ -13,6 +14,9 @@ export 'package:floky/views/widgets/Inputs/InputPass/input_pass.dart';
 export 'package:floky/views/widgets/Inputs/input_name/input_name.dart';
 export 'package:floky/views/widgets/Inputs/input_phone_number/input_phone_number.dart';
 export 'package:floky/views/widgets/Inputs/input_school_registration/input_school_registration.dart';
+export 'package:floky/views/widgets/Inputs/input_code_verification/input_code_verification.dart';
+
+
 //============================================================
 // buttons
 //============================================================

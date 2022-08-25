@@ -31,7 +31,7 @@ class _InputPassState extends State<InputPass> {
   InputDecoration _inputDecoration() {
     return InputDecoration(
       labelText: "Contraseña",
-      hintText: "***",
+      hintText: "ej. password123",
       suffixIcon: IconButton(
         onPressed: onChangeShowPass,
         icon: Icon(isObscureText
