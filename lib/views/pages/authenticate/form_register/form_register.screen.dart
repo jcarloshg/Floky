@@ -18,6 +18,7 @@ class FormRegisterScreen extends StatelessWidget {
               const InputName(),
               const InputEmail(),
               const InputPhoneNumber(),
+              const InputSchoolRegistration(),
               Button(function: () {}, label: 'Continuar')
             ],
           ),
