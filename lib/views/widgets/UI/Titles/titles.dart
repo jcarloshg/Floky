@@ -38,7 +38,8 @@ class Titles {
     return Container(
       width: double.infinity,
       // decoration: BoxDecoration(border: Border.all()),
-      margin: const EdgeInsets.symmetric(vertical: 5),
+      // margin: const EdgeInsets.symmetric(vertical: 5),
+      margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
       child: Text(
         thirdTitle ?? '[NOT_thirdTitle]',
         textAlign: isCenter! ? TextAlign.center : TextAlign.left,

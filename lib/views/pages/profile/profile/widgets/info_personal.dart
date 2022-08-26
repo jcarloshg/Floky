@@ -18,7 +18,7 @@ class InfoPersonal extends StatelessWidget {
       width: double.infinity,
       // height: 300,
       // decoration: BoxDecoration(border: Border.all()),
-      margin: const EdgeInsets.all(15),
+      // margin: const EdgeInsets.all(15),
       child: Column(
         children: [
           const Photography(urlPhotography: url, size: 150),
@@ -34,6 +34,7 @@ class InfoPersonal extends StatelessWidget {
 class InfoCollage extends StatelessWidget {
   final String registerCollage;
   final String collage;
+
   const InfoCollage({
     Key? key,
     required this.registerCollage,
@@ -44,11 +45,11 @@ class InfoCollage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      margin: const EdgeInsets.symmetric(vertical: 15),
+      margin: const EdgeInsets.symmetric(vertical: 20),
       // decoration: BoxDecoration(border: Border.all()),
       child: Column(
         children: [
-          Titles.thirdTitle('Información colegio'),
+          Titles.thirdTitle('Información colegio  🏫'),
           _formatInfo(context, 'Colegio', collage),
           _formatInfo(context, 'Registro', registerCollage),
         ],
@@ -59,13 +60,13 @@ class InfoCollage extends StatelessWidget {
   Widget _formatInfo(BuildContext context, String title, String body) {
     return Container(
       width: double.infinity,
-      margin: const EdgeInsets.symmetric(vertical: 10),
+      margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Flexible(
             fit: FlexFit.tight,
-            flex: 2,
+            flex: 4,
             child: Text(
               title,
               textAlign: TextAlign.left,
@@ -80,7 +81,7 @@ class InfoCollage extends StatelessWidget {
             child: Text(
               body,
               overflow: TextOverflow.ellipsis,
-              textAlign: TextAlign.right,
+              textAlign: TextAlign.left,
             ),
           ),
         ],
@@ -103,7 +104,7 @@ class Photography extends StatelessWidget {
     final double sizeFadeInImage = (size ?? 200.00);
     return Container(
       // decoration: BoxDecoration(border: Border.all()),
-      margin: const EdgeInsets.all(15),
+      margin: const EdgeInsets.all(20),
       child: ClipRRect(
         borderRadius: const BorderRadius.all(Radius.circular(200)),
         child: FadeInImage(
