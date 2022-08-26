@@ -18,8 +18,11 @@ class ProfileScreen extends StatelessWidget {
             children: [
               const SizedBox(height: 30),
               //  Titles.('Aqui puedes observar tu informacion'),
+              // Titles.title('Tu información personal'),
               Titles.title('Tu información personal'),
-              const InfoPersonal()
+              Titles.subtitle('Visualiza tu cuenta y progresos'),
+              const InfoPersonal(),
+              const Divider(),
             ],
           ),
         ),

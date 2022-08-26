@@ -34,12 +34,30 @@ class Titles {
     );
   }
 
-  static Widget text(String? title) {
+  static Widget thirdTitle(String? thirdTitle, {bool? isCenter = false}) {
+    return Container(
+      width: double.infinity,
+      // decoration: BoxDecoration(border: Border.all()),
+      margin: const EdgeInsets.symmetric(vertical: 5),
+      child: Text(
+        thirdTitle ?? '[NOT_thirdTitle]',
+        textAlign: isCenter! ? TextAlign.center : TextAlign.left,
+        style: TextStyle(
+          color: Colors.blueGrey.shade600,
+          fontSize: 16,
+          fontWeight: FontWeight.w500,
+        ),
+      ),
+    );
+  }
+
+  static Widget text(String? title, {bool? isCenter = false}) {
     return Container(
       // decoration: BoxDecoration(border: Border.all()),
       margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
       child: Text(
         title ?? '[NOT_TEXT]',
+        textAlign: isCenter! ? TextAlign.center : TextAlign.left,
         style: TextStyle(
           color: Colors.blueGrey.shade900,
           fontSize: 14,
