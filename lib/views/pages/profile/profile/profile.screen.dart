@@ -1,3 +1,4 @@
+import 'package:floky/views/pages/profile/profile/widgets/info_collage.dart';
 import 'package:floky/views/pages/profile/profile/widgets/widgets.index.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
@@ -7,22 +8,33 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const String name = 'Jose Carlos';
+    const String lastName = 'Huerta Garcia';
+    const String email = 'carlosblabla98@gmail.com';
+    const String registerCollage = '201738087';
+    const String collage = 'Benemérita Universidad Autónoma de Puebla';
+
     return Scaffold(
-      // appBar: AppBar(title: const Text('Floky'), elevation: 0),
       body: SafeArea(
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           child: Column(
-            // mainAxisAlignment: MainAxisAlignment.start,
-            // crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 30),
-              //  Titles.('Aqui puedes observar tu informacion'),
-              // Titles.title('Tu información personal'),
               Titles.title('Perfil'),
-              Titles.subtitle('Visualiza tu cuenta y progresos'),
-              const InfoPersonal(),
-              const Divider(),
+              Titles.subtitle('Visualiza tú informacion y progresos'),
+              const SizedBox(height: 30),
+              const InfoPersonal(
+                email: email,
+                lastName: lastName,
+                name: name,
+              ),
+              const SizedBox(height: 30),
+               const InfoCollage(
+                 collage: collage,
+                 registerCollage: registerCollage,
+               ),
+              const SizedBox(height: 30),
               const InfoProgress(),
             ],
           ),
