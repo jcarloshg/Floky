@@ -17,8 +17,9 @@ class FormRegisterScreen extends StatelessWidget {
               Titles.title('Formulario de registro'),
               Titles.subtitle('Ingresa tus datos correctamente'),
               const InputName(),
-              const InputEmail(),
               const InputPhoneNumber(),
+              const InputEmail(),
+              const InputPass(),
               const InputSchoolRegistration(),
               Button(
                 function: () => navigateConfirmAccountScreen(context),

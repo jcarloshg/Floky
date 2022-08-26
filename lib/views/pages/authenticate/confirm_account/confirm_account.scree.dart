@@ -15,10 +15,9 @@ class ConfirmAccountScreen extends StatelessWidget {
               const SizedBox(height: 15),
               Titles.title('Confirma tu cuenta'),
               Titles.subtitle(
-                'Ingrese el código de verificación y la contraseña',
+                'Se le envió un código de verificación a su número',
               ),
               // const SizedBox(height: 30),
-              const InputPass(),
               const InputCodeVerification(),
               // const SizedBox(height: 30),
               Button(
