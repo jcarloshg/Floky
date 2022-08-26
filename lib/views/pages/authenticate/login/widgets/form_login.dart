@@ -1,3 +1,4 @@
+import 'package:floky/dependencyInjection/setup_di.dart';
 import 'package:floky/views/pages/pages.index.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
@@ -21,6 +22,7 @@ class FormLogin extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    DataStream dataStream = di.get<DataStream>();
     return Container(
       margin: const EdgeInsets.all(5),
       // decoration: BoxDecoration(border: Border.all()),
@@ -29,6 +31,7 @@ class FormLogin extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Titles.title('Floky'),
+          Titles.title(dataStream.getData),
           const InputEmail(),
           const InputPass(),
           Button(

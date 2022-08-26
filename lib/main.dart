@@ -1,7 +1,11 @@
+import 'package:floky/dependencyInjection/setup_di.dart';
 import 'package:floky/views/pages/pages.index.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(const MyApp());
+void main() async {
+  await setupDI();
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
