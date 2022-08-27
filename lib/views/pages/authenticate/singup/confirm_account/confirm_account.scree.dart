@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../../widgets/widgets.index.dart';
+import 'package:floky/views/widgets/widgets.index.dart';
 
 class ConfirmAccountScreen extends StatelessWidget {
   const ConfirmAccountScreen({Key? key}) : super(key: key);

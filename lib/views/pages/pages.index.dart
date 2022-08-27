@@ -8,11 +8,11 @@
 // ! ============================================================
 // ! ============================================================
 
-import 'package:floky/views/pages/activities/activities.index.dart';
 import 'package:floky/views/pages/activities/activities_by_category/activities_by_category.dart';
-import 'package:floky/views/pages/authenticate/authenticate.index.dart';
-import 'package:floky/views/pages/authenticate/confirm_account/confirm_account.scree.dart';
-import 'package:floky/views/pages/authenticate/form_register/form_register.screen.dart';
+import 'package:floky/views/pages/activities/activities.index.dart';
+import 'package:floky/views/pages/authenticate/login/login.screen.dart';
+import 'package:floky/views/pages/authenticate/singup/confirm_account/confirm_account.scree.dart';
+import 'package:floky/views/pages/authenticate/singup/form_register/form_register.screen.dart';
 import 'package:floky/views/pages/common/description_activitie/description_activitie.screen.dart';
 import 'package:floky/views/pages/home/home.index.dart';
 import 'package:floky/views/pages/pending_activities/pending_activities.index.dart';
