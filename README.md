@@ -4,7 +4,7 @@ A new Flutter project.
 
 ## Architecture
 
-This project contains with a good practices powered [clean architecture](https://medium.com/googledeveloperseurope/clean-architecture-en-flutter-ee028a6379a5)
+This project contains good practices powered by [clean architecture](https://medium.com/googledeveloperseurope/clean-architecture-en-flutter-ee028a6379a5)
 
 ## Getting Started
 
