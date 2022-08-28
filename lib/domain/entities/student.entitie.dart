@@ -27,7 +27,5 @@ class Student {
         'registerCollege': _registerCollege,
       };
 
-  static getVoidStudent() {
-    return Student('', '', '', '', '', '', '');
-  }
+  static getVoidStudent() => Student('', '', '', '', '', '', '');
 }
