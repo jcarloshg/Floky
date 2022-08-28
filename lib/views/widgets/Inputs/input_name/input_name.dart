@@ -3,7 +3,9 @@ import 'package:floky/views/widgets/Inputs/utils/utils_inputs.index.dart';
 import 'package:flutter/material.dart';
 
 class InputName extends StatelessWidget {
-  const InputName({Key? key}) : super(key: key);
+  final Function(String name)? setName;
+
+  const InputName({Key? key, this.setName}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,12 +14,16 @@ class InputName extends StatelessWidget {
       margin: InputDecorations.getMarginInputs(),
       child: TextFormField(
         autocorrect: false,
-        onChanged: (value) {},
         keyboardType: TextInputType.name,
+        onChanged: (value) => _setName(value),
         validator: (value) => _validate(value ?? ''),
         decoration: _inputDecoration(),
       ),
     );
+  }
+
+  void _setName(String name) {
+    if (setName != null) setName!(name);
   }
 
   InputDecoration _inputDecoration() {

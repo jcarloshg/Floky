@@ -10,6 +10,7 @@ class FormRegisterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final singUpProvider = Provider.of<SingUpProvider>(context);
+
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -20,9 +21,12 @@ class FormRegisterScreen extends StatelessWidget {
             child: Column(
               children: [
                 const SizedBox(height: 15),
-                Titles.title('Formulario de registro'),
+                Titles.title('Ingresa tus datos'),
                 Titles.subtitle('Ingresa tus datos correctamente'),
-                const InputName(),
+                InputName(
+                  setName: (String name) =>
+                      singUpProvider.student['name'] = name,
+                ),
                 const InputPhoneNumber(),
                 const InputEmail(),
                 const InputPass(),

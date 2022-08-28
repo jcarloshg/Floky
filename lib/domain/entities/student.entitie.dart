@@ -17,6 +17,14 @@ class Student {
     this._registerCollege,
   );
 
+  String get id => _id;
+  String get college => _college;
+  String get emial => _emial;
+  String get lastName => _lastName;
+  String get name => _name;
+  String get picture => _picture;
+  String get registerCollege => _registerCollege;
+
   Map toJson() => {
         'id': _id,
         'college': _college,
@@ -25,6 +33,16 @@ class Student {
         'name': _name,
         'picture': _picture,
         'registerCollege': _registerCollege,
+      };
+
+  static Map toMap() => {
+        'id': '',
+        'college': '',
+        'emial': '',
+        'lastName': '',
+        'name': '',
+        'picture': '',
+        'registerCollege': '',
       };
 
   static getVoidStudent() => Student('', '', '', '', '', '', '');
