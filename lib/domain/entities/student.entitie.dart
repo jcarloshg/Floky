@@ -1,4 +1,5 @@
 class Student {
+  final String id;
   final String name;
   final String lastName;
   final String emial;
@@ -7,6 +8,7 @@ class Student {
   final String college;
 
   Student(
+    this.id,
     this.name,
     this.lastName,
     this.emial,
