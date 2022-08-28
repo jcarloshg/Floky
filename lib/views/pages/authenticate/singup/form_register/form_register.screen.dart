@@ -14,22 +14,26 @@ class FormRegisterScreen extends StatelessWidget {
       body: SafeArea(
         child: SingleChildScrollView(
           physics: const NeverScrollableScrollPhysics(),
-          child: Column(
-            children: [
-              const SizedBox(height: 15),
-              Titles.title('Formulario de registro'),
-              Titles.subtitle('Ingresa tus datos correctamente'),
-              const InputName(),
-              const InputPhoneNumber(),
-              const InputEmail(),
-              const InputPass(),
-              const InputSchoolRegistration(),
-              Button(
-                // function: () => navigateConfirmAccountScreen(context),
-                function: () => singUpProvider.printStudent(),
-                label: 'Continuar',
-              )
-            ],
+          child: Form(
+            key: singUpProvider.formRegisterKey,
+            autovalidateMode: AutovalidateMode.onUserInteraction,
+            child: Column(
+              children: [
+                const SizedBox(height: 15),
+                Titles.title('Formulario de registro'),
+                Titles.subtitle('Ingresa tus datos correctamente'),
+                const InputName(),
+                const InputPhoneNumber(),
+                const InputEmail(),
+                const InputPass(),
+                const InputSchoolRegistration(),
+                Button(
+                  // function: () => navigateConfirmAccountScreen(context),
+                  function: () => singUpProvider.printStudent(),
+                  label: 'Continuar',
+                )
+              ],
+            ),
           ),
         ),
       ),
