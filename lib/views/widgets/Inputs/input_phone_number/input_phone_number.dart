@@ -1,4 +1,4 @@
-import 'package:floky/views/widgets/Inputs/input_decorations.dart';
+import 'package:floky/views/widgets/Inputs/utils/input_decorations.dart';
 import 'package:flutter/material.dart';
 
 class InputPhoneNumber extends StatelessWidget {

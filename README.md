@@ -2,6 +2,10 @@
 
 A new Flutter project.
 
+## Architecture
+
+This project contains good practices powered by [clean architecture](https://medium.com/googledeveloperseurope/clean-architecture-en-flutter-ee028a6379a5)
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.

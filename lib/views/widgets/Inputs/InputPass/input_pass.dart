@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../input_decorations.dart';
+import '../utils/input_decorations.dart';
 
 class InputPass extends StatefulWidget {
   const InputPass({Key? key}) : super(key: key);
