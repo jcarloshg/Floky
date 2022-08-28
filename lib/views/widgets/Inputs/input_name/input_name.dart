@@ -11,21 +11,28 @@ class InputName extends StatelessWidget {
       decoration: InputDecorations.getBoxDecoration(),
       margin: InputDecorations.getMarginInputs(),
       child: TextFormField(
-        keyboardType: TextInputType.name,
         autocorrect: false,
-        validator: (value) => _validate(value),
-        decoration: const InputDecoration(
-          labelText: "Nombre Completo",
-          hintText: "ej. Juan Roman",
-        ),
+        onChanged: (value) {},
+        keyboardType: TextInputType.name,
+        validator: (value) => _validate(value ?? ''),
+        decoration: _inputDecoration(),
       ),
     );
   }
 
-  String? _validate(String? value) {
-    if (value == null) return 'ingresa algo OGT';
-    // if (value.length < 5) return 'ingresa mas';
-    if (Validators.validName(value) == false) return 'asldkfasld;kfj';
+  InputDecoration _inputDecoration() {
+    return const InputDecoration(
+      labelText: "Nombre Completo",
+      hintText: "ej. Juan Roman",
+    );
+  }
+
+  String? _validate(String value) {
+    if (value.isEmpty) return null;
+    if (Validators.validName(value) == false) return 'Nombre invalido...';
+    if (Validators.numberWords(2, value) == false) {
+      return 'Debes ingresar al menos dos nombres';
+    }
     return null;
   }
 }
