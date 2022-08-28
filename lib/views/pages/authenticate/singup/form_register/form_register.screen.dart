@@ -9,18 +9,6 @@ class FormRegisterScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => SingUpProvider(),
-      child: const _FormRegisterScreen(),
-    );
-  }
-}
-
-class _FormRegisterScreen extends StatelessWidget {
-  const _FormRegisterScreen({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
     final singUpProvider = Provider.of<SingUpProvider>(context);
     return Scaffold(
       body: SafeArea(
@@ -40,7 +28,7 @@ class _FormRegisterScreen extends StatelessWidget {
                 // function: () => navigateConfirmAccountScreen(context),
                 function: () => singUpProvider.printStudent(),
                 label: 'Continuar',
-              ),
+              )
             ],
           ),
         ),

@@ -13,6 +13,7 @@ import 'package:floky/views/pages/activities/activities.index.dart';
 import 'package:floky/views/pages/authenticate/login/login.screen.dart';
 import 'package:floky/views/pages/authenticate/singup/confirm_account/confirm_account.scree.dart';
 import 'package:floky/views/pages/authenticate/singup/form_register/form_register.screen.dart';
+import 'package:floky/views/pages/authenticate/singup/singup.index.dart';
 import 'package:floky/views/pages/common/description_activitie/description_activitie.screen.dart';
 import 'package:floky/views/pages/home/home.index.dart';
 import 'package:floky/views/pages/pending_activities/pending_activities.index.dart';
@@ -45,12 +46,30 @@ class PageIndex {
     screen: const DescriptionActivitie(),
   );
 
-  // ============================================
+  //============================================================
+  //============================================================
   // screens authenticate
-  // ============================================
+  //============================================================
+  //============================================================
+
+  // ====================
+  // ====================
+  // login
+  // ====================
+  // ====================
   static final loginScreen = _Page(
     route: 'LoginScreen',
     screen: const LoginScreen(),
+  );
+
+  // ====================
+  // ====================
+  // singup
+  // ====================
+  // ====================
+  static final singupIndex = _Page(
+    route: 'SingupIndex',
+    screen: const SingupIndex(),
   );
 
   static final formRegisterScreen = _Page(
@@ -81,7 +100,7 @@ class PageIndex {
   );
 
   // ============================================
-  // screens profile
+  // Profile
   // ============================================
   static final profileScreen = _Page(
     route: 'ProfileScreen',
@@ -103,9 +122,17 @@ class PageIndex {
         descriptionActivitie.route: (_) => descriptionActivitie.screen,
       },
     );
+    //============================================================
+    // authenticate
+    //============================================================
     appRoutes.addAll(
       {
         loginScreen.route: (_) => loginScreen.screen,
+      },
+    );
+    appRoutes.addAll(
+      {
+        singupIndex.route: (_) => singupIndex.screen,
       },
     );
     appRoutes.addAll(
@@ -123,6 +150,9 @@ class PageIndex {
         activitiesScreen.route: (_) => activitiesScreen.screen,
       },
     );
+    //============================================================
+    // authenticate
+    //============================================================
     appRoutes.addAll(
       {
         pendingActivitiesScreen.route: (_) => pendingActivitiesScreen.screen,

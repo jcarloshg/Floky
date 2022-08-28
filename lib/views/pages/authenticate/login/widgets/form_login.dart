@@ -5,20 +5,6 @@ import 'package:flutter/material.dart';
 class FormLogin extends StatelessWidget {
   const FormLogin({Key? key}) : super(key: key);
 
-  void navigateHome(BuildContext context) {
-    Navigator.pushReplacementNamed(
-      context,
-      PageIndex.homeScreen.route,
-    );
-  }
-
-  void navigateFormRegisterScreen(BuildContext context) {
-    Navigator.pushNamed(
-      context,
-      PageIndex.formRegisterScreen.route,
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -37,7 +23,7 @@ class FormLogin extends StatelessWidget {
           ),
           ButtonSecondary(
             label: 'Registrarse',
-            function: () => navigateFormRegisterScreen(context),
+            function: () => goSingUp(context),
           ),
           TextButton(
             onPressed: () {},
@@ -45,6 +31,27 @@ class FormLogin extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  void goSingUp(BuildContext context) {
+    Navigator.pushNamed(
+      context,
+      PageIndex.singupIndex.route,
+    );
+  }
+
+  void navigateHome(BuildContext context) {
+    Navigator.pushReplacementNamed(
+      context,
+      PageIndex.homeScreen.route,
+    );
+  }
+
+  void navigateFormRegisterScreen(BuildContext context) {
+    Navigator.pushNamed(
+      context,
+      PageIndex.formRegisterScreen.route,
     );
   }
 }
