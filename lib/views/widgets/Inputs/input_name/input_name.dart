@@ -1,4 +1,5 @@
-import 'package:floky/views/widgets/Inputs/input_decorations.dart';
+import 'package:floky/views/widgets/Inputs/utils/input_decorations.dart';
+import 'package:floky/views/widgets/Inputs/utils/utils_inputs.index.dart';
 import 'package:flutter/material.dart';
 
 class InputName extends StatelessWidget {
@@ -23,7 +24,8 @@ class InputName extends StatelessWidget {
 
   String? _validate(String? value) {
     if (value == null) return 'ingresa algo OGT';
-    if (value.length < 5) return 'ingresa mas';
+    // if (value.length < 5) return 'ingresa mas';
+    if (Validators.validName(value) == false) return 'asldkfasld;kfj';
     return null;
   }
 }
