@@ -8,7 +8,6 @@ class FormLogin extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    DataStream dataStream = di.get<DataStream>();
     return Container(
       margin: const EdgeInsets.all(5),
       // decoration: BoxDecoration(border: Border.all()),
@@ -17,7 +16,6 @@ class FormLogin extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Titles.title('Floky'),
-          Titles.title(dataStream.getData),
           const InputEmail(),
           const InputPass(),
           Button(
