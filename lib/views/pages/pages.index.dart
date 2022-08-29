@@ -10,6 +10,7 @@
 
 import 'package:floky/views/pages/activities/activities_by_category/activities_by_category.dart';
 import 'package:floky/views/pages/activities/activities.index.dart';
+import 'package:floky/views/pages/authenticate/login/login.index.dart';
 import 'package:floky/views/pages/authenticate/login/login.screen.dart';
 import 'package:floky/views/pages/authenticate/singup/confirm_account/confirm_account.scree.dart';
 import 'package:floky/views/pages/authenticate/singup/form_register/form_register.screen.dart';
@@ -28,7 +29,7 @@ class _Page {
 }
 
 class PageIndex {
-  static const initialRoute = 'LoginScreen';
+  static const initialRoute = 'loginIndex';
 
   // ============================================
   // bottom navigation bar
@@ -57,6 +58,12 @@ class PageIndex {
   // login
   // ====================
   // ====================
+
+  static final loginIndex = _Page(
+    route: 'loginIndex',
+    screen: const LoginIndex(),
+  );
+
   static final loginScreen = _Page(
     route: 'LoginScreen',
     screen: const LoginScreen(),
@@ -125,6 +132,11 @@ class PageIndex {
     //============================================================
     // authenticate
     //============================================================
+    appRoutes.addAll(
+      {
+        loginIndex.route: (_) => loginIndex.screen,
+      },
+    );
     appRoutes.addAll(
       {
         loginScreen.route: (_) => loginScreen.screen,

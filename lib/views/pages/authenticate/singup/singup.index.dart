@@ -1,6 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:floky/views/pages/authenticate/singup/singup.provider.dart';
 import 'package:floky/views/pages/pages.index.dart';
-import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 /// secuence pages
