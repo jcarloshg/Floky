@@ -1,12 +1,28 @@
-import 'package:get_it/get_it.dart';
+import 'dart:ffi';
 
-class DataStream {
-  static String data = 'class _DataStream';
-  String get getData => data;
-}
+import 'package:get_it/get_it.dart';
 
 GetIt di = GetIt.instance;
 
 Future<void> setupDI() async {
-  di.registerSingleton<DataStream>(DataStream());
+  await _data();
+  await _domain();
+  await _driver();
+  await _view();
+}
+
+_data() async {
+  return await null;
+}
+
+_domain() async {
+  return await null;
+}
+
+_driver() async {
+  return await null;
+}
+
+_view() async {
+  return await null;
 }
