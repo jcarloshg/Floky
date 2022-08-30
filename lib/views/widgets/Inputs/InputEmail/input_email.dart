@@ -2,7 +2,14 @@ import 'package:floky/views/widgets/Inputs/utils/input_decorations.dart';
 import 'package:flutter/material.dart';
 
 class InputEmail extends StatelessWidget {
-  const InputEmail({Key? key}) : super(key: key);
+  final TextEditingController? emailControl;
+
+  const InputEmail({
+    Key? key,
+    this.emailControl,
+  }) : super(key: key);
+
+  void pok() {}
 
   @override
   Widget build(BuildContext context) {
@@ -11,6 +18,7 @@ class InputEmail extends StatelessWidget {
       margin: InputDecorations.getMarginInputs(),
       child: TextFormField(
         keyboardType: TextInputType.emailAddress,
+        controller: emailControl,
         autocorrect: false,
         decoration: const InputDecoration(
           labelText: "Correo electrónico",

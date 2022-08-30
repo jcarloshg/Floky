@@ -11,7 +11,7 @@
 import 'package:floky/views/pages/activities/activities_by_category/activities_by_category.dart';
 import 'package:floky/views/pages/activities/activities.index.dart';
 import 'package:floky/views/pages/authenticate/login/login.index.dart';
-import 'package:floky/views/pages/authenticate/login/login.screen.dart';
+import 'package:floky/views/pages/authenticate/login/login/login.screen.dart';
 import 'package:floky/views/pages/authenticate/singup/confirm_account/confirm_account.scree.dart';
 import 'package:floky/views/pages/authenticate/singup/form_register/form_register.screen.dart';
 import 'package:floky/views/pages/authenticate/singup/singup.index.dart';

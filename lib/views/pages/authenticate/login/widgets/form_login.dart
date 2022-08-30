@@ -1,10 +1,18 @@
-import 'package:floky/dependencyInjection/setup_di.dart';
 import 'package:floky/views/pages/pages.index.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
 
 class FormLogin extends StatelessWidget {
-  const FormLogin({Key? key}) : super(key: key);
+  final TextEditingController? emailControl;
+  final TextEditingController? passControl;
+  final Future<void> Function()? funcLogin;
+
+  const FormLogin({
+    Key? key,
+    this.emailControl,
+    this.passControl,
+    this.funcLogin,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,11 +24,12 @@ class FormLogin extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Titles.title('Floky'),
-          const InputEmail(),
-          const InputPass(),
+          InputEmail(emailControl: emailControl),
+          InputPass(passControl: passControl),
           Button(
             label: 'Iniciar sesión',
-            function: () => navigateHome(context),
+            // function: () => navigateHome(context),
+            function: funcLogin,
           ),
           ButtonSecondary(
             label: 'Registrarse',
