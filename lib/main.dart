@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: PageIndex.getAppRoutes(),
       initialRoute: PageIndex.initialRoute,
-      title: 'FLoky',
+      title: 'Floky',
       theme: ThemeData(primarySwatch: Colors.blueGrey),
     );
   }

@@ -1,7 +1,12 @@
+import 'package:floky/domain/bloc/authenticate/authenticate_bloc.dart';
 import 'package:flutter/material.dart';
+
+import 'package:floky/dependencyInjection/setup_di.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:provider/provider.dart';
+
 import 'package:floky/views/pages/authenticate/login/login.provider.dart';
 import 'package:floky/views/pages/pages.index.dart';
-import 'package:provider/provider.dart';
 
 /// secuence pages
 ///   1. loginScreen
@@ -11,9 +16,14 @@ class LoginIndex extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => LoginProvider(),
-      child: PageIndex.loginScreen.screen,
+    final AuthenticateBloc authenticateBloc = di<AuthenticateBloc>();
+
+    return BlocProvider(
+      create: (_) => di<AuthenticateBloc>(),
+      child: ChangeNotifierProvider(
+        create: (_) => LoginProvider(authenticateBloc: authenticateBloc),
+        child: PageIndex.loginScreen.screen,
+      ),
     );
   }
 }

@@ -2,15 +2,11 @@ part of 'authenticate_bloc.dart';
 
 @immutable
 abstract class AuthenticateState {
-  final Student student;
+  Student student;
 
-  const AuthenticateState({
-    required this.student,
-  });
+  AuthenticateState({required this.student});
 }
 
 class AuthenticateInitial extends AuthenticateState {
-  const AuthenticateInitial({
-    required super.student,
-  });
+  AuthenticateInitial({required super.student});
 }

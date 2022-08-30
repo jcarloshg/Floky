@@ -4,8 +4,8 @@ part of 'authenticate_bloc.dart';
 abstract class AuthenticateEvent {}
 
 class LogIn extends AuthenticateEvent {
-  final String email;
-  final String pass;
+  String email;
+  String pass;
 
   LogIn({
     required this.email,
