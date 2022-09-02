@@ -1,15 +1,60 @@
 {
   "providers": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-floky-dev-135801-authRole",
-      "UnauthRoleArn": "arn:aws:iam::111421882477:role/amplify-floky-dev-135801-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::111421882477:role/amplify-floky-dev-135801-authRole",
+      "AuthRoleName": "amplify-floky-staging-172728-authRole",
+      "UnauthRoleArn": "arn:aws:iam::111421882477:role/amplify-floky-staging-172728-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::111421882477:role/amplify-floky-staging-172728-authRole",
       "Region": "us-west-1",
-      "DeploymentBucketName": "amplify-floky-dev-135801-deployment",
-      "UnauthRoleName": "amplify-floky-dev-135801-unauthRole",
-      "StackName": "amplify-floky-dev-135801",
-      "StackId": "arn:aws:cloudformation:us-west-1:111421882477:stack/amplify-floky-dev-135801/037bf1a0-2571-11ed-bdc3-064dd015c6df",
-      "AmplifyAppId": "dxjq6klxve9fy"
+      "DeploymentBucketName": "amplify-floky-staging-172728-deployment",
+      "UnauthRoleName": "amplify-floky-staging-172728-unauthRole",
+      "StackName": "amplify-floky-staging-172728",
+      "StackId": "arn:aws:cloudformation:us-west-1:111421882477:stack/amplify-floky-staging-172728/84e98540-2ae4-11ed-a6ac-02d5b18b2adf",
+      "AmplifyAppId": "dsya0w79e2a69"
+    }
+  },
+  "auth": {
+    "Floky": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "socialProviders": [],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
+        "signupAttributes": [],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": [
+            "REQUIRES_LOWERCASE",
+            "REQUIRES_NUMBERS",
+            "REQUIRES_UPPERCASE"
+          ]
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-floky-staging-172728-deployment/amplify-cfn-templates/auth/Floky-cloudformation-template.json",
+        "logicalId": "authFloky"
+      },
+      "lastPushTimeStamp": "2022-09-02T17:56:23.251Z",
+      "output": {
+        "UserPoolId": "us-west-1_8ybSH3Poi",
+        "AppClientIDWeb": "4j24u07pjbpg4nsrt1jgv3prcp",
+        "AppClientID": "6o5hj7j4sdpibf6i5hvh9fpu0u",
+        "IdentityPoolId": "us-west-1:fbb49b45-86e8-45b1-9e03-4cd5f146c7d3",
+        "UserPoolArn": "arn:aws:cognito-idp:us-west-1:111421882477:userpool/us-west-1_8ybSH3Poi",
+        "IdentityPoolName": "testAuthIdentityPool__staging",
+        "UserPoolName": "Floky"
+      },
+      "lastPushDirHash": "hUtW7tu9mHFZolGb0QrPf+6tacM="
     }
   }
 }
