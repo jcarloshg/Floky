@@ -1,3 +1,4 @@
+import 'package:floky/domain/usecase/authenticate/authenticate.usecase.dart';
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 
@@ -7,7 +8,9 @@ part 'authenticate_event.dart';
 part 'authenticate_state.dart';
 
 class AuthenticateBloc extends Bloc<AuthenticateEvent, AuthenticateState> {
-  AuthenticateBloc()
+  final Authenticate authenticate;
+
+  AuthenticateBloc({required this.authenticate})
       : super(
           AuthenticateInitial(student: Student.getVoidStudent()),
         ) {
