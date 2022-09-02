@@ -8,7 +8,9 @@ part 'authenticate_state.dart';
 
 class AuthenticateBloc extends Bloc<AuthenticateEvent, AuthenticateState> {
   AuthenticateBloc()
-      : super(AuthenticateInitial(student: Student.getVoidStudent())) {
+      : super(
+          AuthenticateInitial(student: Student.getVoidStudent()),
+        ) {
     on<AuthenticateEvent>((event, emit) {});
 
     on<LogIn>(
