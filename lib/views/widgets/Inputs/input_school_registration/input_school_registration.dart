@@ -2,7 +2,12 @@ import 'package:floky/views/widgets/Inputs/utils/input_decorations.dart';
 import 'package:flutter/material.dart';
 
 class InputSchoolRegistration extends StatelessWidget {
-  const InputSchoolRegistration({Key? key}) : super(key: key);
+  final TextEditingController? controll;
+
+  const InputSchoolRegistration({
+    Key? key,
+    this.controll,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,6 +17,8 @@ class InputSchoolRegistration extends StatelessWidget {
       child: TextFormField(
         keyboardType: TextInputType.streetAddress,
         autocorrect: false,
+        controller: controll,
+        validator: (value) => _validate(value ?? ''),
         decoration: const InputDecoration(
           helperMaxLines: 2,
           helperText:
@@ -21,5 +28,11 @@ class InputSchoolRegistration extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  String? _validate(String value) {
+    if (value.isEmpty) return 'Ingresa tu registro escolar';
+    if (value.length <= 4) return 'Ingresa tu registro escolar';
+    return null;
   }
 }

@@ -10,6 +10,7 @@ class FormRegisterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final singUpProvider = Provider.of<SingUpProvider>(context);
+    final singUpFormController = singUpProvider.singUpFormController;
 
     return Scaffold(
       body: SafeArea(
@@ -23,18 +24,15 @@ class FormRegisterScreen extends StatelessWidget {
                 const SizedBox(height: 15),
                 Titles.title('Ingresa tus datos'),
                 Titles.subtitle('Ingresa tus datos correctamente'),
-                InputName(
-                  setName: (String name) =>
-                      singUpProvider.student['name'] = name,
-                ),
-                const InputPhoneNumber(),
-                const InputEmail(),
-                const InputPass(),
-                const InputSchoolRegistration(),
+                InputName(controll: singUpFormController.name),
+                InputSchoolRegistration(
+                    controll: singUpFormController.registerSchool),
+                InputEmail(emailControl: singUpFormController.email),
+                InputPass(passControl: singUpFormController.pass),
                 Button(
                   // function: () => navigateConfirmAccountScreen(context),
                   function: () => singUpProvider.printStudent(),
-                  label: 'Continuar',
+                  label: 'Registrar',
                 )
               ],
             ),
