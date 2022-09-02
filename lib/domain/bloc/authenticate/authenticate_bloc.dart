@@ -17,14 +17,18 @@ class AuthenticateBloc extends Bloc<AuthenticateEvent, AuthenticateState> {
     on<AuthenticateEvent>((event, emit) {});
 
     on<LogIn>(
-      (event, emit) {
+      (event, emit) async {
+        emit(AuthenticateLoading());
+
         final String email = event.email;
         final String pass = event.pass;
+        final response = await authenticate.login(email: email, pass: pass);
 
-        // ignore: avoid_print
-        print('email $email');
-        // ignore: avoid_print
-        print('pass $pass');
+        if (response.runtimeType == String) {
+          return emit(AuthenticateError(messageError: response));
+        }
+
+
       },
     );
   }

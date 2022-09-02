@@ -4,8 +4,18 @@ import 'package:floky/domain/usecase/authenticate/authenticate.usecase.dart';
 
 class AuthenticateAws extends Authenticate {
   @override
-  Future<void> login({required String email, required String pass}) {
-    throw UnimplementedError();
+  Future<dynamic> login({required String email, required String pass}) async {
+    try {
+      final result = await Amplify.Auth.signIn(username: email, password: pass);
+      return {'user': result};
+    } on AuthException catch (e) {
+      // ignore: avoid_print
+      print('AuthenticateAws/login/error: ${e.message}');
+      if (e.message == 'User not found in the system.') {
+        return 'El usuario no existe';
+      }
+      return e.message;
+    }
   }
 
   @override
