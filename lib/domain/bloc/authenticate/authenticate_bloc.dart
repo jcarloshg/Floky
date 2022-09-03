@@ -27,8 +27,6 @@ class AuthenticateBloc extends Bloc<AuthenticateEvent, AuthenticateState> {
         if (response.runtimeType == String) {
           return emit(AuthenticateError(messageError: response));
         }
-
-
       },
     );
   }
