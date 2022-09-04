@@ -1,3 +1,4 @@
+import 'package:floky/views/widgets/Inputs/utils/validators.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/input_decorations.dart';
@@ -27,6 +28,7 @@ class _InputPassState extends State<InputPass> {
         controller: widget.passControl,
         obscureText: isObscureText,
         autocorrect: false,
+        validator: (value) => _validate(value ?? ''),
         decoration: _inputDecoration(),
       ),
     );
@@ -45,5 +47,16 @@ class _InputPassState extends State<InputPass> {
             : Icons.remove_red_eye_outlined),
       ),
     );
+  }
+
+  String? _validate(String value) {
+    if (value.isEmpty) return null;
+    if (value.length < 8) {
+      return 'Debe ser mínimo de 8 caracteres';
+    }
+    if (Validators.pass(value) == false) {
+      return 'Debe contener minúsculas, mayúsculas y números.';
+    }
+    return null;
   }
 }

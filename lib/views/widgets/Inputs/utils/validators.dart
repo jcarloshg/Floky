@@ -20,4 +20,11 @@ class Validators {
     final isValidEmail = regExp.hasMatch(email);
     return isValidEmail;
   }
+
+  static bool pass(String pass) {
+    // r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$
+    RegExp regExp = RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$');
+    final isValidPass = regExp.hasMatch(pass);
+    return isValidPass;
+  }
 }
