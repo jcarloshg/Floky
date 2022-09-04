@@ -10,7 +10,7 @@ class LoginFormController {
 }
 
 class LoginProvider extends ChangeNotifier {
-  GlobalKey<FormState> formLoginKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> formLoginKey = GlobalKey<FormState>();
   final LoginFormController loginFormController = LoginFormController();
   final AuthenticateBloc authenticateBloc;
 
@@ -19,9 +19,12 @@ class LoginProvider extends ChangeNotifier {
   });
 
   Future<void> login() async {
-    final String email = loginFormController.emailControl.text;
-    final String pass = loginFormController.passControl.text;
+    final String email = loginFormController.emailControl.text.trim();
+    final String pass = loginFormController.passControl.text.trim();
+    // ignore: avoid_print
     print('email $email, pass $pass');
+    // ignore: avoid_print
+    print('the form is ${formLoginKey.currentState?.validate()}');
     // authenticateBloc.add(LogIn(email: email, pass: pass));
   }
 }

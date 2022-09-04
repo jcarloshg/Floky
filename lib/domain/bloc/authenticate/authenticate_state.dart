@@ -7,13 +7,13 @@ abstract class AuthenticateState {
   const AuthenticateState({this.student});
 }
 
+class AuthErrorState extends AuthenticateState {
+  final String messageError;
+  const AuthErrorState(this.messageError);
+}
+
 class AuthenticateInitial extends AuthenticateState {
   const AuthenticateInitial({required super.student});
 }
 
 class AuthenticateLoading extends AuthenticateState {}
-
-class AuthenticateError extends AuthenticateState {
-  final String messageError;
-  const AuthenticateError({required this.messageError});
-}

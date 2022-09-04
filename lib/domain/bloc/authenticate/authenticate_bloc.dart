@@ -25,7 +25,7 @@ class AuthenticateBloc extends Bloc<AuthenticateEvent, AuthenticateState> {
         final response = await authenticate.login(email: email, pass: pass);
 
         if (response.runtimeType == String) {
-          return emit(AuthenticateError(messageError: response));
+          return emit(AuthErrorState(response));
         }
       },
     );
