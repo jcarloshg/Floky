@@ -18,6 +18,7 @@ class LoginScreen extends StatelessWidget {
           decoration: _boxDecoration(context),
           child: Center(
             child: FormLogin(
+              keyForm: loginProvider.formLoginKey,
               emailControl: loginFormController.emailControl,
               passControl: loginFormController.passControl,
               funcLogin: loginProvider.login,

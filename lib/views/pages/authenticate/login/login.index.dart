@@ -19,7 +19,7 @@ class LoginIndex extends StatelessWidget {
     final AuthenticateBloc authenticateBloc = di<AuthenticateBloc>();
 
     return BlocProvider(
-      create: (_) => di<AuthenticateBloc>(),
+      create: (_) => authenticateBloc,
       child: ChangeNotifierProvider(
         create: (_) => LoginProvider(authenticateBloc: authenticateBloc),
         child: PageIndex.loginScreen.screen,
