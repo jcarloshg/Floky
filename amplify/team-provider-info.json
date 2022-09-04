@@ -10,6 +10,11 @@
       "StackName": "amplify-floky-staging-172728",
       "StackId": "arn:aws:cloudformation:us-west-1:111421882477:stack/amplify-floky-staging-172728/84e98540-2ae4-11ed-a6ac-02d5b18b2adf",
       "AmplifyAppId": "dsya0w79e2a69"
+    },
+    "categories": {
+      "auth": {
+        "Floky": {}
+      }
     }
   }
 }
