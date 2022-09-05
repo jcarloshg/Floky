@@ -3,7 +3,6 @@ part of 'authenticate_bloc.dart';
 @immutable
 abstract class AuthenticateState {
   final Student? student;
-
   const AuthenticateState({this.student});
 }
 

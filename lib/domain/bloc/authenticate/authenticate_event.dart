@@ -5,7 +5,7 @@ abstract class AuthenticateEvent {}
 
 class AuthErrorEvent extends AuthenticateEvent {
   final String messageError;
-  AuthErrorEvent(this.messageError);
+  AuthErrorEvent({required this.messageError});
 }
 
 class LogIn extends AuthenticateEvent {

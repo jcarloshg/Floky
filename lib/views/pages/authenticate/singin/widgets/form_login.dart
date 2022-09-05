@@ -1,6 +1,8 @@
+import 'package:floky/domain/bloc/authenticate/authenticate_bloc.dart';
 import 'package:floky/views/pages/pages.index.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class FormLogin extends StatelessWidget {
   final GlobalKey<FormState>? keyForm;
@@ -18,6 +20,8 @@ class FormLogin extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: avoid_print
+    print('asdfaslkd;fjalskdjflkasjdf;lkasjdf;l');
     return Form(
       key: keyForm,
       autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -31,6 +35,16 @@ class FormLogin extends StatelessWidget {
             Titles.title('Floky'),
             InputEmail(emailControl: emailControl),
             InputPass(passControl: passControl),
+            BlocBuilder<AuthenticateBloc, AuthenticateState>(
+              builder: (context, state) {
+                if (state is AuthErrorState) {
+                  // ignore: avoid_print
+                  print('$state.messageError');
+                  return Titles.title(state.messageError);
+                }
+                return Titles.title('not errro skldjfklasd');
+              },
+            ),
             Button(
               label: 'Iniciar sesión',
               // function: () => navigateHome(context),

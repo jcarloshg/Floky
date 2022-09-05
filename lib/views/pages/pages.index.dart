@@ -148,7 +148,15 @@ class PageIndex {
 
   static Map<String, Widget Function(BuildContext context)> getAppRoutes() {
     List<_Page> pages = [];
-    pages.add(authenticateIndex);
+
+    // auth/login
+    pages.add(loginIndex);
+    pages.add(loginScreen);
+
+    // auth/singup
+    pages.add(singupIndex);
+    pages.add(formRegisterScreen);
+    pages.add(confirmAccountScreen);
 
     Map<String, Widget Function(BuildContext)> appRoutes = {};
 

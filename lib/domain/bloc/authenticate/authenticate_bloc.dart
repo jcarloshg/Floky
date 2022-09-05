@@ -16,6 +16,14 @@ class AuthenticateBloc extends Bloc<AuthenticateEvent, AuthenticateState> {
         ) {
     on<AuthenticateEvent>((event, emit) {});
 
+    on<AuthErrorEvent>(
+      (event, emit) {
+        // ignore: avoid_print
+        print('eveeeeent ${event.messageError}');
+        return emit(AuthErrorState(event.messageError));
+      },
+    );
+
     on<LogIn>(
       (event, emit) async {
         emit(AuthenticateLoading());
