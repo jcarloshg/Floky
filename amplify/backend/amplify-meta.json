@@ -40,11 +40,6 @@
           "EMAIL"
         ]
       },
-      "providerMetadata": {
-        "s3TemplateURL": "https://s3.amazonaws.com/amplify-floky-staging-172728-deployment/amplify-cfn-templates/auth/Floky-cloudformation-template.json",
-        "logicalId": "authFloky"
-      },
-      "lastPushTimeStamp": "2022-09-04T19:19:42.397Z",
       "output": {
         "UserPoolId": "us-west-1_8ybSH3Poi",
         "AppClientIDWeb": "4j24u07pjbpg4nsrt1jgv3prcp",
@@ -54,7 +49,11 @@
         "IdentityPoolName": "testAuthIdentityPool__staging",
         "UserPoolName": "Floky"
       },
-      "lastPushDirHash": "hUtW7tu9mHFZolGb0QrPf+6tacM="
+      "lastPushTimeStamp": "2022-09-05T21:49:43.242Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-floky-staging-172728-deployment/amplify-cfn-templates/auth/Floky-cloudformation-template.json",
+        "logicalId": "authFloky"
+      }
     }
   }
 }
