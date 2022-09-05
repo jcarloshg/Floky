@@ -10,6 +10,7 @@
 
 import 'package:floky/views/pages/activities/activities_by_category/activities_by_category.dart';
 import 'package:floky/views/pages/activities/activities.index.dart';
+import 'package:floky/views/pages/authenticate/authenticate.index.dart';
 import 'package:floky/views/pages/authenticate/login/login.index.dart';
 import 'package:floky/views/pages/authenticate/login/login/login.screen.dart';
 import 'package:floky/views/pages/authenticate/singup/confirm_account/confirm_account.scree.dart';
@@ -29,7 +30,7 @@ class _Page {
 }
 
 class PageIndex {
-  static const initialRoute = 'loginIndex';
+  static const initialRoute = 'authenticateIndex';
 
   // ============================================
   // bottom navigation bar
@@ -52,6 +53,10 @@ class PageIndex {
   // screens authenticate
   //============================================================
   //============================================================
+  static final authenticateIndex = _Page(
+    route: 'authenticateIndex',
+    screen: const AuthenticateIndex(),
+  );
 
   // ====================
   // ====================
@@ -115,6 +120,10 @@ class PageIndex {
   );
 
   static Map<String, Widget Function(BuildContext context)> getAppRoutes() {
+
+    List<_Page> pages = [];
+    pages.add(profileScreen);
+
     Map<String, Widget Function(BuildContext)> appRoutes = {};
 
     // appRoutes.addAll({homeScreen.route: (BuildContext context) => homeScreen.screen});
