@@ -3,14 +3,13 @@ import 'package:floky/domain/bloc/authenticate/authenticate_bloc.dart';
 import 'package:flutter/material.dart';
 
 class LoginFormController {
+  final GlobalKey<FormState> formLoginKey = GlobalKey<FormState>();
   final TextEditingController emailControl = TextEditingController();
   final TextEditingController passControl = TextEditingController();
-
   LoginFormController();
 }
 
 class LoginProvider extends ChangeNotifier {
-  final GlobalKey<FormState> formLoginKey = GlobalKey<FormState>();
   final LoginFormController loginFormController = LoginFormController();
   final AuthenticateBloc authenticateBloc;
 
@@ -23,8 +22,12 @@ class LoginProvider extends ChangeNotifier {
     final String pass = loginFormController.passControl.text.trim();
     // ignore: avoid_print
     print('email $email, pass $pass');
+
+    final isValidForm =
+        loginFormController.formLoginKey.currentState?.validate();
     // ignore: avoid_print
-    print('the form is ${formLoginKey.currentState?.validate()}');
+    print('the form is $isValidForm');
+
     // authenticateBloc.add(LogIn(email: email, pass: pass));
   }
 }

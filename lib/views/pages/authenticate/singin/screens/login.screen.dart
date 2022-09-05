@@ -1,5 +1,5 @@
-import 'package:floky/views/pages/authenticate/login/login.provider.dart';
-import 'package:floky/views/pages/authenticate/login/widgets/widgets.index.dart';
+import 'package:floky/views/pages/authenticate/singin/login.provider.dart';
+import 'package:floky/views/pages/authenticate/singin/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -18,7 +18,7 @@ class LoginScreen extends StatelessWidget {
           decoration: _boxDecoration(context),
           child: Center(
             child: FormLogin(
-              keyForm: loginProvider.formLoginKey,
+              keyForm: loginFormController.formLoginKey,
               emailControl: loginFormController.emailControl,
               passControl: loginFormController.passControl,
               funcLogin: loginProvider.login,
