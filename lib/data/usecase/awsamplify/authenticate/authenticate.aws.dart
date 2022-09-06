@@ -1,3 +1,4 @@
+import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
 import 'package:amplify_flutter/amplify_flutter.dart';
 
 import 'package:floky/domain/usecase/authenticate/authenticate.usecase.dart';
@@ -25,19 +26,28 @@ class AuthenticateAws extends Authenticate {
   void forgetPass() {}
 
   @override
-  Future<void> singUp({required String email, required String pass}) {
-    // final userAttributes = <CognitoUserAttributeKey, String>{
-    //   CognitoUserAttributeKey.email: email,
-    //   CognitoUserAttributeKey.phoneNumber: pass,
-    //   // additional attributes as needed
-    // };
+  Future<dynamic> singUp({
+    required String name,
+    required String email,
+    required String pass,
+  }) async {
+    try {
+      final userAttributes = <CognitoUserAttributeKey, String>{
+        CognitoUserAttributeKey.email: email,
+        CognitoUserAttributeKey.name: name,
+        // additional attributes as needed
+      };
 
-    Amplify.Auth.signUp(
-      username: email,
-      password: pass,
-      // options: userAttributes,
-    );
+      final SignUpResult result = await Amplify.Auth.signUp(
+        username: email,
+        password: pass,
+        options: CognitoSignUpOptions(userAttributes: userAttributes),
+      );
 
-    throw UnimplementedError();
+      return result.isSignUpComplete;
+    } on AuthException catch (e) {
+      // ignore: avoid_print
+      return 'AuthenticateAws/login/error: ${e.message}';
+    }
   }
 }

@@ -1,8 +1,8 @@
 import 'dart:async';
-import 'package:floky/domain/usecase/authenticate/authenticate.usecase.dart';
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 
+import 'package:floky/domain/usecase/authenticate/authenticate.usecase.dart';
 import 'package:floky/domain/entities/entities.index.dart';
 
 part 'authenticate_event.dart';
@@ -17,7 +17,7 @@ class AuthenticateBloc extends Bloc<AuthenticateEvent, AuthenticateState> {
         ) {
     on<AuthenticateEvent>((event, emit) {});
     on<LogIn>(_logIn);
-    on<AuthSingUp>(_authSingUp);
+    on<AuthSingUpEvent>(_authSingUp);
     on<LogOut>(_logOut);
     on<AuthCleanState>(_authCleanState);
     on<AuthErrorEvent>(_authErrorEvent);
@@ -43,13 +43,26 @@ class AuthenticateBloc extends Bloc<AuthenticateEvent, AuthenticateState> {
     }
   }
 
-  FutureOr<void> _authSingUp(event, emit) {
+  FutureOr<void> _authSingUp(event, emit) async {
+    emit(AuthenticateLoading());
+
     final String name = event.name;
-    final String registerSchool = event.registerSchool;
+    // final String registerSchool = event.registerSchool;
     final String email = event.email;
     final String pass = event.pass;
+
+    final response = await authenticate.singUp(
+      name: name,
+      email: email,
+      pass: pass,
+    );
+
     // ignore: avoid_print
-    print('[auth/singup] $email $pass $name $registerSchool');
+    print('auth/singup $response');
+
+    if (response.runtimeType == String) {
+      return emit(AuthErrorState(response));
+    }
   }
 
   FutureOr<void> _logOut(event, emit) {

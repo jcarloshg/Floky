@@ -16,3 +16,5 @@ class AuthenticateInitial extends AuthenticateState {
 }
 
 class AuthenticateLoading extends AuthenticateState {}
+
+class AuthSingUp extends AuthenticateState {}

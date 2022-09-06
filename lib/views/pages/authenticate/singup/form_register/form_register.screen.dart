@@ -1,4 +1,3 @@
-import 'package:floky/views/pages/authenticate/singin/widgets/widgets.index.dart';
 import 'package:floky/views/pages/authenticate/singup/singup.provider.dart';
 import 'package:floky/views/pages/authenticate/widgets/is_exist_error.dart';
 import 'package:floky/views/pages/pages.index.dart';

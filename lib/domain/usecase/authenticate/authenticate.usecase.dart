@@ -1,10 +1,11 @@
 abstract class Authenticate {
-  Future<dynamic> singUp({
+  Future<dynamic> login({
     required String email,
     required String pass,
   });
 
-  Future<dynamic> login({
+  Future<dynamic> singUp({
+    required String name,
     required String email,
     required String pass,
   });

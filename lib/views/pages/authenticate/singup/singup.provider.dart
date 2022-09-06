@@ -31,7 +31,7 @@ class SingUpProvider extends ChangeNotifier {
     final String registerSchool = singUpFormController.registerSchool.text;
     final String email = singUpFormController.email.text;
     final String pass = singUpFormController.pass.text;
-    authenticateBloc.add(AuthSingUp(
+    return authenticateBloc.add(AuthSingUpEvent(
       name: name,
       registerSchool: registerSchool,
       email: email,

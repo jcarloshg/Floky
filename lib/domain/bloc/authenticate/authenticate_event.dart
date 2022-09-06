@@ -20,13 +20,13 @@ class LogIn extends AuthenticateEvent {
   });
 }
 
-class AuthSingUp extends AuthenticateEvent {
+class AuthSingUpEvent extends AuthenticateEvent {
   final String name;
   final String registerSchool;
   final String email;
   final String pass;
 
-  AuthSingUp({
+  AuthSingUpEvent({
     required this.name,
     required this.registerSchool,
     required this.email,
