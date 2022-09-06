@@ -1,5 +1,6 @@
 import 'package:floky/views/pages/authenticate/singin/login.provider.dart';
 import 'package:floky/views/pages/authenticate/singin/widgets/widgets.index.dart';
+import 'package:floky/views/pages/authenticate/widgets/is_exist_error.dart';
 import 'package:floky/views/pages/pages.index.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
