@@ -23,8 +23,6 @@ class SingUpProvider extends ChangeNotifier {
   void printStudent() {
     final isValidForm =
         singUpFormController.formRegisterKey.currentState?.validate();
-    // ignore: avoid_print
-    print('[singup/print $isValidForm]');
     if (isValidForm == false) {
       return authenticateBloc.authErrorEvent('Ingresa los datos correctamente');
     }
@@ -33,8 +31,11 @@ class SingUpProvider extends ChangeNotifier {
     final String registerSchool = singUpFormController.registerSchool.text;
     final String email = singUpFormController.email.text;
     final String pass = singUpFormController.pass.text;
-    // ignore: avoid_print
-    print('$email $pass $name $registerSchool');
-    SafePrint.safePrint('[SingUpProvider/printStudent]');
+    authenticateBloc.add(AuthSingUp(
+      name: name,
+      registerSchool: registerSchool,
+      email: email,
+      pass: pass,
+    ));
   }
 }

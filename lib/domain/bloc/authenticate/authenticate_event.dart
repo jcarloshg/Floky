@@ -20,4 +20,18 @@ class LogIn extends AuthenticateEvent {
   });
 }
 
+class AuthSingUp extends AuthenticateEvent {
+  final String name;
+  final String registerSchool;
+  final String email;
+  final String pass;
+
+  AuthSingUp({
+    required this.name,
+    required this.registerSchool,
+    required this.email,
+    required this.pass,
+  });
+}
+
 class LogOut extends AuthenticateEvent {}
