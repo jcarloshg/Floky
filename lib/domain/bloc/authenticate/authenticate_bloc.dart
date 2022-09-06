@@ -24,6 +24,14 @@ class AuthenticateBloc extends Bloc<AuthenticateEvent, AuthenticateState> {
       },
     );
 
+    on<LogOut>(
+      (event, emit) {
+        // ignore: avoid_print
+        print('AuthenticateBloc/LogOut');
+        return emit(AuthenticateLoading());
+      },
+    );
+
     on<LogIn>(
       (event, emit) async {
         emit(AuthenticateLoading());

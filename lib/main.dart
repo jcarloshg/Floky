@@ -29,7 +29,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<AuthenticateBloc>(create: (_) => di<AuthenticateBloc>()),
+        BlocProvider(create: (_) => di<AuthenticateBloc>()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

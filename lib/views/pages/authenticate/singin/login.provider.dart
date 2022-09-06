@@ -23,19 +23,19 @@ class LoginProvider extends ChangeNotifier {
     // ignore: avoid_print
     print('email $email, pass $pass');
 
-    return authenticateBloc.add(
-      AuthErrorEvent(messageError: 'Ingresa los datos correctamente'),
-    );
+    final isValidForm =
+        loginFormController.formLoginKey.currentState?.validate();
 
-    // final isValidForm =
-    //     loginFormController.formLoginKey.currentState?.validate();
-    // // ignore: avoid_print
-    // print('the form is $isValidForm');
-    // if (isValidForm == false) {
-    //   return authenticateBloc.add(
-    //     AuthErrorEvent(messageError: 'Ingresa los datos correctamente'),
-    //   );
-    // }
+    // ignore: avoid_print
+    print('the form is $isValidForm');
+
+    if (isValidForm == false) {
+      return authenticateBloc.add(
+        AuthErrorEvent(messageError: 'Ingresa los datos correctamente'),
+      );
+    } else {
+      return authenticateBloc.add(LogOut());
+    }
 
     // authenticateBloc.add(LogIn(email: email, pass: pass));
   }
