@@ -22,7 +22,7 @@ class FormLogin extends StatelessWidget {
   Widget build(BuildContext context) {
     return Form(
       key: keyForm,
-      autovalidateMode: AutovalidateMode.onUserInteraction,
+      autovalidateMode: AutovalidateMode.disabled,
       child: Container(
         margin: const EdgeInsets.all(5),
         // decoration: BoxDecoration(border: Border.all()),

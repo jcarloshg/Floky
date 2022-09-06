@@ -29,7 +29,7 @@ class InputEmail extends StatelessWidget {
   }
 
   String? _validate(String value) {
-    if (value.isEmpty) return null;
+    // if (value.isEmpty) return null;
     if (Validators.email(value) == false) {
       return 'El correo electrónico no es válido.';
     }

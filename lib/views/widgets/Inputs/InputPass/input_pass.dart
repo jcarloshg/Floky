@@ -50,7 +50,7 @@ class _InputPassState extends State<InputPass> {
   }
 
   String? _validate(String value) {
-    if (value.isEmpty) return null;
+    // if (value.isEmpty) return null;
     if (value.length < 8) {
       return 'Debe ser mínimo de 8 caracteres';
     }
