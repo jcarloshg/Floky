@@ -46,4 +46,8 @@ class AuthenticateBloc extends Bloc<AuthenticateEvent, AuthenticateState> {
       },
     );
   }
+
+  void authErrorEvent(String error) {
+    return add(AuthErrorEvent(messageError: error));
+  }
 }

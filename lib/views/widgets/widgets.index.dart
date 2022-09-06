@@ -14,7 +14,6 @@ export 'package:floky/views/widgets/Inputs/input_phone_number/input_phone_number
 export 'package:floky/views/widgets/Inputs/input_school_registration/input_school_registration.dart';
 export 'package:floky/views/widgets/Inputs/input_code_verification/input_code_verification.dart';
 
-
 //============================================================
 // buttons
 //============================================================
@@ -34,3 +33,4 @@ export 'package:floky/views/widgets/UI/tag_category/tag_category.dart';
 export 'package:floky/views/widgets/UI/tag_level/tag_level.dart';
 export 'package:floky/views/widgets/UI/text_divider/text_divider.dart';
 export 'package:floky/views/widgets/UI/Titles/titles.dart';
+export 'package:floky/views/widgets/UI/Loadding/loadding.dart';
