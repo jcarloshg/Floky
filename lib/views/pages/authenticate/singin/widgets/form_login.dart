@@ -20,8 +20,6 @@ class FormLogin extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // ignore: avoid_print
-    print('asdfaslkd;fjalskdjflkasjdf;lkasjdf;l');
     return Form(
       key: keyForm,
       autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -35,16 +33,7 @@ class FormLogin extends StatelessWidget {
             Titles.title('Floky'),
             InputEmail(emailControl: emailControl),
             InputPass(passControl: passControl),
-            BlocBuilder<AuthenticateBloc, AuthenticateState>(
-              builder: (context, state) {
-                if (state is AuthErrorState) {
-                  // ignore: avoid_print
-                  print('$state.messageError');
-                  return Titles.title(state.messageError);
-                }
-                return Titles.title('not errro');
-              },
-            ),
+            _isExistAnError(),
             Button(
               label: 'Iniciar sesión',
               // function: () => navigateHome(context),
@@ -61,6 +50,17 @@ class FormLogin extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  Widget _isExistAnError() {
+    return BlocBuilder<AuthenticateBloc, AuthenticateState>(
+      builder: (context, state) {
+        if (state is AuthErrorState) {
+          return ErrorMessage(error: state.messageError);
+        }
+        return const SizedBox();
+      },
     );
   }
 
