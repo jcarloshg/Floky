@@ -29,7 +29,10 @@ class FormLogin extends StatelessWidget {
             const IsLoadingButtonLoggin(),
             ButtonSecondary(
               label: 'Registrarse',
-              function: () => goSingUp(context),
+              function: () => loginProvider.goScreen(
+                context,
+                PageIndex.singupIndex.route,
+              ),
             ),
             TextButton(
               onPressed: () {},
@@ -38,13 +41,6 @@ class FormLogin extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-
-  void goSingUp(BuildContext context) {
-    Navigator.pushNamed(
-      context,
-      PageIndex.singupIndex.route,
     );
   }
 

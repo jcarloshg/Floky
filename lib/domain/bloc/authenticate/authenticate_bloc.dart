@@ -16,6 +16,16 @@ class AuthenticateBloc extends Bloc<AuthenticateEvent, AuthenticateState> {
         ) {
     on<AuthenticateEvent>((event, emit) {});
 
+    on<AuthCleanState>(
+      (event, emit) {
+        return emit(
+          AuthenticateInitial(
+            student: Student.getVoidStudent(),
+          ),
+        );
+      },
+    );
+
     on<AuthErrorEvent>(
       (event, emit) {
         // ignore: avoid_print
@@ -49,5 +59,9 @@ class AuthenticateBloc extends Bloc<AuthenticateEvent, AuthenticateState> {
 
   void authErrorEvent(String error) {
     return add(AuthErrorEvent(messageError: error));
+  }
+
+  void cleanState() {
+    return add(AuthCleanState());
   }
 }
