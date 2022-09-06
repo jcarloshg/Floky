@@ -1,9 +1,9 @@
 import 'package:floky/domain/bloc/authenticate/authenticate_bloc.dart';
-import 'package:floky/domain/entities/entities.index.dart';
 import 'package:flutter/material.dart';
 import 'package:safeprint/safeprint.dart';
 
 class SingUpFormController {
+  GlobalKey<FormState> formRegisterKey = GlobalKey<FormState>();
   final TextEditingController name = TextEditingController();
   final TextEditingController registerSchool = TextEditingController();
   final TextEditingController email = TextEditingController();
@@ -13,7 +13,6 @@ class SingUpFormController {
 }
 
 class SingUpProvider extends ChangeNotifier {
-  GlobalKey<FormState> formRegisterKey = GlobalKey<FormState>();
   final SingUpFormController singUpFormController = SingUpFormController();
   final AuthenticateBloc authenticateBloc;
 
@@ -22,6 +21,14 @@ class SingUpProvider extends ChangeNotifier {
   });
 
   void printStudent() {
+    final isValidForm =
+        singUpFormController.formRegisterKey.currentState?.validate();
+    // ignore: avoid_print
+    print('[singup/print $isValidForm]');
+    if (isValidForm == false) {
+      return authenticateBloc.authErrorEvent('Ingresa los datos correctamente');
+    }
+
     final String name = singUpFormController.name.text;
     final String registerSchool = singUpFormController.registerSchool.text;
     final String email = singUpFormController.email.text;

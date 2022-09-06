@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-// import 'package:floky/dependencyInjection/setup_di.dart';
 import 'package:floky/domain/bloc/authenticate/authenticate_bloc.dart';
 import 'package:floky/views/pages/authenticate/singin/login.provider.dart';
 import 'package:floky/views/pages/pages.index.dart';

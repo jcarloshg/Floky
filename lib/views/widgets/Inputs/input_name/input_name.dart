@@ -33,7 +33,9 @@ class InputName extends StatelessWidget {
   }
 
   String? _validate(String value) {
-    if (value.isEmpty) return null;
+    // ignore: avoid_print
+    print(value);
+    // if (value.isEmpty) return null;
     if (Validators.validName(value) == false) return 'Nombre invalido...';
     if (Validators.numberWords(2, value) == false) {
       return 'Debes ingresar al menos dos nombres';

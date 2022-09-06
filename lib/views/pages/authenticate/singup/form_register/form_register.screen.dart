@@ -1,3 +1,4 @@
+import 'package:floky/views/pages/authenticate/singin/widgets/widgets.index.dart';
 import 'package:floky/views/pages/authenticate/singup/singup.provider.dart';
 import 'package:floky/views/pages/pages.index.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
@@ -17,8 +18,7 @@ class FormRegisterScreen extends StatelessWidget {
         child: SingleChildScrollView(
           physics: const NeverScrollableScrollPhysics(),
           child: Form(
-            key: singUpProvider.formRegisterKey,
-            autovalidateMode: AutovalidateMode.onUserInteraction,
+            key: singUpFormController.formRegisterKey,
             child: Column(
               children: [
                 const SizedBox(height: 15),
@@ -29,6 +29,7 @@ class FormRegisterScreen extends StatelessWidget {
                     controll: singUpFormController.registerSchool),
                 InputEmail(emailControl: singUpFormController.email),
                 InputPass(passControl: singUpFormController.pass),
+                const IsExistError(),
                 Button(
                   // function: () => navigateConfirmAccountScreen(context),
                   function: () => singUpProvider.printStudent(),

@@ -1,10 +1,8 @@
-import 'package:floky/domain/bloc/authenticate/authenticate_bloc.dart';
 import 'package:floky/views/pages/authenticate/singin/login.provider.dart';
 import 'package:floky/views/pages/authenticate/singin/widgets/widgets.index.dart';
 import 'package:floky/views/pages/pages.index.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 
 class FormLogin extends StatelessWidget {
@@ -17,7 +15,7 @@ class FormLogin extends StatelessWidget {
 
     return Form(
       key: formController.formLoginKey,
-      autovalidateMode: AutovalidateMode.onUserInteraction,
+      autovalidateMode: AutovalidateMode.disabled,
       child: Container(
         margin: const EdgeInsets.all(5),
         child: Column(
@@ -26,7 +24,7 @@ class FormLogin extends StatelessWidget {
             Titles.title('Floky'),
             InputEmail(emailControl: formController.emailControl),
             InputPass(passControl: formController.passControl),
-            _isExistAnError(),
+            const IsExistError(),
             const IsLoadingButtonLoggin(),
             ButtonSecondary(
               label: 'Registrarse',
@@ -39,17 +37,6 @@ class FormLogin extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-
-  Widget _isExistAnError() {
-    return BlocBuilder<AuthenticateBloc, AuthenticateState>(
-      builder: (context, state) {
-        if (state is AuthErrorState) {
-          return ErrorMessage(error: state.messageError);
-        }
-        return const SizedBox();
-      },
     );
   }
 
