@@ -2,7 +2,6 @@ class Student {
   final String _id;
   final String _college;
   final String _emial;
-  final String _lastName;
   final String _name;
   final String _picture;
   final String _registerCollege;
@@ -11,7 +10,6 @@ class Student {
     this._id,
     this._college,
     this._emial,
-    this._lastName,
     this._name,
     this._picture,
     this._registerCollege,
@@ -20,7 +18,6 @@ class Student {
   String get id => _id;
   String get college => _college;
   String get emial => _emial;
-  String get lastName => _lastName;
   String get name => _name;
   String get picture => _picture;
   String get registerCollege => _registerCollege;
@@ -29,7 +26,6 @@ class Student {
         'id': _id,
         'college': _college,
         'emial': _emial,
-        'lastName': _lastName,
         'name': _name,
         'picture': _picture,
         'registerCollege': _registerCollege,
@@ -45,5 +41,5 @@ class Student {
         'registerCollege': '',
       };
 
-  static getVoidStudent() => Student('', '', '', '', '', '', '');
+  static getVoidStudent() => Student('', '', '', '', '', '');
 }

@@ -45,7 +45,7 @@ class AuthenticateBloc extends Bloc<AuthenticateEvent, AuthenticateState> {
     emit(AuthenticateLoading());
 
     final String name = event.name;
-    // final String registerSchool = event.registerSchool;
+    final String registerSchool = event.registerSchool;
     final String email = event.email;
     final String pass = event.pass;
 
@@ -61,6 +61,11 @@ class AuthenticateBloc extends Bloc<AuthenticateEvent, AuthenticateState> {
     if (response.runtimeType == String) {
       return emit(AuthErrorState(response));
     }
+    if (response.runtimeType == bool && response == false) {
+      return emit(const AuthErrorState('Error inesperado'));
+    }
+    final Student student = Student('', '', email, name, '', registerSchool);
+    return emit(AuthSingUpState(student));
   }
 
   FutureOr<void> _logOut(event, emit) {

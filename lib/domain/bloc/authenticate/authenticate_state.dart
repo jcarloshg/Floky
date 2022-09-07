@@ -4,6 +4,7 @@ part of 'authenticate_bloc.dart';
 abstract class AuthenticateState {
   final Student? student;
   const AuthenticateState({this.student});
+  AuthenticateState copyState() => this;
 }
 
 class AuthErrorState extends AuthenticateState {
@@ -17,4 +18,6 @@ class AuthenticateInitial extends AuthenticateState {
 
 class AuthenticateLoading extends AuthenticateState {}
 
-class AuthSingUp extends AuthenticateState {}
+class AuthSingUpState extends AuthenticateState {
+  const AuthSingUpState(Student? student) : super(student: student);
+}

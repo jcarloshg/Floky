@@ -27,15 +27,21 @@ class SingUpProvider extends ChangeNotifier {
       return authenticateBloc.authErrorEvent('Ingresa los datos correctamente');
     }
 
-    final String name = singUpFormController.name.text;
-    final String registerSchool = singUpFormController.registerSchool.text;
-    final String email = singUpFormController.email.text;
-    final String pass = singUpFormController.pass.text;
+    final String name = singUpFormController.name.text.trim();
+    final String registerSchool =
+        singUpFormController.registerSchool.text.trim();
+    final String email = singUpFormController.email.text.trim();
+    final String pass = singUpFormController.pass.text.trim();
     return authenticateBloc.add(AuthSingUpEvent(
       name: name,
       registerSchool: registerSchool,
       email: email,
       pass: pass,
     ));
+  }
+
+  void goScreen(BuildContext context, String route) {
+    authenticateBloc.cleanState();
+    Navigator.pushNamed(context, route);
   }
 }

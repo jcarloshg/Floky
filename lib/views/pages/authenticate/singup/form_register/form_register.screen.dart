@@ -1,9 +1,11 @@
+import 'package:floky/domain/bloc/authenticate/authenticate_bloc.dart';
 import 'package:floky/views/pages/authenticate/singup/singup.provider.dart';
 import 'package:floky/views/pages/authenticate/widgets/is_exist_error.dart';
 import 'package:floky/views/pages/authenticate/widgets/widgets.index.dart';
 import 'package:floky/views/pages/pages.index.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 
 class FormRegisterScreen extends StatelessWidget {
@@ -32,7 +34,15 @@ class FormRegisterScreen extends StatelessWidget {
                 InputEmail(emailControl: singUpFormController.email),
                 InputPass(passControl: singUpFormController.pass),
                 const IsExistError(),
-                _isLoadingButtonSingUp(singUpProvider.singUp)
+                _isLoadingButtonSingUp(singUpProvider.singUp),
+                BlocListener<AuthenticateBloc, AuthenticateState>(
+                  listenWhen: (previous, current) => current is AuthSingUpState,
+                  listener: (context, state) => singUpProvider.goScreen(
+                    context,
+                    PageIndex.confirmAccountScreen.route,
+                  ),
+                  child: const SizedBox(),
+                ),
               ],
             ),
           ),
