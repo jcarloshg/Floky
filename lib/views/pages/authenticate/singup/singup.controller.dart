@@ -7,19 +7,20 @@ class SingUpFormController {
   final TextEditingController registerSchool = TextEditingController();
   final TextEditingController email = TextEditingController();
   final TextEditingController pass = TextEditingController();
-
   SingUpFormController();
 }
 
-class SingUpProvider extends ChangeNotifier {
-  final SingUpFormController singUpFormController = SingUpFormController();
-  final AuthenticateBloc authenticateBloc;
+class ConfirmSignUpFormController {
+  GlobalKey<FormState> confirmSignUpKey = GlobalKey<FormState>();
+  final TextEditingController codeVerification = TextEditingController();
+  ConfirmSignUpFormController();
+}
 
-  SingUpProvider({
-    required this.authenticateBloc,
-  });
+class SingupController {
+  final singUpFormController = SingUpFormController();
+  final confirmSignUpFormController = ConfirmSignUpFormController();
 
-  void singUp() {
+  void singUp(AuthenticateBloc authenticateBloc) {
     final isValidForm =
         singUpFormController.formRegisterKey.currentState?.validate();
     if (isValidForm == false) {
@@ -39,7 +40,21 @@ class SingUpProvider extends ChangeNotifier {
     ));
   }
 
-  void goScreen(BuildContext context, String route) {
+  void confirmSignUp(AuthenticateBloc authenticateBloc) {
+    final isValidForm =
+        confirmSignUpFormController.confirmSignUpKey.currentState?.validate();
+    if (isValidForm == false) {
+      return authenticateBloc.authErrorEvent('El código no condice');
+    }
+  }
+
+  void goScreen(
+    AuthenticateBloc authenticateBloc,
+    BuildContext context,
+    String route,
+  ) {
+    // ignore: avoid_print
+    print('===========================================asldkfjaslkdjfaslkdfo');
     authenticateBloc.cleanState();
     Navigator.pushNamed(context, route);
   }

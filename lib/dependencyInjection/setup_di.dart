@@ -1,6 +1,7 @@
 import 'package:floky/data/usecase/awsamplify/authenticate/authenticate.aws.dart';
 import 'package:floky/domain/bloc/authenticate/authenticate_bloc.dart';
 import 'package:floky/domain/usecase/authenticate/authenticate.usecase.dart';
+import 'package:floky/views/pages/authenticate/singup/singup.controller.dart';
 import 'package:get_it/get_it.dart';
 
 GetIt di = GetIt.instance;
@@ -13,7 +14,9 @@ Future<void> setupDI() async {
 }
 
 _domain() async {
-  di.registerFactory(() => AuthenticateBloc(authenticate: di()));
+  di.registerFactory(
+    () => AuthenticateBloc(authenticate: di()),
+  );
 }
 
 _data() async {
@@ -23,6 +26,16 @@ _data() async {
 }
 
 _view() async {
+  //============================================================
+  //
+  // ! this is to nominal cases from the all useCases
+  //
+  // only need a unique object from [SingupController] to all screens
+  // that to register a new student
+  //============================================================
+
+  di.registerLazySingleton<SingupController>(() => SingupController());
+
   return await null;
 }
 
