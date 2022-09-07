@@ -15,7 +15,7 @@
     "smsAuthenticationMessage": "Your authentication code is {####}",
     "smsVerificationMessage": "Your verification code is {####}",
     "emailVerificationSubject": "Bienvenido a Floky",
-    "emailVerificationMessage": "<body>\n    <H1>Â¿EstÃ¡s listo para aprender inglÃ©s?</H1>\n    <H2>Â¡Estamos para ayudarte con tu desarrollo academico!</H2>\n    <br/>\n    <p>Verification code: {####}</p>\n    <br/>\n</body>",
+    "emailVerificationMessage": "<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset=\"UTF-8\" />\n  </head>\n  <body>\n    <h1>Â¿EstÃ¡s lista para aprender inglÃ©s?</h1>\n    <h2>Â¡Estamos para ayudarte con tu desarrollo acadÃ©mico!</h2>\n    <br />\n    <p>Verification code: {####}</p>\n    <br />\n  </body>\n</html>\n",
     "defaultPasswordPolicy": false,
     "passwordPolicyMinLength": 8,
     "passwordPolicyCharacters": [
@@ -45,6 +45,21 @@
     "thirdPartyAuth": false,
     "authProviders": [],
     "usernameCaseSensitive": false,
-    "useEnabledMfas": true
+    "useEnabledMfas": true,
+    "authRoleArn": {
+      "Fn::GetAtt": [
+        "AuthRole",
+        "Arn"
+      ]
+    },
+    "unauthRoleArn": {
+      "Fn::GetAtt": [
+        "UnauthRole",
+        "Arn"
+      ]
+    },
+    "breakCircularDependency": true,
+    "dependsOn": [],
+    "hostedUI": false
   }
 }

@@ -10,11 +10,11 @@ class AuthErrorEvent extends AuthenticateEvent {
   AuthErrorEvent({required this.messageError});
 }
 
-class LogIn extends AuthenticateEvent {
+class AuthSingInEvent extends AuthenticateEvent {
   final String email;
   final String pass;
 
-  LogIn({
+  AuthSingInEvent({
     required this.email,
     required this.pass,
   });

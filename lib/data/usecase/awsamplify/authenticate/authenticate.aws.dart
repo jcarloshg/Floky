@@ -5,7 +5,7 @@ import 'package:floky/domain/usecase/authenticate/authenticate.usecase.dart';
 
 class AuthenticateAws extends Authenticate {
   @override
-  Future<dynamic> login({required String email, required String pass}) async {
+  Future<dynamic> singIn({required String email, required String pass}) async {
     try {
       final result = await Amplify.Auth.signIn(username: email, password: pass);
       return {'user': result};
@@ -15,15 +15,12 @@ class AuthenticateAws extends Authenticate {
       if (e.message == 'User not found in the system.') {
         return 'El usuario no existe';
       }
+      if (e.message == 'User not confirmed in the system.') {
+        return 'Cuenta no confirmada, ';
+      }
       return e.message;
     }
   }
-
-  @override
-  void logout() {}
-
-  @override
-  void forgetPass() {}
 
   @override
   Future<dynamic> singUp({
@@ -47,7 +44,17 @@ class AuthenticateAws extends Authenticate {
       return result.isSignUpComplete;
     } on AuthException catch (e) {
       // ignore: avoid_print
-      return 'AuthenticateAws/login/error: ${e.message}';
+      print('AuthenticateAws/login/error: ${e.message}');
+      if (e.message == 'Username already exists in the system.') {
+        return 'El correo electrónico tiene otro usuario asignado.';
+      }
+      return e.message;
     }
   }
+
+  @override
+  void logout() {}
+
+  @override
+  void forgetPass() {}
 }

@@ -12,11 +12,9 @@ class AuthenticateBloc extends Bloc<AuthenticateEvent, AuthenticateState> {
   final Authenticate authenticate;
 
   AuthenticateBloc({required this.authenticate})
-      : super(
-          AuthenticateInitial(student: Student.getVoidStudent()),
-        ) {
+      : super(AuthenticateInitial(student: Student.getVoidStudent())) {
     on<AuthenticateEvent>((event, emit) {});
-    on<LogIn>(_logIn);
+    on<AuthSingInEvent>(_authSingIn);
     on<AuthSingUpEvent>(_authSingUp);
     on<LogOut>(_logOut);
     on<AuthCleanState>(_authCleanState);
@@ -31,12 +29,12 @@ class AuthenticateBloc extends Bloc<AuthenticateEvent, AuthenticateState> {
     return emit(AuthErrorState(event.messageError));
   }
 
-  FutureOr<void> _logIn(event, emit) async {
+  FutureOr<void> _authSingIn(event, emit) async {
     emit(AuthenticateLoading());
 
     final String email = event.email;
     final String pass = event.pass;
-    final response = await authenticate.login(email: email, pass: pass);
+    final response = await authenticate.singIn(email: email, pass: pass);
 
     if (response.runtimeType == String) {
       return emit(AuthErrorState(response));

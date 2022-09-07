@@ -20,7 +20,7 @@ class SingUpProvider extends ChangeNotifier {
     required this.authenticateBloc,
   });
 
-  void printStudent() {
+  void singUp() {
     final isValidForm =
         singUpFormController.formRegisterKey.currentState?.validate();
     if (isValidForm == false) {

@@ -27,7 +27,7 @@ class LoginProvider extends ChangeNotifier {
 
     final String email = loginFormController.emailControl.text.trim();
     final String pass = loginFormController.passControl.text.trim();
-    return authenticateBloc.add(LogIn(email: email, pass: pass));
+    return authenticateBloc.add(AuthSingInEvent(email: email, pass: pass));
   }
 
   void goScreen(BuildContext context, String route) {

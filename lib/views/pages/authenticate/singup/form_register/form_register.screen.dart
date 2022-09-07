@@ -1,5 +1,6 @@
 import 'package:floky/views/pages/authenticate/singup/singup.provider.dart';
 import 'package:floky/views/pages/authenticate/widgets/is_exist_error.dart';
+import 'package:floky/views/pages/authenticate/widgets/widgets.index.dart';
 import 'package:floky/views/pages/pages.index.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +20,7 @@ class FormRegisterScreen extends StatelessWidget {
           physics: const NeverScrollableScrollPhysics(),
           child: Form(
             key: singUpFormController.formRegisterKey,
+            autovalidateMode: AutovalidateMode.onUserInteraction,
             child: Column(
               children: [
                 const SizedBox(height: 15),
@@ -30,17 +32,19 @@ class FormRegisterScreen extends StatelessWidget {
                 InputEmail(emailControl: singUpFormController.email),
                 InputPass(passControl: singUpFormController.pass),
                 const IsExistError(),
-                Button(
-                  // function: () => navigateConfirmAccountScreen(context),
-                  function: () => singUpProvider.printStudent(),
-                  label: 'Registrar',
-                )
+                _isLoadingButtonSingUp(singUpProvider.singUp)
               ],
             ),
           ),
         ),
       ),
     );
+  }
+
+  Widget _isLoadingButtonSingUp(void Function() printStudent) {
+    // function: () => navigateConfirmAccountScreen(context),
+    final Button button = Button(function: printStudent, label: 'Registrar');
+    return StackWidgetLoading(widget: button);
   }
 
   void navigateConfirmAccountScreen(BuildContext context) {

@@ -38,7 +38,7 @@ class InputName extends StatelessWidget {
     // if (value.isEmpty) return null;
     if (Validators.validName(value) == false) return 'Nombre invalido...';
     if (Validators.numberWords(2, value) == false) {
-      return 'Debes ingresar al menos dos nombres';
+      return 'Debes ingresar nombres y apellidos';
     }
     return null;
   }

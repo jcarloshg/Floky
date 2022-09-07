@@ -49,11 +49,12 @@
         "IdentityPoolName": "testAuthIdentityPool__staging",
         "UserPoolName": "Floky"
       },
-      "lastPushTimeStamp": "2022-09-05T21:49:43.242Z",
+      "lastPushTimeStamp": "2022-09-07T18:39:15.902Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-floky-staging-172728-deployment/amplify-cfn-templates/auth/Floky-cloudformation-template.json",
         "logicalId": "authFloky"
-      }
+      },
+      "lastPushDirHash": "AmwAdGom+NijSrNz8mPF4SVV778="
     }
   }
 }

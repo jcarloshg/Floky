@@ -1,6 +1,7 @@
 import 'package:floky/views/pages/authenticate/singin/login.provider.dart';
 import 'package:floky/views/pages/authenticate/singin/widgets/widgets.index.dart';
 import 'package:floky/views/pages/authenticate/widgets/is_exist_error.dart';
+import 'package:floky/views/pages/authenticate/widgets/widgets.index.dart';
 import 'package:floky/views/pages/pages.index.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,7 @@ class FormLogin extends StatelessWidget {
 
     return Form(
       key: formController.formLoginKey,
-      autovalidateMode: AutovalidateMode.disabled,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
       child: Container(
         margin: const EdgeInsets.all(5),
         child: Column(
@@ -26,7 +27,7 @@ class FormLogin extends StatelessWidget {
             InputEmail(emailControl: formController.emailControl),
             InputPass(passControl: formController.passControl),
             const IsExistError(),
-            const IsLoadingButtonLoggin(),
+            _isLoadingButtonLoggin(loginProvider.login),
             ButtonSecondary(
               label: 'Registrarse',
               function: () => loginProvider.goScreen(
@@ -44,17 +45,8 @@ class FormLogin extends StatelessWidget {
     );
   }
 
-  void navigateHome(BuildContext context) {
-    Navigator.pushReplacementNamed(
-      context,
-      PageIndex.homeScreen.route,
-    );
-  }
-
-  void navigateFormRegisterScreen(BuildContext context) {
-    Navigator.pushNamed(
-      context,
-      PageIndex.formRegisterScreen.route,
-    );
+  _isLoadingButtonLoggin(Future<void> Function() login) {
+    final Button button = Button(label: 'Iniciar sesión', function: login);
+    return StackWidgetLoading(widget: button);
   }
 }
