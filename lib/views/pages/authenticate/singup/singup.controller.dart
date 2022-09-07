@@ -20,6 +20,16 @@ class SingupController {
   final singUpFormController = SingUpFormController();
   final confirmSignUpFormController = ConfirmSignUpFormController();
 
+  void printStatus() {
+    final String name = singUpFormController.name.text.trim();
+    final String registerSchool =
+        singUpFormController.registerSchool.text.trim();
+    final String email = singUpFormController.email.text.trim();
+    final String pass = singUpFormController.pass.text.trim();
+    // ignore: avoid_print
+    print('$name $registerSchool $email $pass');
+  }
+
   void singUp(AuthenticateBloc authenticateBloc) {
     final isValidForm =
         singUpFormController.formRegisterKey.currentState?.validate();
