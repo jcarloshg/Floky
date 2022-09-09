@@ -11,12 +11,10 @@
 import 'package:floky/views/pages/activities/activities_by_category/activities_by_category.dart';
 import 'package:floky/views/pages/activities/activities.index.dart';
 import 'package:floky/views/pages/authenticate/authenticate.index.dart';
-import 'package:floky/views/pages/authenticate/singin/login.index.dart';
 import 'package:floky/views/pages/authenticate/singin/screens/login.screen.dart';
 import 'package:floky/views/pages/authenticate/singup/screens/confirm_account.scree.dart';
 import 'package:floky/views/pages/authenticate/singup/screens/confirmation_register.dart';
 import 'package:floky/views/pages/authenticate/singup/screens/form_register.screen.dart';
-import 'package:floky/views/pages/authenticate/singup/singup.index.dart';
 import 'package:floky/views/pages/common/description_activitie/description_activitie.screen.dart';
 import 'package:floky/views/pages/home/home.index.dart';
 import 'package:floky/views/pages/pending_activities/pending_activities.index.dart';
@@ -52,12 +50,6 @@ class PageIndex {
   // nominal case [login]
   // ============================================================
   // ============================================================
-
-  static final loginIndex = _Page(
-    route: 'loginIndex',
-    screen: const LoginIndex(),
-  );
-
   static final loginScreen = _Page(
     route: 'LoginScreen',
     screen: const LoginScreen(),
@@ -70,22 +62,14 @@ class PageIndex {
   // nominal case [singup]
   // ============================================================
   // ============================================================
-
-  static final singupIndex = _Page(
-    route: 'SingupIndex',
-    screen: const SingupIndex(),
-  );
-
   static final formRegisterScreen = _Page(
     route: 'formRegisterScreen',
     screen: const FormRegisterScreen(),
   );
-
   static final confirmAccountScreen = _Page(
     route: 'confirmAccountScreen',
     screen: const ConfirmAccountScreen(),
   );
-
   static final confirmationRegister = _Page(
     route: 'confirmationRegister',
     screen: const ConfirmationRegister(),
@@ -156,11 +140,9 @@ class PageIndex {
     List<_Page> pages = [];
 
     // auth/login
-    pages.add(loginIndex);
     pages.add(loginScreen);
 
     // auth/singup
-    pages.add(singupIndex);
     pages.add(formRegisterScreen);
     pages.add(confirmAccountScreen);
     pages.add(confirmationRegister);

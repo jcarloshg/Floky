@@ -1,7 +1,7 @@
-// import 'package:floky/domain/bloc/authenticate/authenticate_bloc.dart';
-import 'package:floky/domain/bloc/authenticate/authenticate_bloc.dart';
 import 'package:floky/views/pages/pages.index.dart';
 import 'package:flutter/material.dart';
+import 'package:floky/domain/bloc/authenticate/authenticate_bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginFormController {
   final GlobalKey<FormState> formLoginKey = GlobalKey<FormState>();
@@ -10,22 +10,23 @@ class LoginFormController {
   LoginFormController();
 }
 
-class LoginProvider extends ChangeNotifier {
+class LoginController {
   final LoginFormController loginFormController = LoginFormController();
-  final AuthenticateBloc authenticateBloc;
+  late AuthenticateBloc authenticateBloc;
 
-  LoginProvider({
-    required this.authenticateBloc,
-  });
+  /// get the [BlocProvider] by [context] and return [LoginController]
+  LoginController getController(BuildContext context) {
+    final authenticateBloc = BlocProvider.of<AuthenticateBloc>(context);
+    this.authenticateBloc = authenticateBloc;
+    return this;
+  }
 
   Future<void> login() async {
     final isValidForm =
         loginFormController.formLoginKey.currentState?.validate();
-
     if (isValidForm == false) {
       return authenticateBloc.authErrorEvent('Ingresa los datos correctamente');
     }
-
     final String email = loginFormController.emailControl.text.trim();
     final String pass = loginFormController.passControl.text.trim();
     return authenticateBloc.add(AuthSingInEvent(email: email, pass: pass));
@@ -38,15 +39,5 @@ class LoginProvider extends ChangeNotifier {
     authenticateBloc.cleanState();
     Navigator.pushNamed(context, PageIndex.formRegisterScreen.route);
     // Navigator.pushNamed(context, PageIndex.confirmationRegister.route);
-  }
-
-  void goConfirmAccountScreen(BuildContext context) {
-    authenticateBloc.cleanState();
-    Navigator.pushNamed(context, PageIndex.confirmationRegister.route);
-  }
-
-  void gologinIndex(BuildContext context) {
-    authenticateBloc.cleanState();
-    Navigator.pushNamed(context, PageIndex.loginIndex.route);
   }
 }

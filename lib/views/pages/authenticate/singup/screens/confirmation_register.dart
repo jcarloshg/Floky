@@ -27,7 +27,7 @@ class ConfirmationRegister extends StatelessWidget {
               const SizedBox(height: 60),
               Button(
                 label: 'Ingresar',
-                function: () => singUpProvider.goLoginIndex(context),
+                function: () => singUpProvider.goLoginScreen(context),
               ),
               const SizedBox(height: 30),
             ],

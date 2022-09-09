@@ -1,6 +1,5 @@
-import 'dart:math';
-
 import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
+// ignore: depend_on_referenced_packages
 import 'package:amplify_flutter/amplify_flutter.dart';
 
 import 'package:floky/domain/usecase/authenticate/authenticate.usecase.dart';

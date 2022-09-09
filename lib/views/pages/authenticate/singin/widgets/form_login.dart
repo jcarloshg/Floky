@@ -1,17 +1,17 @@
-import 'package:floky/views/pages/authenticate/singin/login.provider.dart';
+import 'package:flutter/material.dart';
+import 'package:floky/dependencyInjection/setup_di.dart';
+import 'package:floky/views/pages/authenticate/singin/login.controller.dart';
 import 'package:floky/views/pages/authenticate/widgets/is_exist_error.dart';
 import 'package:floky/views/pages/authenticate/widgets/widgets.index.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class FormLogin extends StatelessWidget {
   const FormLogin({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final loginProvider = Provider.of<LoginProvider>(context);
-    final formController = loginProvider.loginFormController;
+    final loginController = di<LoginController>().getController(context);
+    final formController = loginController.loginFormController;
 
     return Form(
       key: formController.formLoginKey,
@@ -25,10 +25,10 @@ class FormLogin extends StatelessWidget {
             InputEmail(emailControl: formController.emailControl),
             InputPass(passControl: formController.passControl),
             const IsExistError(),
-            _isLoadingButtonLoggin(loginProvider.login),
+            _isLoadingButtonLoggin(loginController.login),
             ButtonSecondary(
               label: 'Registrarse',
-              function: () => loginProvider.goFormRegisterScreen(context),
+              function: () => loginController.goFormRegisterScreen(context),
             ),
             TextButton(
               onPressed: () {},

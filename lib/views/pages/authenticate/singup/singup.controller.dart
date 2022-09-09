@@ -1,3 +1,10 @@
+//============================================================
+//  secuence pages
+//    1. formRegisterScreen
+//    2. confirmaccount
+//    3. confirmation_register
+//============================================================
+
 import 'package:floky/domain/bloc/authenticate/authenticate_bloc.dart';
 import 'package:floky/views/pages/pages.index.dart';
 import 'package:flutter/material.dart';
@@ -100,12 +107,8 @@ class SingupController {
     Navigator.pushNamed(context, PageIndex.confirmationRegister.route);
   }
 
-  void goLoginIndex(BuildContext context) {
+  void goLoginScreen(BuildContext context) {
     authenticateBloc.cleanState();
-    Navigator.pushAndRemoveUntil(
-      context,
-      MaterialPageRoute(builder: (_) => PageIndex.loginIndex.screen),
-      (route) => false,
-    );
+    Navigator.pushNamed(context, PageIndex.loginScreen.route);
   }
 }
