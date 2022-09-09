@@ -53,6 +53,21 @@ class AuthenticateAws extends Authenticate {
   }
 
   @override
+  Future<dynamic> resendCode({required String email}) async {
+    try {
+      final res = await Amplify.Auth.resendSignUpCode(username: email);
+      // ignore: avoid_print
+      print(res.codeDeliveryDetails.attributeName);
+      // ignore: avoid_print
+      print(res.codeDeliveryDetails.deliveryMedium);
+      // ignore: avoid_print
+      print(res.codeDeliveryDetails.destination);
+    } on AuthException catch (e) {
+      return e.message;
+    }
+  }
+
+  @override
   void logout() {}
 
   @override

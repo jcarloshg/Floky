@@ -10,6 +10,10 @@ abstract class Authenticate {
     required String pass,
   });
 
+  Future<dynamic> resendCode({
+    required String email,
+  });
+
   void logout();
 
   void forgetPass();

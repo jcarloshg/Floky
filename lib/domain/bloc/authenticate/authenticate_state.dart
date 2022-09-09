@@ -21,3 +21,5 @@ class AuthenticateLoading extends AuthenticateState {}
 class AuthSingUpState extends AuthenticateState {
   const AuthSingUpState(Student? student) : super(student: student);
 }
+
+class AuthResendSignUpCodeState extends AuthenticateState {}
