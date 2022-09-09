@@ -27,7 +27,7 @@ class Titles {
         textAlign: isCenter! ? TextAlign.center : TextAlign.left,
         style: TextStyle(
           color: Colors.blueGrey.shade600,
-          fontSize: 18,
+          fontSize: 16,
           fontWeight: FontWeight.w600,
         ),
       ),

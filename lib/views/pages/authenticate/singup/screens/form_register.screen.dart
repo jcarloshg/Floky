@@ -4,7 +4,6 @@ import 'package:floky/domain/bloc/authenticate/authenticate_bloc.dart';
 import 'package:floky/views/pages/authenticate/singup/singup.controller.dart';
 import 'package:floky/views/pages/authenticate/widgets/is_exist_error.dart';
 import 'package:floky/views/pages/authenticate/widgets/widgets.index.dart';
-import 'package:floky/views/pages/pages.index.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -50,15 +49,7 @@ class FormRegisterScreen extends StatelessWidget {
   }
 
   Widget _isLoadingButtonSingUp(void Function() singUp) {
-    // function: () => navigateConfirmAccountScreen(context),
     final Button button = Button(function: singUp, label: 'Registrar');
     return StackWidgetLoading(widget: button);
-  }
-
-  void navigateConfirmAccountScreen(BuildContext context) {
-    Navigator.pushReplacementNamed(
-      context,
-      PageIndex.confirmAccountScreen.route,
-    );
   }
 }

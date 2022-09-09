@@ -73,6 +73,11 @@ class SingupController {
     }
   }
 
+  void resendSignUpCode() {
+    final email = singUpFormController.email.text.trim();
+    authenticateBloc.add(AuthResendSignUpCodeEvent(email: email));
+  }
+
   //============================================================
   // functions navigation
   //============================================================

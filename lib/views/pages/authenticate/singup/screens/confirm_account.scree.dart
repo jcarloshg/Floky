@@ -1,6 +1,7 @@
 import 'package:floky/dependencyInjection/setup_di.dart';
 import 'package:floky/views/pages/authenticate/singup/singup.controller.dart';
 import 'package:floky/views/pages/authenticate/widgets/is_exist_error.dart';
+import 'package:floky/views/pages/authenticate/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
 
@@ -35,15 +36,18 @@ class ConfirmAccountScreen extends StatelessWidget {
                   function: singUpProvider.confirmSignUp,
                   label: 'Continuar',
                 ),
-                TextButton(
-                  onPressed: () {},
-                  child: const Text('Reenviar código'),
-                ),
+                _isLoadingButtonResendCode(singUpProvider.resendSignUpCode),
               ],
             ),
           ),
         ),
       ),
     );
+  }
+
+  Widget _isLoadingButtonResendCode(void Function() resendSignUpCode) {
+    final textButton = TextButton(
+        onPressed: resendSignUpCode, child: const Text('Reenviar código'));
+    return StackWidgetLoading(widget: textButton);
   }
 }
