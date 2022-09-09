@@ -27,11 +27,9 @@ _data() async {
 
 _view() async {
   //============================================================
-  //
   // ! this is to nominal cases from the all useCases
-  //
-  // only need a unique object from [SingupController] to all screens
-  // that to register a new student
+  // only need a unique object from [SingupController]
+  // to all screens that to register a new student
   //============================================================
 
   di.registerLazySingleton<SingupController>(() => SingupController());

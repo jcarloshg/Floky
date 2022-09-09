@@ -29,10 +29,7 @@ class FormLogin extends StatelessWidget {
             _isLoadingButtonLoggin(loginProvider.login),
             ButtonSecondary(
               label: 'Registrarse',
-              function: () => loginProvider.goScreen(
-                context,
-                PageIndex.formRegisterScreen.route,
-              ),
+              function: () => loginProvider.goFormRegisterScreen(context),
             ),
             TextButton(
               onPressed: () {},

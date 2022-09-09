@@ -1,5 +1,6 @@
 // import 'package:floky/domain/bloc/authenticate/authenticate_bloc.dart';
 import 'package:floky/domain/bloc/authenticate/authenticate_bloc.dart';
+import 'package:floky/views/pages/pages.index.dart';
 import 'package:flutter/material.dart';
 
 class LoginFormController {
@@ -30,8 +31,16 @@ class LoginProvider extends ChangeNotifier {
     return authenticateBloc.add(AuthSingInEvent(email: email, pass: pass));
   }
 
-  void goScreen(BuildContext context, String route) {
+  //============================================================
+  // functions navigation
+  //============================================================
+  void goFormRegisterScreen(BuildContext context) {
     authenticateBloc.cleanState();
-    Navigator.pushNamed(context, route);
+    Navigator.pushNamed(context, PageIndex.formRegisterScreen.route);
+  }
+
+  void goConfirmAccountScreen(BuildContext context) {
+    authenticateBloc.cleanState();
+    Navigator.pushNamed(context, PageIndex.confirmAccountScreen.route);
   }
 }

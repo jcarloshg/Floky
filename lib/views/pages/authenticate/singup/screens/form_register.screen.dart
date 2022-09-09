@@ -13,8 +13,7 @@ class FormRegisterScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final authenticateBloc = BlocProvider.of<AuthenticateBloc>(context);
-    final singUpProvider = di<SingupController>();
+    final singUpProvider = di<SingupController>().getController(context);
     final singUpFormController = singUpProvider.singUpFormController;
 
     return Scaffold(
@@ -35,16 +34,11 @@ class FormRegisterScreen extends StatelessWidget {
                 InputEmail(emailControl: singUpFormController.email),
                 InputPass(passControl: singUpFormController.pass),
                 const IsExistError(),
-                _isLoadingButtonSingUp(
-                  () => singUpProvider.singUp(authenticateBloc),
-                ),
+                _isLoadingButtonSingUp(singUpProvider.singUp),
                 BlocListener<AuthenticateBloc, AuthenticateState>(
                   listenWhen: (previous, current) => current is AuthSingUpState,
-                  listener: (context, state) => singUpProvider.goScreen(
-                    authenticateBloc,
-                    context,
-                    PageIndex.confirmAccountScreen.route,
-                  ),
+                  listener: (context, state) =>
+                      singUpProvider.goConfirmAccountScreen(context),
                   child: const SizedBox(),
                 ),
               ],

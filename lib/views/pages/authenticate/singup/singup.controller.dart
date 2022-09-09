@@ -1,5 +1,7 @@
 import 'package:floky/domain/bloc/authenticate/authenticate_bloc.dart';
+import 'package:floky/views/pages/pages.index.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SingUpFormController {
   GlobalKey<FormState> formRegisterKey = GlobalKey<FormState>();
@@ -19,6 +21,14 @@ class ConfirmSignUpFormController {
 class SingupController {
   final singUpFormController = SingUpFormController();
   final confirmSignUpFormController = ConfirmSignUpFormController();
+  late AuthenticateBloc authenticateBloc;
+
+  /// get the [BlocProvider] by [context] and return [SingupController]
+  SingupController getController(BuildContext context) {
+    final authenticateBloc = BlocProvider.of<AuthenticateBloc>(context);
+    this.authenticateBloc = authenticateBloc;
+    return this;
+  }
 
   void printStatus() {
     final String name = singUpFormController.name.text.trim();
@@ -27,10 +37,15 @@ class SingupController {
     final String email = singUpFormController.email.text.trim();
     final String pass = singUpFormController.pass.text.trim();
     // ignore: avoid_print
-    print('$name $registerSchool $email $pass');
+    print('singUpFormController : $name $registerSchool $email $pass');
+
+    final codeVerification =
+        confirmSignUpFormController.codeVerification.text.trim();
+    // ignore: avoid_print
+    print('confirmSignUpFormController : $codeVerification');
   }
 
-  void singUp(AuthenticateBloc authenticateBloc) {
+  void singUp() {
     final isValidForm =
         singUpFormController.formRegisterKey.currentState?.validate();
     if (isValidForm == false) {
@@ -58,14 +73,11 @@ class SingupController {
     }
   }
 
-  void goScreen(
-    AuthenticateBloc authenticateBloc,
-    BuildContext context,
-    String route,
-  ) {
-    // ignore: avoid_print
-    print('===========================================asldkfjaslkdjfaslkdfo');
+  //============================================================
+  // functions navigation
+  //============================================================
+  void goConfirmAccountScreen(BuildContext context) {
     authenticateBloc.cleanState();
-    Navigator.pushNamed(context, route);
+    Navigator.pushNamed(context, PageIndex.confirmAccountScreen.route);
   }
 }

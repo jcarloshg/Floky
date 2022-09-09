@@ -2,7 +2,12 @@ import 'package:floky/views/widgets/Inputs/utils/input_decorations.dart';
 import 'package:flutter/material.dart';
 
 class InputCodeVerification extends StatelessWidget {
-  const InputCodeVerification({Key? key}) : super(key: key);
+  const InputCodeVerification({
+    Key? key,
+    this.controll,
+  }) : super(key: key);
+
+  final TextEditingController? controll;
 
   @override
   Widget build(BuildContext context) {
@@ -13,6 +18,7 @@ class InputCodeVerification extends StatelessWidget {
         scrollPhysics: const BouncingScrollPhysics(),
         keyboardType: TextInputType.number,
         autocorrect: false,
+        controller: controll,
         textAlign: TextAlign.center,
         maxLength: 6,
         style: _styleTextInput(),
