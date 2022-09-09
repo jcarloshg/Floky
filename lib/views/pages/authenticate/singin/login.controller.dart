@@ -32,6 +32,10 @@ class LoginController {
     return authenticateBloc.add(AuthSingInEvent(email: email, pass: pass));
   }
 
+  Future<void> logout() async {
+    return authenticateBloc.add(LogOut());
+  }
+
   //============================================================
   // functions navigation
   //============================================================

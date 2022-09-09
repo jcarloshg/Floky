@@ -19,7 +19,7 @@ abstract class Authenticate {
     required String confirmationCode,
   });
 
-  void logout();
+  Future<dynamic> logout();
 
   void forgetPass();
 }

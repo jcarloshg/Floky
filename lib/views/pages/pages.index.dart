@@ -29,7 +29,7 @@ class _Page {
 }
 
 class PageIndex {
-  static const initialRoute = 'loginIndex';
+  static const initialRoute = 'LoginScreen';
 
   //============================================================
   // ! FIX NAVIGATION

@@ -34,6 +34,10 @@ class FormLogin extends StatelessWidget {
               onPressed: () {},
               child: const Text('Olvide mi contraseña'),
             ),
+            TextButton(
+              onPressed: loginController.logout,
+              child: const Text('LogOut'),
+            ),
           ],
         ),
       ),

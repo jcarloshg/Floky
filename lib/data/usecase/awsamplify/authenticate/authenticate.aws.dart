@@ -9,15 +9,20 @@ class AuthenticateAws extends Authenticate {
   Future<dynamic> singIn({required String email, required String pass}) async {
     try {
       final result = await Amplify.Auth.signIn(username: email, password: pass);
+      // ignore: avoid_print
+      print('AuthenticateAws/signIn ${result.isSignedIn}');
       return {'user': result};
     } on AuthException catch (e) {
       // ignore: avoid_print
-      print('AuthenticateAws/login/error: ${e.message}');
+      print('AuthenticateAws/signIn/error: ${e.message}');
       if (e.message == 'User not found in the system.') {
         return 'El usuario no existe';
       }
       if (e.message == 'User not confirmed in the system.') {
-        return 'Cuenta no confirmada, ';
+        return 'Cuenta no confirmada.';
+      }
+      if (e.message == 'Failed since user is not authorized.') {
+        return 'Correo electrónico o contraseña incorrectos';
       }
       return e.message;
     }
@@ -84,7 +89,14 @@ class AuthenticateAws extends Authenticate {
   }
 
   @override
-  void logout() {}
+  Future<dynamic> logout() async {
+    try {
+      await Amplify.Auth.signOut();
+    } on AuthException catch (e) {
+      // ignore: avoid_print
+      print(e.message);
+    }
+  }
 
   @override
   void forgetPass() {}

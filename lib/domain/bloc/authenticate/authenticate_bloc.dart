@@ -100,8 +100,10 @@ class AuthenticateBloc extends Bloc<AuthenticateEvent, AuthenticateState> {
     return emit(AuthConfirmSignUpState());
   }
 
-  FutureOr<void> _logOut(event, emit) {
-    return emit(AuthenticateLoading());
+  FutureOr<void> _logOut(event, emit) async {
+    emit(AuthenticateLoading());
+    await authenticate.logout();
+    return emit(AuthenticateInitial(student: Student.getVoidStudent()));
   }
 
   void authErrorEvent(String error) {
