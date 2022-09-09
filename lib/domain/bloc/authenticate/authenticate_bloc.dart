@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
-import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 
 import 'package:floky/domain/usecase/authenticate/authenticate.usecase.dart';
@@ -20,6 +19,7 @@ class AuthenticateBloc extends Bloc<AuthenticateEvent, AuthenticateState> {
 
     on<AuthSingUpEvent>(_authSingUp);
     on<AuthResendSignUpCodeEvent>(_resendSignUpCode);
+    on<AuthConfirmSignUpEvent>(_confirmSignUp);
 
     on<LogOut>(_logOut);
     on<AuthCleanState>(_authCleanState);
@@ -77,7 +77,25 @@ class AuthenticateBloc extends Bloc<AuthenticateEvent, AuthenticateState> {
     emit(AuthenticateLoading());
     final String email = event.email;
     await authenticate.resendCode(email: email);
-    return emit(const AuthErrorState('TODO OK'));
+    return emit(AuthResendSignUpCodeState());
+  }
+
+  FutureOr<void> _confirmSignUp(AuthConfirmSignUpEvent event, emit) async {
+    emit(AuthenticateLoading());
+
+    final String email = event.email;
+    final String confirmationCode = event.confirmationCode;
+
+    final isConfirmedSignUp = await authenticate.confirmSignUp(
+      username: email,
+      confirmationCode: confirmationCode,
+    );
+
+    if (isConfirmedSignUp is String) {
+      return emit(AuthErrorState(isConfirmedSignUp));
+    }
+
+    return emit(AuthConfirmSignUpState());
   }
 
   FutureOr<void> _logOut(event, emit) {

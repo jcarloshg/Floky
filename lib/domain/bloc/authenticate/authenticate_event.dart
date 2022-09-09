@@ -41,4 +41,14 @@ class AuthResendSignUpCodeEvent extends AuthenticateEvent {
   });
 }
 
+class AuthConfirmSignUpEvent extends AuthenticateEvent {
+  final String email;
+  final String confirmationCode;
+
+  AuthConfirmSignUpEvent({
+    required this.email,
+    required this.confirmationCode,
+  });
+}
+
 class LogOut extends AuthenticateEvent {}

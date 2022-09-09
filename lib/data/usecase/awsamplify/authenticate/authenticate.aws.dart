@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
 import 'package:amplify_flutter/amplify_flutter.dart';
 
@@ -55,14 +57,29 @@ class AuthenticateAws extends Authenticate {
   @override
   Future<dynamic> resendCode({required String email}) async {
     try {
-      final res = await Amplify.Auth.resendSignUpCode(username: email);
-      // ignore: avoid_print
-      print(res.codeDeliveryDetails.attributeName);
-      // ignore: avoid_print
-      print(res.codeDeliveryDetails.deliveryMedium);
-      // ignore: avoid_print
-      print(res.codeDeliveryDetails.destination);
+      await Amplify.Auth.resendSignUpCode(username: email);
     } on AuthException catch (e) {
+      return e.message;
+    }
+  }
+
+  @override
+  Future<dynamic> confirmSignUp({
+    required String username,
+    required String confirmationCode,
+  }) async {
+    try {
+      final response = await Amplify.Auth.confirmSignUp(
+        username: username,
+        confirmationCode: confirmationCode,
+      );
+      return response.isSignUpComplete;
+    } on AuthException catch (e) {
+      // ignore: avoid_print
+      print(e.message);
+      if (e.message == 'Confirmation code entered is not correct.') {
+        return 'El código de verificación que ingreso es incorrecto';
+      }
       return e.message;
     }
   }

@@ -71,6 +71,15 @@ class SingupController {
     if (isValidForm == false) {
       return authenticateBloc.authErrorEvent('Deben ser ser dígitos');
     }
+
+    final email = singUpFormController.email.text.trim();
+    final confirmationCode =
+        confirmSignUpFormController.codeVerification.text.trim();
+
+    return authenticateBloc.add(AuthConfirmSignUpEvent(
+      email: email,
+      confirmationCode: confirmationCode,
+    ));
   }
 
   void resendSignUpCode() {
@@ -84,5 +93,19 @@ class SingupController {
   void goConfirmAccountScreen(BuildContext context) {
     authenticateBloc.cleanState();
     Navigator.pushNamed(context, PageIndex.confirmAccountScreen.route);
+  }
+
+  void goConfirmationRegister(BuildContext context) {
+    authenticateBloc.cleanState();
+    Navigator.pushNamed(context, PageIndex.confirmationRegister.route);
+  }
+
+  void goLoginIndex(BuildContext context) {
+    authenticateBloc.cleanState();
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(builder: (_) => PageIndex.loginIndex.screen),
+      (route) => false,
+    );
   }
 }

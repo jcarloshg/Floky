@@ -14,6 +14,7 @@ import 'package:floky/views/pages/authenticate/authenticate.index.dart';
 import 'package:floky/views/pages/authenticate/singin/login.index.dart';
 import 'package:floky/views/pages/authenticate/singin/screens/login.screen.dart';
 import 'package:floky/views/pages/authenticate/singup/screens/confirm_account.scree.dart';
+import 'package:floky/views/pages/authenticate/singup/screens/confirmation_register.dart';
 import 'package:floky/views/pages/authenticate/singup/screens/form_register.screen.dart';
 import 'package:floky/views/pages/authenticate/singup/singup.index.dart';
 import 'package:floky/views/pages/common/description_activitie/description_activitie.screen.dart';
@@ -83,6 +84,11 @@ class PageIndex {
   static final confirmAccountScreen = _Page(
     route: 'confirmAccountScreen',
     screen: const ConfirmAccountScreen(),
+  );
+
+  static final confirmationRegister = _Page(
+    route: 'confirmationRegister',
+    screen: const ConfirmationRegister(),
   );
 
   //============================================================
@@ -157,6 +163,7 @@ class PageIndex {
     pages.add(singupIndex);
     pages.add(formRegisterScreen);
     pages.add(confirmAccountScreen);
+    pages.add(confirmationRegister);
 
     Map<String, Widget Function(BuildContext)> appRoutes = {};
 

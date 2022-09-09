@@ -1,9 +1,11 @@
 import 'package:floky/dependencyInjection/setup_di.dart';
+import 'package:floky/domain/bloc/authenticate/authenticate_bloc.dart';
 import 'package:floky/views/pages/authenticate/singup/singup.controller.dart';
 import 'package:floky/views/pages/authenticate/widgets/is_exist_error.dart';
 import 'package:floky/views/pages/authenticate/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ConfirmAccountScreen extends StatelessWidget {
   const ConfirmAccountScreen({Key? key}) : super(key: key);
@@ -32,11 +34,15 @@ class ConfirmAccountScreen extends StatelessWidget {
                   controll: confirmSignUpFormController.codeVerification,
                 ),
                 const IsExistError(),
-                Button(
-                  function: singUpProvider.confirmSignUp,
-                  label: 'Continuar',
-                ),
+                _isLoadingButtonContinue(singUpProvider.confirmSignUp),
                 _isLoadingButtonResendCode(singUpProvider.resendSignUpCode),
+                BlocListener<AuthenticateBloc, AuthenticateState>(
+                  listenWhen: (previous, current) =>
+                      current is AuthConfirmSignUpState,
+                  listener: (context, state) =>
+                      singUpProvider.goConfirmationRegister(context),
+                  child: const SizedBox(),
+                ),
               ],
             ),
           ),
@@ -47,7 +53,17 @@ class ConfirmAccountScreen extends StatelessWidget {
 
   Widget _isLoadingButtonResendCode(void Function() resendSignUpCode) {
     final textButton = TextButton(
-        onPressed: resendSignUpCode, child: const Text('Reenviar código'));
+      onPressed: resendSignUpCode,
+      child: const Text('Reenviar código'),
+    );
     return StackWidgetLoading(widget: textButton);
+  }
+
+  Widget _isLoadingButtonContinue(void Function() confirmSignUp) {
+    final button = Button(
+      function: confirmSignUp,
+      label: 'Continuar',
+    );
+    return StackWidgetLoading(widget: button);
   }
 }

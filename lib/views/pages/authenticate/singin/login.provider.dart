@@ -37,10 +37,16 @@ class LoginProvider extends ChangeNotifier {
   void goFormRegisterScreen(BuildContext context) {
     authenticateBloc.cleanState();
     Navigator.pushNamed(context, PageIndex.formRegisterScreen.route);
+    // Navigator.pushNamed(context, PageIndex.confirmationRegister.route);
   }
 
   void goConfirmAccountScreen(BuildContext context) {
     authenticateBloc.cleanState();
-    Navigator.pushNamed(context, PageIndex.confirmAccountScreen.route);
+    Navigator.pushNamed(context, PageIndex.confirmationRegister.route);
+  }
+
+  void gologinIndex(BuildContext context) {
+    authenticateBloc.cleanState();
+    Navigator.pushNamed(context, PageIndex.loginIndex.route);
   }
 }

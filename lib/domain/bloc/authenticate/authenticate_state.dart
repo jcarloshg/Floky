@@ -23,3 +23,5 @@ class AuthSingUpState extends AuthenticateState {
 }
 
 class AuthResendSignUpCodeState extends AuthenticateState {}
+
+class AuthConfirmSignUpState extends AuthenticateState {}

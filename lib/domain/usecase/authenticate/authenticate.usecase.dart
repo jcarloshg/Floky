@@ -14,6 +14,11 @@ abstract class Authenticate {
     required String email,
   });
 
+  Future<dynamic> confirmSignUp({
+    required String username,
+    required String confirmationCode,
+  });
+
   void logout();
 
   void forgetPass();
