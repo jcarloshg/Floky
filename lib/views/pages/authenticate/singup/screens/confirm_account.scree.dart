@@ -18,6 +18,7 @@ class ConfirmAccountScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Form(
             key: confirmSignUpFormController.confirmSignUpKey,
+            autovalidateMode: AutovalidateMode.onUserInteraction,
             child: Column(
               children: [
                 const SizedBox(height: 15),
@@ -31,7 +32,7 @@ class ConfirmAccountScreen extends StatelessWidget {
                 ),
                 const IsExistError(),
                 Button(
-                  function: () => singUpProvider.printStatus(),
+                  function: singUpProvider.confirmSignUp,
                   label: 'Continuar',
                 ),
                 TextButton(

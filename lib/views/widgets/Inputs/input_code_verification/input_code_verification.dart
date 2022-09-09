@@ -21,6 +21,7 @@ class InputCodeVerification extends StatelessWidget {
         controller: controll,
         textAlign: TextAlign.center,
         maxLength: 6,
+        validator: (value) => _validate(value ?? ''),
         style: _styleTextInput(),
         decoration: _inputDecoration(),
       ),
@@ -47,4 +48,9 @@ class InputCodeVerification extends StatelessWidget {
 
   TextStyle _styleTextInput() =>
       const TextStyle(fontSize: 22, fontWeight: FontWeight.bold);
+
+  String? _validate(String code) {
+    if (code.length != 6) return 'Deben ser seis dígitos';
+    return null;
+  }
 }

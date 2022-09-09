@@ -65,11 +65,11 @@ class SingupController {
     ));
   }
 
-  void confirmSignUp(AuthenticateBloc authenticateBloc) {
+  void confirmSignUp() {
     final isValidForm =
         confirmSignUpFormController.confirmSignUpKey.currentState?.validate();
     if (isValidForm == false) {
-      return authenticateBloc.authErrorEvent('El código no condice');
+      return authenticateBloc.authErrorEvent('Deben ser ser dígitos');
     }
   }
 
