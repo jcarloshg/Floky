@@ -1,3 +1,5 @@
+import 'package:floky/dependencyInjection/setup_di.dart';
+import 'package:floky/views/pages/authenticate/reset_pass/reset_pass.controll.dart';
 import 'package:flutter/material.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
 
@@ -6,20 +8,24 @@ class EnterUsername extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final resetPassControll = di<ResetPassControll>().getController(context);
+    final enterUsernameFormController =
+        resetPassControll.enterUsernameFormController;
+
     return Scaffold(
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            const SizedBox(height: 15),
+            const SizedBox(height: 20),
             Titles.title("Ingresa tu correo electrónico"),
             Titles.thirdTitle(
-              "Recibiras un código de verificación para restablecer tu contraseña.",
+              "Recibirás un código para poder restablecer tu contraseña.",
             ),
-            const InputEmail(),
+            InputEmail(emailControl: enterUsernameFormController.email),
             Button(
-              function: () {},
-              label: "Enviar código de verificación",
+              function: resetPassControll.sendCodeResetPass,
+              label: "Enviar código",
             ),
           ],
         ),

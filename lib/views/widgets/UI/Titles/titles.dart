@@ -36,7 +36,7 @@ class Titles {
 
   static Widget thirdTitle(String? thirdTitle, {bool? isCenter = false}) {
     return Container(
-      // width: double.infinity,
+      width: double.infinity,
       // decoration: BoxDecoration(border: Border.all()),
       // margin: const EdgeInsets.symmetric(vertical: 5),
       margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),

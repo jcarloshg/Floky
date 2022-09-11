@@ -1,6 +1,7 @@
 import 'package:floky/data/usecase/awsamplify/authenticate/authenticate.aws.dart';
 import 'package:floky/domain/bloc/authenticate/authenticate_bloc.dart';
 import 'package:floky/domain/usecase/authenticate/authenticate.usecase.dart';
+import 'package:floky/views/pages/authenticate/reset_pass/reset_pass.controll.dart';
 import 'package:floky/views/pages/authenticate/singin/login.controller.dart';
 import 'package:floky/views/pages/authenticate/singup/singup.controller.dart';
 import 'package:get_it/get_it.dart';
@@ -35,6 +36,7 @@ _view() async {
   //============================================================
   di.registerLazySingleton<LoginController>(() => LoginController());
   di.registerLazySingleton<SingupController>(() => SingupController());
+  di.registerLazySingleton<ResetPassControll>(() => ResetPassControll());
 
   return await null;
 }
