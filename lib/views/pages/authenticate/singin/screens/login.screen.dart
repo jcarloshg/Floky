@@ -15,11 +15,12 @@ class LoginScreen extends StatelessWidget {
         child: Container(
           decoration: _boxDecoration(context),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Titles.title('Floky'),
               const FormLogin(),
               const RegisterButton(),
+              const SizedBox(height: 30)
             ],
           ),
         ),

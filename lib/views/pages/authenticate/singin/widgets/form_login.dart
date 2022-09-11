@@ -13,38 +13,26 @@ class FormLogin extends StatelessWidget {
     final loginController = di<LoginController>().getController(context);
     final formController = loginController.loginFormController;
 
-    return Container(
-      decoration: BoxDecoration(border: Border.all(), color: Colors.white),
-      padding: const EdgeInsets.symmetric(vertical: 30),
-      child: Form(
-        key: formController.formLoginKey,
-        autovalidateMode: AutovalidateMode.onUserInteraction,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            InputEmail(emailControl: formController.emailControl),
-            InputPass(passControl: formController.passControl),
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.end,
-            //   children: [
-            //     ButtonText(
-            //       function: () => loginController.goEnterUsername(context),
-            //       label: '¿Olvidaste tu contraseña?',
-            //     ),
-            //   ],
-            // ),
-            const IsExistError(),
-            _isLoadingButtonLoggin(loginController.login),
-            // ButtonSecondary(
-            //   label: 'Registrarse',
-            //   function: () => loginController.goFormRegisterScreen(context),
-            // ),
-            // TextButton(
-            //   onPressed: loginController.logout,
-            //   child: const Text('LogOut'),
-            // ),
-          ],
-        ),
+    return Form(
+      key: formController.formLoginKey,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          InputEmail(emailControl: formController.emailControl),
+          InputPass(passControl: formController.passControl),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              ButtonText(
+                function: () => loginController.goEnterUsername(context),
+                label: '¿Olvidaste tu contraseña?',
+              ),
+            ],
+          ),
+          const IsExistError(),
+          _isLoadingButtonLoggin(loginController.login),
+        ],
       ),
     );
   }
