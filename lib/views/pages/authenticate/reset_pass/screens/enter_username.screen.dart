@@ -16,15 +16,21 @@ class EnterUsername extends StatelessWidget {
       body: SafeArea(
         child: Form(
           key: enterUsernameFormController.formEnterUsernameKey,
+          autovalidateMode: AutovalidateMode.onUserInteraction,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const SizedBox(height: 20),
+              const SizedBox(height: 30),
               Titles.title("Ingresa tu correo electrónico"),
               Titles.thirdTitle(
                 "Recibirás un código para poder restablecer tu contraseña.",
               ),
-              InputEmail(emailControl: enterUsernameFormController.email),
+              InputEmail(
+                emailControl: enterUsernameFormController.email,
+              ),
+              const ErrorMessage(
+                error: 'Todo mal',
+              ),
               Button(
                 function: resetPassControll.sendCodeResetPass,
                 label: "Enviar código",

@@ -26,7 +26,8 @@ class FormRegisterScreen extends StatelessWidget {
               children: [
                 const SizedBox(height: 15),
                 Titles.title('Ingresa tus datos'),
-                Titles.subtitle('Ingresa tus datos correctamente'),
+                Titles.subtitle(
+                    'Ingresa tus datos personales y de tu institución correctamente.'),
                 InputName(controll: singUpFormController.name),
                 InputSchoolRegistration(
                     controll: singUpFormController.registerSchool),
