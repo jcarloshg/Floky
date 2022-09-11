@@ -1,35 +1,40 @@
 import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
 // ignore: depend_on_referenced_packages
 import 'package:amplify_flutter/amplify_flutter.dart';
+import 'dart:developer' as developer;
 
 import 'package:floky/domain/usecase/authenticate/authenticate.usecase.dart';
 
 class AuthenticateAws extends Authenticate {
   @override
-  Future<dynamic> singIn({required String email, required String pass}) async {
+  Future<ResAuth> singIn({required String email, required String pass}) async {
     try {
       final result = await Amplify.Auth.signIn(username: email, password: pass);
-      // ignore: avoid_print
-      print('AuthenticateAws/signIn ${result.isSignedIn}');
-      return {'user': result};
+      developer.log('AuthenticateAws/signIn: $result');
+      return ResAuth(isOK: true, data: result);
     } on AuthException catch (e) {
-      // ignore: avoid_print
-      print('AuthenticateAws/signIn/error: ${e.message}');
-      if (e.message == 'User not found in the system.') {
-        return 'El usuario no existe';
+      String msgErro;
+      switch (e.message) {
+        case 'User not found in the system.':
+          msgErro = 'El usuario no existe';
+          break;
+        case 'User not confirmed in the system.':
+          msgErro = 'Cuenta no confirmada.';
+          break;
+
+        case 'Failed since user is not authorized.':
+          msgErro = 'Correo electrónico o contraseña incorrectos';
+          break;
+        default:
+          msgErro = e.message;
       }
-      if (e.message == 'User not confirmed in the system.') {
-        return 'Cuenta no confirmada.';
-      }
-      if (e.message == 'Failed since user is not authorized.') {
-        return 'Correo electrónico o contraseña incorrectos';
-      }
-      return e.message;
+      developer.log('AuthenticateAws/signIn/error: $msgErro');
+      return ResAuth(isOK: false, msg: msgErro);
     }
   }
 
   @override
-  Future<dynamic> singUp({
+  Future<ResAuth> singUp({
     required String name,
     required String email,
     required String pass,
@@ -46,29 +51,33 @@ class AuthenticateAws extends Authenticate {
         password: pass,
         options: CognitoSignUpOptions(userAttributes: userAttributes),
       );
-
-      return result.isSignUpComplete;
+      return ResAuth(isOK: true, data: result);
     } on AuthException catch (e) {
-      // ignore: avoid_print
-      print('AuthenticateAws/login/error: ${e.message}');
-      if (e.message == 'Username already exists in the system.') {
-        return 'El correo electrónico tiene otro usuario asignado.';
+      String msgErr;
+      switch (e.message) {
+        case 'Username already exists in the system.':
+          msgErr = 'El correo electrónico tiene otro usuario asignado.';
+          break;
+        default:
+          msgErr = e.message;
       }
-      return e.message;
+      developer.log('AuthenticateAws/login/error: $msgErr');
+      return ResAuth(isOK: false, msg: msgErr);
     }
   }
 
   @override
-  Future<dynamic> resendCode({required String email}) async {
+  Future<ResAuth> resendCode({required String email}) async {
     try {
-      await Amplify.Auth.resendSignUpCode(username: email);
+      final res = await Amplify.Auth.resendSignUpCode(username: email);
+      return ResAuth(isOK: true, data: res);
     } on AuthException catch (e) {
-      return e.message;
+      return ResAuth(isOK: false, msg: e.message);
     }
   }
 
   @override
-  Future<dynamic> confirmSignUp({
+  Future<ResAuth> confirmSignUp({
     required String username,
     required String confirmationCode,
   }) async {
@@ -77,24 +86,28 @@ class AuthenticateAws extends Authenticate {
         username: username,
         confirmationCode: confirmationCode,
       );
-      return response.isSignUpComplete;
+      return ResAuth(isOK: true, data: response);
     } on AuthException catch (e) {
-      // ignore: avoid_print
-      print(e.message);
-      if (e.message == 'Confirmation code entered is not correct.') {
-        return 'El código de verificación que ingreso es incorrecto';
+      String msgErr = e.message;
+      switch (e.message) {
+        case 'Confirmation code entered is not correct.':
+          msgErr = 'El código de verificación que ingreso es incorrecto';
+          break;
+        default:
+          msgErr = e.message;
       }
-      return e.message;
+      developer.log('authenticate/confirmSignUp $msgErr');
+      return ResAuth(isOK: false, msg: msgErr);
     }
   }
 
   @override
-  Future<dynamic> logout() async {
+  Future<ResAuth> logout() async {
     try {
-      await Amplify.Auth.signOut();
+      final res = await Amplify.Auth.signOut();
+      return ResAuth(isOK: true, data: res);
     } on AuthException catch (e) {
-      // ignore: avoid_print
-      print(e.message);
+      return ResAuth(isOK: false, msg: e.message);
     }
   }
 

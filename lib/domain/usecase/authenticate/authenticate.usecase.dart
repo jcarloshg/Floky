@@ -1,25 +1,37 @@
+class ResAuth {
+  final bool isOK;
+  final String? msg;
+  final dynamic data;
+
+  ResAuth({
+    required this.isOK,
+    this.msg,
+    this.data,
+  });
+}
+
 abstract class Authenticate {
-  Future<dynamic> singIn({
+  Future<ResAuth> singIn({
     required String email,
     required String pass,
   });
 
-  Future<dynamic> singUp({
+  Future<ResAuth> singUp({
     required String name,
     required String email,
     required String pass,
   });
 
-  Future<dynamic> resendCode({
+  Future<ResAuth> resendCode({
     required String email,
   });
 
-  Future<dynamic> confirmSignUp({
+  Future<ResAuth> confirmSignUp({
     required String username,
     required String confirmationCode,
   });
 
-  Future<dynamic> logout();
+  Future<ResAuth> logout();
 
   void forgetPass();
 }

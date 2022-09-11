@@ -14,7 +14,7 @@ class AuthenticateBloc extends Bloc<AuthenticateEvent, AuthenticateState> {
   final Authenticate authenticate;
 
   AuthenticateBloc({required this.authenticate})
-      : super(AuthenticateInitial(student: Student.getVoidStudent())) {
+      : super(AuthenticateInitial(Params())) {
     on<AuthenticateEvent>((event, emit) {});
 
     on<AuthSingInEvent>(_authSingIn);
@@ -29,27 +29,33 @@ class AuthenticateBloc extends Bloc<AuthenticateEvent, AuthenticateState> {
   }
 
   FutureOr<void> _authCleanState(event, emit) {
-    return emit(AuthenticateInitial(student: Student.getVoidStudent()));
+    return emit(AuthenticateInitial(Params()));
   }
 
-  FutureOr<void> _authErrorEvent(event, emit) {
-    return emit(AuthErrorState(event.messageError));
+  FutureOr<void> _authErrorEvent(AuthErrorEvent event, emit) {
+    final student = state.params.student;
+    final params = Params(messageError: event.messageError, student: student);
+    return emit(params);
   }
 
   FutureOr<void> _authSingIn(event, emit) async {
-    emit(AuthenticateLoading());
+    emit(AuthenticateLoading(state.params));
 
     final String email = event.email;
     final String pass = event.pass;
     final response = await authenticate.singIn(email: email, pass: pass);
 
-    if (response.runtimeType == String) {
-      return emit(AuthErrorState(response));
-    }
+    final student = state.params.student;
+    final messageError = response.msg;
+    final params = Params(student: student, messageError: messageError);
+
+    return response.isOK == false
+        ? emit(AuthErrorState(params))
+        : emit(AuthLogInState(params));
   }
 
   FutureOr<void> _authSingUp(event, emit) async {
-    emit(AuthenticateLoading());
+    emit(AuthenticateLoading(state.params));
 
     final String name = event.name;
     final String registerSchool = event.registerSchool;
@@ -69,21 +75,25 @@ class AuthenticateBloc extends Bloc<AuthenticateEvent, AuthenticateState> {
       return emit(AuthErrorState(response));
     }
     if (response.runtimeType == bool && response == false) {
-      return emit(const AuthErrorState('Error inesperado'));
+      final student = state.params.student;
+      final params = Params(student: student, messageError: response);
+      return emit(AuthErrorState(params));
     }
+
     final Student student = Student('', '', email, name, '', registerSchool);
-    return emit(AuthSingUpState(student));
+    final params = Params(student: student);
+    return emit(AuthSingUpState(params));
   }
 
   FutureOr<void> _resendSignUpCode(event, emit) async {
-    emit(AuthenticateLoading());
+    emit(AuthenticateLoading(state.params));
     final String email = event.email;
     await authenticate.resendCode(email: email);
-    return emit(AuthResendSignUpCodeState());
+    return emit(AuthResendSignUpCodeState(state.params));
   }
 
   FutureOr<void> _confirmSignUp(AuthConfirmSignUpEvent event, emit) async {
-    emit(AuthenticateLoading());
+    emit(AuthenticateLoading(state.params));
 
     final String email = event.email;
     final String confirmationCode = event.confirmationCode;
@@ -94,16 +104,18 @@ class AuthenticateBloc extends Bloc<AuthenticateEvent, AuthenticateState> {
     );
 
     if (isConfirmedSignUp is String) {
-      return emit(AuthErrorState(isConfirmedSignUp));
+      final student = state.params.student;
+      final params = Params(student: student, messageError: isConfirmedSignUp);
+      return emit(AuthErrorState(params));
     }
 
-    return emit(AuthConfirmSignUpState());
+    return emit(AuthConfirmSignUpState(state.params));
   }
 
   FutureOr<void> _logOut(event, emit) async {
-    emit(AuthenticateLoading());
+    emit(AuthenticateLoading(state.params));
     await authenticate.logout();
-    return emit(AuthenticateInitial(student: Student.getVoidStudent()));
+    return emit(AuthenticateInitial(Params()));
   }
 
   void authErrorEvent(String error) {
