@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:floky/views/widgets/widgets.index.dart';
 
 class ButtonText extends StatelessWidget {
   const ButtonText({
@@ -12,10 +13,25 @@ class ButtonText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // return Container(
+    //   decoration: BoxDecoration(border: Border.all()),
+    //   child: MaterialButton(
+    //     onPressed: function,
+    //     // child: Text(label ?? ''),
+    //     child: Titles.thirdTitle(label ?? '[ButtonText_NOTLABEL]'),
+    //   ),
+    // );
     return TextButton(
       onPressed: function,
       child: Center(
-        child: Text(label ?? ''),
+        child: Text(
+          label ?? '',
+          style: TextStyle(
+            color: Colors.blueGrey.shade600,
+            fontSize: 14,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
       ),
     );
   }

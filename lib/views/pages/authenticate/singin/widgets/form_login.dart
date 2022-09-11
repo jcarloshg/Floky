@@ -13,38 +13,36 @@ class FormLogin extends StatelessWidget {
     final loginController = di<LoginController>().getController(context);
     final formController = loginController.loginFormController;
 
-    return Form(
-      key: formController.formLoginKey,
-      autovalidateMode: AutovalidateMode.onUserInteraction,
-      child: Container(
-        margin: const EdgeInsets.all(5),
+    return Container(
+      decoration: BoxDecoration(border: Border.all(), color: Colors.white),
+      padding: const EdgeInsets.symmetric(vertical: 30),
+      child: Form(
+        key: formController.formLoginKey,
+        autovalidateMode: AutovalidateMode.onUserInteraction,
         child: Column(
-          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            Titles.title('Floky'),
             InputEmail(emailControl: formController.emailControl),
             InputPass(passControl: formController.passControl),
-            ButtonText(
-              function: () => loginController.goEnterUsername(context),
-              label: 'Olvide mi contraseña',
-            ),
-            TextButton(
-              onPressed: () => loginController.goEnterUsername(context),
-              child: const Text(
-                'Olvide mi contraseña',
-                textAlign: TextAlign.right,
-              ),
-            ),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.end,
+            //   children: [
+            //     ButtonText(
+            //       function: () => loginController.goEnterUsername(context),
+            //       label: '¿Olvidaste tu contraseña?',
+            //     ),
+            //   ],
+            // ),
             const IsExistError(),
             _isLoadingButtonLoggin(loginController.login),
-            ButtonSecondary(
-              label: 'Registrarse',
-              function: () => loginController.goFormRegisterScreen(context),
-            ),
-            TextButton(
-              onPressed: loginController.logout,
-              child: const Text('LogOut'),
-            ),
+            // ButtonSecondary(
+            //   label: 'Registrarse',
+            //   function: () => loginController.goFormRegisterScreen(context),
+            // ),
+            // TextButton(
+            //   onPressed: loginController.logout,
+            //   child: const Text('LogOut'),
+            // ),
           ],
         ),
       ),
