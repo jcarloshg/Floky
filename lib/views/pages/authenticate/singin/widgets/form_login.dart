@@ -24,15 +24,18 @@ class FormLogin extends StatelessWidget {
             Titles.title('Floky'),
             InputEmail(emailControl: formController.emailControl),
             InputPass(passControl: formController.passControl),
+            TextButton(
+              onPressed: () => loginController.goEnterUsername(context),
+              child: const Text(
+                'Olvide mi contraseña',
+                textAlign: TextAlign.right,
+              ),
+            ),
             const IsExistError(),
             _isLoadingButtonLoggin(loginController.login),
             ButtonSecondary(
               label: 'Registrarse',
               function: () => loginController.goFormRegisterScreen(context),
-            ),
-            TextButton(
-              onPressed: () {},
-              child: const Text('Olvide mi contraseña'),
             ),
             TextButton(
               onPressed: loginController.logout,

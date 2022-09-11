@@ -21,13 +21,13 @@ class Titles {
     return Container(
       width: double.infinity,
       // decoration: BoxDecoration(border: Border.all()),
-      margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+      margin: const EdgeInsets.only(left: 15, right: 15, top: 5, bottom: 15),
       child: Text(
         subtitle ?? '[NOT_SUBTITLE]',
         textAlign: isCenter! ? TextAlign.center : TextAlign.left,
         style: TextStyle(
           color: Colors.blueGrey.shade600,
-          fontSize: 16,
+          fontSize: 18,
           fontWeight: FontWeight.w600,
         ),
       ),
@@ -39,7 +39,7 @@ class Titles {
       width: double.infinity,
       // decoration: BoxDecoration(border: Border.all()),
       // margin: const EdgeInsets.symmetric(vertical: 5),
-      margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+      margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
       child: Text(
         thirdTitle ?? '[NOT_thirdTitle]',
         textAlign: isCenter! ? TextAlign.center : TextAlign.left,

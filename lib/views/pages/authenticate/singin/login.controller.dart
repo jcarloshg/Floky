@@ -44,4 +44,10 @@ class LoginController {
     Navigator.pushNamed(context, PageIndex.formRegisterScreen.route);
     // Navigator.pushNamed(context, PageIndex.confirmationRegister.route);
   }
+
+  void goEnterUsername(BuildContext context) {
+    authenticateBloc.cleanState();
+    Navigator.pushNamed(context, PageIndex.enterUsername.route);
+    // Navigator.pushNamed(context, PageIndex.confirmationRegister.route);
+  }
 }
