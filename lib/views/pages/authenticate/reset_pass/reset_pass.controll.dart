@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class EnterUsernameFormController {
-  final GlobalKey<FormState> formEnterUsername = GlobalKey<FormState>();
+  final GlobalKey<FormState> formEnterUsernameKey = GlobalKey<FormState>();
   final TextEditingController email = TextEditingController();
   EnterUsernameFormController();
 }

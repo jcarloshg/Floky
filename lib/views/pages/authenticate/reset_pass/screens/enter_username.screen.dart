@@ -14,20 +14,23 @@ class EnterUsername extends StatelessWidget {
 
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            const SizedBox(height: 20),
-            Titles.title("Ingresa tu correo electrónico"),
-            Titles.thirdTitle(
-              "Recibirás un código para poder restablecer tu contraseña.",
-            ),
-            InputEmail(emailControl: enterUsernameFormController.email),
-            Button(
-              function: resetPassControll.sendCodeResetPass,
-              label: "Enviar código",
-            ),
-          ],
+        child: Form(
+          key: enterUsernameFormController.formEnterUsernameKey,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              const SizedBox(height: 20),
+              Titles.title("Ingresa tu correo electrónico"),
+              Titles.thirdTitle(
+                "Recibirás un código para poder restablecer tu contraseña.",
+              ),
+              InputEmail(emailControl: enterUsernameFormController.email),
+              Button(
+                function: resetPassControll.sendCodeResetPass,
+                label: "Enviar código",
+              ),
+            ],
+          ),
         ),
       ),
     );

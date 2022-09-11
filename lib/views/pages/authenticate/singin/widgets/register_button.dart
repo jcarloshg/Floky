@@ -13,10 +13,11 @@ class RegisterButton extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Titles.text('¿Deseas aprender inglés?', withMargin: false),
-        ButtonText(
+        // Titles.text('¿Deseas aprender inglés?', withMargin: false),
+        ButtonTextAndText(
           function: () => loginController.goFormRegisterScreen(context),
-          label: 'Registrarse aquí',
+          label: '¿Deseas aprender inglés?',
+          labelButton: 'Registrarse aquí',
         ),
       ],
     );

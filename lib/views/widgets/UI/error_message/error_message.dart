@@ -11,7 +11,7 @@ class ErrorMessage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+      margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
       // decoration: BoxDecoration(border: Border.all()),
       child: Row(
         children: [

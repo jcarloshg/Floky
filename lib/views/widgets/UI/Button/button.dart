@@ -9,11 +9,13 @@ class Button extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       width: double.infinity,
-      height: 45,
+      // decoration: BoxDecoration(border: Border.all()),
+      padding: const EdgeInsets.symmetric(vertical: 15),
+      margin: const EdgeInsets.symmetric(horizontal: 15),
       child: MaterialButton(
         // onPressed: (function == null) ? () {} : function!(),
+        height: 45,
         onPressed: function,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         color: Theme.of(context).primaryColor,
