@@ -17,8 +17,9 @@ export 'package:floky/views/widgets/Inputs/input_code_verification/input_code_ve
 //============================================================
 // buttons
 //============================================================
-export 'package:floky/views/widgets/UI/Button/button.dart';
 export 'package:floky/views/widgets/UI/button_secondary/button_secondary.dart';
+export 'package:floky/views/widgets/UI/button_text/button_text.dart';
+export 'package:floky/views/widgets/UI/Button/button.dart';
 // button categories
 export 'package:floky/views/widgets/UI/Button_Categories/grid_buttons_categories.dart';
 

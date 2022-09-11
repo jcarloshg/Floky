@@ -24,6 +24,10 @@ class FormLogin extends StatelessWidget {
             Titles.title('Floky'),
             InputEmail(emailControl: formController.emailControl),
             InputPass(passControl: formController.passControl),
+            ButtonText(
+              function: () => loginController.goEnterUsername(context),
+              label: 'Olvide mi contraseña',
+            ),
             TextButton(
               onPressed: () => loginController.goEnterUsername(context),
               child: const Text(
