@@ -15,6 +15,7 @@ class ActivitiesByCategoryScreen extends StatelessWidget {
 
     return Scaffold(
       body: SafeArea(
+        // ignore: avoid_unnecessary_containers
         child: Container(
           // decoration: _boxDecoration(category.color),
           child: SingleChildScrollView(

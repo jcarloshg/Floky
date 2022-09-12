@@ -21,7 +21,7 @@ class ConfirmationRegister extends StatelessWidget {
               _logo(),
               Titles.title('Ya eres parte de la comunidad de Floky'),
               const SizedBox(height: 15),
-              Titles.subtitle(
+              Titles.thirdTitle(
                 'Aquí podrás adquirir nuevos conocimientos acerca del idioma Inglés',
               ),
               const SizedBox(height: 60),

@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 class Student {
   final String _id;
   final String _college;
@@ -31,15 +33,10 @@ class Student {
         'registerCollege': _registerCollege,
       };
 
-  static Map toMap() => {
-        'id': '',
-        'college': '',
-        'emial': '',
-        'lastName': '',
-        'name': '',
-        'picture': '',
-        'registerCollege': '',
-      };
+  @override
+  String toString() {
+    return json.encode(toJson());
+  }
 
   static getVoidStudent() => Student('', '', '', '', '', '');
 }

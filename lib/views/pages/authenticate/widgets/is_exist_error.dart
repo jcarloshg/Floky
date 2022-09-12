@@ -10,8 +10,9 @@ class IsExistError extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<AuthenticateBloc, AuthenticateState>(
       builder: (context, state) {
-        return state is AuthErrorState
-            ? ErrorMessage(error: state.messageError)
+        final String? msgErr = state.params.messageError;
+        return (state is AuthErrorState)
+            ? ErrorMessage(error: msgErr)
             : const SizedBox();
       },
     );

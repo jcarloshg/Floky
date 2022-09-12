@@ -26,10 +26,10 @@ class ConfirmAccountScreen extends StatelessWidget {
               children: [
                 const SizedBox(height: 15),
                 Titles.title('Confirma tu cuenta'),
-                Titles.subtitle(
+                Titles.thirdTitle(
                   'Se le envió un código de verificación a su correo electrónico',
                 ),
-                const SizedBox(height: 30),
+                const SizedBox(height: 15),
                 InputCodeVerification(
                   controll: confirmSignUpFormController.codeVerification,
                 ),

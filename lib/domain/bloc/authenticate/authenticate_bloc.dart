@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 // ignore: depend_on_referenced_packages
 import 'package:meta/meta.dart';
+import 'dart:developer' as developer;
 
 import 'package:floky/domain/usecase/authenticate/authenticate.usecase.dart';
 import 'package:floky/domain/entities/entities.index.dart';
@@ -16,16 +17,13 @@ class AuthenticateBloc extends Bloc<AuthenticateEvent, AuthenticateState> {
   AuthenticateBloc({required this.authenticate})
       : super(AuthenticateInitial(Params())) {
     on<AuthenticateEvent>((event, emit) {});
-
-    on<AuthSingInEvent>(_authSingIn);
-
-    on<AuthSingUpEvent>(_authSingUp);
-    on<AuthResendSignUpCodeEvent>(_resendSignUpCode);
-    on<AuthConfirmSignUpEvent>(_confirmSignUp);
-
-    on<LogOut>(_logOut);
     on<AuthCleanState>(_authCleanState);
     on<AuthErrorEvent>(_authErrorEvent);
+    on<AuthSingInEvent>(_authSingIn); // login
+    on<AuthSingUpEvent>(_authSingUp); // singup
+    on<AuthConfirmSignUpEvent>(_confirmSignUp);
+    on<AuthResendSignUpCodeEvent>(_resendSignUpCode); // reset pass
+    on<LogOut>(_logOut); // logout
   }
 
   FutureOr<void> _authCleanState(event, emit) {
@@ -34,8 +32,9 @@ class AuthenticateBloc extends Bloc<AuthenticateEvent, AuthenticateState> {
 
   FutureOr<void> _authErrorEvent(AuthErrorEvent event, emit) {
     final student = state.params.student;
-    final params = Params(messageError: event.messageError, student: student);
-    return emit(params);
+    final msg = event.messageError;
+    final params = Params(messageError: msg, student: student);
+    return emit(AuthErrorState(params));
   }
 
   FutureOr<void> _authSingIn(event, emit) async {
@@ -68,48 +67,56 @@ class AuthenticateBloc extends Bloc<AuthenticateEvent, AuthenticateState> {
       pass: pass,
     );
 
-    // ignore: avoid_print
-    print('auth/singup $response');
+    developer.log('auth/singup ${response.isOK}');
 
-    if (response.runtimeType == String) {
-      return emit(AuthErrorState(response));
-    }
-    if (response.runtimeType == bool && response == false) {
-      final student = state.params.student;
-      final params = Params(student: student, messageError: response);
-      return emit(AuthErrorState(params));
-    }
+    final student = Student('', '', email, name, '', registerSchool);
+    final message = response.msg;
+    // final data = response.data;
+    final params = Params(student: student, messageError: message);
 
-    final Student student = Student('', '', email, name, '', registerSchool);
-    final params = Params(student: student);
-    return emit(AuthSingUpState(params));
+    return response.isOK
+        ? emit(AuthSingUpState(params))
+        : emit(AuthErrorState(params));
   }
 
   FutureOr<void> _resendSignUpCode(event, emit) async {
+    final Student? plokstudent = state.params.student;
+    developer.log(plokstudent.toString());
+    developer.log(plokstudent!.emial);
     emit(AuthenticateLoading(state.params));
     final String email = event.email;
-    await authenticate.resendCode(email: email);
-    return emit(AuthResendSignUpCodeState(state.params));
+
+    final resResendCode = await authenticate.resendCode(email: email);
+
+    final Student? student = state.params.student;
+    final msg = resResendCode.msg;
+    final params = Params(student: student, messageError: msg);
+
+    return resResendCode.isOK
+        ? emit(AuthResendSignUpCodeState(params))
+        : emit(AuthErrorState(params));
   }
 
   FutureOr<void> _confirmSignUp(AuthConfirmSignUpEvent event, emit) async {
     emit(AuthenticateLoading(state.params));
 
+    developer.log('_confirmSignUp: ${state.params.student.toString()}');
+
     final String email = event.email;
     final String confirmationCode = event.confirmationCode;
 
-    final isConfirmedSignUp = await authenticate.confirmSignUp(
+    final resConfirmSignUp = await authenticate.confirmSignUp(
       username: email,
       confirmationCode: confirmationCode,
     );
 
-    if (isConfirmedSignUp is String) {
-      final student = state.params.student;
-      final params = Params(student: student, messageError: isConfirmedSignUp);
-      return emit(AuthErrorState(params));
-    }
+    final Student? student = state.params.student;
+    final String? message = resConfirmSignUp.msg;
+    final params = Params(student: student, messageError: message);
 
-    return emit(AuthConfirmSignUpState(state.params));
+    return resConfirmSignUp.isOK
+        ? emit(AuthConfirmSignUpState(params))
+        : emit(AuthErrorState(params));
   }
 
   FutureOr<void> _logOut(event, emit) async {

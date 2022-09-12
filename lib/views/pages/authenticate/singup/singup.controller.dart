@@ -5,9 +5,11 @@
 //    3. confirmation_register
 //============================================================
 
+import 'package:floky/domain/entities/entities.index.dart';
+import 'package:flutter/material.dart';
+import 'dart:developer' as developer;
 import 'package:floky/domain/bloc/authenticate/authenticate_bloc.dart';
 import 'package:floky/views/pages/pages.index.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SingUpFormController {
@@ -37,26 +39,15 @@ class SingupController {
     return this;
   }
 
-  void printStatus() {
-    final String name = singUpFormController.name.text.trim();
-    final String registerSchool =
-        singUpFormController.registerSchool.text.trim();
-    final String email = singUpFormController.email.text.trim();
-    final String pass = singUpFormController.pass.text.trim();
-    // ignore: avoid_print
-    print('singUpFormController : $name $registerSchool $email $pass');
-
-    final codeVerification =
-        confirmSignUpFormController.codeVerification.text.trim();
-    // ignore: avoid_print
-    print('confirmSignUpFormController : $codeVerification');
-  }
+  void printStatus() {}
 
   void singUp() {
     final isValidForm =
         singUpFormController.formRegisterKey.currentState?.validate();
     if (isValidForm == false) {
-      return authenticateBloc.authErrorEvent('Ingresa los datos correctamente');
+      return authenticateBloc.add(
+        AuthErrorEvent(messageError: 'Ingresa los datos correctamente'),
+      );
     }
 
     final String name = singUpFormController.name.text.trim();
@@ -75,22 +66,29 @@ class SingupController {
   void confirmSignUp() {
     final isValidForm =
         confirmSignUpFormController.confirmSignUpKey.currentState?.validate();
+
     if (isValidForm == false) {
-      return authenticateBloc.authErrorEvent('Deben ser ser dígitos');
+      return authenticateBloc.add(
+        AuthErrorEvent(messageError: 'Deben ser ser dígitos'),
+      );
     }
 
-    final email = singUpFormController.email.text.trim();
+    final Student? student = authenticateBloc.state.params.student;
+    final email = student?.emial ?? 'HOLA MI PA';
     final confirmationCode =
         confirmSignUpFormController.codeVerification.text.trim();
-
-    return authenticateBloc.add(AuthConfirmSignUpEvent(
-      email: email,
-      confirmationCode: confirmationCode,
-    ));
+    return authenticateBloc.add(
+      AuthConfirmSignUpEvent(
+        email: email,
+        confirmationCode: confirmationCode,
+      ),
+    );
   }
 
   void resendSignUpCode() {
-    final email = singUpFormController.email.text.trim();
+    final Student? student = authenticateBloc.state.params.student;
+    final email = student?.emial ?? 'HOLA MI PA';
+    developer.log(' resendSignUpCode: $email');
     authenticateBloc.add(AuthResendSignUpCodeEvent(email: email));
   }
 
@@ -98,17 +96,18 @@ class SingupController {
   // functions navigation
   //============================================================
   void goConfirmAccountScreen(BuildContext context) {
-    authenticateBloc.cleanState();
     Navigator.pushNamed(context, PageIndex.confirmAccountScreen.route);
   }
 
   void goConfirmationRegister(BuildContext context) {
-    authenticateBloc.cleanState();
     Navigator.pushNamed(context, PageIndex.confirmationRegister.route);
   }
 
   void goLoginScreen(BuildContext context) {
-    authenticateBloc.cleanState();
-    Navigator.pushNamed(context, PageIndex.loginScreen.route);
+    Navigator.of(context).pushNamedAndRemoveUntil(
+      PageIndex.loginScreen.route,
+      (Route<dynamic> route) => false,
+    );
+    // Navigator.(context, PageIndex.loginScreen.route);
   }
 }

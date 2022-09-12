@@ -16,6 +16,12 @@ class ResetPassControll {
   ResetPassControll getController(BuildContext context) {
     final authenticateBloc = BlocProvider.of<AuthenticateBloc>(context);
     this.authenticateBloc = authenticateBloc;
+
+    // setEmail to [formEnterUsernameKey]
+    final String? emailState = authenticateBloc.state.params.student?.emial;
+    final String currentEmail = emailState ?? '';
+    enterUsernameFormController.email.text = currentEmail;
+
     return this;
   }
 

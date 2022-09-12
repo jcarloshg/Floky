@@ -34,9 +34,10 @@ _view() async {
   // only needs a unique object from [SingupController] to all
   // screens that pertains to nominal case [SingUp]
   //============================================================
-  di.registerLazySingleton<LoginController>(() => LoginController());
-  di.registerLazySingleton<SingupController>(() => SingupController());
-  di.registerLazySingleton<ResetPassControll>(() => ResetPassControll());
+  // di.registerFactory<LoginController>(() => LoginController());
+  di.registerSingleton(LoginController(), signalsReady: true);
+  di.registerSingleton(SingupController(), signalsReady: true);
+  di.registerSingleton(ResetPassControll(), signalsReady: true);
 
   return await null;
 }

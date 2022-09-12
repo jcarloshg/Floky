@@ -8,8 +8,8 @@ class Titles {
       margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
       child: Text(
         title ?? '[NOT_TITLE]',
-        style: TextStyle(
-          color: Colors.blueGrey.shade600,
+        style: const TextStyle(
+          color: Color.fromARGB(255, 56, 72, 80),
           fontSize: 26,
           fontWeight: FontWeight.bold,
         ),
@@ -25,8 +25,8 @@ class Titles {
       child: Text(
         subtitle ?? '[NOT_SUBTITLE]',
         textAlign: isCenter! ? TextAlign.center : TextAlign.left,
-        style: TextStyle(
-          color: Colors.blueGrey.shade600,
+        style: const TextStyle(
+          color: Color.fromARGB(255, 56, 72, 80),
           fontSize: 18,
           fontWeight: FontWeight.w600,
         ),
@@ -43,8 +43,8 @@ class Titles {
       child: Text(
         thirdTitle ?? '[NOT_thirdTitle]',
         textAlign: isCenter! ? TextAlign.center : TextAlign.left,
-        style: TextStyle(
-          color: Colors.blueGrey.shade600,
+        style: const TextStyle(
+          color: Color.fromARGB(255, 56, 72, 80),
           fontSize: 16,
           fontWeight: FontWeight.w500,
         ),

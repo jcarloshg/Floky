@@ -29,7 +29,7 @@ class EnterUsername extends StatelessWidget {
                 emailControl: enterUsernameFormController.email,
               ),
               const ErrorMessage(
-                error: 'Todo mal',
+                error: 'Todo mal[dropthisI]',
               ),
               Button(
                 function: resetPassControll.sendCodeResetPass,

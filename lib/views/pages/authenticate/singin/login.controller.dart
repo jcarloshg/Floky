@@ -1,3 +1,10 @@
+//============================================================
+//  secuence pages
+//    1. LoginScreen
+//============================================================
+
+import 'dart:developer';
+
 import 'package:floky/views/pages/pages.index.dart';
 import 'package:flutter/material.dart';
 import 'package:floky/domain/bloc/authenticate/authenticate_bloc.dart';
@@ -11,13 +18,21 @@ class LoginFormController {
 }
 
 class LoginController {
-  final LoginFormController loginFormController = LoginFormController();
+  LoginFormController loginFormController = LoginFormController();
   late AuthenticateBloc authenticateBloc;
 
   /// get the [BlocProvider] by [context] and return [LoginController]
-  LoginController getController(BuildContext context) {
+  /// isFirstScreen is the flag parameter to get a new [LoginFormController]
+  /// this is because the GlobalKey<FormState> is could not be the same a
+  /// other GlobalKey already register in the tree components
+  LoginController getController(
+    BuildContext context, {
+    bool isFirstScreen = false,
+  }) {
     final authenticateBloc = BlocProvider.of<AuthenticateBloc>(context);
     this.authenticateBloc = authenticateBloc;
+    if (isFirstScreen) loginFormController = LoginFormController();
+    log(loginFormController.formLoginKey.toString());
     return this;
   }
 
@@ -40,13 +55,14 @@ class LoginController {
   // functions navigation
   //============================================================
   void goFormRegisterScreen(BuildContext context) {
-    authenticateBloc.cleanState();
     Navigator.pushNamed(context, PageIndex.formRegisterScreen.route);
-    // Navigator.pushNamed(context, PageIndex.confirmationRegister.route);
+  }
+
+  void goConfirmationRegister(BuildContext context) {
+    Navigator.pushNamed(context, PageIndex.confirmationRegister.route);
   }
 
   void goEnterUsername(BuildContext context) {
-    authenticateBloc.cleanState();
     Navigator.pushNamed(context, PageIndex.enterUsername.route);
     // Navigator.pushNamed(context, PageIndex.confirmationRegister.route);
   }
