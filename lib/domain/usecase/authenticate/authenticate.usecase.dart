@@ -33,5 +33,7 @@ abstract class Authenticate {
 
   Future<ResAuth> logout();
 
-  void forgetPass();
+  Future<ResAuth> forgetPass({
+    required String email,
+  });
 }

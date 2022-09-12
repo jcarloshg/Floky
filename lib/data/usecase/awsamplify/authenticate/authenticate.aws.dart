@@ -112,5 +112,33 @@ class AuthenticateAws extends Authenticate {
   }
 
   @override
-  void forgetPass() {}
+  Future<ResAuth> forgetPass({required String email}) async {
+    try {
+      final resResetPassword = await Amplify.Auth.resetPassword(
+        username: email,
+      );
+      developer.log(
+        'AuthenticateAws/forgetPass: ${resResetPassword.toString()}',
+      );
+      return ResAuth(isOK: true, data: resResetPassword);
+    } on AuthException catch (e) {
+      String msgErro;
+      switch (e.message) {
+        case 'User not found in the system.':
+          msgErro = 'El usuario no existe';
+          break;
+        case 'User not confirmed in the system.':
+          msgErro = 'Cuenta no confirmada.';
+          break;
+
+        case 'Failed since user is not authorized.':
+          msgErro = 'Correo electrónico o contraseña incorrectos';
+          break;
+        default:
+          msgErro = e.message;
+      }
+      developer.log('AuthenticateAws/forgetPass/error: $msgErro');
+      return ResAuth(isOK: false, msg: msgErro);
+    }
+  }
 }

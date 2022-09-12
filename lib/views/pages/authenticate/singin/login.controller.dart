@@ -63,7 +63,7 @@ class LoginController {
   }
 
   void goEnterUsername(BuildContext context) {
-    Navigator.pushNamed(context, PageIndex.enterUsername.route);
-    // Navigator.pushNamed(context, PageIndex.confirmationRegister.route);
+    // Navigator.pushNamed(context, PageIndex.enterUsername.route);
+    Navigator.pushNamed(context, PageIndex.confirmResetPassword.route);
   }
 }

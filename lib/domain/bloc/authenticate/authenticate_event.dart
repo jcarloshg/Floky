@@ -36,9 +36,7 @@ class AuthSingUpEvent extends AuthenticateEvent {
 
 class AuthResendSignUpCodeEvent extends AuthenticateEvent {
   final String email;
-  AuthResendSignUpCodeEvent({
-    required this.email,
-  });
+  AuthResendSignUpCodeEvent({required this.email});
 }
 
 class AuthConfirmSignUpEvent extends AuthenticateEvent {
@@ -49,6 +47,11 @@ class AuthConfirmSignUpEvent extends AuthenticateEvent {
     required this.email,
     required this.confirmationCode,
   });
+}
+
+class AuthSendCodeResetPassEvent extends AuthenticateEvent {
+  final String email;
+  AuthSendCodeResetPassEvent({required this.email});
 }
 
 class LogOut extends AuthenticateEvent {}

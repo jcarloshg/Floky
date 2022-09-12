@@ -39,3 +39,7 @@ class AuthResendSignUpCodeState extends AuthenticateState {
 class AuthConfirmSignUpState extends AuthenticateState {
   const AuthConfirmSignUpState(Params params) : super(params);
 }
+
+class AuthSendCodeResetPassState extends AuthenticateState {
+  const AuthSendCodeResetPassState(Params params) : super(params);
+}

@@ -22,7 +22,8 @@ class AuthenticateBloc extends Bloc<AuthenticateEvent, AuthenticateState> {
     on<AuthSingInEvent>(_authSingIn); // login
     on<AuthSingUpEvent>(_authSingUp); // singup
     on<AuthConfirmSignUpEvent>(_confirmSignUp);
-    on<AuthResendSignUpCodeEvent>(_resendSignUpCode); // reset pass
+    on<AuthResendSignUpCodeEvent>(_resendSignUpCode);
+    on<AuthSendCodeResetPassEvent>(_sendCodeResetPass); // reset pass
     on<LogOut>(_logOut); // logout
   }
 
@@ -80,12 +81,9 @@ class AuthenticateBloc extends Bloc<AuthenticateEvent, AuthenticateState> {
   }
 
   FutureOr<void> _resendSignUpCode(event, emit) async {
-    final Student? plokstudent = state.params.student;
-    developer.log(plokstudent.toString());
-    developer.log(plokstudent!.emial);
     emit(AuthenticateLoading(state.params));
-    final String email = event.email;
 
+    final String email = event.email;
     final resResendCode = await authenticate.resendCode(email: email);
 
     final Student? student = state.params.student;
@@ -99,8 +97,6 @@ class AuthenticateBloc extends Bloc<AuthenticateEvent, AuthenticateState> {
 
   FutureOr<void> _confirmSignUp(AuthConfirmSignUpEvent event, emit) async {
     emit(AuthenticateLoading(state.params));
-
-    developer.log('_confirmSignUp: ${state.params.student.toString()}');
 
     final String email = event.email;
     final String confirmationCode = event.confirmationCode;
@@ -116,6 +112,23 @@ class AuthenticateBloc extends Bloc<AuthenticateEvent, AuthenticateState> {
 
     return resConfirmSignUp.isOK
         ? emit(AuthConfirmSignUpState(params))
+        : emit(AuthErrorState(params));
+  }
+
+  FutureOr<void> _sendCodeResetPass(
+    AuthSendCodeResetPassEvent event,
+    Emitter<AuthenticateState> emit,
+  ) async {
+    emit(AuthenticateLoading(state.params));
+    final String emailToSendCode = event.email;
+    final resForgetPass = await authenticate.forgetPass(email: emailToSendCode);
+
+    final Student? student = state.params.student;
+    final String? message = resForgetPass.msg;
+    final params = Params(student: student, messageError: message);
+
+    return resForgetPass.isOK
+        ? emit(AuthSendCodeResetPassState(params))
         : emit(AuthErrorState(params));
   }
 

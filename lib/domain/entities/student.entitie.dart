@@ -24,7 +24,7 @@ class Student {
   String get picture => _picture;
   String get registerCollege => _registerCollege;
 
-  Map toJson() => {
+  Map<String, dynamic> toJson() => {
         'id': _id,
         'college': _college,
         'emial': _emial,
@@ -39,4 +39,15 @@ class Student {
   }
 
   static getVoidStudent() => Student('', '', '', '', '', '');
+
+  static Student studentByMap(Map<String, dynamic> newData) {
+    return Student(
+      newData['id'],
+      newData['college'],
+      newData['emial'],
+      newData['name'],
+      newData['picture'],
+      newData['registerCollege'],
+    );
+  }
 }

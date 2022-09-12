@@ -11,6 +11,7 @@
 import 'package:floky/views/pages/activities/activities_by_category/activities_by_category.dart';
 import 'package:floky/views/pages/activities/activities.index.dart';
 import 'package:floky/views/pages/authenticate/authenticate.index.dart';
+import 'package:floky/views/pages/authenticate/reset_pass/screens/confirm_reset_password.screen.dart';
 import 'package:floky/views/pages/authenticate/reset_pass/screens/enter_username.screen.dart';
 import 'package:floky/views/pages/authenticate/singin/screens/login.screen.dart';
 import 'package:floky/views/pages/authenticate/singup/screens/confirm_account.scree.dart';
@@ -87,6 +88,10 @@ class PageIndex {
     route: 'enterUsername',
     screen: const EnterUsername(),
   );
+  static final confirmResetPassword = _Page(
+    route: 'confirmResetPassword',
+    screen: const ConfirmResetPassword(),
+  );
 
   //============================================================
   // ! FIX NAVIGATION
@@ -162,6 +167,7 @@ class PageIndex {
 
     // auth/resetpass
     pages.add(enterUsername);
+    pages.add(confirmResetPassword);
 
     Map<String, Widget Function(BuildContext)> appRoutes = {};
 

@@ -1,6 +1,8 @@
+import 'package:flutter/material.dart';
+import 'package:floky/views/pages/authenticate/widgets/is_exist_error.dart';
 import 'package:floky/dependencyInjection/setup_di.dart';
 import 'package:floky/views/pages/authenticate/reset_pass/reset_pass.controll.dart';
-import 'package:flutter/material.dart';
+import 'package:floky/views/pages/authenticate/widgets/widgets.index.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
 
 class EnterUsername extends StatelessWidget {
@@ -28,17 +30,27 @@ class EnterUsername extends StatelessWidget {
               InputEmail(
                 emailControl: enterUsernameFormController.email,
               ),
-              const ErrorMessage(
-                error: 'Todo mal[dropthisI]',
-              ),
-              Button(
-                function: resetPassControll.sendCodeResetPass,
-                label: "Enviar código",
-              ),
+              const IsExistError(),
+              _isLoadingButtonSendCode(resetPassControll.sendCodeResetPass),
+              // BlocListener<AuthenticateBloc, AuthenticateState>(
+              //   listenWhen: (previous, current) =>
+              //       current is AuthSendCodeResetPassState,
+              //   listener: (context, state) =>
+              //       singUpProvider.goConfirmAccountScreen(context),
+              //   child: const SizedBox(),
+              // ),
             ],
           ),
         ),
       ),
     );
+  }
+
+  Widget _isLoadingButtonSendCode(void Function() sendCodeResetPass) {
+    final Button button = Button(
+      function: sendCodeResetPass,
+      label: "Enviar código",
+    );
+    return StackWidgetLoading(widget: button);
   }
 }

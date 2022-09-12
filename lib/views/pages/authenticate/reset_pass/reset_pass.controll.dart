@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:floky/domain/bloc/authenticate/authenticate_bloc.dart';
+import 'package:floky/views/pages/pages.index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -26,7 +29,15 @@ class ResetPassControll {
   }
 
   void sendCodeResetPass() {
-    // ignore: avoid_print
-    print(enterUsernameFormController.email.text);
+    final String email = enterUsernameFormController.email.text.trim();
+    log(' resendSignUpCode: $email');
+    authenticateBloc.add(AuthSendCodeResetPassEvent(email: email));
+  }
+
+  //============================================================
+  // functions navigation
+  //============================================================
+  void goConfirmAccountScreen(BuildContext context) {
+    Navigator.pushNamed(context, PageIndex.confirmAccountScreen.route);
   }
 }
