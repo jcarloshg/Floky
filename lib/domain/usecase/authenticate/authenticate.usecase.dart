@@ -36,4 +36,10 @@ abstract class Authenticate {
   Future<ResAuth> forgetPass({
     required String email,
   });
+
+  Future<ResAuth> confirmResetPassword({
+    required String username,
+    required String newPass,
+    required String confirmationCode,
+  });
 }

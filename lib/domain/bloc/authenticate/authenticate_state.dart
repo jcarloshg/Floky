@@ -3,7 +3,10 @@ part of 'authenticate_bloc.dart';
 class Params {
   final Student? student;
   final String? messageError;
-  Params({this.student, this.messageError});
+  Params({
+    this.student,
+    this.messageError,
+  });
 }
 
 @immutable
@@ -42,4 +45,8 @@ class AuthConfirmSignUpState extends AuthenticateState {
 
 class AuthSendCodeResetPassState extends AuthenticateState {
   const AuthSendCodeResetPassState(Params params) : super(params);
+}
+
+class AuthConfirmResetPasswordState extends AuthenticateState {
+  const AuthConfirmResetPasswordState(Params params) : super(params);
 }

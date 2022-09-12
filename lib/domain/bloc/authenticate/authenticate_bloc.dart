@@ -24,6 +24,7 @@ class AuthenticateBloc extends Bloc<AuthenticateEvent, AuthenticateState> {
     on<AuthConfirmSignUpEvent>(_confirmSignUp);
     on<AuthResendSignUpCodeEvent>(_resendSignUpCode);
     on<AuthSendCodeResetPassEvent>(_sendCodeResetPass); // reset pass
+    on<AuthConfirmResetPasswordEvent>(_confirmResetPassword);
     on<LogOut>(_logOut); // logout
   }
 
@@ -129,6 +130,33 @@ class AuthenticateBloc extends Bloc<AuthenticateEvent, AuthenticateState> {
 
     return resForgetPass.isOK
         ? emit(AuthSendCodeResetPassState(params))
+        : emit(AuthErrorState(params));
+  }
+
+  FutureOr<void> _confirmResetPassword(
+    AuthConfirmResetPasswordEvent event,
+    Emitter<AuthenticateState> emit,
+  ) async {
+    emit(AuthenticateLoading(state.params));
+
+    final String username = event.username;
+    final String newPass = event.newPass;
+    final String confirmationCode = event.confirmationCode;
+
+    final resConfirmResetPassword = await authenticate.confirmResetPassword(
+      username: username,
+      newPass: newPass,
+      confirmationCode: confirmationCode,
+    );
+
+    final student = state.params.student;
+    final message = resConfirmResetPassword.msg;
+    final Params params = Params(student: student, messageError: message);
+
+    developer.log('authBloc/_confiResetPass: ${resConfirmResetPassword.isOK}');
+
+    return resConfirmResetPassword.isOK
+        ? emit(AuthConfirmResetPasswordState(params))
         : emit(AuthErrorState(params));
   }
 

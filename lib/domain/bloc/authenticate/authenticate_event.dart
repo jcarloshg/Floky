@@ -54,4 +54,16 @@ class AuthSendCodeResetPassEvent extends AuthenticateEvent {
   AuthSendCodeResetPassEvent({required this.email});
 }
 
+class AuthConfirmResetPasswordEvent extends AuthenticateEvent {
+  final String username;
+  final String newPass;
+  final String confirmationCode;
+
+  AuthConfirmResetPasswordEvent({
+    required this.username,
+    required this.newPass,
+    required this.confirmationCode,
+  });
+}
+
 class LogOut extends AuthenticateEvent {}

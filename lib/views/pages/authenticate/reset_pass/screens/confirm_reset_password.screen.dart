@@ -1,7 +1,12 @@
+import 'package:floky/domain/bloc/authenticate/authenticate_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:floky/views/pages/authenticate/reset_pass/widgets/intent_later.dart';
+import 'package:floky/views/pages/authenticate/widgets/is_exist_error.dart';
+import 'package:floky/views/pages/authenticate/widgets/widgets.index.dart';
 import 'package:floky/dependencyInjection/setup_di.dart';
 import 'package:floky/views/pages/authenticate/reset_pass/reset_pass.controll.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ConfirmResetPassword extends StatelessWidget {
   const ConfirmResetPassword({Key? key}) : super(key: key);
@@ -9,28 +14,50 @@ class ConfirmResetPassword extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final resetPassControll = di<ResetPassControll>().getController(context);
+    final confirmResetPassFormControll =
+        resetPassControll.confirmResetPassFormControll;
 
     return Scaffold(
       body: SafeArea(
         child: Form(
+          key: confirmResetPassFormControll.formConfirmResetPassKey,
+          autovalidateMode: AutovalidateMode.onUserInteraction,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const SizedBox(height: 30),
-              Titles.title("Cambiar contraseña"),
+              Titles.title("Ingrese una nueva contraseña"),
               Titles.thirdTitle(
-                "Ingrese una nueva contraseña y el código de verificación que llegó a su correo electrónico",
+                "Puedes cambiar la contraseña con el código de verificación que llegó a su correo electrónico",
               ),
-              const InputPass(),
-              const InputCodeVerification(),
-              Button(
-                function: () {},
-                label: 'Restablecer contraseña',
-              )
+              InputPass(
+                passControl: confirmResetPassFormControll.pass,
+              ),
+              InputCodeVerification(
+                controll: confirmResetPassFormControll.code,
+              ),
+              const IsExistError(),
+              _isLoadingButtonResetPass(resetPassControll),
+              const IntentLater(),
+              BlocListener<AuthenticateBloc, AuthenticateState>(
+                listenWhen: (previous, current) =>
+                    current is AuthConfirmResetPasswordState,
+                listener: (context, state) =>
+                    resetPassControll.goConfirmResetPassword(context),
+                child: const SizedBox(),
+              ),
             ],
           ),
         ),
       ),
     );
+  }
+
+  Widget _isLoadingButtonResetPass(ResetPassControll resetPassControll) {
+    final Button button = Button(
+      function: resetPassControll.confirmResetPassword,
+      label: 'Restablecer contraseña',
+    );
+    return StackWidgetLoading(widget: button);
   }
 }

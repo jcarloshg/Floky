@@ -1,9 +1,11 @@
+import 'package:floky/domain/bloc/authenticate/authenticate_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:floky/views/pages/authenticate/widgets/is_exist_error.dart';
 import 'package:floky/dependencyInjection/setup_di.dart';
 import 'package:floky/views/pages/authenticate/reset_pass/reset_pass.controll.dart';
 import 'package:floky/views/pages/authenticate/widgets/widgets.index.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class EnterUsername extends StatelessWidget {
   const EnterUsername({Key? key}) : super(key: key);
@@ -32,13 +34,16 @@ class EnterUsername extends StatelessWidget {
               ),
               const IsExistError(),
               _isLoadingButtonSendCode(resetPassControll.sendCodeResetPass),
-              // BlocListener<AuthenticateBloc, AuthenticateState>(
-              //   listenWhen: (previous, current) =>
-              //       current is AuthSendCodeResetPassState,
-              //   listener: (context, state) =>
-              //       singUpProvider.goConfirmAccountScreen(context),
-              //   child: const SizedBox(),
+              // _isLoadingButtonSendCode(
+              //   () => resetPassControll.goConfirmResetPassword(context),
               // ),
+              BlocListener<AuthenticateBloc, AuthenticateState>(
+                listenWhen: (__, current) =>
+                    current is AuthSendCodeResetPassState,
+                listener: (context, _) =>
+                    resetPassControll.goConfirmResetPassword(context),
+                child: const SizedBox(),
+              ),
             ],
           ),
         ),

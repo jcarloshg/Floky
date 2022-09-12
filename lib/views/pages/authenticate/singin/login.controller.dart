@@ -3,12 +3,11 @@
 //    1. LoginScreen
 //============================================================
 
-import 'dart:developer';
-
-import 'package:floky/views/pages/pages.index.dart';
 import 'package:flutter/material.dart';
-import 'package:floky/domain/bloc/authenticate/authenticate_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'dart:developer';
+import 'package:floky/views/pages/pages.index.dart';
+import 'package:floky/domain/bloc/authenticate/authenticate_bloc.dart';
 
 class LoginFormController {
   final GlobalKey<FormState> formLoginKey = GlobalKey<FormState>();
@@ -63,7 +62,7 @@ class LoginController {
   }
 
   void goEnterUsername(BuildContext context) {
-    // Navigator.pushNamed(context, PageIndex.enterUsername.route);
-    Navigator.pushNamed(context, PageIndex.confirmResetPassword.route);
+    Navigator.pushNamed(context, PageIndex.enterUsername.route);
+    // Navigator.pushNamed(context, PageIndex.confirmResetPassword.route);
   }
 }

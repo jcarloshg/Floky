@@ -141,4 +141,34 @@ class AuthenticateAws extends Authenticate {
       return ResAuth(isOK: false, msg: msgErro);
     }
   }
+
+  @override
+  Future<ResAuth> confirmResetPassword({
+    required String username,
+    required String newPass,
+    required String confirmationCode,
+  }) async {
+    try {
+      final resConfirmResetPassword = await Amplify.Auth.confirmResetPassword(
+        username: username,
+        newPassword: newPass,
+        confirmationCode: confirmationCode,
+      );
+      return ResAuth(isOK: true, data: resConfirmResetPassword);
+    } on AmplifyException catch (e) {
+      developer.log('AuthenticateAws/confirmResetPassword ${e.message}');
+      final String msg;
+      switch (e.message) {
+        case 'Confirmation code has expired.':
+          msg = 'El código ha expirado.';
+          break;
+        case 'Number of allowed operation has exceeded.':
+          msg = 'El número de intentos se ha excedido.';
+          break;
+        default:
+          msg = e.message;
+      }
+      return ResAuth(isOK: false, data: e, msg: msg);
+    }
+  }
 }
