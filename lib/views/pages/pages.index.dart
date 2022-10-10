@@ -31,7 +31,7 @@ class _Page {
 }
 
 class PageIndex {
-  static const initialRoute = 'HomeScreen';
+  static const initialRoute = 'LoginScreen';
 
   //============================================================
   // ! FIX NAVIGATION

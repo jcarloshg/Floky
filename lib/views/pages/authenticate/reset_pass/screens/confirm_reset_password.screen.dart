@@ -23,7 +23,7 @@ class ConfirmResetPassword extends StatelessWidget {
           key: confirmResetPassFormControll.formConfirmResetPassKey,
           autovalidateMode: AutovalidateMode.onUserInteraction,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               const SizedBox(height: 30),
               Titles.title("Restablecer contraseña"),
@@ -43,7 +43,7 @@ class ConfirmResetPassword extends StatelessWidget {
                 listenWhen: (previous, current) =>
                     current is AuthConfirmResetPasswordState,
                 listener: (context, state) =>
-                    resetPassControll.goConfirmResetPassword(context),
+                    resetPassControll.goLoginScreen(context),
                 child: const SizedBox(),
               ),
             ],

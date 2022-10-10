@@ -24,14 +24,24 @@ class ConfirmResetPassFormControll {
 }
 
 class ResetPassControll {
-  final enterUsernameFormController = EnterUsernameFormController();
-  final confirmResetPassFormControll = ConfirmResetPassFormControll();
+  EnterUsernameFormController enterUsernameFormController =
+      EnterUsernameFormController();
+  ConfirmResetPassFormControll confirmResetPassFormControll =
+      ConfirmResetPassFormControll();
+
   late AuthenticateBloc authenticateBloc;
 
   /// get the [BlocProvider] by [context] and return [ResetPassControll]
-  ResetPassControll getController(BuildContext context) {
+  ResetPassControll getController(
+    BuildContext context, {
+    bool isFirstScreen = false,
+  }) {
     final authenticateBloc = BlocProvider.of<AuthenticateBloc>(context);
     this.authenticateBloc = authenticateBloc;
+    if (isFirstScreen == true) {
+      enterUsernameFormController = EnterUsernameFormController();
+      confirmResetPassFormControll = ConfirmResetPassFormControll();
+    }
 
     // // setEmail to [formEnterUsernameKey]
     // final String? emailState = authenticateBloc.state.params.student?.emial;

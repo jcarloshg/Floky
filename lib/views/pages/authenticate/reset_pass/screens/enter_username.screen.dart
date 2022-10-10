@@ -12,7 +12,8 @@ class EnterUsername extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final resetPassControll = di<ResetPassControll>().getController(context);
+    final resetPassControll =
+        di<ResetPassControll>().getController(context, isFirstScreen: true);
     final enterUsernameFormController =
         resetPassControll.enterUsernameFormController;
 
@@ -22,7 +23,7 @@ class EnterUsername extends StatelessWidget {
           key: enterUsernameFormController.formEnterUsernameKey,
           autovalidateMode: AutovalidateMode.onUserInteraction,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               const SizedBox(height: 30),
               Titles.title("Ingresa tu correo electrónico"),

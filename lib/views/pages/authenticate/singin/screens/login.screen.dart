@@ -25,41 +25,25 @@ class LoginScreen extends StatelessWidget {
                   RegisterButton(),
                 ],
               ),
-              Container(
-                height: 75,
-                decoration: const BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black26,
-                      offset: Offset(5, 0),
-                      blurRadius: 15,
-                    )
-                  ],
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(15),
-                    topRight: Radius.circular(15),
-                  ),
-                  color: Colors.white,
-                ),
-              ),
+              // Container(
+              //   height: 175,
+              //   decoration: const BoxDecoration(
+              //     boxShadow: [
+              //       BoxShadow(
+              //         color: Colors.black26,
+              //         offset: Offset(5, 0),
+              //         blurRadius: 15,
+              //       )
+              //     ],
+              //     borderRadius: BorderRadius.only(
+              //       topLeft: Radius.circular(15),
+              //       topRight: Radius.circular(15),
+              //     ),
+              //     color: Colors.white,
+              //   ),
+              // ),
             ],
           ),
-          // Column(
-          //   children: [
-          //     Flexible(
-          //       flex: 11,
-          //       child: Column(
-          //         mainAxisAlignment: MainAxisAlignment.center,
-          //         children: const [
-          //           FormLogin(),
-          //           RegisterButton(),
-          //         ],
-          //       ),
-          //     ),
-          //     Flexible(
-          //         flex: 1,
-          //         child: ),
-          //   ],
         ),
       ),
     );
