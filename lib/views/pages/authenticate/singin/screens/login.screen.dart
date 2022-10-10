@@ -1,14 +1,17 @@
 import 'package:floky/dependencyInjection/setup_di.dart';
+import 'package:floky/domain/bloc/authenticate/authenticate_bloc.dart';
 import 'package:floky/views/pages/authenticate/singin/login.controller.dart';
 import 'package:floky/views/pages/authenticate/singin/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    di<LoginController>().getController(context, isFirstScreen: true);
+    final loginController =
+        di<LoginController>().getController(context, isFirstScreen: true);
 
     return Scaffold(
       // appBar: AppBar(title: const Text('Floky'), elevation: 0),
@@ -24,6 +27,11 @@ class LoginScreen extends StatelessWidget {
                   FormLogin(),
                   RegisterButton(),
                 ],
+              ),
+              BlocListener<AuthenticateBloc, AuthenticateState>(
+                listenWhen: (previous, current) => current is AuthLogInState,
+                listener: (context, state) => loginController.goHome(context),
+                child: const SizedBox(),
               ),
               // Container(
               //   height: 175,

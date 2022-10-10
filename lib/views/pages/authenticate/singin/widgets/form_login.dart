@@ -32,6 +32,10 @@ class FormLogin extends StatelessWidget {
           ),
           const IsExistError(),
           _isLoadingButtonLoggin(loginController.login),
+          Button(
+            label: 'Cerrar sesión',
+            function: loginController.logout,
+          ),
         ],
       ),
     );

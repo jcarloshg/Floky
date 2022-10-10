@@ -65,4 +65,8 @@ class LoginController {
     Navigator.pushNamed(context, PageIndex.enterUsername.route);
     // Navigator.pushNamed(context, PageIndex.confirmResetPassword.route);
   }
+
+  void goHome(BuildContext context) {
+    Navigator.pushNamed(context, PageIndex.homeScreen.route);
+  }
 }
