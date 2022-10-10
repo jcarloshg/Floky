@@ -26,9 +26,9 @@ class ConfirmResetPassword extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const SizedBox(height: 30),
-              Titles.title("Ingrese una nueva contraseña"),
+              Titles.title("Restablecer contraseña"),
               Titles.thirdTitle(
-                "Puedes cambiar la contraseña con el código de verificación que llegó a su correo electrónico",
+                "Ingresa una nueva contraseña y código de verificación que llegó a su correo electrónico",
               ),
               InputPass(
                 passControl: confirmResetPassFormControll.pass,

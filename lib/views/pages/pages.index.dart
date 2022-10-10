@@ -31,7 +31,7 @@ class _Page {
 }
 
 class PageIndex {
-  static const initialRoute = 'LoginScreen';
+  static const initialRoute = 'HomeScreen';
 
   //============================================================
   // ! FIX NAVIGATION
@@ -156,6 +156,9 @@ class PageIndex {
 
   static Map<String, Widget Function(BuildContext context)> getAppRoutes() {
     List<_Page> pages = [];
+
+    // auth/login
+    pages.add(homeScreen);
 
     // auth/login
     pages.add(loginScreen);

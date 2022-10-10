@@ -16,7 +16,7 @@ class InfoPersonal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const String url =
-        'https://scontent-qro1-2.xx.fbcdn.net/v/t39.30808-6/271737391_2702881153354236_1375726906847636604_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeGFlOU2-fxg1dZTmlbTcNdM6qe7lQaFodLqp7uVBoWh0tcoUNgl69_enyfLGMZZ38OszSNnemJwGGy3dyLonDZ0&_nc_ohc=uPKV174qxR8AX8Gte17&_nc_ht=scontent-qro1-2.xx&oh=00_AT8J38hlBaegVjfxuk-GVGqU_SzlTSrHK6oqlZHQtPZmOQ&oe=630C3651';
+        'https://static.hiphopdx.com/2017/05/170531-SuicideBoys-IG-800x600.jpg';
 
     return SizedBox(
       width: double.infinity,

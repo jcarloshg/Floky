@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:floky/dependencyInjection/setup_di.dart';
 import 'package:floky/views/pages/authenticate/singin/login.controller.dart';
 import 'package:floky/views/pages/authenticate/singin/widgets/widgets.index.dart';
@@ -15,37 +13,53 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       // appBar: AppBar(title: const Text('Floky'), elevation: 0),
       body: SafeArea(
-        child: Column(
-          children: [
-            Flexible(
-              flex: 11,
-              child: Column(
+        child: Container(
+          decoration: _boxDecoration(context),
+          child: Stack(
+            alignment: Alignment.bottomCenter,
+            children: [
+              Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: const [
                   FormLogin(),
                   RegisterButton(),
                 ],
               ),
-            ),
-            Flexible(
-                flex: 1,
-                child: Container(
-                  decoration: const BoxDecoration(
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black26,
-                        offset: Offset(5, 0),
-                        blurRadius: 15,
-                      )
-                    ],
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(15),
-                      topRight: Radius.circular(15),
-                    ),
-                    color: Colors.white,
+              Container(
+                height: 75,
+                decoration: const BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black26,
+                      offset: Offset(5, 0),
+                      blurRadius: 15,
+                    )
+                  ],
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(15),
+                    topRight: Radius.circular(15),
                   ),
-                )),
-          ],
+                  color: Colors.white,
+                ),
+              ),
+            ],
+          ),
+          // Column(
+          //   children: [
+          //     Flexible(
+          //       flex: 11,
+          //       child: Column(
+          //         mainAxisAlignment: MainAxisAlignment.center,
+          //         children: const [
+          //           FormLogin(),
+          //           RegisterButton(),
+          //         ],
+          //       ),
+          //     ),
+          //     Flexible(
+          //         flex: 1,
+          //         child: ),
+          //   ],
         ),
       ),
     );
@@ -55,8 +69,8 @@ class LoginScreen extends StatelessWidget {
     return BoxDecoration(
       // border: Border.all(),
       gradient: LinearGradient(
-        begin: const Alignment(-1, -1),
-        end: const Alignment(1, 1),
+        begin: const Alignment(-20, -20),
+        end: const Alignment(2, 2),
         colors: [
           // Theme.of(context).primaryColor.withOpacity(0.5),
           Colors.white,
