@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:floky/views/pages/pages.index.dart';
 import 'package:flutter/material.dart';
 import '../../../utils/utils.index.dart';
@@ -19,15 +21,16 @@ class ButtonCategory extends StatelessWidget {
   }
 
   _navigateActivities(BuildContext context) {
-    Navigator.pushNamed(
-      context,
-      PageIndex.activitiesByCategoryScreen.route,
-    );
+    // Navigator.pushNamed(
+    //   context,
+    //   PageIndex.activitiesByCategoryScreen.route,
+    // );
+    log('[ButtonCategory] - _navigateActivities - ${PageIndex.activitiesByCategoryScreen.route}');
   }
 
   RoundedRectangleBorder _roundedRectangleBorder() {
     return RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(10),
+      borderRadius: BorderRadius.circular(4),
     );
   }
 
@@ -37,7 +40,9 @@ class ButtonCategory extends StatelessWidget {
       child: Text(
         category.name,
         style: const TextStyle(
+          fontSize: 16,
           color: Colors.white,
+          fontWeight: FontWeight.normal,
         ),
       ),
     );

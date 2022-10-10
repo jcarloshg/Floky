@@ -16,16 +16,16 @@ class GridButtonsCategories extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       // decoration: BoxDecoration(border: Border.all()),
-      margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-      height: 100,
+      margin: const EdgeInsets.symmetric(horizontal: 15),
+      height: 95,
       child: GridView.builder(
         itemCount: buttons.length,
         physics: const NeverScrollableScrollPhysics(),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
-          mainAxisSpacing: 8,
-          crossAxisSpacing: 8,
-          mainAxisExtent: 45,
+          mainAxisSpacing: 15,
+          crossAxisSpacing: 15,
+          mainAxisExtent: 40,
         ),
         itemBuilder: (BuildContext context, int index) => buttons[index],
       ),

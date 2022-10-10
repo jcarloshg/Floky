@@ -10,8 +10,8 @@ class Titles {
         title ?? '[NOT_TITLE]',
         style: const TextStyle(
           color: Color.fromARGB(255, 56, 72, 80),
-          fontSize: 26,
-          fontWeight: FontWeight.bold,
+          fontSize: 24,
+          fontWeight: FontWeight.w600,
         ),
       ),
     );
@@ -27,8 +27,8 @@ class Titles {
         textAlign: isCenter! ? TextAlign.center : TextAlign.left,
         style: const TextStyle(
           color: Color.fromARGB(255, 56, 72, 80),
-          fontSize: 18,
-          fontWeight: FontWeight.w600,
+          fontSize: 16,
+          fontWeight: FontWeight.w600, 
         ),
       ),
     );

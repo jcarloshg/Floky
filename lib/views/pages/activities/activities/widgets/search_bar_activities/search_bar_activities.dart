@@ -28,9 +28,9 @@ class SearchBarActivities extends StatelessWidget {
 
   InputDecoration _inputDecoration(BuildContext context) {
     return InputDecoration(
-      hintText: "ej. Leer Tom Sawyer",
+      hintText: "Busca tus actividades favoritas",
       border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(4),
       ),
       suffixIcon: IconButton(
         onPressed: () => _openSearchScreen(context),
