@@ -8,11 +8,8 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const String name = 'Jose Carlos';
-    const String lastName = 'Huerta Garcia';
-    const String email = 'carlosblabla98@gmail.com';
-    const String registerCollage = '201738087';
-    const String collage = 'Benemérita Universidad Autónoma de Puebla';
+
+    const SizedBox sizedBox = SizedBox(height: 30);
 
     return Scaffold(
       body: SafeArea(
@@ -20,21 +17,15 @@ class ProfileScreen extends StatelessWidget {
           physics: const BouncingScrollPhysics(),
           child: Column(
             children: [
-              const SizedBox(height: 30),
+              const SizedBox(height: 20),
               Titles.title('Perfil'),
-              Titles.subtitle('Visualiza tú informacion y progresos'),
-              const SizedBox(height: 30),
-              const InfoPersonal(
-                email: email,
-                lastName: lastName,
-                name: name,
-              ),
-              const SizedBox(height: 30),
-               const InfoCollage(
-                 collage: collage,
-                 registerCollage: registerCollage,
-               ),
-              const SizedBox(height: 30),
+              sizedBox,
+              Titles.subtitle('Información personal'),
+              const SizedBox(height: 5),
+              const PersonalInfoCard(),
+              sizedBox,
+              Titles.subtitle('Tu progreso'),
+              const SizedBox(height: 5),
               const InfoProgress(),
             ],
           ),
