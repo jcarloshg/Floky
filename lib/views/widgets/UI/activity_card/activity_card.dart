@@ -73,7 +73,7 @@ class ActivityCard extends StatelessWidget {
       borderRadius: BorderRadius.circular(5),
       border: Border.all(
         color: ColorsApp.greyAAAAAA,
-        width: 2,
+        width: 1,
       ),
       // boxShadow: const [
       //   BoxShadow(
