@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:floky/views/utils/utils.index.dart';
 import 'package:flutter/material.dart';
 
@@ -12,16 +14,23 @@ class PersonalInfoCard extends StatelessWidget {
     const String registerCollage = '201738087';
     const String collage = 'Benemérita Universidad Autónoma de Puebla';
 
+    double width = MediaQuery.of(context).size.width;
+
     return Container(
       width: double.infinity,
-      height: 180,
+      height: width * 0.45,
       padding: const EdgeInsets.all(15),
       margin: const EdgeInsets.symmetric(horizontal: 15),
       decoration: _boxDecoration(),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Icon(Icons.person_pin_sharp, size: 50),
+          const Image(
+            width: 70,
+            height: 70,
+            image: AssetImage('assets/profile/avatar.png'),
+            fit: BoxFit.contain,
+          ),
           const SizedBox(width: 20),
           Expanded(
             child: Column(
@@ -40,7 +49,7 @@ class PersonalInfoCard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     infoWithTitle('Matrícula', registerCollage),
-                    infoWithTitle('ID', registerCollage),
+                    infoWithTitle('ID', '6544-9874'),
                   ],
                 )
               ],
@@ -106,7 +115,7 @@ class PersonalInfoCard extends StatelessWidget {
           color: ColorsApp.greyAAAAAA,
           width: 2,
         ),
-        borderRadius: BorderRadius.circular(4),
+        borderRadius: BorderRadius.circular(8),
         color: Colors.white,
       );
 }

@@ -16,6 +16,7 @@ class GridButtonsCategories extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       // decoration: BoxDecoration(border: Border.all()),
+      decoration: _boxDecoration(context),
       margin: const EdgeInsets.symmetric(horizontal: 15),
       height: 95,
       child: GridView.builder(
@@ -29,6 +30,24 @@ class GridButtonsCategories extends StatelessWidget {
         ),
         itemBuilder: (BuildContext context, int index) => buttons[index],
       ),
+    );
+  }
+
+  BoxDecoration _boxDecoration(BuildContext context) {
+    return BoxDecoration(
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(5),
+      border: Border.all(
+        color: ColorsApp.greyAAAAAA,
+        width: 1,
+      ),
+      // boxShadow: const [
+      //   BoxShadow(
+      //     color: Colors.black12,
+      //     offset: Offset(5, 0),
+      //     blurRadius: 15,
+      //   )
+      // ],
     );
   }
 }
