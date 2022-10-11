@@ -25,28 +25,15 @@ class ActivitiesScreen extends StatelessWidget {
               const GridButtonsCategories(),
 
               sizedBox,
-              Container(
-                width: double.infinity,
-                height: 131,
-                margin: const EdgeInsets.only(left: 15, right: 15),
-                decoration: BoxDecoration(border: Border.all()),
+              const ActivitiesCarousel(titleCarousel: 'Nuevas actividades'),
+
+              sizedBox,
+              const ActivitiesCarousel(
+                titleCarousel: '¿Por qué aprender inglés?',
               ),
 
               sizedBox,
-              Container(
-                width: double.infinity,
-                height: 181,
-                margin: const EdgeInsets.only(left: 15, right: 15),
-                decoration: BoxDecoration(border: Border.all()),
-              ),
-
-              sizedBox,
-              Container(
-                width: double.infinity,
-                height: 131,
-                margin: const EdgeInsets.only(left: 15, right: 15),
-                decoration: BoxDecoration(border: Border.all()),
-              ),
+              const ActivitiesCarousel(titleCarousel: 'Actividades para ti'),
 
               sizedBox,
 
