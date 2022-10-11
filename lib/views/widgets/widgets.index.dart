@@ -27,7 +27,8 @@ export 'package:floky/views/widgets/UI/Button_Categories/grid_buttons_categories
 //============================================================
 // UI
 //============================================================
-export 'package:floky/views/widgets/UI/card_activitie/activity_card.dart';
+// export 'package:floky/views/widgets/UI/card_activitie/activity_card.dart'; // todo - drop this
+export 'package:floky/views/widgets/UI/activity_card/activity_card.dart';
 export 'package:floky/views/widgets/UI/card_recomendation/card_recomendation.dart';
 export 'package:floky/views/widgets/UI/description/description.dart';
 export 'package:floky/views/widgets/UI/divider_custom/divider_custom.dart';
