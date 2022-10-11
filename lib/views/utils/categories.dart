@@ -22,7 +22,7 @@ class Categories {
 
   static Category write = Category(
     'Write',
-    '📚',
+    '✏️',
     Colors.green.shade500,
   );
 }

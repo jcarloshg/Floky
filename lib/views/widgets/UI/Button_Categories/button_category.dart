@@ -35,7 +35,8 @@ class ButtonCategory extends StatelessWidget {
   }
 
   Widget _bodyButton() {
-    final label = SizedBox(
+    final label = Container(
+      decoration: BoxDecoration(border: Border.all()),
       width: double.infinity,
       child: Text(
         category.name,
@@ -47,9 +48,15 @@ class ButtonCategory extends StatelessWidget {
       ),
     );
 
-    final icon = SizedBox(
+    final icon = Container(
       width: double.infinity,
-      child: Text(category.icon),
+      decoration: BoxDecoration(border: Border.all()),
+      child: Text(
+        category.icon,
+        style: const TextStyle(
+          fontSize: 32,
+        ),
+      ),
     );
 
     return Row(
