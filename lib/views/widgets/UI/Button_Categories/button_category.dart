@@ -36,7 +36,7 @@ class ButtonCategory extends StatelessWidget {
 
   Widget _bodyButton() {
     final label = Container(
-      decoration: BoxDecoration(border: Border.all()),
+      // decoration: BoxDecoration(border: Border.all()),
       width: double.infinity,
       child: Text(
         category.name,
@@ -48,21 +48,23 @@ class ButtonCategory extends StatelessWidget {
       ),
     );
 
-    final icon = Container(
-      width: double.infinity,
-      decoration: BoxDecoration(border: Border.all()),
-      child: Text(
-        category.icon,
-        style: const TextStyle(
-          fontSize: 32,
-        ),
-      ),
+    final image = Image(
+      image: AssetImage(category.routeImage),
+      height: 50,
+      width: 50,
+      fit: BoxFit.scaleDown,
     );
 
     return Row(
       children: [
-        Flexible(flex: 3, child: label),
-        Flexible(flex: 1, child: icon),
+        Flexible(
+          flex: 3,
+          child: label,
+        ),
+        Flexible(
+          flex: 1,
+          child: image,
+        ),
       ],
     );
   }
