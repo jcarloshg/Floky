@@ -2,6 +2,7 @@ import 'package:floky/data/repository/configure_amplify.dart';
 import 'package:floky/dependencyInjection/setup_di.dart';
 import 'package:floky/domain/bloc/authenticate/authenticate_bloc.dart';
 import 'package:floky/views/pages/pages.index.dart';
+import 'package:floky/views/utils/utils.index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -36,7 +37,11 @@ class _MyAppState extends State<MyApp> {
         routes: PageIndex.getAppRoutes(),
         initialRoute: PageIndex.initialRoute,
         title: 'Floky',
-        theme: ThemeData(primarySwatch: Colors.blueGrey),
+        theme: ThemeData(
+          primarySwatch: Colors.blueGrey,
+          backgroundColor: ColorsApp.greyEEEEEE,
+          scaffoldBackgroundColor: ColorsApp.greyEEEEEE,
+        ),
       ),
     );
   }

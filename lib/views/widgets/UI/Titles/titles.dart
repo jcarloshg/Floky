@@ -21,14 +21,16 @@ class Titles {
     return Container(
       width: double.infinity,
       // decoration: BoxDecoration(border: Border.all()),
-      margin: const EdgeInsets.only(left: 15, right: 15, top: 5, bottom: 15),
+      // margin: const EdgeInsets.only(left: 15, right: 15, top: 5, bottom: 15),
+      margin: const EdgeInsets.symmetric(horizontal: 15),
+
       child: Text(
         subtitle ?? '[NOT_SUBTITLE]',
         textAlign: isCenter! ? TextAlign.center : TextAlign.left,
         style: const TextStyle(
           color: Color.fromARGB(255, 56, 72, 80),
           fontSize: 16,
-          fontWeight: FontWeight.w600, 
+          fontWeight: FontWeight.w600,
         ),
       ),
     );
