@@ -35,7 +35,7 @@ class ButtonCategory extends StatelessWidget {
   }
 
   Widget _bodyButton() {
-    final label = Container(
+    final label = SizedBox(
       // decoration: BoxDecoration(border: Border.all()),
       width: double.infinity,
       child: Text(
@@ -50,19 +50,18 @@ class ButtonCategory extends StatelessWidget {
 
     final image = Image(
       image: AssetImage(category.routeImage),
-      height: 50,
-      width: 50,
-      fit: BoxFit.scaleDown,
+      width: 200,
+      fit: BoxFit.fitHeight,
     );
 
     return Row(
       children: [
         Flexible(
-          flex: 3,
+          flex: 2,
           child: label,
         ),
         Flexible(
-          flex: 1,
+          flex: 2,
           child: image,
         ),
       ],
