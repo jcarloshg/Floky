@@ -7,6 +7,8 @@ class ActivitiesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const SizedBox sizedBox = SizedBox(height: 30);
+
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -17,60 +19,37 @@ class ActivitiesScreen extends StatelessWidget {
               Titles.title('Actividades'),
               Titles.subtitle('Descubre actividades nuevas'),
 
-              const SizedBox(height: 30),
+              sizedBox,
               const SearchByCategories(),
               const SizedBox(height: 20),
               const GridButtonsCategories(),
 
-              const SizedBox(height: 30),
+              sizedBox,
               Container(
-                // decoration: BoxDecoration(border: Border.all()),
-                margin: const EdgeInsets.only(left: 15),
-                child: Column(
-                  children: [
-                    Titles.subtitle('Nuevas actividades'),
-                    Container(
-                      height: 100,
-                      width: 200,
-                      decoration: BoxDecoration(border: Border.all()),
-                    )
-                  ],
-                ),
+                width: double.infinity,
+                height: 131,
+                margin: const EdgeInsets.only(left: 15, right: 15),
+                decoration: BoxDecoration(border: Border.all()),
               ),
 
-              const SizedBox(height: 30),
+              sizedBox,
               Container(
-                margin: const EdgeInsets.only(left: 15),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Titles.subtitle('¿Por qué aprender inglés?'),
-                    Container(
-                      height: 150,
-                      width: double.infinity - 40,
-                      decoration: BoxDecoration(border: Border.all()),
-                    )
-                  ],
-                ),
+                width: double.infinity,
+                height: 181,
+                margin: const EdgeInsets.only(left: 15, right: 15),
+                decoration: BoxDecoration(border: Border.all()),
               ),
 
-              const SizedBox(height: 30),
-
+              sizedBox,
               Container(
-                // decoration: BoxDecoration(border: Border.all()),
-                margin: const EdgeInsets.only(left: 15),
-                child: Column(
-                  children: [
-                    Titles.subtitle('Actividades para ti'),
-                    Container(
-                      height: 100,
-                      width: 200,
-                      decoration: BoxDecoration(border: Border.all()),
-                    )
-                  ],
-                ),
+                width: double.infinity,
+                height: 131,
+                margin: const EdgeInsets.only(left: 15, right: 15),
+                decoration: BoxDecoration(border: Border.all()),
               ),
-              const SizedBox(height: 30),
+
+              sizedBox,
+
               // const CarouselActivities(label: 'Nuevas actividades'),
               // SizedBox(
               //   // decoration: BoxDecoration(border: Border.all()),
