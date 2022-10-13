@@ -15,7 +15,7 @@
     "smsAuthenticationMessage": "Your authentication code is {####}",
     "smsVerificationMessage": "Your verification code is {####}",
     "emailVerificationSubject": "Bienvenido a Floky",
-    "emailVerificationMessage": "<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset=\"UTF-8\" />\n  </head>\n  <body>\n    <h1>Â¿EstÃ¡s lista para aprender inglÃ©s?</h1>\n    <h2>Â¡Estamos para ayudarte con tu desarrollo acadÃ©mico!</h2>\n    <br />\n    <p>Verification code: {####}</p>\n    <br />\n  </body>\n</html>\n",
+    "emailVerificationMessage": "Tu cÃ³digo de verificaciÃ³n es: {####}",
     "defaultPasswordPolicy": false,
     "passwordPolicyMinLength": 8,
     "passwordPolicyCharacters": [

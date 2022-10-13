@@ -167,7 +167,7 @@
           "smsAuthenticationMessage": "Your authentication code is {####}",
           "smsVerificationMessage": "Your verification code is {####}",
           "emailVerificationSubject": "Bienvenido a Floky",
-          "emailVerificationMessage": "<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset=\"UTF-8\" />\n  </head>\n  <body>\n    <h1>Â¿EstÃ¡s lista para aprender inglÃ©s?</h1>\n    <h2>Â¡Estamos para ayudarte con tu desarrollo acadÃ©mico!</h2>\n    <br />\n    <p>Verification code: {####}</p>\n    <br />\n  </body>\n</html>\n",
+          "emailVerificationMessage": "Tu cÃ³digo de verificaciÃ³n es: {####}",
           "defaultPasswordPolicy": false,
           "passwordPolicyMinLength": 8,
           "passwordPolicyCharacters": "Requires Lowercase,Requires Numbers,Requires Uppercase",
@@ -207,6 +207,26 @@
           "breakCircularDependency": true,
           "dependsOn": "",
           "hostedUI": false,
+          "env": "staging"
+        }
+      }
+    },
+    "apiFloky": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/amplify-floky-staging-172728-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "Parameters": {
+          "AppSyncApiName": "Floky",
+          "DynamoDBBillingMode": "PAY_PER_REQUEST",
+          "DynamoDBEnableServerSideEncryption": false,
+          "authRoleName": {
+            "Ref": "AuthRoleName"
+          },
+          "unauthRoleName": {
+            "Ref": "UnauthRoleName"
+          },
+          "S3DeploymentBucket": "amplify-floky-staging-172728-deployment",
+          "S3DeploymentRootKey": "amplify-appsync-files/f203d011213e44cb062bc49f97ce91b5b7f2e6ab",
           "env": "staging"
         }
       }
