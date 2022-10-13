@@ -1,3 +1,12 @@
+enum ActivityLevel {
+  A1
+  A2
+  B1
+  B2
+  C1
+  C2
+}
+
 enum Role {
   STUDENT
   TEACHER
@@ -30,19 +39,18 @@ type Activitie @model @auth(rules: [{allow: public}]) {
   id: ID!
   name: String!
   activityLevel: ActivityLevel
-  topicID: ID! @index(name: "byTopic")
+  typeActivity: ActivityType
   question: String!
   questionBody: String
   answers: AWSJSON
+  topicID: ID! @index(name: "byTopic")
 }
 
-enum ActivityLevel {
-  A1
-  A2
-  B1
-  B2
-  C1
-  C2
+enum ActivityType {
+  WRITING
+  READING
+  TALKING
+  LISTENING
 }
 
 type Topic @model @auth(rules: [{allow: public}]) {

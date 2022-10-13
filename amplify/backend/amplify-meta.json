@@ -49,7 +49,7 @@
         "IdentityPoolName": "testAuthIdentityPool__staging",
         "UserPoolName": "Floky"
       },
-      "lastPushTimeStamp": "2022-10-13T03:45:27.300Z",
+      "lastPushTimeStamp": "2022-10-13T04:58:31.119Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-floky-staging-172728-deployment/amplify-cfn-templates/auth/Floky-cloudformation-template.json",
         "logicalId": "authFloky"
@@ -80,11 +80,12 @@
         "GraphQLAPIEndpointOutput": "https://uloynwtxs5grrbluj5dtwixxvm.appsync-api.us-west-1.amazonaws.com/graphql",
         "GraphQLAPIKeyOutput": "da2-maqxfjdj5zer5gi322snaoadai"
       },
-      "lastPushTimeStamp": "2022-10-13T03:45:27.304Z",
+      "lastPushTimeStamp": "2022-10-13T04:58:31.127Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-floky-staging-172728-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apiFloky"
-      }
+      },
+      "lastPushDirHash": "+U+WAfFA2svTHf77HGetYWugHOw="
     }
   }
 }

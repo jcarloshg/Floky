@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 /*
 * Copyright 2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
@@ -19,43 +21,9 @@
 
 // ignore_for_file: public_member_api_docs, annotate_overrides, dead_code, dead_codepublic_member_api_docs, depend_on_referenced_packages, file_names, library_private_types_in_public_api, no_leading_underscores_for_library_prefixes, no_leading_underscores_for_local_identifiers, non_constant_identifier_names, null_check_on_nullable_type_parameter, prefer_adjacent_string_concatenation, prefer_const_constructors, prefer_if_null_operators, prefer_interpolation_to_compose_strings, slash_for_doc_comments, sort_child_properties_last, unnecessary_const, unnecessary_constructor_name, unnecessary_late, unnecessary_new, unnecessary_null_aware_assignments, unnecessary_nullable_for_final_variable_declarations, unnecessary_string_interpolations, use_build_context_synchronously
 
-import 'package:amplify_core/amplify_core.dart';
-import 'Account.dart';
-import 'Activitie.dart';
-import 'ActivitiesProgress.dart';
-import 'Topic.dart';
-
-export 'Account.dart';
-export 'Activitie.dart';
-export 'ActivitiesProgress.dart';
-export 'ActivityLevel.dart';
-export 'ActivityType.dart';
-export 'Role.dart';
-export 'Topic.dart';
-
-class ModelProvider implements ModelProviderInterface {
-  @override
-  String version = "ffe4130468acda2f3b6edb80f6365739";
-  @override
-  List<ModelSchema> modelSchemas = [Account.schema, Activitie.schema, ActivitiesProgress.schema, Topic.schema];
-  static final ModelProvider _instance = ModelProvider();
-  @override
-  List<ModelSchema> customTypeSchemas = [];
-
-  static ModelProvider get instance => _instance;
-  
-  ModelType getModelTypeByModelName(String modelName) {
-    switch(modelName) {
-      case "Account":
-        return Account.classType;
-      case "Activitie":
-        return Activitie.classType;
-      case "ActivitiesProgress":
-        return ActivitiesProgress.classType;
-      case "Topic":
-        return Topic.classType;
-      default:
-        throw Exception("Failed to find model in model provider for model name: " + modelName);
-    }
-  }
+enum ActivityType {
+  WRITING,
+  READING,
+  TALKING,
+  LISTENING
 }

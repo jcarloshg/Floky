@@ -31,10 +31,11 @@ class Activitie extends Model {
   final String id;
   final String? _name;
   final ActivityLevel? _activityLevel;
-  final String? _topicID;
+  final ActivityType? _typeActivity;
   final String? _question;
   final String? _questionBody;
   final String? _answers;
+  final String? _topicID;
   final TemporalDateTime? _createdAt;
   final TemporalDateTime? _updatedAt;
 
@@ -63,17 +64,8 @@ class Activitie extends Model {
     return _activityLevel;
   }
   
-  String get topicID {
-    try {
-      return _topicID!;
-    } catch(e) {
-      throw new AmplifyCodeGenModelException(
-          AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
-          recoverySuggestion:
-            AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
-          underlyingException: e.toString()
-          );
-    }
+  ActivityType? get typeActivity {
+    return _typeActivity;
   }
   
   String get question {
@@ -97,6 +89,19 @@ class Activitie extends Model {
     return _answers;
   }
   
+  String get topicID {
+    try {
+      return _topicID!;
+    } catch(e) {
+      throw new AmplifyCodeGenModelException(
+          AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
+          recoverySuggestion:
+            AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
+          underlyingException: e.toString()
+          );
+    }
+  }
+  
   TemporalDateTime? get createdAt {
     return _createdAt;
   }
@@ -105,17 +110,18 @@ class Activitie extends Model {
     return _updatedAt;
   }
   
-  const Activitie._internal({required this.id, required name, activityLevel, required topicID, required question, questionBody, answers, createdAt, updatedAt}): _name = name, _activityLevel = activityLevel, _topicID = topicID, _question = question, _questionBody = questionBody, _answers = answers, _createdAt = createdAt, _updatedAt = updatedAt;
+  const Activitie._internal({required this.id, required name, activityLevel, typeActivity, required question, questionBody, answers, required topicID, createdAt, updatedAt}): _name = name, _activityLevel = activityLevel, _typeActivity = typeActivity, _question = question, _questionBody = questionBody, _answers = answers, _topicID = topicID, _createdAt = createdAt, _updatedAt = updatedAt;
   
-  factory Activitie({String? id, required String name, ActivityLevel? activityLevel, required String topicID, required String question, String? questionBody, String? answers}) {
+  factory Activitie({String? id, required String name, ActivityLevel? activityLevel, ActivityType? typeActivity, required String question, String? questionBody, String? answers, required String topicID}) {
     return Activitie._internal(
       id: id == null ? UUID.getUUID() : id,
       name: name,
       activityLevel: activityLevel,
-      topicID: topicID,
+      typeActivity: typeActivity,
       question: question,
       questionBody: questionBody,
-      answers: answers);
+      answers: answers,
+      topicID: topicID);
   }
   
   bool equals(Object other) {
@@ -129,10 +135,11 @@ class Activitie extends Model {
       id == other.id &&
       _name == other._name &&
       _activityLevel == other._activityLevel &&
-      _topicID == other._topicID &&
+      _typeActivity == other._typeActivity &&
       _question == other._question &&
       _questionBody == other._questionBody &&
-      _answers == other._answers;
+      _answers == other._answers &&
+      _topicID == other._topicID;
   }
   
   @override
@@ -146,10 +153,11 @@ class Activitie extends Model {
     buffer.write("id=" + "$id" + ", ");
     buffer.write("name=" + "$_name" + ", ");
     buffer.write("activityLevel=" + (_activityLevel != null ? enumToString(_activityLevel)! : "null") + ", ");
-    buffer.write("topicID=" + "$_topicID" + ", ");
+    buffer.write("typeActivity=" + (_typeActivity != null ? enumToString(_typeActivity)! : "null") + ", ");
     buffer.write("question=" + "$_question" + ", ");
     buffer.write("questionBody=" + "$_questionBody" + ", ");
     buffer.write("answers=" + "$_answers" + ", ");
+    buffer.write("topicID=" + "$_topicID" + ", ");
     buffer.write("createdAt=" + (_createdAt != null ? _createdAt!.format() : "null") + ", ");
     buffer.write("updatedAt=" + (_updatedAt != null ? _updatedAt!.format() : "null"));
     buffer.write("}");
@@ -157,39 +165,42 @@ class Activitie extends Model {
     return buffer.toString();
   }
   
-  Activitie copyWith({String? id, String? name, ActivityLevel? activityLevel, String? topicID, String? question, String? questionBody, String? answers}) {
+  Activitie copyWith({String? id, String? name, ActivityLevel? activityLevel, ActivityType? typeActivity, String? question, String? questionBody, String? answers, String? topicID}) {
     return Activitie._internal(
       id: id ?? this.id,
       name: name ?? this.name,
       activityLevel: activityLevel ?? this.activityLevel,
-      topicID: topicID ?? this.topicID,
+      typeActivity: typeActivity ?? this.typeActivity,
       question: question ?? this.question,
       questionBody: questionBody ?? this.questionBody,
-      answers: answers ?? this.answers);
+      answers: answers ?? this.answers,
+      topicID: topicID ?? this.topicID);
   }
   
   Activitie.fromJson(Map<String, dynamic> json)  
     : id = json['id'],
       _name = json['name'],
       _activityLevel = enumFromString<ActivityLevel>(json['activityLevel'], ActivityLevel.values),
-      _topicID = json['topicID'],
+      _typeActivity = enumFromString<ActivityType>(json['typeActivity'], ActivityType.values),
       _question = json['question'],
       _questionBody = json['questionBody'],
       _answers = json['answers'],
+      _topicID = json['topicID'],
       _createdAt = json['createdAt'] != null ? TemporalDateTime.fromString(json['createdAt']) : null,
       _updatedAt = json['updatedAt'] != null ? TemporalDateTime.fromString(json['updatedAt']) : null;
   
   Map<String, dynamic> toJson() => {
-    'id': id, 'name': _name, 'activityLevel': enumToString(_activityLevel), 'topicID': _topicID, 'question': _question, 'questionBody': _questionBody, 'answers': _answers, 'createdAt': _createdAt?.format(), 'updatedAt': _updatedAt?.format()
+    'id': id, 'name': _name, 'activityLevel': enumToString(_activityLevel), 'typeActivity': enumToString(_typeActivity), 'question': _question, 'questionBody': _questionBody, 'answers': _answers, 'topicID': _topicID, 'createdAt': _createdAt?.format(), 'updatedAt': _updatedAt?.format()
   };
 
   static final QueryField ID = QueryField(fieldName: "id");
   static final QueryField NAME = QueryField(fieldName: "name");
   static final QueryField ACTIVITYLEVEL = QueryField(fieldName: "activityLevel");
-  static final QueryField TOPICID = QueryField(fieldName: "topicID");
+  static final QueryField TYPEACTIVITY = QueryField(fieldName: "typeActivity");
   static final QueryField QUESTION = QueryField(fieldName: "question");
   static final QueryField QUESTIONBODY = QueryField(fieldName: "questionBody");
   static final QueryField ANSWERS = QueryField(fieldName: "answers");
+  static final QueryField TOPICID = QueryField(fieldName: "topicID");
   static var schema = Model.defineSchema(define: (ModelSchemaDefinition modelSchemaDefinition) {
     modelSchemaDefinition.name = "Activitie";
     modelSchemaDefinition.pluralName = "Activities";
@@ -220,9 +231,9 @@ class Activitie extends Model {
     ));
     
     modelSchemaDefinition.addField(ModelFieldDefinition.field(
-      key: Activitie.TOPICID,
-      isRequired: true,
-      ofType: ModelFieldType(ModelFieldTypeEnum.string)
+      key: Activitie.TYPEACTIVITY,
+      isRequired: false,
+      ofType: ModelFieldType(ModelFieldTypeEnum.enumeration)
     ));
     
     modelSchemaDefinition.addField(ModelFieldDefinition.field(
@@ -240,6 +251,12 @@ class Activitie extends Model {
     modelSchemaDefinition.addField(ModelFieldDefinition.field(
       key: Activitie.ANSWERS,
       isRequired: false,
+      ofType: ModelFieldType(ModelFieldTypeEnum.string)
+    ));
+    
+    modelSchemaDefinition.addField(ModelFieldDefinition.field(
+      key: Activitie.TOPICID,
+      isRequired: true,
       ofType: ModelFieldType(ModelFieldTypeEnum.string)
     ));
     
