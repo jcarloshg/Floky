@@ -1,6 +1,8 @@
 import 'package:floky/data/usecase/awsamplify/authenticate/authenticate.aws.dart';
+import 'package:floky/data/usecase/awsamplify/doing_activities/doing_activities.aws.dart';
 import 'package:floky/domain/bloc/authenticate/authenticate_bloc.dart';
 import 'package:floky/domain/usecase/authenticate/authenticate.usecase.dart';
+import 'package:floky/domain/usecase/doing_activities/doing_activities.usecase.dart';
 import 'package:floky/views/pages/authenticate/reset_pass/reset_pass.controll.dart';
 import 'package:floky/views/pages/authenticate/singin/login.controller.dart';
 import 'package:floky/views/pages/authenticate/singup/singup.controller.dart';
@@ -23,6 +25,7 @@ _domain() async {
 
 _data() async {
   di.registerLazySingleton<Authenticate>(() => AuthenticateAws());
+  di.registerLazySingleton<DoingActivities>(() => DoingActivitiesAWS());
 
   return await null;
 }
