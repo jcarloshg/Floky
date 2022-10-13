@@ -39,6 +39,7 @@ dependencies:
   amplify_api: ^0.6.6
   amplify_auth_cognito: ^0.6.6
   safeprint: ^0.0.2
+  amplify_flutter: ^0.6.9
 
 dev_dependencies:
   flutter_test:
