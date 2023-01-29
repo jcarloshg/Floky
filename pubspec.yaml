@@ -38,6 +38,7 @@ dependencies:
   flutter_bloc: ^8.1.1
   amplify_api: ^0.6.6
   amplify_auth_cognito: ^0.6.6
+  amplify_datastore: ^0.6.0
   safeprint: ^0.0.2
   amplify_flutter: ^0.6.9
 
