@@ -25,7 +25,7 @@ class ButtonCategory extends StatelessWidget {
     //   context,
     //   PageIndex.activitiesByCategoryScreen.route,
     // );
-    log('[ButtonCategory] - _navigateActivities - ${PageIndex.activitiesByCategoryScreen.route}');
+    // log('[ButtonCategory] - _navigateActivities - ${PageIndex.activitiesByCategoryScreen.route}');
   }
 
   RoundedRectangleBorder _roundedRectangleBorder() {

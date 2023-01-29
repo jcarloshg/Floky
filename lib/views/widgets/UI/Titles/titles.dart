@@ -5,7 +5,8 @@ class Titles {
     return Container(
       width: double.infinity,
       // decoration: BoxDecoration(border: Border.all()),
-      margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+      margin: const EdgeInsets.only(top: 30),
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
       child: Text(
         title ?? '[NOT_TITLE]',
         style: const TextStyle(
@@ -21,9 +22,7 @@ class Titles {
     return Container(
       width: double.infinity,
       // decoration: BoxDecoration(border: Border.all()),
-      // margin: const EdgeInsets.only(left: 15, right: 15, top: 5, bottom: 15),
-      margin: const EdgeInsets.symmetric(horizontal: 15),
-
+      padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
       child: Text(
         subtitle ?? '[NOT_SUBTITLE]',
         textAlign: isCenter! ? TextAlign.center : TextAlign.left,

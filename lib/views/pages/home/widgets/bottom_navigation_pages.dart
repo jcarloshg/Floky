@@ -12,7 +12,7 @@ class ItemBarPage {
 class BottomNavigationPages {
   static final List<ItemBarPage> _itemsBarPages = <ItemBarPage>[
     ItemBarPage(
-      PageIndex.activitiesScreen.screen,
+      PageIndex.homeActivitiesScreen.screen,
       const Icon(Icons.explore),
       'Actividades',
     ),

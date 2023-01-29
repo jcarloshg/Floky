@@ -1,41 +1,56 @@
-import 'package:floky/views/pages/activities/activities/widgets/widgets.index.dart';
-import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
+import 'package:floky/views/widgets/widgets.index.dart';
+import 'package:floky/views/pages/response_activities/pages/home_activities/widgets/activities_searcher/widget.activities_searcher.dart';
+import 'package:floky/views/pages/response_activities/pages/home_activities/widgets/list_recent_activities/widget.list_recent_activities.dart';
 
 class ActivitiesScreen extends StatelessWidget {
   const ActivitiesScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    const SizedBox sizedBox = SizedBox(height: 30);
-
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           child: Column(
             children: [
-              const SizedBox(height: 20),
-              Titles.title('Actividades'),
+              // const SizedBox(height: 20),
+              Titles.title('Actividades 📰'),
               Titles.subtitle('Descubre actividades nuevas'),
 
-              sizedBox,
-              const SearchByCategories(),
-              const SizedBox(height: 20),
-              const GridButtonsCategories(),
+              const Spacer20(),
 
-              sizedBox,
-              const ActivitiesCarousel(titleCarousel: 'Nuevas actividades'),
+              const ActivitiesSearcher(),
 
-              sizedBox,
-              const ActivitiesCarousel(
-                titleCarousel: '¿Por qué aprender inglés?',
-              ),
+              const Spacer20(),
 
-              sizedBox,
-              const ActivitiesCarousel(titleCarousel: 'Actividades para ti'),
+              const ListRecentActivities()
 
-              sizedBox,
+              // const SearchByCategories(),
+              // const GridButtonsCategories(),
+
+              // sizedBox,
+
+              // sizedBox,
+              // const SearchByCategories(),
+              // const SizedBox(height: 20),
+              // const GridButtonsCategories(),
+
+              // sizedBox,
+              // const ActivitiesCarousel(titleCarousel: 'Nuevas actividades'),
+
+              // sizedBox,
+              // const ActivitiesCarousel(titleCarousel: 'Nuevas actividades'),
+
+              // sizedBox,
+              // const ActivitiesCarousel(
+              //   titleCarousel: '¿Por qué aprender inglés?',
+              // ),
+
+              // sizedBox,
+              // const ActivitiesCarousel(titleCarousel: 'Actividades para ti'),
+
+              // sizedBox,
 
               // const CarouselActivities(label: 'Nuevas actividades'),
               // SizedBox(

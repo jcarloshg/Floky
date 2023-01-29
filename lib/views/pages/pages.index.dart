@@ -8,7 +8,6 @@
 // ! ============================================================
 // ! ============================================================
 
-import 'package:floky/views/pages/activities/activities_by_category/activities_by_category.dart';
 import 'package:floky/views/pages/activities/activities.index.dart';
 import 'package:floky/views/pages/authenticate/authenticate.index.dart';
 import 'package:floky/views/pages/authenticate/reset_pass/screens/confirm_reset_password.screen.dart';
@@ -21,6 +20,7 @@ import 'package:floky/views/pages/common/description_activitie/description_activ
 import 'package:floky/views/pages/home/home.index.dart';
 import 'package:floky/views/pages/pending_activities/pending_activities.index.dart';
 import 'package:floky/views/pages/profile/profile.index.dart';
+import 'package:floky/views/pages/response_activities/pages/pages.response_activities.dart';
 import 'package:flutter/material.dart';
 
 class _Page {
@@ -34,16 +34,14 @@ class PageIndex {
   static const initialRoute = 'HomeScreen';
 
   //============================================================
-  // ! FIX NAVIGATION
   //============================================================
-
-  // ! ============================================================
-  // ! ============================================================
-  // ! ============================================================
-  // ! use case [AUTHENTICATION]
-  // ! ============================================================
-  // ! ============================================================
-  // ! ============================================================
+  // bottom navigation bar
+  //============================================================
+  //============================================================
+  static final homeScreen = _Page(
+    route: 'HomeScreen',
+    screen: const HomeScreen(),
+  );
 
   //============================================================
   //============================================================
@@ -77,10 +75,8 @@ class PageIndex {
     screen: const ConfirmationRegister(),
   );
 
-  //
-  //
-  //
-  //
+  // ============================================================
+  // ============================================================
   // nominal case [ResetPass]
   //    1 - enterUsername
   //    2 - confirmResetPassword
@@ -95,17 +91,19 @@ class PageIndex {
     screen: const ConfirmResetPassword(),
   );
 
+  // ============================================================
+  // ============================================================
+  // nominal case [response_activities]
+  // ============================================================
+  // ============================================================
+  static final homeActivitiesScreen = _Page(
+    route: 'homeActivitiesScreen',
+    screen: const HomeActivitiesScreen(),
+  );
+
   //============================================================
   // ! FIX NAVIGATION
   //============================================================
-
-  // ============================================
-  // bottom navigation bar
-  // ============================================
-  static final homeScreen = _Page(
-    route: 'HomeScreen',
-    screen: const HomeScreen(),
-  );
 
   // ============================================
   // common pages
@@ -142,10 +140,6 @@ class PageIndex {
   static final pendingActivitiesScreen = _Page(
     route: 'PendingActivitiesScreen',
     screen: const PendingActivitiesScreen(),
-  );
-  static final activitiesByCategoryScreen = _Page(
-    route: 'ActivitiesByCategoryScreen',
-    screen: const ActivitiesByCategoryScreen(),
   );
 
   // ============================================

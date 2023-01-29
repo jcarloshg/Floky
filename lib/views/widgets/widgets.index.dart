@@ -34,6 +34,7 @@ export 'package:floky/views/widgets/UI/description/description.dart';
 export 'package:floky/views/widgets/UI/divider_custom/divider_custom.dart';
 export 'package:floky/views/widgets/UI/error_message/error_message.dart';
 export 'package:floky/views/widgets/UI/Loadding/loadding.dart';
+export 'package:floky/views/widgets/UI/spacer/ui.spacer.dart';
 export 'package:floky/views/widgets/UI/tag_category/tag_category.dart';
 export 'package:floky/views/widgets/UI/tag_level/tag_level.dart';
 export 'package:floky/views/widgets/UI/text_divider/text_divider.dart';
