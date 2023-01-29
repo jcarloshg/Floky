@@ -174,6 +174,10 @@ class ActivitiesProgress extends Model {
   Map<String, dynamic> toJson() => {
     'id': id, 'correctReading': _correctReading, 'wrongReading': _wrongReading, 'correctWriting': _correctWriting, 'wrongWriting': _wrongWriting, 'correctSpeaking': _correctSpeaking, 'wrongSpeaking': _wrongSpeaking, 'correctListening': _correctListening, 'wrongListening': _wrongListening, 'createdAt': _createdAt?.format(), 'updatedAt': _updatedAt?.format()
   };
+  
+  Map<String, Object?> toMap() => {
+    'id': id, 'correctReading': _correctReading, 'wrongReading': _wrongReading, 'correctWriting': _correctWriting, 'wrongWriting': _wrongWriting, 'correctSpeaking': _correctSpeaking, 'wrongSpeaking': _wrongSpeaking, 'correctListening': _correctListening, 'wrongListening': _wrongListening, 'createdAt': _createdAt, 'updatedAt': _updatedAt
+  };
 
   static final QueryField ID = QueryField(fieldName: "id");
   static final QueryField CORRECTREADING = QueryField(fieldName: "correctReading");

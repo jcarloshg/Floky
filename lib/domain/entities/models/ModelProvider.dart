@@ -21,26 +21,32 @@
 
 import 'package:amplify_core/amplify_core.dart';
 import 'Account.dart';
-import 'Activitie.dart';
 import 'ActivitiesProgress.dart';
+import 'Activity.dart';
+import 'Comment.dart';
+import 'Post.dart';
 import 'Topic.dart';
+import 'Answer.dart';
 
 export 'Account.dart';
-export 'Activitie.dart';
 export 'ActivitiesProgress.dart';
+export 'Activity.dart';
 export 'ActivityLevel.dart';
 export 'ActivityType.dart';
+export 'Answer.dart';
+export 'Comment.dart';
+export 'Post.dart';
 export 'Role.dart';
 export 'Topic.dart';
 
 class ModelProvider implements ModelProviderInterface {
   @override
-  String version = "ffe4130468acda2f3b6edb80f6365739";
+  String version = "d4c1ca7d8204c4439116400eb07eae9b";
   @override
-  List<ModelSchema> modelSchemas = [Account.schema, Activitie.schema, ActivitiesProgress.schema, Topic.schema];
+  List<ModelSchema> modelSchemas = [Account.schema, ActivitiesProgress.schema, Activity.schema, Comment.schema, Post.schema, Topic.schema];
   static final ModelProvider _instance = ModelProvider();
   @override
-  List<ModelSchema> customTypeSchemas = [];
+  List<ModelSchema> customTypeSchemas = [Answer.schema];
 
   static ModelProvider get instance => _instance;
   
@@ -48,10 +54,14 @@ class ModelProvider implements ModelProviderInterface {
     switch(modelName) {
       case "Account":
         return Account.classType;
-      case "Activitie":
-        return Activitie.classType;
       case "ActivitiesProgress":
         return ActivitiesProgress.classType;
+      case "Activity":
+        return Activity.classType;
+      case "Comment":
+        return Comment.classType;
+      case "Post":
+        return Post.classType;
       case "Topic":
         return Topic.classType;
       default:

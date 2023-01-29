@@ -152,6 +152,26 @@
         }
       }
     },
+    "apiFloky": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/amplify-floky-staging-172728-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "Parameters": {
+          "AppSyncApiName": "Floky",
+          "DynamoDBBillingMode": "PAY_PER_REQUEST",
+          "DynamoDBEnableServerSideEncryption": false,
+          "authRoleName": {
+            "Ref": "AuthRoleName"
+          },
+          "unauthRoleName": {
+            "Ref": "UnauthRoleName"
+          },
+          "S3DeploymentBucket": "amplify-floky-staging-172728-deployment",
+          "S3DeploymentRootKey": "amplify-appsync-files/0b6258e3f1f8e8780ebc85f51f85e4187e7d95d5",
+          "env": "staging"
+        }
+      }
+    },
     "authFloky": {
       "Type": "AWS::CloudFormation::Stack",
       "Properties": {
@@ -207,26 +227,6 @@
           "breakCircularDependency": true,
           "dependsOn": "",
           "hostedUI": false,
-          "env": "staging"
-        }
-      }
-    },
-    "apiFloky": {
-      "Type": "AWS::CloudFormation::Stack",
-      "Properties": {
-        "TemplateURL": "https://s3.amazonaws.com/amplify-floky-staging-172728-deployment/amplify-cfn-templates/api/cloudformation-template.json",
-        "Parameters": {
-          "AppSyncApiName": "Floky",
-          "DynamoDBBillingMode": "PAY_PER_REQUEST",
-          "DynamoDBEnableServerSideEncryption": false,
-          "authRoleName": {
-            "Ref": "AuthRoleName"
-          },
-          "unauthRoleName": {
-            "Ref": "UnauthRoleName"
-          },
-          "S3DeploymentBucket": "amplify-floky-staging-172728-deployment",
-          "S3DeploymentRootKey": "amplify-appsync-files/1d3727fa1273cd951ff8bfa1c3a4b22a3bd73347",
           "env": "staging"
         }
       }

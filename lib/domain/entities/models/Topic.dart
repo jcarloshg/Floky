@@ -19,7 +19,6 @@
 
 // ignore_for_file: public_member_api_docs, annotate_overrides, dead_code, dead_codepublic_member_api_docs, depend_on_referenced_packages, file_names, library_private_types_in_public_api, no_leading_underscores_for_library_prefixes, no_leading_underscores_for_local_identifiers, non_constant_identifier_names, null_check_on_nullable_type_parameter, prefer_adjacent_string_concatenation, prefer_const_constructors, prefer_if_null_operators, prefer_interpolation_to_compose_strings, slash_for_doc_comments, sort_child_properties_last, unnecessary_const, unnecessary_constructor_name, unnecessary_late, unnecessary_new, unnecessary_null_aware_assignments, unnecessary_nullable_for_final_variable_declarations, unnecessary_string_interpolations, use_build_context_synchronously
 
-import 'ModelProvider.dart';
 import 'package:amplify_core/amplify_core.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
@@ -31,7 +30,8 @@ class Topic extends Model {
   static const classType = const _TopicModelType();
   final String id;
   final String? _name;
-  final List<Activitie>? _activities;
+  final List<String>? _conceptInformation;
+  final List<String>? _examples;
   final TemporalDateTime? _createdAt;
   final TemporalDateTime? _updatedAt;
 
@@ -56,8 +56,12 @@ class Topic extends Model {
     }
   }
   
-  List<Activitie>? get activities {
-    return _activities;
+  List<String>? get conceptInformation {
+    return _conceptInformation;
+  }
+  
+  List<String>? get examples {
+    return _examples;
   }
   
   TemporalDateTime? get createdAt {
@@ -68,13 +72,14 @@ class Topic extends Model {
     return _updatedAt;
   }
   
-  const Topic._internal({required this.id, required name, activities, createdAt, updatedAt}): _name = name, _activities = activities, _createdAt = createdAt, _updatedAt = updatedAt;
+  const Topic._internal({required this.id, required name, conceptInformation, examples, createdAt, updatedAt}): _name = name, _conceptInformation = conceptInformation, _examples = examples, _createdAt = createdAt, _updatedAt = updatedAt;
   
-  factory Topic({String? id, required String name, List<Activitie>? activities}) {
+  factory Topic({String? id, required String name, List<String>? conceptInformation, List<String>? examples}) {
     return Topic._internal(
       id: id == null ? UUID.getUUID() : id,
       name: name,
-      activities: activities != null ? List<Activitie>.unmodifiable(activities) : activities);
+      conceptInformation: conceptInformation != null ? List<String>.unmodifiable(conceptInformation) : conceptInformation,
+      examples: examples != null ? List<String>.unmodifiable(examples) : examples);
   }
   
   bool equals(Object other) {
@@ -87,7 +92,8 @@ class Topic extends Model {
     return other is Topic &&
       id == other.id &&
       _name == other._name &&
-      DeepCollectionEquality().equals(_activities, other._activities);
+      DeepCollectionEquality().equals(_conceptInformation, other._conceptInformation) &&
+      DeepCollectionEquality().equals(_examples, other._examples);
   }
   
   @override
@@ -100,6 +106,8 @@ class Topic extends Model {
     buffer.write("Topic {");
     buffer.write("id=" + "$id" + ", ");
     buffer.write("name=" + "$_name" + ", ");
+    buffer.write("conceptInformation=" + (_conceptInformation != null ? _conceptInformation!.toString() : "null") + ", ");
+    buffer.write("examples=" + (_examples != null ? _examples!.toString() : "null") + ", ");
     buffer.write("createdAt=" + (_createdAt != null ? _createdAt!.format() : "null") + ", ");
     buffer.write("updatedAt=" + (_updatedAt != null ? _updatedAt!.format() : "null"));
     buffer.write("}");
@@ -107,34 +115,34 @@ class Topic extends Model {
     return buffer.toString();
   }
   
-  Topic copyWith({String? id, String? name, List<Activitie>? activities}) {
+  Topic copyWith({String? id, String? name, List<String>? conceptInformation, List<String>? examples}) {
     return Topic._internal(
       id: id ?? this.id,
       name: name ?? this.name,
-      activities: activities ?? this.activities);
+      conceptInformation: conceptInformation ?? this.conceptInformation,
+      examples: examples ?? this.examples);
   }
   
   Topic.fromJson(Map<String, dynamic> json)  
     : id = json['id'],
       _name = json['name'],
-      _activities = json['activities'] is List
-        ? (json['activities'] as List)
-          .where((e) => e?['serializedData'] != null)
-          .map((e) => Activitie.fromJson(new Map<String, dynamic>.from(e['serializedData'])))
-          .toList()
-        : null,
+      _conceptInformation = json['conceptInformation']?.cast<String>(),
+      _examples = json['examples']?.cast<String>(),
       _createdAt = json['createdAt'] != null ? TemporalDateTime.fromString(json['createdAt']) : null,
       _updatedAt = json['updatedAt'] != null ? TemporalDateTime.fromString(json['updatedAt']) : null;
   
   Map<String, dynamic> toJson() => {
-    'id': id, 'name': _name, 'activities': _activities?.map((Activitie? e) => e?.toJson()).toList(), 'createdAt': _createdAt?.format(), 'updatedAt': _updatedAt?.format()
+    'id': id, 'name': _name, 'conceptInformation': _conceptInformation, 'examples': _examples, 'createdAt': _createdAt?.format(), 'updatedAt': _updatedAt?.format()
+  };
+  
+  Map<String, Object?> toMap() => {
+    'id': id, 'name': _name, 'conceptInformation': _conceptInformation, 'examples': _examples, 'createdAt': _createdAt, 'updatedAt': _updatedAt
   };
 
   static final QueryField ID = QueryField(fieldName: "id");
   static final QueryField NAME = QueryField(fieldName: "name");
-  static final QueryField ACTIVITIES = QueryField(
-    fieldName: "activities",
-    fieldType: ModelFieldType(ModelFieldTypeEnum.model, ofModelName: (Activitie).toString()));
+  static final QueryField CONCEPTINFORMATION = QueryField(fieldName: "conceptInformation");
+  static final QueryField EXAMPLES = QueryField(fieldName: "examples");
   static var schema = Model.defineSchema(define: (ModelSchemaDefinition modelSchemaDefinition) {
     modelSchemaDefinition.name = "Topic";
     modelSchemaDefinition.pluralName = "Topics";
@@ -158,11 +166,18 @@ class Topic extends Model {
       ofType: ModelFieldType(ModelFieldTypeEnum.string)
     ));
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.hasMany(
-      key: Topic.ACTIVITIES,
+    modelSchemaDefinition.addField(ModelFieldDefinition.field(
+      key: Topic.CONCEPTINFORMATION,
       isRequired: false,
-      ofModelName: (Activitie).toString(),
-      associatedKey: Activitie.TOPICID
+      isArray: true,
+      ofType: ModelFieldType(ModelFieldTypeEnum.collection, ofModelName: describeEnum(ModelFieldTypeEnum.string))
+    ));
+    
+    modelSchemaDefinition.addField(ModelFieldDefinition.field(
+      key: Topic.EXAMPLES,
+      isRequired: false,
+      isArray: true,
+      ofType: ModelFieldType(ModelFieldTypeEnum.collection, ofModelName: describeEnum(ModelFieldTypeEnum.string))
     ));
     
     modelSchemaDefinition.addField(ModelFieldDefinition.nonQueryField(

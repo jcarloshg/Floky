@@ -21,21 +21,21 @@
 
 import 'ModelProvider.dart';
 import 'package:amplify_core/amplify_core.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
 
 
-/** This is an auto generated class representing the Activitie type in your schema. */
+/** This is an auto generated class representing the Account type in your schema. */
 @immutable
-class Activitie extends Model {
-  static const classType = const _ActivitieModelType();
+class Account extends Model {
+  static const classType = const _AccountModelType();
   final String id;
-  final String? _name;
-  final ActivityLevel? _activityLevel;
-  final ActivityType? _typeActivity;
-  final String? _question;
-  final String? _questionBody;
-  final String? _answers;
-  final String? _topicID;
+  final String? _fullName;
+  final String? _email;
+  final String? _collegeEnrollment;
+  final String? _collegeName;
+  final Role? _role;
+  final List<Post>? _posts;
   final TemporalDateTime? _createdAt;
   final TemporalDateTime? _updatedAt;
 
@@ -47,9 +47,9 @@ class Activitie extends Model {
     return id;
   }
   
-  String get name {
+  String get fullName {
     try {
-      return _name!;
+      return _fullName!;
     } catch(e) {
       throw new AmplifyCodeGenModelException(
           AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
@@ -60,17 +60,9 @@ class Activitie extends Model {
     }
   }
   
-  ActivityLevel? get activityLevel {
-    return _activityLevel;
-  }
-  
-  ActivityType? get typeActivity {
-    return _typeActivity;
-  }
-  
-  String get question {
+  String get email {
     try {
-      return _question!;
+      return _email!;
     } catch(e) {
       throw new AmplifyCodeGenModelException(
           AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
@@ -81,17 +73,9 @@ class Activitie extends Model {
     }
   }
   
-  String? get questionBody {
-    return _questionBody;
-  }
-  
-  String? get answers {
-    return _answers;
-  }
-  
-  String get topicID {
+  String get collegeEnrollment {
     try {
-      return _topicID!;
+      return _collegeEnrollment!;
     } catch(e) {
       throw new AmplifyCodeGenModelException(
           AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
@@ -100,6 +84,36 @@ class Activitie extends Model {
           underlyingException: e.toString()
           );
     }
+  }
+  
+  String get collegeName {
+    try {
+      return _collegeName!;
+    } catch(e) {
+      throw new AmplifyCodeGenModelException(
+          AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
+          recoverySuggestion:
+            AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
+          underlyingException: e.toString()
+          );
+    }
+  }
+  
+  Role get role {
+    try {
+      return _role!;
+    } catch(e) {
+      throw new AmplifyCodeGenModelException(
+          AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
+          recoverySuggestion:
+            AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
+          underlyingException: e.toString()
+          );
+    }
+  }
+  
+  List<Post>? get posts {
+    return _posts;
   }
   
   TemporalDateTime? get createdAt {
@@ -110,18 +124,17 @@ class Activitie extends Model {
     return _updatedAt;
   }
   
-  const Activitie._internal({required this.id, required name, activityLevel, typeActivity, required question, questionBody, answers, required topicID, createdAt, updatedAt}): _name = name, _activityLevel = activityLevel, _typeActivity = typeActivity, _question = question, _questionBody = questionBody, _answers = answers, _topicID = topicID, _createdAt = createdAt, _updatedAt = updatedAt;
+  const Account._internal({required this.id, required fullName, required email, required collegeEnrollment, required collegeName, required role, posts, createdAt, updatedAt}): _fullName = fullName, _email = email, _collegeEnrollment = collegeEnrollment, _collegeName = collegeName, _role = role, _posts = posts, _createdAt = createdAt, _updatedAt = updatedAt;
   
-  factory Activitie({String? id, required String name, ActivityLevel? activityLevel, ActivityType? typeActivity, required String question, String? questionBody, String? answers, required String topicID}) {
-    return Activitie._internal(
+  factory Account({String? id, required String fullName, required String email, required String collegeEnrollment, required String collegeName, required Role role, List<Post>? posts}) {
+    return Account._internal(
       id: id == null ? UUID.getUUID() : id,
-      name: name,
-      activityLevel: activityLevel,
-      typeActivity: typeActivity,
-      question: question,
-      questionBody: questionBody,
-      answers: answers,
-      topicID: topicID);
+      fullName: fullName,
+      email: email,
+      collegeEnrollment: collegeEnrollment,
+      collegeName: collegeName,
+      role: role,
+      posts: posts != null ? List<Post>.unmodifiable(posts) : posts);
   }
   
   bool equals(Object other) {
@@ -131,15 +144,14 @@ class Activitie extends Model {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is Activitie &&
+    return other is Account &&
       id == other.id &&
-      _name == other._name &&
-      _activityLevel == other._activityLevel &&
-      _typeActivity == other._typeActivity &&
-      _question == other._question &&
-      _questionBody == other._questionBody &&
-      _answers == other._answers &&
-      _topicID == other._topicID;
+      _fullName == other._fullName &&
+      _email == other._email &&
+      _collegeEnrollment == other._collegeEnrollment &&
+      _collegeName == other._collegeName &&
+      _role == other._role &&
+      DeepCollectionEquality().equals(_posts, other._posts);
   }
   
   @override
@@ -149,15 +161,13 @@ class Activitie extends Model {
   String toString() {
     var buffer = new StringBuffer();
     
-    buffer.write("Activitie {");
+    buffer.write("Account {");
     buffer.write("id=" + "$id" + ", ");
-    buffer.write("name=" + "$_name" + ", ");
-    buffer.write("activityLevel=" + (_activityLevel != null ? enumToString(_activityLevel)! : "null") + ", ");
-    buffer.write("typeActivity=" + (_typeActivity != null ? enumToString(_typeActivity)! : "null") + ", ");
-    buffer.write("question=" + "$_question" + ", ");
-    buffer.write("questionBody=" + "$_questionBody" + ", ");
-    buffer.write("answers=" + "$_answers" + ", ");
-    buffer.write("topicID=" + "$_topicID" + ", ");
+    buffer.write("fullName=" + "$_fullName" + ", ");
+    buffer.write("email=" + "$_email" + ", ");
+    buffer.write("collegeEnrollment=" + "$_collegeEnrollment" + ", ");
+    buffer.write("collegeName=" + "$_collegeName" + ", ");
+    buffer.write("role=" + (_role != null ? enumToString(_role)! : "null") + ", ");
     buffer.write("createdAt=" + (_createdAt != null ? _createdAt!.format() : "null") + ", ");
     buffer.write("updatedAt=" + (_updatedAt != null ? _updatedAt!.format() : "null"));
     buffer.write("}");
@@ -165,45 +175,53 @@ class Activitie extends Model {
     return buffer.toString();
   }
   
-  Activitie copyWith({String? id, String? name, ActivityLevel? activityLevel, ActivityType? typeActivity, String? question, String? questionBody, String? answers, String? topicID}) {
-    return Activitie._internal(
+  Account copyWith({String? id, String? fullName, String? email, String? collegeEnrollment, String? collegeName, Role? role, List<Post>? posts}) {
+    return Account._internal(
       id: id ?? this.id,
-      name: name ?? this.name,
-      activityLevel: activityLevel ?? this.activityLevel,
-      typeActivity: typeActivity ?? this.typeActivity,
-      question: question ?? this.question,
-      questionBody: questionBody ?? this.questionBody,
-      answers: answers ?? this.answers,
-      topicID: topicID ?? this.topicID);
+      fullName: fullName ?? this.fullName,
+      email: email ?? this.email,
+      collegeEnrollment: collegeEnrollment ?? this.collegeEnrollment,
+      collegeName: collegeName ?? this.collegeName,
+      role: role ?? this.role,
+      posts: posts ?? this.posts);
   }
   
-  Activitie.fromJson(Map<String, dynamic> json)  
+  Account.fromJson(Map<String, dynamic> json)  
     : id = json['id'],
-      _name = json['name'],
-      _activityLevel = enumFromString<ActivityLevel>(json['activityLevel'], ActivityLevel.values),
-      _typeActivity = enumFromString<ActivityType>(json['typeActivity'], ActivityType.values),
-      _question = json['question'],
-      _questionBody = json['questionBody'],
-      _answers = json['answers'],
-      _topicID = json['topicID'],
+      _fullName = json['fullName'],
+      _email = json['email'],
+      _collegeEnrollment = json['collegeEnrollment'],
+      _collegeName = json['collegeName'],
+      _role = enumFromString<Role>(json['role'], Role.values),
+      _posts = json['posts'] is List
+        ? (json['posts'] as List)
+          .where((e) => e?['serializedData'] != null)
+          .map((e) => Post.fromJson(new Map<String, dynamic>.from(e['serializedData'])))
+          .toList()
+        : null,
       _createdAt = json['createdAt'] != null ? TemporalDateTime.fromString(json['createdAt']) : null,
       _updatedAt = json['updatedAt'] != null ? TemporalDateTime.fromString(json['updatedAt']) : null;
   
   Map<String, dynamic> toJson() => {
-    'id': id, 'name': _name, 'activityLevel': enumToString(_activityLevel), 'typeActivity': enumToString(_typeActivity), 'question': _question, 'questionBody': _questionBody, 'answers': _answers, 'topicID': _topicID, 'createdAt': _createdAt?.format(), 'updatedAt': _updatedAt?.format()
+    'id': id, 'fullName': _fullName, 'email': _email, 'collegeEnrollment': _collegeEnrollment, 'collegeName': _collegeName, 'role': enumToString(_role), 'posts': _posts?.map((Post? e) => e?.toJson()).toList(), 'createdAt': _createdAt?.format(), 'updatedAt': _updatedAt?.format()
+  };
+  
+  Map<String, Object?> toMap() => {
+    'id': id, 'fullName': _fullName, 'email': _email, 'collegeEnrollment': _collegeEnrollment, 'collegeName': _collegeName, 'role': _role, 'posts': _posts, 'createdAt': _createdAt, 'updatedAt': _updatedAt
   };
 
   static final QueryField ID = QueryField(fieldName: "id");
-  static final QueryField NAME = QueryField(fieldName: "name");
-  static final QueryField ACTIVITYLEVEL = QueryField(fieldName: "activityLevel");
-  static final QueryField TYPEACTIVITY = QueryField(fieldName: "typeActivity");
-  static final QueryField QUESTION = QueryField(fieldName: "question");
-  static final QueryField QUESTIONBODY = QueryField(fieldName: "questionBody");
-  static final QueryField ANSWERS = QueryField(fieldName: "answers");
-  static final QueryField TOPICID = QueryField(fieldName: "topicID");
+  static final QueryField FULLNAME = QueryField(fieldName: "fullName");
+  static final QueryField EMAIL = QueryField(fieldName: "email");
+  static final QueryField COLLEGEENROLLMENT = QueryField(fieldName: "collegeEnrollment");
+  static final QueryField COLLEGENAME = QueryField(fieldName: "collegeName");
+  static final QueryField ROLE = QueryField(fieldName: "role");
+  static final QueryField POSTS = QueryField(
+    fieldName: "posts",
+    fieldType: ModelFieldType(ModelFieldTypeEnum.model, ofModelName: (Post).toString()));
   static var schema = Model.defineSchema(define: (ModelSchemaDefinition modelSchemaDefinition) {
-    modelSchemaDefinition.name = "Activitie";
-    modelSchemaDefinition.pluralName = "Activities";
+    modelSchemaDefinition.name = "Account";
+    modelSchemaDefinition.pluralName = "Accounts";
     
     modelSchemaDefinition.authRules = [
       AuthRule(
@@ -219,45 +237,40 @@ class Activitie extends Model {
     modelSchemaDefinition.addField(ModelFieldDefinition.id());
     
     modelSchemaDefinition.addField(ModelFieldDefinition.field(
-      key: Activitie.NAME,
+      key: Account.FULLNAME,
       isRequired: true,
       ofType: ModelFieldType(ModelFieldTypeEnum.string)
     ));
     
     modelSchemaDefinition.addField(ModelFieldDefinition.field(
-      key: Activitie.ACTIVITYLEVEL,
-      isRequired: false,
+      key: Account.EMAIL,
+      isRequired: true,
+      ofType: ModelFieldType(ModelFieldTypeEnum.string)
+    ));
+    
+    modelSchemaDefinition.addField(ModelFieldDefinition.field(
+      key: Account.COLLEGEENROLLMENT,
+      isRequired: true,
+      ofType: ModelFieldType(ModelFieldTypeEnum.string)
+    ));
+    
+    modelSchemaDefinition.addField(ModelFieldDefinition.field(
+      key: Account.COLLEGENAME,
+      isRequired: true,
+      ofType: ModelFieldType(ModelFieldTypeEnum.string)
+    ));
+    
+    modelSchemaDefinition.addField(ModelFieldDefinition.field(
+      key: Account.ROLE,
+      isRequired: true,
       ofType: ModelFieldType(ModelFieldTypeEnum.enumeration)
     ));
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.field(
-      key: Activitie.TYPEACTIVITY,
+    modelSchemaDefinition.addField(ModelFieldDefinition.hasMany(
+      key: Account.POSTS,
       isRequired: false,
-      ofType: ModelFieldType(ModelFieldTypeEnum.enumeration)
-    ));
-    
-    modelSchemaDefinition.addField(ModelFieldDefinition.field(
-      key: Activitie.QUESTION,
-      isRequired: true,
-      ofType: ModelFieldType(ModelFieldTypeEnum.string)
-    ));
-    
-    modelSchemaDefinition.addField(ModelFieldDefinition.field(
-      key: Activitie.QUESTIONBODY,
-      isRequired: false,
-      ofType: ModelFieldType(ModelFieldTypeEnum.string)
-    ));
-    
-    modelSchemaDefinition.addField(ModelFieldDefinition.field(
-      key: Activitie.ANSWERS,
-      isRequired: false,
-      ofType: ModelFieldType(ModelFieldTypeEnum.string)
-    ));
-    
-    modelSchemaDefinition.addField(ModelFieldDefinition.field(
-      key: Activitie.TOPICID,
-      isRequired: true,
-      ofType: ModelFieldType(ModelFieldTypeEnum.string)
+      ofModelName: (Post).toString(),
+      associatedKey: Post.TUTORACCOUNTID
     ));
     
     modelSchemaDefinition.addField(ModelFieldDefinition.nonQueryField(
@@ -276,11 +289,11 @@ class Activitie extends Model {
   });
 }
 
-class _ActivitieModelType extends ModelType<Activitie> {
-  const _ActivitieModelType();
+class _AccountModelType extends ModelType<Account> {
+  const _AccountModelType();
   
   @override
-  Activitie fromJson(Map<String, dynamic> jsonData) {
-    return Activitie.fromJson(jsonData);
+  Account fromJson(Map<String, dynamic> jsonData) {
+    return Account.fromJson(jsonData);
   }
 }

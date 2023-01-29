@@ -1,5 +1,5 @@
+import 'package:floky/domain/entities/models/ActivityType.dart';
 import 'package:floky/domain/usecase/doing_activities/doing_activities.usecase.dart';
-import 'package:floky/models/model.index.dart';
 
 class DoingActivitiesAWS extends DoingActivities {
   @override

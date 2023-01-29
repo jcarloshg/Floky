@@ -12,18 +12,47 @@
       "AmplifyAppId": "dsya0w79e2a69"
     }
   },
+  "api": {
+    "Floky": {
+      "dependsOn": [],
+      "output": {
+        "authConfig": {
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AWS_IAM"
+            }
+          ],
+          "defaultAuthentication": {
+            "authenticationType": "API_KEY",
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 30,
+              "description": "api key description"
+            }
+          }
+        },
+        "GraphQLAPIIdOutput": "ngxgbscpkractkcksx67btsg3e",
+        "GraphQLAPIEndpointOutput": "https://uloynwtxs5grrbluj5dtwixxvm.appsync-api.us-west-1.amazonaws.com/graphql",
+        "GraphQLAPIKeyOutput": "da2-maqxfjdj5zer5gi322snaoadai"
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "AppSync",
+      "lastPushTimeStamp": "2023-01-29T18:46:19.703Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-floky-staging-172728-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "logicalId": "apiFloky"
+      },
+      "lastPushDirHash": "mpGbBBEKI3X+cJ2KmQ9hrmG2xSU="
+    }
+  },
   "auth": {
     "Floky": {
-      "service": "Cognito",
-      "providerPlugin": "awscloudformation",
-      "dependsOn": [],
       "customAuth": false,
+      "dependsOn": [],
       "frontendAuthConfig": {
-        "socialProviders": [],
-        "usernameAttributes": [
-          "EMAIL"
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
         ],
-        "signupAttributes": [],
         "passwordProtectionSettings": {
           "passwordPolicyMinLength": 8,
           "passwordPolicyCharacters": [
@@ -32,14 +61,17 @@
             "REQUIRES_UPPERCASE"
           ]
         },
-        "mfaConfiguration": "OFF",
-        "mfaTypes": [
-          "SMS"
+        "signupAttributes": [],
+        "socialProviders": [],
+        "usernameAttributes": [
+          "EMAIL"
         ],
         "verificationMechanisms": [
           "EMAIL"
         ]
       },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito",
       "output": {
         "UserPoolId": "us-west-1_8ybSH3Poi",
         "AppClientIDWeb": "4j24u07pjbpg4nsrt1jgv3prcp",
@@ -49,43 +81,11 @@
         "IdentityPoolName": "testAuthIdentityPool__staging",
         "UserPoolName": "Floky"
       },
-      "lastPushTimeStamp": "2022-10-13T04:54:38.605Z",
+      "lastPushTimeStamp": "2023-01-29T18:46:19.638Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-floky-staging-172728-deployment/amplify-cfn-templates/auth/Floky-cloudformation-template.json",
         "logicalId": "authFloky"
       }
-    }
-  },
-  "api": {
-    "Floky": {
-      "service": "AppSync",
-      "providerPlugin": "awscloudformation",
-      "dependsOn": [],
-      "output": {
-        "authConfig": {
-          "defaultAuthentication": {
-            "authenticationType": "API_KEY",
-            "apiKeyConfig": {
-              "apiKeyExpirationDays": 30,
-              "description": "api key description"
-            }
-          },
-          "additionalAuthenticationProviders": [
-            {
-              "authenticationType": "AWS_IAM"
-            }
-          ]
-        },
-        "GraphQLAPIIdOutput": "ngxgbscpkractkcksx67btsg3e",
-        "GraphQLAPIEndpointOutput": "https://uloynwtxs5grrbluj5dtwixxvm.appsync-api.us-west-1.amazonaws.com/graphql",
-        "GraphQLAPIKeyOutput": "da2-maqxfjdj5zer5gi322snaoadai"
-      },
-      "lastPushTimeStamp": "2022-10-13T04:54:38.659Z",
-      "providerMetadata": {
-        "s3TemplateURL": "https://s3.amazonaws.com/amplify-floky-staging-172728-deployment/amplify-cfn-templates/api/cloudformation-template.json",
-        "logicalId": "apiFloky"
-      },
-      "lastPushDirHash": "+U+WAfFA2svTHf77HGetYWugHOw="
     }
   }
 }

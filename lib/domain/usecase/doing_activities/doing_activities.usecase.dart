@@ -1,4 +1,4 @@
-import 'package:floky/models/model.index.dart';
+import 'package:floky/domain/entities/models/ActivityType.dart';
 
 class ResponseActivities {
   final bool isOK;
