@@ -27,7 +27,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     configureAmplify(
-      updateState: () => updateState(),
+      completeLoadOfAWSPlugins: () => updateState(),
     );
     super.initState();
   }

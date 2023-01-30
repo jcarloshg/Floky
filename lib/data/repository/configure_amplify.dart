@@ -6,7 +6,9 @@ import 'package:floky/data/repository/amplifyconfiguration.dart';
 import 'package:floky/domain/entities/models/ModelProvider.dart';
 import 'package:safeprint/safeprint.dart';
 
-Future<void> configureAmplify({required void Function() updateState}) async {
+Future<void> configureAmplify({
+  required void Function() completeLoadOfAWSPlugins,
+}) async {
   try {
     final api = AmplifyAPI(modelProvider: ModelProvider.instance);
     final dataStore = AmplifyDataStore(modelProvider: ModelProvider.instance);
@@ -14,7 +16,7 @@ Future<void> configureAmplify({required void Function() updateState}) async {
     await Amplify.addPlugins([api, dataStore, authCognito]);
     await Amplify.configure(amplifyconfig);
 
-    updateState();
+    completeLoadOfAWSPlugins();
   } on Exception catch (e) {
     SafePrint.safePrint('An error occurred configuring Amplify: $e');
   }
