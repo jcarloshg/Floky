@@ -9,14 +9,14 @@ class ResponseActivitiesController implements ResponseActivitiesRepository {
   ResponseActivitiesController({required this.bloc, required this.repository});
 
   @override
-  Future<Activity> getActivityByID({required String id}) {
-    // TODO: implement getActivityByID
-    throw UnimplementedError();
-  }
-
-  @override
   Future<List<Activity>> getRecentActivities() async {
     final activities = await repository.getRecentActivities();
     return activities;
+  }
+
+  @override
+  Future<Activity> getActivityByID({required String id}) {
+    // TODO: implement getActivityByID
+    throw UnimplementedError();
   }
 }

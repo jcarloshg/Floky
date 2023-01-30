@@ -1,6 +1,7 @@
 import 'package:floky/domain/entities/models/Activity.dart';
 import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:floky/domain/usecase/response_activities/domain/repository.get_recent_activities.dart';
+import 'dart:developer' as developer;
 
 class GetRecentActivitiesAWS extends GetRecentActivitiesRepository {
   @override
@@ -11,6 +12,11 @@ class GetRecentActivitiesAWS extends GetRecentActivitiesRepository {
         sortBy: [Activity.NAME.descending()],
         pagination: const QueryPagination.firstPage(),
       );
+      // developer.log('AuthenticateAws/signIn/error: $activities');
+      developer.log('GetRecentActivitiesAWS');
+      for (var element in activities) {
+        developer.log(element.name);
+      }
       return activities;
     } on DataStoreException {
       return [];

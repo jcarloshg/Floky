@@ -10,6 +10,8 @@ class ListRecentActivities extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    activitiesCarousel();
+
     return Container(
       decoration: BoxDecoration(border: Border.all()),
       // margin: const EdgeInsets.symmetric(horizontal: 15),
@@ -18,24 +20,27 @@ class ListRecentActivities extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Titles.subtitle(title),
-          activitiesCarousel(),
         ],
       ),
     );
   }
 
-  activitiesCarousel() async {
+  Future<void> activitiesCarousel() async {
     final responseActivitiesController = di<ResponseActivitiesController>();
     final activities = await responseActivitiesController.getRecentActivities();
-    return Container(
-      decoration: BoxDecoration(border: Border.all()),
-      width: 150,
-      height: 150,
-      child: ListView.separated(
-        itemCount: activities.length,
-        separatorBuilder: (_, __) => const SizedBox(width: 15, height: 15),
-        itemBuilder: (context, index) => Text(activities[index].name),
-      ),
-    );
+    for (var element in activities) {
+      // ignore: avoid_print
+      print(element.name);
+    }
+    // return Container(
+    //   decoration: BoxDecoration(border: Border.all()),
+    //   width: 150,
+    //   height: 150,
+    //   child: ListView.separated(
+    //     itemCount: activities.length,
+    //     separatorBuilder: (_, __) => const SizedBox(width: 15, height: 15),
+    //     itemBuilder: (context, index) => Text(activities[index].name),
+    //   ),
+    // );
   }
 }
