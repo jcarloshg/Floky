@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:floky/data/repository/configure_amplify.dart';
 import 'package:floky/dependencyInjection/setup_di.dart';
 import 'package:floky/domain/bloc/authenticate/authenticate_bloc.dart';
@@ -20,10 +22,18 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  bool _isLoadingConfigurationAmplify = true;
+
   @override
   void initState() {
-    configureAmplify();
+    configureAmplify(
+      updateState: () => updateState(),
+    );
     super.initState();
+  }
+
+  void updateState() {
+    setState(() => _isLoadingConfigurationAmplify = false);
   }
 
   @override
@@ -32,17 +42,19 @@ class _MyAppState extends State<MyApp> {
       providers: [
         BlocProvider(create: (_) => di<AuthenticateBloc>()),
       ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        routes: PageIndex.getAppRoutes(),
-        initialRoute: PageIndex.initialRoute,
-        title: 'Floky',
-        theme: ThemeData(
-          primarySwatch: Colors.blueGrey,
-          backgroundColor: ColorsApp.greyEEEEEE,
-          scaffoldBackgroundColor: ColorsApp.greyEEEEEE,
-        ),
-      ),
+      child: _isLoadingConfigurationAmplify
+          ? const Center(child: CircularProgressIndicator())
+          : MaterialApp(
+              debugShowCheckedModeBanner: false,
+              routes: PageIndex.getAppRoutes(),
+              initialRoute: PageIndex.initialRoute,
+              title: 'Floky',
+              theme: ThemeData(
+                primarySwatch: Colors.blueGrey,
+                backgroundColor: ColorsApp.greyEEEEEE,
+                scaffoldBackgroundColor: ColorsApp.greyEEEEEE,
+              ),
+            ),
     );
   }
 }
