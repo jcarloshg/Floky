@@ -2,6 +2,7 @@ import 'package:floky/data/usecase/awsamplify/authenticate/authenticate.aws.dart
 import 'package:floky/data/usecase/awsamplify/doing_activities/doing_activities.aws.dart';
 import 'package:floky/data/usecase/awsamplify/response_activities/aws.response_activities.dart';
 import 'package:floky/domain/bloc/authenticate/authenticate_bloc.dart';
+import 'package:floky/domain/bloc/response_activities/bloc.response_activities.dart';
 import 'package:floky/domain/usecase/authenticate/authenticate.usecase.dart';
 import 'package:floky/domain/usecase/doing_activities/doing_activities.usecase.dart';
 import 'package:floky/domain/usecase/response_activities/domain/repository.response_activities.dart';
@@ -21,30 +22,43 @@ Future<void> setupDI() async {
 }
 
 _data() async {
-  di.registerLazySingleton<Authenticate>(() => AuthenticateAws());
-  di.registerLazySingleton<DoingActivities>(() => DoingActivitiesAWS());
+  di.registerLazySingleton<Authenticate>(
+    () => AuthenticateAws(),
+  );
+
+  di.registerLazySingleton<DoingActivities>(
+    () => DoingActivitiesAWS(),
+  );
+
   di.registerLazySingleton<ResponseActivitiesRepository>(
-      () => setupResponseActivitiesAWS());
+    () => setupResponseActivitiesAWS(),
+  );
 
   return await null;
 }
 
 _domain() async {
-  di.registerFactory(
-    () => AuthenticateBloc(authenticate: di()),
-  );
+  di.registerFactory(() => AuthenticateBloc(authenticate: di()));
+  di.registerFactory(() => ResponseActivitiesBloc(repository: di()));
 }
 
 _view() async {
   //
+  //
   // useCase [authenticate]
+  //
   di.registerSingleton(LoginController(), signalsReady: true);
   di.registerSingleton(SingupController(), signalsReady: true);
   di.registerSingleton(ResetPassControll(), signalsReady: true);
 
   //
+  //
   // useCase [response_activities]
-  di.registerSingleton(ResponseActivitiesController(), signalsReady: true);
+  //
+  di.registerSingleton(
+    ResponseActivitiesController(responseActivitiesBloc: di()),
+    signalsReady: true,
+  );
 
   return await null;
 }

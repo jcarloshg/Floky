@@ -4,7 +4,7 @@ import 'package:floky/domain/usecase/response_activities/infrastructure/aws/aws.
 import 'package:floky/domain/usecase/response_activities/infrastructure/aws/aws.get_recent_activities.dart';
 
 ResponseActivitiesRepository setupResponseActivitiesAWS() {
-  final repository = ResponseActivities(
+  final ResponseActivitiesRepository repository = ResponseActivities(
     getRecentActivitiesRepository: GetRecentActivitiesAWS(),
     getActivityByIDRepository: GetActivityByIdAWS(),
   );

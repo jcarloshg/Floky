@@ -3,12 +3,17 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 
+import 'package:floky/domain/usecase/response_activities/domain/repository.response_activities.dart';
+
 part 'bloc_event.response_activities.dart';
 part 'bloc_state.response_activities.dart';
 
 class ResponseActivitiesBloc
     extends Bloc<ResponseActivitiesEvent, ResponseActivitiesState> {
-  ResponseActivitiesBloc() : super(ResponseActivitiesInitial()) {
+  final ResponseActivitiesRepository repository;
+
+  ResponseActivitiesBloc({required this.repository})
+      : super(ResponseActivitiesInitial()) {
     on<ResponseActivitiesEvent>((event, emit) {});
   }
 }
