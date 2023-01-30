@@ -39,7 +39,7 @@ _data() async {
 
 _domain() async {
   di.registerFactory(() => AuthenticateBloc(authenticate: di()));
-  di.registerFactory(() => ResponseActivitiesBloc(repository: di()));
+  di.registerFactory(() => ResponseActivitiesBloc());
 }
 
 _view() async {
@@ -56,7 +56,7 @@ _view() async {
   // useCase [response_activities]
   //
   di.registerSingleton(
-    ResponseActivitiesController(responseActivitiesBloc: di()),
+    ResponseActivitiesController(bloc: di(), repository: di()),
     signalsReady: true,
   );
 

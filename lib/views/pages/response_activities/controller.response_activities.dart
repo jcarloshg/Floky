@@ -1,16 +1,12 @@
 import 'package:floky/domain/bloc/response_activities/bloc.response_activities.dart';
 import 'package:floky/domain/entities/models/Activity.dart';
-import 'package:flutter/widgets.dart';
 import 'package:floky/domain/usecase/response_activities/domain/repository.response_activities.dart';
 
 class ResponseActivitiesController implements ResponseActivitiesRepository {
-  final ResponseActivitiesBloc responseActivitiesBloc;
+  final ResponseActivitiesBloc bloc;
+  final ResponseActivitiesRepository repository;
 
-  ResponseActivitiesController({required this.responseActivitiesBloc});
-
-  ResponseActivitiesController getController(BuildContext context) {
-    return this;
-  }
+  ResponseActivitiesController({required this.bloc, required this.repository});
 
   @override
   Future<Activity> getActivityByID({required String id}) {
@@ -19,8 +15,8 @@ class ResponseActivitiesController implements ResponseActivitiesRepository {
   }
 
   @override
-  Future<List<Activity>> getRecentActivities() {
-    // TODO: implement getRecentActivities
-    throw UnimplementedError();
+  Future<List<Activity>> getRecentActivities() async {
+    final activities = await repository.getRecentActivities();
+    return activities;
   }
 }

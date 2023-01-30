@@ -13,8 +13,13 @@ Future<void> configureAmplify() async {
     await Amplify.addPlugin(api);
     await Amplify.addPlugin(AmplifyAPI());
     await Amplify.addPlugin(AmplifyAuthCognito());
-    await Amplify.addPlugin(
-        AmplifyDataStore(modelProvider: ModelProvider.instance));
+
+    // Add the following lines to your app initialization to add the DataStore plugin
+    final datastorePlugin = AmplifyDataStore(
+      modelProvider: ModelProvider.instance,
+    );
+    await Amplify.addPlugin(datastorePlugin);
+
     // call Amplify.configure to use the initialized categories in your app
     await Amplify.configure(amplifyconfig);
   } on Exception catch (e) {
