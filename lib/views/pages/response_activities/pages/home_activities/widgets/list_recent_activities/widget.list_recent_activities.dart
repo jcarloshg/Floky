@@ -29,10 +29,7 @@ class _ListRecentActivitiesState extends State<ListRecentActivities> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      // decoration: BoxDecoration(border: Border.all()),
-      child: _activities.isEmpty ? loading() : viewerActivities(),
-    );
+    return _activities.isEmpty ? loading() : viewerActivities();
   }
 
   Widget loading() {

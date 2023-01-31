@@ -16,7 +16,34 @@ class ActivityCard extends StatelessWidget {
       height: ActivityCard.height,
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
       decoration: _boxDecoration(context),
-      child: Text(activity.name),
+      child: Stack(
+        clipBehavior: Clip.none,
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(activity.name),
+              // Text(activity.topic.name),
+            ],
+          ),
+
+          const Positioned(
+            bottom: -10,
+            right: -10,
+            child: Image(
+              height: 55,
+              width: 55,
+              image: AssetImage('assets/categories/read.png'),
+              fit: BoxFit.scaleDown,
+            ),
+          ),
+
+          // Align(
+          //   alignment: Alignment.bottomLeft,
+          //   child: Text(activity.activityLevel as String),
+          // ),
+        ],
+      ),
     );
   }
 
