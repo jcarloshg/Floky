@@ -60,7 +60,7 @@ class ActivityCard extends StatelessWidget {
     return Text(
       title ?? '[NOT_TITLE]',
       style: const TextStyle(
-        color: Color.fromARGB(255, 56, 72, 80),
+        color: Color(0xFF384850),
         fontSize: 11,
         fontWeight: FontWeight.bold,
       ),
