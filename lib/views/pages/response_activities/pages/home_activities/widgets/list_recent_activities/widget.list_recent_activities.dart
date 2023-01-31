@@ -1,6 +1,7 @@
 import 'package:floky/dependencyInjection/setup_di.dart';
 import 'package:floky/domain/entities/models/ModelProvider.dart';
 import 'package:floky/views/pages/response_activities/controller.response_activities.dart';
+import 'package:floky/views/pages/response_activities/pages/home_activities/widgets/list_recent_activities/widget.activities_carousel_horizontal.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +13,6 @@ class ListRecentActivities extends StatefulWidget {
 }
 
 class _ListRecentActivitiesState extends State<ListRecentActivities> {
-  final String _title = 'Descubre actividades nuevas';
   List<Activity> _activities = [];
 
   @override
@@ -30,28 +30,21 @@ class _ListRecentActivitiesState extends State<ListRecentActivities> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(border: Border.all()),
-      child: _activities.isEmpty
-          ? const Center(child: CircularProgressIndicator())
-          : Column(
-              children: [
-                Titles.subtitle(_title),
-                SizedBox(
-                  height: 100,
-                  child: activitiesCarousel(_activities),
-                )
-              ],
-            ),
+      // decoration: BoxDecoration(border: Border.all()),
+      child: _activities.isEmpty ? loading() : viewerActivities(),
     );
   }
 
-  Widget activitiesCarousel(List<Activity> activities) {
-    return ListView.separated(
-      scrollDirection: Axis.horizontal,
-      shrinkWrap: true,
-      itemCount: activities.length,
-      separatorBuilder: (_, __) => const SizedBox(width: 15, height: 15),
-      itemBuilder: (context, index) => Text(activities[index].name),
+  Widget loading() {
+    return const Center(child: CircularProgressIndicator());
+  }
+
+  Widget viewerActivities() {
+    return Column(
+      children: [
+        Titles.subtitle('Descubre actividades nuevas'),
+        ActivitiesCarouselHorizontal(activities: _activities),
+      ],
     );
   }
 }
