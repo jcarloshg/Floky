@@ -23,10 +23,13 @@ class ActivityCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(activity.name),
-              // Text(activity.topic.name),
+              Text(activity.name),
             ],
           ),
-
+          const Align(
+            alignment: Alignment.bottomLeft,
+            child: Text('A2'),
+          ),
           const Positioned(
             bottom: -10,
             right: -10,
@@ -37,11 +40,6 @@ class ActivityCard extends StatelessWidget {
               fit: BoxFit.scaleDown,
             ),
           ),
-
-          // Align(
-          //   alignment: Alignment.bottomLeft,
-          //   child: Text(activity.activityLevel as String),
-          // ),
         ],
       ),
     );
