@@ -43,22 +43,13 @@ class _CardBottom extends StatelessWidget {
   final ActivityLevel? level;
   const _CardBottom({required this.level});
 
-  static String getActivityLevelString(ActivityLevel? level) {
-    if (level == ActivityLevel.A1) return 'A1';
-    if (level == ActivityLevel.A2) return 'A2';
-    if (level == ActivityLevel.B1) return 'B1';
-    if (level == ActivityLevel.B2) return 'B2';
-    if (level == ActivityLevel.C1) return 'C1';
-    if (level == ActivityLevel.C2) return 'C2';
-    return '[UNDEFINED]';
-  }
-
   @override
   Widget build(BuildContext context) {
     return Align(
       alignment: Alignment.bottomLeft,
       child: Text(
-        getActivityLevelString(level),
+        ActivityUtility.getActivityLevelString(level),
+        // getActivityLevelString(level),
         style: const TextStyle(fontWeight: FontWeight.bold),
       ),
     );
@@ -70,18 +61,6 @@ class _ImageActivityType extends StatelessWidget {
 
   const _ImageActivityType({required this.activityType});
 
-  String _getImage() {
-    const String assetNameToRead = 'assets/categories/read.png';
-    const String assetNameToListen = 'assets/categories/listen.png';
-    const String assetNameToSpeak = 'assets/categories/speak.png';
-    const String assetNameToWrite = 'assets/categories/write.png';
-    if (activityType == ActivityType.READING) return assetNameToRead;
-    if (activityType == ActivityType.LISTENING) return assetNameToListen;
-    if (activityType == ActivityType.TALKING) return assetNameToSpeak;
-    if (activityType == ActivityType.WRITING) return assetNameToWrite;
-    return assetNameToListen;
-  }
-
   @override
   Widget build(BuildContext context) {
     return Positioned(
@@ -90,7 +69,7 @@ class _ImageActivityType extends StatelessWidget {
       child: Image(
         height: 55,
         width: 55,
-        image: AssetImage(_getImage()),
+        image: AssetImage(ActivityUtility.getURLAsset(activityType!)),
         fit: BoxFit.scaleDown,
       ),
     );
@@ -101,23 +80,9 @@ BoxDecoration _boxDecoration(
   BuildContext context, {
   required ActivityType? activityType,
 }) {
-  Color getColorBackground() {
-    switch (activityType) {
-      case ActivityType.READING:
-        return ColorsApp.readBackground;
-      case ActivityType.LISTENING:
-        return ColorsApp.listenBackground;
-      case ActivityType.TALKING:
-        return ColorsApp.speakBackground;
-      case ActivityType.WRITING:
-        return ColorsApp.writeBackground;
-      default:
-        return Colors.white;
-    }
-  }
-
   return BoxDecoration(
-    color: getColorBackground(),
+    // color: getColorBackground(),
+    color: ActivityUtility.getColorBackground(activityType!),
     borderRadius: BorderRadius.circular(5),
     border: Border.all(
       color: ColorsApp.greyAAAAAA,

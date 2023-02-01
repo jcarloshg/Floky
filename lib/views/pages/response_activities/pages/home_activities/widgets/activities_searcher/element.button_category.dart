@@ -13,9 +13,7 @@ class _ButtonCategory extends StatelessWidget {
         height: 40,
         width: double.infinity,
         decoration: _boxDecoration(),
-        // color: _getColorBackground(),
-        // shape: _roundedRectangleBorder(),
-        child: Center(child: Text(activityType.toString())),
+        child: _ButtonCategoryBody(activityType: activityType),
       ),
     );
   }
@@ -23,18 +21,7 @@ class _ButtonCategory extends StatelessWidget {
   BoxDecoration _boxDecoration() => BoxDecoration(
         color: _getColorBackground(),
         borderRadius: BorderRadius.circular(4),
-        // boxShadow: const [
-        //   BoxShadow(
-        //     color: Colors.black26,
-        //     offset: Offset(3, 3),
-        //     blurRadius: 3,
-        //   ),
-        // ],
       );
-
-  RoundedRectangleBorder _roundedRectangleBorder() {
-    return RoundedRectangleBorder(borderRadius: BorderRadius.circular(4));
-  }
 
   Color _getColorBackground() {
     switch (activityType) {
@@ -49,5 +36,23 @@ class _ButtonCategory extends StatelessWidget {
       default:
         return Colors.white;
     }
+  }
+}
+
+class _ButtonCategoryBody extends StatelessWidget {
+  final ActivityType activityType;
+  const _ButtonCategoryBody({required this.activityType});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(child: Text(_getName()));
+  }
+
+  String _getName() {
+    if (activityType == ActivityType.READING) return 'Leer';
+    if (activityType == ActivityType.WRITING) return 'Escribir';
+    if (activityType == ActivityType.LISTENING) return 'Escuchar';
+    if (activityType == ActivityType.TALKING) return 'Hablar';
+    return 'Leer';
   }
 }

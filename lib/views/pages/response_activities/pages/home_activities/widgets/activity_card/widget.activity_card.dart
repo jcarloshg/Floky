@@ -2,6 +2,7 @@ import 'package:floky/domain/entities/models/Activity.dart';
 import 'package:floky/domain/entities/models/ActivityLevel.dart';
 import 'package:floky/domain/entities/models/ActivityType.dart';
 import 'package:floky/views/utils/utils.index.dart';
+import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
 
 part 'elements.activity_card.dart';
@@ -12,8 +13,6 @@ class ActivityCard extends StatelessWidget {
   final Activity activity;
   static const double width = 200;
   static const double height = 100;
-  static const shadowOffsetX = 5;
-  static const shadowOffsetY = 5;
 
   @override
   Widget build(BuildContext context) {
