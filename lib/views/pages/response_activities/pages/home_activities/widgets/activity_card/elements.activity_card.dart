@@ -97,9 +97,27 @@ class _ImageActivityType extends StatelessWidget {
   }
 }
 
-BoxDecoration _boxDecoration(BuildContext context) {
+BoxDecoration _boxDecoration(
+  BuildContext context, {
+  required ActivityType? activityType,
+}) {
+  Color getColorBackground() {
+    switch (activityType) {
+      case ActivityType.READING:
+        return ColorsApp.readBackground;
+      case ActivityType.LISTENING:
+        return ColorsApp.listenBackground;
+      case ActivityType.TALKING:
+        return ColorsApp.speakBackground;
+      case ActivityType.WRITING:
+        return ColorsApp.writeBackground;
+      default:
+        return Colors.white;
+    }
+  }
+
   return BoxDecoration(
-    color: Colors.white,
+    color: getColorBackground(),
     borderRadius: BorderRadius.circular(5),
     border: Border.all(
       color: ColorsApp.greyAAAAAA,

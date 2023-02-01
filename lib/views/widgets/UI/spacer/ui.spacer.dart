@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 
 class Spacer20 extends StatelessWidget {
-  final double size = 20;
+  final double size = 25;
   const Spacer20({super.key});
 
   @override
