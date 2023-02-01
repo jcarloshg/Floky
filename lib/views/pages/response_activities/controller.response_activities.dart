@@ -19,4 +19,13 @@ class ResponseActivitiesController implements ResponseActivitiesRepository {
     // TODO: implement getActivityByID
     throw UnimplementedError();
   }
+
+  @override
+  Future<List<Activity>> getActivitiesByKeyWord({
+    required String keyword,
+  }) async {
+    final activities =
+        await repository.getActivitiesByKeyWord(keyword: keyword);
+    return activities;
+  }
 }

@@ -1,4 +1,5 @@
 import 'package:floky/domain/entities/models/Activity.dart';
+import 'package:floky/domain/usecase/response_activities/domain/repository.get_activities_by_key_word.dart';
 import 'package:floky/domain/usecase/response_activities/domain/repository.get_activity_by_ID.dart';
 import 'package:floky/domain/usecase/response_activities/domain/repository.get_recent_activities.dart';
 import 'package:floky/domain/usecase/response_activities/domain/repository.response_activities.dart';
@@ -6,10 +7,12 @@ import 'package:floky/domain/usecase/response_activities/domain/repository.respo
 class ResponseActivities extends ResponseActivitiesRepository {
   final GetRecentActivitiesRepository getRecentActivitiesRepository;
   final GetActivityByIDRepository getActivityByIDRepository;
+  final GetActivitiesByKeyWordRepository getActivitiesByKeyWordRepository;
 
   ResponseActivities({
     required this.getRecentActivitiesRepository,
     required this.getActivityByIDRepository,
+    required this.getActivitiesByKeyWordRepository,
   });
 
   //============================================================
@@ -31,4 +34,13 @@ class ResponseActivities extends ResponseActivitiesRepository {
   //============================================================
   // tracking alternative nominal
   //============================================================
+
+  @override
+  Future<List<Activity>> getActivitiesByKeyWord({
+    required String keyword,
+  }) async {
+    final List<Activity> activities =
+        await getActivitiesByKeyWordRepository.run(keyword: keyword);
+    return activities;
+  }
 }
