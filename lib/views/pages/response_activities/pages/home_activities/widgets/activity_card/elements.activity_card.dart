@@ -32,8 +32,8 @@ class _CardHeader extends StatelessWidget {
       topicName,
       style: const TextStyle(
         color: Color(0xFF384850),
-        fontSize: 11,
-        fontWeight: FontWeight.bold,
+        fontSize: 16,
+        fontWeight: FontWeight.w300,
       ),
     );
   }
@@ -43,11 +43,24 @@ class _CardBottom extends StatelessWidget {
   final ActivityLevel? level;
   const _CardBottom({required this.level});
 
+  static String getActivityLevelString(ActivityLevel? level) {
+    if (level == ActivityLevel.A1) return 'A1';
+    if (level == ActivityLevel.A2) return 'A2';
+    if (level == ActivityLevel.B1) return 'B1';
+    if (level == ActivityLevel.B2) return 'B2';
+    if (level == ActivityLevel.C1) return 'C1';
+    if (level == ActivityLevel.C2) return 'C2';
+    return '[UNDEFINED]';
+  }
+
   @override
   Widget build(BuildContext context) {
     return Align(
       alignment: Alignment.bottomLeft,
-      child: Text(level.toString()),
+      child: Text(
+        getActivityLevelString(level),
+        style: const TextStyle(fontWeight: FontWeight.bold),
+      ),
     );
   }
 }

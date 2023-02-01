@@ -23,7 +23,7 @@ class ActivityCard extends StatelessWidget {
       child: Stack(
         clipBehavior: Clip.none,
         children: [
-          _CardHeader(title: activity.name, topicName: activity.topic.name),
+          _CardHeader(title: activity.name, topicName: activity.name),
           _CardBottom(level: activity.activityLevel),
           _ImageActivityType(activityType: activity.activityType),
         ],
