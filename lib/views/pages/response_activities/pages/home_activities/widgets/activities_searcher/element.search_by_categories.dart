@@ -14,7 +14,7 @@ class SearchByCategories extends StatelessWidget {
   Widget build(BuildContext context) {
     const spacer = SizedBox(height: 10);
 
-    return Container(
+    return SizedBox(
       width: double.infinity,
       child: Column(
         mainAxisSize: MainAxisSize.max,

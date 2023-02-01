@@ -33,7 +33,7 @@ class ActivityUtility {
     return assetNameToListen;
   }
 
-  static Color getColorBackground(ActivityType activityType) {
+  static Color getCategoryBackgroundColor(ActivityType activityType) {
     switch (activityType) {
       case ActivityType.READING:
         return ColorsApp.readBackground;
@@ -43,6 +43,21 @@ class ActivityUtility {
         return ColorsApp.speakBackground;
       case ActivityType.WRITING:
         return ColorsApp.writeBackground;
+      default:
+        return Colors.white;
+    }
+  }
+
+  static Color getCategoryColor(ActivityType activityType) {
+    switch (activityType) {
+      case ActivityType.READING:
+        return ColorsApp.read;
+      case ActivityType.LISTENING:
+        return ColorsApp.listen;
+      case ActivityType.TALKING:
+        return ColorsApp.speak;
+      case ActivityType.WRITING:
+        return ColorsApp.write;
       default:
         return Colors.white;
     }

@@ -80,8 +80,7 @@ BoxDecoration _boxDecoration(
   required ActivityType? activityType,
 }) {
   return BoxDecoration(
-    // color: getColorBackground(),
-    color: ActivityUtility.getColorBackground(activityType!),
+    color: ActivityUtility.getCategoryBackgroundColor(activityType!),
     borderRadius: BorderRadius.circular(5),
     border: Border.all(
       color: ColorsApp.greyAAAAAA,

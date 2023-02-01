@@ -1,5 +1,50 @@
 part of 'element.search_by_categories.dart';
 
+class _ButtonCategoryBody extends StatelessWidget {
+  final ActivityType activityType;
+  const _ButtonCategoryBody({required this.activityType});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 15),
+      child: Row(
+        children: [
+          Expanded(
+            flex: 9,
+            child: categoryName(),
+          ),
+          Expanded(
+            flex: 3,
+            child: categoryImage(),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget categoryName() {
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 5),
+      child: Text(
+        ActivityUtility.getCategoryName(activityType),
+        style: const TextStyle(
+          fontSize: 16,
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    );
+  }
+
+  Widget categoryImage() {
+    return Image(
+      fit: BoxFit.fitWidth,
+      image: AssetImage(ActivityUtility.getURLAsset(activityType)),
+    );
+  }
+}
+
 class _ButtonCategory extends StatelessWidget {
   final ActivityType activityType;
 
@@ -10,7 +55,7 @@ class _ButtonCategory extends StatelessWidget {
     return GestureDetector(
       onTap: () => log(activityType.toString()),
       child: Container(
-        height: 40,
+        height: 50,
         width: double.infinity,
         decoration: _boxDecoration(),
         child: _ButtonCategoryBody(activityType: activityType),
@@ -19,40 +64,7 @@ class _ButtonCategory extends StatelessWidget {
   }
 
   BoxDecoration _boxDecoration() => BoxDecoration(
-        color: _getColorBackground(),
+        color: ActivityUtility.getCategoryColor(activityType),
         borderRadius: BorderRadius.circular(4),
       );
-
-  Color _getColorBackground() {
-    switch (activityType) {
-      case ActivityType.READING:
-        return ColorsApp.read;
-      case ActivityType.LISTENING:
-        return ColorsApp.listen;
-      case ActivityType.TALKING:
-        return ColorsApp.speak;
-      case ActivityType.WRITING:
-        return ColorsApp.write;
-      default:
-        return Colors.white;
-    }
-  }
-}
-
-class _ButtonCategoryBody extends StatelessWidget {
-  final ActivityType activityType;
-  const _ButtonCategoryBody({required this.activityType});
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(child: Text(_getName()));
-  }
-
-  String _getName() {
-    if (activityType == ActivityType.READING) return 'Leer';
-    if (activityType == ActivityType.WRITING) return 'Escribir';
-    if (activityType == ActivityType.LISTENING) return 'Escuchar';
-    if (activityType == ActivityType.TALKING) return 'Hablar';
-    return 'Leer';
-  }
 }
