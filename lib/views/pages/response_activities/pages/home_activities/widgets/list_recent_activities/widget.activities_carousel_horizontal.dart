@@ -9,8 +9,9 @@ class ActivitiesCarouselHorizontal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
       height: ActivityCard.height,
+      padding: const EdgeInsets.symmetric(horizontal: 5),
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         shrinkWrap: true,
