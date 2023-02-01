@@ -4,13 +4,12 @@ class Titles {
   static Widget title(String? title) {
     return Container(
       width: double.infinity,
-      // decoration: BoxDecoration(border: Border.all()),
       margin: const EdgeInsets.only(top: 30),
       padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
       child: Text(
         title ?? '[NOT_TITLE]',
         style: const TextStyle(
-          color: Color.fromARGB(255, 56, 72, 80),
+          color: Color(0xFF384850),
           fontSize: 24,
           fontWeight: FontWeight.w600,
         ),
@@ -27,7 +26,7 @@ class Titles {
         subtitle ?? '[NOT_SUBTITLE]',
         textAlign: isCenter! ? TextAlign.center : TextAlign.left,
         style: const TextStyle(
-          color: Color.fromARGB(255, 56, 72, 80),
+          color: Color(0xFF384850),
           fontSize: 16,
           fontWeight: FontWeight.w600,
         ),
@@ -43,8 +42,8 @@ class Titles {
         thirdTitle ?? '[NOT_thirdTitle]',
         textAlign: isCenter! ? TextAlign.center : TextAlign.left,
         style: const TextStyle(
-          color: Color.fromARGB(255, 56, 72, 80),
-          fontSize: 16,
+          color: Color(0xFF384850),
+          fontSize: 13,
           fontWeight: FontWeight.w500,
         ),
       ),

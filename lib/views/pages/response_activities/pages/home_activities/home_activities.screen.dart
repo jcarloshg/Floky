@@ -24,6 +24,7 @@ class HomeActivitiesScreen extends StatelessWidget {
               const ListRecentActivities(),
               const Spacer20(),
               const ListRecentActivities(),
+              const Spacer20(),
             ],
           ),
         ),

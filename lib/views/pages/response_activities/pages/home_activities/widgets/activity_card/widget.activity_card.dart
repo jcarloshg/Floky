@@ -12,12 +12,14 @@ class ActivityCard extends StatelessWidget {
   final Activity activity;
   static const double width = 200;
   static const double height = 100;
+  static const shadowOffsetX = 5;
+  static const shadowOffsetY = 5;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: ActivityCard.width,
-      height: ActivityCard.height,
+      // height: ActivityCard.height,
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
       decoration: _boxDecoration(context, activityType: activity.activityType),
       child: Stack(

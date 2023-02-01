@@ -85,8 +85,8 @@ class _ImageActivityType extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      bottom: -5,
-      right: -5,
+      bottom: -15,
+      right: -15,
       child: Image(
         height: 55,
         width: 55,
@@ -123,5 +123,12 @@ BoxDecoration _boxDecoration(
       color: ColorsApp.greyAAAAAA,
       width: 1,
     ),
+    // boxShadow: const [
+    //   BoxShadow(
+    //     color: Colors.black26,
+    //     offset: Offset(3, 3),
+    //     blurRadius: 3,
+    //   ),
+    // ],
   );
 }

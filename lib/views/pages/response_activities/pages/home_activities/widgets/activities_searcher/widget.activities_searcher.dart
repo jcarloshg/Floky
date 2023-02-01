@@ -1,10 +1,9 @@
-import 'package:floky/views/utils/utils.index.dart';
-import 'package:floky/views/widgets/widgets.index.dart';
-import 'package:flutter/material.dart';
 import 'dart:developer';
+import 'package:floky/views/pages/response_activities/pages/home_activities/widgets/activities_searcher/element.search_by_categories.dart';
+import 'package:floky/views/utils/utils.index.dart';
+import 'package:flutter/material.dart';
 
 part 'element.search_input.dart';
-part 'element.search_by_categories.dart';
 
 class ActivitiesSearcher extends StatelessWidget {
   const ActivitiesSearcher({super.key});
@@ -15,10 +14,9 @@ class ActivitiesSearcher extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.symmetric(horizontal: 15),
       child: Column(
-        children: [
-          const _SearchInput(),
-          const SizedBox(height: 10),
-          _SearchByCategories(),
+        children: const [
+          _SearchInput(),
+          SearchByCategories(),
         ],
       ),
     );

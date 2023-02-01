@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:floky/dependencyInjection/setup_di.dart';
 import 'package:floky/domain/entities/models/ModelProvider.dart';
 import 'package:floky/views/pages/response_activities/controller.response_activities.dart';

@@ -1,54 +1,32 @@
-part of 'widget.activities_searcher.dart';
+import 'dart:developer';
 
-class _SearchByCategories extends StatelessWidget {
-  _SearchByCategories();
+import 'package:floky/domain/entities/models/ModelProvider.dart';
+import 'package:floky/views/widgets/widgets.index.dart';
+import 'package:flutter/material.dart';
+import 'package:floky/views/utils/utils.index.dart';
 
-  final List<Container> buttons = [
-    Container(
-      width: double.infinity,
-      height: 40,
-      decoration: const BoxDecoration(color: ColorsApp.read),
-      child: const Text('Leer'),
-    ),
-    Container(
-      width: double.infinity,
-      height: 40,
-      decoration: const BoxDecoration(color: ColorsApp.write),
-      child: const Text('Escribir'),
-    ),
-    Container(
-      width: double.infinity,
-      height: 40,
-      decoration: const BoxDecoration(color: ColorsApp.speak),
-      child: const Text('Hablar'),
-    ),
-    Container(
-      width: double.infinity,
-      height: 40,
-      decoration: const BoxDecoration(color: ColorsApp.listen),
-      child: const Text('Escuchar'),
-    ),
-  ];
+part 'element.button_category.dart';
+
+class SearchByCategories extends StatelessWidget {
+  const SearchByCategories({super.key});
 
   @override
   Widget build(BuildContext context) {
+    const spacer = SizedBox(height: 10);
+
     return Container(
       width: double.infinity,
-      height: 500,
-      decoration: BoxDecoration(border: Border.all()),
       child: Column(
-        // mainAxisAlignment: MainAxisAlignment.center,
-        // crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisSize: MainAxisSize.max,
-        // verticalDirection: VerticalDirection.down,
         children: [
           Titles.thirdTitle('Filtrar por...'),
-          const SizedBox(height: 15),
-          buttons[1],
-          const SizedBox(height: 15),
-          buttons[2],
-          const SizedBox(height: 15),
-          buttons[3],
+          const _ButtonCategory(activityType: ActivityType.READING),
+          spacer,
+          const _ButtonCategory(activityType: ActivityType.WRITING),
+          spacer,
+          const _ButtonCategory(activityType: ActivityType.TALKING),
+          spacer,
+          const _ButtonCategory(activityType: ActivityType.LISTENING),
         ],
       ),
     );
