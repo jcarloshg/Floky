@@ -49,7 +49,6 @@ class _CardBottom extends StatelessWidget {
       alignment: Alignment.bottomLeft,
       child: Text(
         ActivityUtility.getActivityLevelString(level),
-        // getActivityLevelString(level),
         style: const TextStyle(fontWeight: FontWeight.bold),
       ),
     );
