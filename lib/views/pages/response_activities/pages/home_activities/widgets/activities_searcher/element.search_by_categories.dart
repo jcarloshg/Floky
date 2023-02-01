@@ -7,25 +7,25 @@ class _SearchByCategories extends StatelessWidget {
     Container(
       width: double.infinity,
       height: 40,
-      decoration: BoxDecoration(border: Border.all(), color: ColorsApp.read),
+      decoration: const BoxDecoration(color: ColorsApp.read),
       child: const Text('Leer'),
     ),
     Container(
       width: double.infinity,
       height: 40,
-      decoration: BoxDecoration(border: Border.all(), color: ColorsApp.write),
+      decoration: const BoxDecoration(color: ColorsApp.write),
       child: const Text('Escribir'),
     ),
     Container(
       width: double.infinity,
       height: 40,
-      decoration: BoxDecoration(border: Border.all(), color: ColorsApp.speak),
+      decoration: const BoxDecoration(color: ColorsApp.speak),
       child: const Text('Hablar'),
     ),
     Container(
       width: double.infinity,
       height: 40,
-      decoration: BoxDecoration(border: Border.all(), color: ColorsApp.listen),
+      decoration: const BoxDecoration(color: ColorsApp.listen),
       child: const Text('Escuchar'),
     ),
   ];
@@ -34,14 +34,15 @@ class _SearchByCategories extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
+      height: 500,
       decoration: BoxDecoration(border: Border.all()),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisSize: MainAxisSize.min,
-        verticalDirection: VerticalDirection.down,
+        // mainAxisAlignment: MainAxisAlignment.center,
+        // crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisSize: MainAxisSize.max,
+        // verticalDirection: VerticalDirection.down,
         children: [
-          buttons[0],
+          Titles.thirdTitle('Filtrar por...'),
           const SizedBox(height: 15),
           buttons[1],
           const SizedBox(height: 15),
