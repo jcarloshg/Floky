@@ -32,7 +32,7 @@ class _CardHeader extends StatelessWidget {
       topicName,
       style: const TextStyle(
         color: Color(0xFF384850),
-        fontSize: 16,
+        fontSize: 14,
         fontWeight: FontWeight.w300,
       ),
     );
