@@ -11,10 +11,21 @@ class ActivitiesSearcher extends StatelessWidget {
       // decoration: BoxDecoration(border: Border.all()),
       width: double.infinity,
       padding: const EdgeInsets.symmetric(horizontal: 15),
-      child: TextFormField(
-        keyboardType: TextInputType.name,
-        autocorrect: true,
-        decoration: _inputDecoration(context),
+      child: Column(
+        children: [
+          TextFormField(
+            keyboardType: TextInputType.name,
+            autocorrect: true,
+            decoration: _inputDecoration(context),
+          ),
+          const SizedBox(height: 10),
+          Container(
+            width: double.infinity,
+            height: 95,
+            decoration: BoxDecoration(border: Border.all()),
+            child: const Text('filters_type_activities'),
+          ),
+        ],
       ),
     );
   }
