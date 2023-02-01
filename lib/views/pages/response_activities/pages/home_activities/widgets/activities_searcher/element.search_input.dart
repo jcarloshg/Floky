@@ -5,10 +5,8 @@ class _SearchInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return TextFormField(
       keyboardType: TextInputType.name,
-      autocorrect: true,
       decoration: _inputDecoration(context),
     );
   }
@@ -16,7 +14,7 @@ class _SearchInput extends StatelessWidget {
   InputDecoration _inputDecoration(BuildContext context) {
     const OutlineInputBorder focusedBorder = OutlineInputBorder(
       borderSide: BorderSide(
-        width: 4,
+        width: 2,
         style: BorderStyle.solid,
         color: ColorsApp.greyAAAAAA,
       ),
@@ -32,6 +30,8 @@ class _SearchInput extends StatelessWidget {
 
     return InputDecoration(
       hintText: "Busca tus actividades favoritas  :)",
+      filled: true,
+      fillColor: Colors.white,
       focusedBorder: focusedBorder,
       enabledBorder: enabledBorder,
       border: OutlineInputBorder(
