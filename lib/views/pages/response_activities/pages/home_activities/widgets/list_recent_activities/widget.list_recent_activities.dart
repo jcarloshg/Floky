@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:floky/dependencyInjection/setup_di.dart';
 import 'package:floky/domain/entities/models/ModelProvider.dart';
 import 'package:floky/views/pages/response_activities/controller.response_activities.dart';
@@ -24,6 +26,10 @@ class _ListRecentActivitiesState extends State<ListRecentActivities> {
   Future<void> getRecentActivities() async {
     final responseActivitiesController = di<ResponseActivitiesController>();
     final activities = await responseActivitiesController.getRecentActivities();
+    for (var activity in activities) {
+      log('ACTIVITY');
+      log(activity.name);
+    }
     setState(() => _activities = activities);
   }
 
