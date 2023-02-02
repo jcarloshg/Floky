@@ -7,9 +7,11 @@ class GetActivitiesByKeyWordAWS extends GetActivitiesByKeyWordRepository {
   @override
   Future<List<Activity>> run({required String keyword}) async {
     try {
+      final keywordToSearch = keyword.toLowerCase();
+
       final List<Activity> activities = await Amplify.DataStore.query(
         Activity.classType,
-        where: Activity.NAME.contains(keyword),
+        where: Activity.NAME.contains(keywordToSearch),
         sortBy: [Activity.NAME.descending()],
       );
 

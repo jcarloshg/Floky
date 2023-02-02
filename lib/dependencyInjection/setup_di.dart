@@ -17,8 +17,8 @@ GetIt di = GetIt.instance;
 Future<void> setupDI() async {
   await _data();
   await _domain();
-  await _driver();
   await _view();
+  await _driver();
 }
 
 _data() async {
