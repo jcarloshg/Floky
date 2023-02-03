@@ -1,11 +1,11 @@
 import 'package:floky/data/usecase/awsamplify/authenticate/authenticate.aws.dart';
-import 'package:floky/data/usecase/awsamplify/doing_activities/doing_activities.aws.dart';
-import 'package:floky/data/usecase/awsamplify/response_activities/aws.response_activities.dart';
+import 'package:floky/data/usecase/awsamplify/response_activities/data.get_activities_by_keyword.dart';
+import 'package:floky/data/usecase/awsamplify/response_activities/data.get_activity_by_ID.dart';
 import 'package:floky/data/usecase/awsamplify/response_activities/data.get_recent_activities.dart';
 import 'package:floky/domain/bloc/authenticate/authenticate_bloc.dart';
 import 'package:floky/domain/bloc/response_activities/bloc.response_activities.dart';
 import 'package:floky/domain/usecase/authenticate/authenticate.usecase.dart';
-import 'package:floky/domain/usecase/doing_activities/doing_activities.usecase.dart';
+import 'package:floky/domain/usecase/response_activities/application/application.response_activities.dart';
 import 'package:floky/domain/usecase/response_activities/domain/repository.response_activities.dart';
 import 'package:floky/views/pages/authenticate/reset_pass/reset_pass.controll.dart';
 import 'package:floky/views/pages/authenticate/singin/login.controller.dart';
@@ -20,31 +20,22 @@ Future<void> setupDI() async {
   await _domain();
   await _view();
   await _driver();
+
+  //============================================================
+  // by use cases
+  //============================================================
+  await _responseActivities();
 }
 
 _data() async {
   di.registerLazySingleton<Authenticate>(
     () => AuthenticateAws(),
   );
-
-  di.registerLazySingleton<DoingActivities>(
-    () => DoingActivitiesAWS(),
-  );
-
-  //============================================================
-  // response activities
-  //============================================================
-  di.registerSingleton(GetRecentActivitiesData(), signalsReady: true);
-  di.registerLazySingleton<ResponseActivitiesRepository>(
-    () => setupResponseActivitiesAWS(),
-  );
-
   return await null;
 }
 
 _domain() async {
   di.registerFactory(() => AuthenticateBloc(authenticate: di()));
-  di.registerFactory(() => ResponseActivitiesBloc());
 }
 
 _view() async {
@@ -56,23 +47,52 @@ _view() async {
   di.registerSingleton(SingupController(), signalsReady: true);
   di.registerSingleton(ResetPassControll(), signalsReady: true);
 
-  //
-  //
-  // useCase [response_activities]
-  //
-  di.registerSingleton(
-    ResponseActivitiesController(
-      bloc: di(),
-      repository: di(),
-      getRecentActivitiesData: di(),
-    ),
-    signalsReady: true,
-  );
-
   return await null;
 }
 
 // access to hardware from device
 _driver() async {
   return await null;
+}
+
+//============================================================
+// by use cases
+//============================================================
+Future<void> _responseActivities() async {
+  //
+  // domain
+  // insert into every [data class]
+  //
+  di.registerFactory(() => ResponseActivitiesBloc());
+  //
+  // data
+  //
+  //
+  di.registerSingleton(GetRecentActivitiesData(), signalsReady: true);
+  di.registerSingleton(GetActivitiesByKeyWordData(), signalsReady: true);
+  di.registerSingleton(GetActivityByIDData(), signalsReady: true);
+
+  di.registerSingleton<ResponseActivitiesRepository>(
+    ResponseActivities(
+      getActivitiesByKeyWordRepository: di(),
+      getActivityByIDRepository: di(),
+      getRecentActivitiesRepository: di(),
+    ),
+    signalsReady: true,
+  );
+
+  //
+  // view
+  //
+  //
+  di.registerSingleton(
+    ResponseActivitiesController(
+      repository: di<ResponseActivitiesRepository>(),
+    ),
+    signalsReady: true,
+  );
+  //
+  // driver
+  //
+  //
 }

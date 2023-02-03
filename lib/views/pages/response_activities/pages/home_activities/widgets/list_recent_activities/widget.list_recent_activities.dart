@@ -23,7 +23,8 @@ class _ListRecentActivitiesState extends State<ListRecentActivities> {
 
   Future<void> getRecentActivities() async {
     final responseActivitiesController = di<ResponseActivitiesController>();
-    final activities = await responseActivitiesController.getRecentActivities();
+    final activities =
+        await responseActivitiesController.repository.getRecentActivities();
     setState(() => _activities = activities);
   }
 
