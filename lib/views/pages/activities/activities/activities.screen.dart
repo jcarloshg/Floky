@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
+import 'package:flutter/material.dart';
 import 'package:floky/views/pages/response_activities/pages/home_activities/widgets/activities_searcher/widget.activities_searcher.dart';
 import 'package:floky/views/pages/response_activities/pages/home_activities/widgets/list_recent_activities/widget.list_recent_activities.dart';
 
@@ -17,13 +17,9 @@ class ActivitiesScreen extends StatelessWidget {
               // const SizedBox(height: 20),
               Titles.title('Actividades 📰'),
               Titles.subtitle('Descubre actividades nuevas'),
-
-              const Spacer20(),
-
+              Spacers.spacer20,
               const ActivitiesSearcher(),
-
-              const Spacer20(),
-
+              Spacers.spacer20,
               const ListRecentActivities()
 
               // const SearchByCategories(),

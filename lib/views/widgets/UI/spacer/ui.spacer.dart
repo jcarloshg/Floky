@@ -1,23 +1,7 @@
 import 'package:flutter/widgets.dart';
 
-class Spacer20 extends StatelessWidget {
-  final double size = 25;
-  const Spacer20({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    SizedBox sizedBox = SizedBox(height: size, width: size);
-    return sizedBox;
-  }
-}
-
-class Space30 extends StatelessWidget {
-  final double size = 30;
-  const Space30({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    SizedBox sizedBox = SizedBox(height: size, width: size);
-    return sizedBox;
-  }
+class Spacers {
+  static SizedBox spacer15 = const SizedBox(height: 15, width: 15);
+  static SizedBox spacer20 = const SizedBox(height: 20, width: 20);
+  static SizedBox spacer30 = const SizedBox(height: 30, width: 30);
 }

@@ -21,8 +21,8 @@ Widget activitiesNotFoundMessage() {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
-        children: const [
-          Text(
+        children: [
+          const Text(
             'No se encontraron coincidencias. 😪',
             style: TextStyle(
               color: Color(0xFF384850),
@@ -30,8 +30,8 @@ Widget activitiesNotFoundMessage() {
               fontWeight: FontWeight.w600,
             ),
           ),
-          Spacer20(),
-          Text(
+          Spacers.spacer20,
+          const Text(
             '🔑 Intenta con otra palabra clave.',
             style: TextStyle(
               color: Color(0xFF384850),
