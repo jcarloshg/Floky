@@ -2,12 +2,7 @@ import 'package:floky/views/pages/response_activities/controller.response_activi
 import 'package:floky/views/utils/utils.index.dart';
 import 'package:flutter/material.dart';
 
-const searchFieldLabel = 'ej. carreras 🏃';
-const searchFieldStyle = TextStyle(
-  color: ColorsApp.text,
-  fontSize: 14,
-  fontWeight: FontWeight.w500,
-);
+part 'element.activities_search_bar.search_delegate.dart';
 
 class ActivitiesSearchBarSearchDelegate extends SearchDelegate {
   ActivitiesSearchBarSearchDelegate({required this.controller})
@@ -75,6 +70,7 @@ class ActivitiesSearchBarSearchDelegate extends SearchDelegate {
 
   @override
   Widget buildSuggestions(BuildContext context) {
+    return activitiesNotFoundMessage();
     List results = [];
     for (final fruit in fruits) {
       if (fruit.toLowerCase().contains(query.toLowerCase())) results.add(fruit);
