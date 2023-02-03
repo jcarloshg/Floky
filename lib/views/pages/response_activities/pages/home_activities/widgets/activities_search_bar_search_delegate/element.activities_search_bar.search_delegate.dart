@@ -10,19 +10,34 @@ const searchFieldStyle = TextStyle(
   fontWeight: FontWeight.w500,
 );
 
+// widgets
+
 Widget activitiesNotFoundMessage() {
   return Center(
     child: Container(
-      decoration: BoxDecoration(border: Border.all()),
+      padding: const EdgeInsets.all(15),
       width: double.infinity,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
-        children: [
-          Container(
-            decoration: BoxDecoration(border: Border.all()),
-            child: const Text('activities not found message'),
+        children: const [
+          Text(
+            'No se encontraron coincidencias. 😪',
+            style: TextStyle(
+              color: Color(0xFF384850),
+              fontSize: 25,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          Spacer20(),
+          Text(
+            '🔑 Intenta con otra palabra clave.',
+            style: TextStyle(
+              color: Color(0xFF384850),
+              fontSize: 16,
+              fontWeight: FontWeight.normal,
+            ),
           ),
         ],
       ),

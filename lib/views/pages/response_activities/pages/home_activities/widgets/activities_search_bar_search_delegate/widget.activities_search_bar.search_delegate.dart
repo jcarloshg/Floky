@@ -1,5 +1,6 @@
 import 'package:floky/views/pages/response_activities/controller.response_activities.dart';
 import 'package:floky/views/utils/utils.index.dart';
+import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
 
 part 'element.activities_search_bar.search_delegate.dart';
