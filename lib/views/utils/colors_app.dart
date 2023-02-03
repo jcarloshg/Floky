@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 
 class ColorsApp {
   //============================================================
+  // texto from app
+  //============================================================
+  static const Color text = Color(0xFF384850);
+
+  //============================================================
   // borders
   //============================================================
   static const Color greyAAAAAA = Color(0xFFAAAAAA);

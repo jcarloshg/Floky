@@ -1,6 +1,7 @@
 import 'package:floky/data/usecase/awsamplify/authenticate/authenticate.aws.dart';
 import 'package:floky/data/usecase/awsamplify/doing_activities/doing_activities.aws.dart';
 import 'package:floky/data/usecase/awsamplify/response_activities/aws.response_activities.dart';
+import 'package:floky/data/usecase/awsamplify/response_activities/data.get_recent_activities.dart';
 import 'package:floky/domain/bloc/authenticate/authenticate_bloc.dart';
 import 'package:floky/domain/bloc/response_activities/bloc.response_activities.dart';
 import 'package:floky/domain/usecase/authenticate/authenticate.usecase.dart';
@@ -30,6 +31,10 @@ _data() async {
     () => DoingActivitiesAWS(),
   );
 
+  //============================================================
+  // response activities
+  //============================================================
+  di.registerSingleton(GetRecentActivitiesData(), signalsReady: true);
   di.registerLazySingleton<ResponseActivitiesRepository>(
     () => setupResponseActivitiesAWS(),
   );
@@ -56,7 +61,11 @@ _view() async {
   // useCase [response_activities]
   //
   di.registerSingleton(
-    ResponseActivitiesController(bloc: di(), repository: di()),
+    ResponseActivitiesController(
+      bloc: di(),
+      repository: di(),
+      getRecentActivitiesData: di(),
+    ),
     signalsReady: true,
   );
 

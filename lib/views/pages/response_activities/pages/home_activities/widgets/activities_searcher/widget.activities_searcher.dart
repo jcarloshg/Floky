@@ -14,7 +14,7 @@ class ActivitiesSearcher extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 15),
       child: Column(
         children: [
-          SearchInput(controller: di<ResponseActivitiesController>()),
+          SearchInput(),
           const SearchByCategories(),
         ],
       ),

@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:floky/data/repository/configure_amplify.dart';
 import 'package:floky/dependencyInjection/setup_di.dart';
 import 'package:floky/domain/bloc/authenticate/authenticate_bloc.dart';

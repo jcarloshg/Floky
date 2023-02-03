@@ -1,5 +1,39 @@
 part of 'widget.search_input.dart';
 
+BoxDecoration _decoration() {
+  return BoxDecoration(
+    color: Colors.white,
+    border: Border.all(
+      color: ColorsApp.greyAAAAAA,
+      width: 2,
+    ),
+    borderRadius: const BorderRadius.all(Radius.circular(4)),
+  );
+}
+
+Widget _placeHolder() {
+  return Row(
+    mainAxisSize: MainAxisSize.max,
+    children: const [
+      Expanded(
+        flex: 1,
+        child: Text(
+          "Busca tus actividades favoritas  :)",
+          style: TextStyle(
+            color: ColorsApp.text,
+            fontSize: 14,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+      ),
+      Icon(Icons.search, color: ColorsApp.greyAAAAAA),
+    ],
+  );
+}
+
+//============================================================
+//============================================================
+
 IconButton iconButton({required Future<void> Function() search}) {
   return IconButton(
     onPressed: () async {
