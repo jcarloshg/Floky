@@ -1,4 +1,4 @@
-import 'package:floky/data/usecase/awsamplify/authenticate/authenticate.aws.dart';
+import 'package:floky/data/usecase/aws_amplify/authenticate/authenticate.aws.dart';
 import 'package:floky/dependencyInjection/response_activities.dart';
 import 'package:floky/domain/bloc/authenticate/authenticate_bloc.dart';
 import 'package:floky/domain/usecase/authenticate/authenticate.usecase.dart';

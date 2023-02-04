@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 
 part 'element.activities_search_bar.search_delegate.dart';
 
+// ! FutureBuilder
+
 class ActivitiesSearchBarSearchDelegate extends SearchDelegate {
   ActivitiesSearchBarSearchDelegate({required this.controller})
       : super(
@@ -71,7 +73,7 @@ class ActivitiesSearchBarSearchDelegate extends SearchDelegate {
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    return activitiesNotFoundMessage();
+    //  return activitiesNotFoundMessage();
     List results = [];
     for (final fruit in fruits) {
       if (fruit.toLowerCase().contains(query.toLowerCase())) results.add(fruit);
