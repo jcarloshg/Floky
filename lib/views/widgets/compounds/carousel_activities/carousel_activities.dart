@@ -23,7 +23,7 @@ class CarouselActivities extends StatelessWidget {
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: 10,
-                itemBuilder: (context, index) => const ActivityCard(),
+                itemBuilder: (context, index) => Spacers.spacer15,
               ),
             ),
           ),

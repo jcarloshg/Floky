@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:floky/domain/entities/models/ModelProvider.dart';
 import 'package:floky/views/pages/response_activities/controller.response_activities.dart';
+import 'package:floky/views/pages/response_activities/pages/home_activities/widgets/activity_card/widget.activity_card.dart';
 import 'package:floky/views/utils/utils.index.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
@@ -79,30 +80,16 @@ class ActivitiesSearchBarSearchDelegate extends SearchDelegate {
   @override
   Widget buildSuggestions(BuildContext context) {
     return FutureBuilder(
-      future: controller.repository.getRecentActivities(),
+      // future: controller.repository.getRecentActivities(),
+      future: controller.repository.getActivitiesByKeyWord(keyword: query),
       builder: (
         BuildContext context,
         AsyncSnapshot<List<Activity>> snapshot,
       ) =>
-          _buildSuggestions(
+          _renderActivitiesFoundedByKeyword(
         context: context,
         snapshot: snapshot,
-        queryTerm: query,
       ),
     );
-
-    // List results = [];
-    // for (final fruit in fruits) {
-    //   if (fruit.toLowerCase().contains(query.toLowerCase())) results.add(fruit);
-    // }
-
-    // return ListView.builder(
-    //   itemCount: results.length,
-    //   itemBuilder: (context, index) {
-    //     return ListTile(
-    //       title: Text('h ${results[index]}'),
-    //     );
-    //   },
-    // );
   }
 }

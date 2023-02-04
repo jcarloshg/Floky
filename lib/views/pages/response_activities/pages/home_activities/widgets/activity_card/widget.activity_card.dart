@@ -15,7 +15,7 @@ class ActivityCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: ActivityCard.width,
-      // height: ActivityCard.height,
+      height: ActivityCard.height,
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
       decoration: _boxDecoration(context, activityType: activity.activityType),
       child: Stack(

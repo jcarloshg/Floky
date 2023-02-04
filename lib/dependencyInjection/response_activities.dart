@@ -28,15 +28,11 @@ Future<void> responseActivities({required GetIt di}) async {
   }
 
   Future<void> _view() async {
-    final getActivitiesByKeyWord = di<GetActivitiesByKeyWordData>();
-    final getRecentActivities = di<GetRecentActivitiesData>();
-    final getActivityByID = di<GetActivityByIDData>();
-
     final ResponseActivitiesController responseActivitiesController =
         ResponseActivitiesController(
-      getActivitiesByKeyWordData: getActivitiesByKeyWord,
-      getActivityByIDData: getActivityByID,
-      getRecentActivitiesData: getRecentActivities,
+      getActivitiesByKeyWordData: di<GetActivitiesByKeyWordData>(),
+      getActivityByIDData: di<GetActivityByIDData>(),
+      getRecentActivitiesData: di<GetRecentActivitiesData>(),
     );
 
     di.registerSingleton<ResponseActivitiesController>(
