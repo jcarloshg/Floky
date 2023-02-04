@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:floky/domain/entities/models/ModelProvider.dart';
 import 'package:floky/views/pages/response_activities/controller.response_activities.dart';
 import 'package:floky/views/pages/response_activities/pages/home_activities/widgets/activity_card/widget.activity_card.dart';
@@ -19,26 +17,6 @@ class ActivitiesSearchBarSearchDelegate extends SearchDelegate {
         );
 
   final ResponseActivitiesController controller;
-
-  List<String> fruits = [
-    'past simple',
-    'past continuos',
-    'past perfect',
-    'past perfect continuos',
-    'conditional perfect',
-    'conditional continuos perfect',
-    'present',
-    'present continuos',
-    'present perfect',
-    'present perfect continuos',
-    'conditional simple',
-    'conditional continuo',
-    'future',
-    'future simple',
-    'future continuos',
-    'continuos perfect',
-    'going to',
-  ];
 
   @override
   List<Widget>? buildActions(BuildContext context) {
@@ -60,33 +38,26 @@ class ActivitiesSearchBarSearchDelegate extends SearchDelegate {
 
   @override
   Widget buildResults(BuildContext context) {
-    log(query);
-
-    List results = [];
-    for (final fruit in fruits) {
-      if (fruit.toLowerCase().contains(query.toLowerCase())) results.add(fruit);
-    }
-
-    return ListView.builder(
-      itemCount: results.length,
-      itemBuilder: (context, index) {
-        return ListTile(
-          title: Text(results[index]),
-        );
-      },
+    return _renderActivitiesFoundedByKeyword(
+      activitiesFounded:
+          controller.getActivitiesByKeyWordData.activitiesFoundedByKeyword,
+      queryTerm: query,
     );
   }
 
   @override
   Widget buildSuggestions(BuildContext context) {
+    final Future<List<Activity>> activitiesFuture = query.isEmpty
+        ? controller.repository.getRecentActivities()
+        : controller.repository.getActivitiesByKeyWord(keyword: query);
+
     return FutureBuilder(
-      // future: controller.repository.getRecentActivities(),
-      future: controller.repository.getActivitiesByKeyWord(keyword: query),
+      future: activitiesFuture,
       builder: (
         BuildContext context,
         AsyncSnapshot<List<Activity>> snapshot,
       ) =>
-          _renderActivitiesFoundedByKeyword(
+          _renderSuggestionActivities(
         context: context,
         snapshot: snapshot,
       ),

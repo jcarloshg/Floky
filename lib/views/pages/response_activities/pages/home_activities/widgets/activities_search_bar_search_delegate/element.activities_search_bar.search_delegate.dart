@@ -13,6 +13,38 @@ const searchFieldStyle = TextStyle(
 // widgets
 
 Widget _renderActivitiesFoundedByKeyword({
+  required List<Activity> activitiesFounded,
+  required String queryTerm,
+}) {
+  return Container(
+    padding: EdgeInsets.symmetric(
+      vertical: Spacers.size15,
+      horizontal: Spacers.size15,
+    ),
+    child: Column(
+      mainAxisSize: MainAxisSize.max,
+      children: [
+        Titles.thirdTitle('Actividades encontradas por... "$queryTerm"'),
+        Spacers.spacer15,
+        Flexible(
+          flex: 1,
+          child: ListView.separated(
+            clipBehavior: Clip.none,
+            scrollDirection: Axis.vertical,
+            shrinkWrap: true,
+            itemCount: activitiesFounded.length,
+            separatorBuilder: (_, __) => Spacers.spacer15,
+            itemBuilder: (_, index) => ActivityCard(
+              activity: activitiesFounded[index],
+            ),
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
+Widget _renderSuggestionActivities({
   required BuildContext context,
   required AsyncSnapshot<List<Activity>> snapshot,
 }) {
