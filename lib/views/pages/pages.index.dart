@@ -94,12 +94,18 @@ class PageIndex {
   // ============================================================
   // ============================================================
   // nominal case [response_activities]
+  //    1 - homeActivitiesScreen (view_activities)
+  //    2 - viewActivity
   // ============================================================
   // ============================================================
   static final homeActivitiesScreen = _Page(
     route: 'homeActivitiesScreen',
     screen: const HomeActivitiesScreen(),
   );
+  // static final viewActivity = _Page(
+  //   route: 'viewActivity',
+  //   screen: const ViewActivity(),
+  // );
 
   //============================================================
   // ! FIX NAVIGATION
@@ -153,20 +159,32 @@ class PageIndex {
   static Map<String, Widget Function(BuildContext context)> getAppRoutes() {
     List<_Page> pages = [];
 
-    // auth/login
+    // ============================================================
+    // ============================================================
+    // Authenticate
+    // ============================================================
+    // ============================================================
+    // Authenticate/login
     pages.add(homeScreen);
-
-    // auth/login
+    // Authenticate/login
     pages.add(loginScreen);
-
-    // auth/singup
+    // Authenticate/singUp
     pages.add(formRegisterScreen);
     pages.add(confirmAccountScreen);
     pages.add(confirmationRegister);
-
-    // auth/resetpass
+    // Authenticate/resetPass
     pages.add(enterUsername);
     pages.add(confirmResetPassword);
+
+    // ============================================================
+    // ============================================================
+    // Response activities
+    // ============================================================
+    // ============================================================
+    // response_activities/view_activities
+    pages.add(homeActivitiesScreen);
+    // response_activities/response_activity
+    // pages.add(viewActivity);
 
     Map<String, Widget Function(BuildContext)> appRoutes = {};
 

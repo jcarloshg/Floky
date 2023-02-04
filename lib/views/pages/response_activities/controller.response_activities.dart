@@ -2,17 +2,20 @@ import 'package:floky/data/usecase/aws_amplify/response_activities/data.get_acti
 import 'package:floky/data/usecase/aws_amplify/response_activities/data.get_activity_by_ID.dart';
 import 'package:floky/data/usecase/aws_amplify/response_activities/data.get_recent_activities.dart';
 import 'package:floky/domain/usecase/response_activities/application/application.response_activities.dart';
+import 'package:floky/views/pages/response_activities/controllers/navigator.response_activities.dart';
 
 class ResponseActivitiesController {
   final GetRecentActivitiesData getRecentActivitiesData;
   final GetActivitiesByKeyWordData getActivitiesByKeyWordData;
   final GetActivityByIDData getActivityByIDData;
   late ResponseActivities repository;
+  final ResponseActivitiesNavigator navigator;
 
   ResponseActivitiesController({
     required this.getRecentActivitiesData,
     required this.getActivitiesByKeyWordData,
     required this.getActivityByIDData,
+    required this.navigator,
   }) {
     repository = ResponseActivities(
       getActivitiesByKeyWordRepository: getActivitiesByKeyWordData,
