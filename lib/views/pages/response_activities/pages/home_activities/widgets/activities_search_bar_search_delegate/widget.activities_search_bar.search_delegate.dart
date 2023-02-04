@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:floky/views/pages/response_activities/controller.response_activities.dart';
 import 'package:floky/views/utils/utils.index.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
@@ -56,6 +58,8 @@ class ActivitiesSearchBarSearchDelegate extends SearchDelegate {
 
   @override
   Widget buildResults(BuildContext context) {
+    log(query);
+
     List results = [];
     for (final fruit in fruits) {
       if (fruit.toLowerCase().contains(query.toLowerCase())) results.add(fruit);
@@ -74,6 +78,7 @@ class ActivitiesSearchBarSearchDelegate extends SearchDelegate {
   @override
   Widget buildSuggestions(BuildContext context) {
     //  return activitiesNotFoundMessage();
+
     List results = [];
     for (final fruit in fruits) {
       if (fruit.toLowerCase().contains(query.toLowerCase())) results.add(fruit);
@@ -83,7 +88,7 @@ class ActivitiesSearchBarSearchDelegate extends SearchDelegate {
       itemCount: results.length,
       itemBuilder: (context, index) {
         return ListTile(
-          title: Text(results[index]),
+          title: Text('h ${results[index]}'),
         );
       },
     );
