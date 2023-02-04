@@ -44,3 +44,34 @@ Widget activitiesNotFoundMessage() {
     ),
   );
 }
+
+Widget _buildSuggestions({
+  required BuildContext context,
+  required AsyncSnapshot<List<Activity>> snapshot,
+  required String queryTerm,
+}) {
+  final List<Activity> activities = snapshot.data ?? [];
+  if (activities.isEmpty) return activitiesNotFoundMessage();
+
+  final List<Activity> activitiesToRender = [];
+
+  for (final activity in activities) {
+    final activityNameLowerCase = activity.name.toLowerCase();
+    final queryTermLowerCase = queryTerm.toLowerCase();
+
+    final bool activityNameContainsQuery = activityNameLowerCase.contains(
+      queryTermLowerCase,
+    );
+
+    activityNameContainsQuery ? activitiesToRender.add(activity) : null;
+  }
+
+  return ListView.builder(
+    itemCount: activitiesToRender.length,
+    itemBuilder: (context, index) {
+      return ListTile(
+        title: Text(activitiesToRender[index].name),
+      );
+    },
+  );
+}
