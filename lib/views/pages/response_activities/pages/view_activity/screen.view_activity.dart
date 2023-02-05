@@ -28,7 +28,7 @@ class ViewActivityScreen extends StatelessWidget {
               ViewActivityHeader(
                 activityLevel: activity.activityLevel,
                 activityName: activity.name,
-                activityType: 'Leer',
+                activityType: activity.activityType,
                 topicName: activity.topic.name,
               ),
               Spacers.spacer20,

@@ -5,9 +5,10 @@ import 'package:flutter/material.dart';
 
 class ViewActivityHeader extends StatelessWidget {
   final ActivityLevel activityLevel;
+  final ActivityType activityType;
   final String activityName;
-  final String activityType;
   final String topicName;
+  // final String activityType;
 
   const ViewActivityHeader({
     super.key,
@@ -43,6 +44,10 @@ class ViewActivityHeader extends StatelessWidget {
   }
 }
 
+//============================================================
+// elements
+//============================================================
+
 Text title(String activityName) => Text(
       activityName,
       style: const TextStyle(
@@ -70,23 +75,27 @@ Text topic(String topicName) => Text(
       ),
     );
 
-Widget type(String topicName) {
+Widget type(ActivityType activityType) {
+  BoxDecoration boxDecoration = BoxDecoration(
+    color: ActivityUtility.getCategoryColor(activityType),
+    borderRadius: BorderRadius.circular(30),
+  );
+
+  Text activityTypeText = Text(
+    ActivityUtility.getCategoryName(activityType),
+    style: const TextStyle(
+      color: Colors.white,
+      fontSize: 14,
+      fontWeight: FontWeight.bold,
+    ),
+  );
+
   return Container(
     width: 90,
     height: 30,
-    decoration: BoxDecoration(
-      color: ColorsApp.speak,
-      borderRadius: BorderRadius.circular(30),
-    ),
+    decoration: boxDecoration,
     child: Center(
-      child: Text(
-        topicName,
-        style: const TextStyle(
-          color: Colors.white,
-          fontSize: 14,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
+      child: activityTypeText,
     ),
   );
 }
