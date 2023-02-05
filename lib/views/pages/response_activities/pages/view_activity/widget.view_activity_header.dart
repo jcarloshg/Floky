@@ -4,12 +4,6 @@ import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
 
 class ViewActivityHeader extends StatelessWidget {
-  final ActivityLevel activityLevel;
-  final ActivityType activityType;
-  final String activityName;
-  final String topicName;
-  // final String activityType;
-
   const ViewActivityHeader({
     super.key,
     required this.activityLevel,
@@ -17,6 +11,11 @@ class ViewActivityHeader extends StatelessWidget {
     required this.activityType,
     required this.topicName,
   });
+
+  final ActivityLevel activityLevel;
+  final ActivityType activityType;
+  final String activityName;
+  final String topicName;
 
   @override
   Widget build(BuildContext context) {

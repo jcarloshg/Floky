@@ -1,4 +1,6 @@
 import 'package:floky/domain/entities/models/ModelProvider.dart';
+import 'package:floky/views/pages/response_activities/pages/view_activity/widget.view_activity_answers.dart';
+import 'package:floky/views/pages/response_activities/pages/view_activity/widget.view_activity_body.dart';
 import 'package:floky/views/pages/response_activities/pages/view_activity/widget.view_activity_header.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
@@ -33,16 +35,20 @@ class ViewActivityScreen extends StatelessWidget {
               ),
               Spacers.spacer20,
               Expanded(
-                child: Container(
-                  decoration: BoxDecoration(border: Border.all()),
-                  child: Center(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Titles.title(activity.name),
-                        Titles.subtitle(activity.topic.name),
-                      ],
-                    ),
+                child: Center(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      ViewActivityBody(
+                        question: activity.question,
+                        questionBody: activity.questionBody,
+                      ),
+                      Spacers.spacer20,
+                      ViewActivityAnswers(
+                        activityType: activity.activityType,
+                        answers: activity.answers,
+                      ),
+                    ],
                   ),
                 ),
               ),

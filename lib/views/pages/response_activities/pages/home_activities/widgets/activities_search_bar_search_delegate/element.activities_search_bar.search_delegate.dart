@@ -52,17 +52,14 @@ Widget _renderSuggestionActivities({
 
   if (activities.isEmpty) return activitiesNotFoundMessage();
 
-  return SizedBox(
-    height: double.infinity,
-    child: ListView.separated(
-      padding: EdgeInsets.all(Spacers.size15),
-      clipBehavior: Clip.none,
-      scrollDirection: Axis.vertical,
-      // shrinkWrap: true,
-      itemCount: activities.length,
-      separatorBuilder: (_, __) => Spacers.spacer15,
-      itemBuilder: (_, index) => ActivityCard(activity: activities[index]),
-    ),
+  return ListView.separated(
+    padding: EdgeInsets.all(Spacers.size15),
+    clipBehavior: Clip.none,
+    scrollDirection: Axis.vertical,
+    // shrinkWrap: true,
+    itemCount: activities.length,
+    separatorBuilder: (_, __) => Spacers.spacer15,
+    itemBuilder: (_, index) => ActivityCard(activity: activities[index]),
   );
 }
 
