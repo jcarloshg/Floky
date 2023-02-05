@@ -1,7 +1,7 @@
 import 'package:floky/domain/entities/models/ModelProvider.dart';
-import 'package:floky/views/pages/response_activities/pages/view_activity/widget.view_activity_answers.dart';
-import 'package:floky/views/pages/response_activities/pages/view_activity/widget.view_activity_body.dart';
-import 'package:floky/views/pages/response_activities/pages/view_activity/widget.view_activity_header.dart';
+import 'package:floky/views/pages/response_activities/widgets/activity_answers/widget.view_activity_answers.dart';
+import 'package:floky/views/pages/response_activities/widgets/activity_questions/widget.view_activity_body.dart';
+import 'package:floky/views/pages/response_activities/widgets/activity_header/widget.view_activity_header.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
 

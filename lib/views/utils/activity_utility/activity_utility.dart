@@ -21,6 +21,9 @@ class ActivityUtility {
     return 'Leer';
   }
 
+  static String get urlImagePlay => 'assets/activities/play.png';
+  static String get urlImageSpeak => 'assets/activities/speak.png';
+
   static String getURLAsset(ActivityType activityType) {
     const String assetNameToRead = 'assets/categories/read.png';
     const String assetNameToListen = 'assets/categories/listen.png';
