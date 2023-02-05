@@ -55,10 +55,27 @@ class ViewActivityScreen extends StatelessWidget {
               Spacers.spacer20,
               Container(
                 decoration: BoxDecoration(border: Border.all()),
+                width: double.infinity,
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Titles.subtitle(activity.topic.name),
-                    Titles.subtitle(activity.topic.name),
+                    const Text(
+                      'Información del concepto',
+                      style: TextStyle(
+                        color: Colors.purple,
+                        fontSize: 16,
+                        fontWeight: FontWeight.normal,
+                      ),
+                    ),
+                    Spacers.spacer10,
+                    const Text(
+                      'Ejemplos',
+                      style: TextStyle(
+                        color: Colors.purple,
+                        fontSize: 16,
+                        fontWeight: FontWeight.normal,
+                      ),
+                    ),
                   ],
                 ),
               ),

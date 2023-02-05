@@ -16,11 +16,11 @@ class ColorsApp {
   // colors from categories
   //============================================================
   static const Color read = Color(0xFFF44336);
-  static const Color readBackground = Color(0x17F44336);
+  static const Color readBackground = Color(0x58F44336);
   static const Color listen = Color(0xFFFF9800);
-  static const Color listenBackground = Color(0x18FF9800);
+  static const Color listenBackground = Color(0x58FF9800);
   static const Color speak = Color(0xFF2196F3);
-  static const Color speakBackground = Color(0x182196F3);
+  static const Color speakBackground = Color(0x582196F3);
   static const Color write = Color(0xFF4CAF50);
-  static const Color writeBackground = Color(0x184CAF50);
+  static const Color writeBackground = Color(0x584CAF50);
 }

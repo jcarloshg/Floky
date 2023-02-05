@@ -81,9 +81,10 @@ BoxDecoration _boxDecoration(
 }) {
   return BoxDecoration(
     color: ActivityUtility.getCategoryBackgroundColor(activityType!),
-    borderRadius: BorderRadius.circular(5),
+    borderRadius: BorderRadius.circular(8),
     border: Border.all(
-      color: ColorsApp.greyAAAAAA,
+      // color: ActivityUtility.getCategoryColor(activityType),
+      color: ActivityUtility.getCategoryBackgroundColor(activityType),
       width: 1,
     ),
     // boxShadow: const [
