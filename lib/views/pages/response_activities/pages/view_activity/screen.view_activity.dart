@@ -1,5 +1,6 @@
 import 'package:floky/domain/entities/models/ModelProvider.dart';
 import 'package:floky/views/pages/response_activities/widgets/activity_answers/widget.view_activity_answers.dart';
+import 'package:floky/views/pages/response_activities/widgets/activity_concept_Information_examples/widget.activity_concept_Information_examples.dart';
 import 'package:floky/views/pages/response_activities/widgets/activity_questions/widget.view_activity_body.dart';
 import 'package:floky/views/pages/response_activities/widgets/activity_header/widget.view_activity_header.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
@@ -53,31 +54,9 @@ class ViewActivityScreen extends StatelessWidget {
                 ),
               ),
               Spacers.spacer20,
-              Container(
-                decoration: BoxDecoration(border: Border.all()),
-                width: double.infinity,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text(
-                      'Información del concepto',
-                      style: TextStyle(
-                        color: Colors.purple,
-                        fontSize: 16,
-                        fontWeight: FontWeight.normal,
-                      ),
-                    ),
-                    Spacers.spacer10,
-                    const Text(
-                      'Ejemplos',
-                      style: TextStyle(
-                        color: Colors.purple,
-                        fontSize: 16,
-                        fontWeight: FontWeight.normal,
-                      ),
-                    ),
-                  ],
-                ),
+              ActivityConceptInformationExamples(
+                conceptInformation: activity.topic.conceptInformation!,
+                examples: activity.topic.examples!,
               ),
             ],
           ),
