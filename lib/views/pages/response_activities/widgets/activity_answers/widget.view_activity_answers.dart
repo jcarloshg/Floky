@@ -1,9 +1,8 @@
 import 'package:floky/domain/entities/models/ModelProvider.dart';
 import 'package:floky/views/pages/response_activities/widgets/activity_answers/widget.activity_answer_listening.dart';
 import 'package:floky/views/pages/response_activities/widgets/activity_answers/widget.activity_answer_reading.dart';
+import 'package:floky/views/pages/response_activities/widgets/activity_answers/widget.activity_answer_talking.dart';
 import 'package:floky/views/pages/response_activities/widgets/activity_answers/widget.activity_answer_writing.dart';
-import 'package:floky/views/utils/utils.index.dart';
-import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/widgets.dart';
 
 class ViewActivityAnswers extends StatelessWidget {
@@ -24,14 +23,20 @@ class ViewActivityAnswers extends StatelessWidget {
       );
     }
 
-    if (activityType == ActivityType.LISTENING) {
-      return ActivityAnswerListening(
+    if (activityType == ActivityType.READING) {
+      return ActivityAnswerReading(
         answersListString: answersToList(answers),
       );
     }
 
-    if (activityType == ActivityType.READING) {
-      return ActivityAnswerReading(
+    if (activityType == ActivityType.TALKING) {
+      return ActivityAnswerTalking(
+        correctAnswer: answers.correct,
+      );
+    }
+
+    if (activityType == ActivityType.LISTENING) {
+      return ActivityAnswerListening(
         answersListString: answersToList(answers),
       );
     }
