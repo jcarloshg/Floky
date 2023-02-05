@@ -1,9 +1,10 @@
 import 'package:floky/domain/entities/models/ModelProvider.dart';
-import 'package:floky/views/pages/response_activities/widgets/view_activity_answers/widget.activity_answer_listening.dart';
-import 'package:floky/views/pages/response_activities/widgets/view_activity_answers/widget.activity_answer_reading.dart';
-import 'package:floky/views/pages/response_activities/widgets/view_activity_answers/widget.activity_answer_talking.dart';
-import 'package:floky/views/pages/response_activities/widgets/view_activity_answers/widget.activity_answer_writing.dart';
 import 'package:flutter/widgets.dart';
+
+import './widget.activity_answer_listening.dart';
+import './widget.activity_answer_reading.dart';
+import './widget.activity_answer_talking.dart';
+import './widget.activity_answer_writing.dart';
 
 class ViewActivityAnswers extends StatelessWidget {
   const ViewActivityAnswers({

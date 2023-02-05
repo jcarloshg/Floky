@@ -1,15 +1,13 @@
 import 'package:floky/domain/entities/models/ModelProvider.dart';
-import 'package:floky/views/pages/response_activities/pages/view_activity/widgets/button_go_to_response_activity/widget.button_go_to_response_activity.dart';
-import 'package:floky/views/pages/response_activities/pages/view_activity/widgets/view_activity_answers/widget.view_activity_answers.dart';
 import 'package:floky/views/pages/response_activities/widgets/view_activity_concept_Information_examples/widget.view_activity_concept_Information_examples.dart';
 import 'package:floky/views/pages/response_activities/widgets/view_activity_header/widget.view_activity_header.dart';
 import 'package:floky/views/pages/response_activities/widgets/view_activity_questions/widget.view_activity_questions.dart';
 import 'package:floky/views/pages/response_activities/widgets/view_activity_type_image/widget.view_activity_type_image.dart';
-import 'package:floky/views/widgets/widgets.index.dart';
+import 'package:floky/views/widgets/UI/spacer/ui.spacer.dart';
 import 'package:flutter/material.dart';
 
-class ViewActivityScreen extends StatelessWidget {
-  const ViewActivityScreen({
+class ResponseActivityScreen extends StatelessWidget {
+  const ResponseActivityScreen({
     super.key,
     required this.activity,
   });
@@ -52,9 +50,10 @@ class ViewActivityScreen extends StatelessWidget {
           questionBody: activity.questionBody,
         );
 
-    ViewActivityAnswers viewActivityAnswers() => ViewActivityAnswers(
-          activityType: activity.activityType,
-          answers: activity.answers,
+    Container viewActivityAnswers() => Container(
+          decoration: BoxDecoration(border: Border.all()),
+          height: 100,
+          width: double.infinity,
         );
 
     ViewActivityConceptInformationExamples
@@ -63,9 +62,6 @@ class ViewActivityScreen extends StatelessWidget {
               conceptInformation: activity.topic.conceptInformation!,
               examples: activity.topic.examples!,
             );
-
-    GoToResponseActivityButton goToResponseActivityButton() =>
-        GoToResponseActivityButton(activity: activity);
 
     return Column(
       mainAxisSize: MainAxisSize.max,
@@ -80,9 +76,6 @@ class ViewActivityScreen extends StatelessWidget {
                 viewActivityQuestion(),
                 Spacers.spacer20,
                 viewActivityAnswers(),
-                Spacers.spacer20,
-                goToResponseActivityButton(),
-                Spacers.spacer20,
               ],
             ),
           ),

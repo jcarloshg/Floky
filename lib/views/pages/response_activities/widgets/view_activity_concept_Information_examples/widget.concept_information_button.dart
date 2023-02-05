@@ -18,7 +18,7 @@ class ConceptInformationButton extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         children: [
           iconButton(),
-          Spacers.spacer10,
+          Spacers.spacer5,
           textButton(),
         ],
       ),
