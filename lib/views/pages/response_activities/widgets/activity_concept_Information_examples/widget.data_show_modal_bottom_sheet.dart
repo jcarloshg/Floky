@@ -7,36 +7,41 @@ Future dataShowModalBottomSheet({
   required String title,
   required String data,
 }) {
-  Text titleText = Text(
-    title,
-    style: const TextStyle(
-      color: Colors.purple,
-      fontSize: 16,
-      fontWeight: FontWeight.normal,
-    ),
-  );
+  Text titleText() => Text(
+        title,
+        style: const TextStyle(
+          color: Colors.purple,
+          fontSize: 16,
+          fontWeight: FontWeight.normal,
+        ),
+      );
 
-  Text dataBodyText = Text(
-    data,
-    style: const TextStyle(
-      color: ColorsApp.text,
-      fontSize: 16,
-      fontWeight: FontWeight.normal,
-    ),
-  );
+  Text dataBodyText() => Text(
+        data,
+        style: const TextStyle(
+          color: ColorsApp.text,
+          fontSize: 16,
+          fontWeight: FontWeight.normal,
+        ),
+      );
 
-  Widget buttonTextClose = Container(
-    width: double.infinity,
-    alignment: Alignment.centerRight,
-    child: const Text(
-      'Aceptar',
-      style: TextStyle(
-        color: Colors.blueGrey,
-        fontSize: 16,
-        fontWeight: FontWeight.normal,
-      ),
-    ),
-  );
+  Widget buttonTextClose() => Container(
+        width: double.infinity,
+        alignment: Alignment.centerRight,
+        child: const Text(
+          'Aceptar',
+          style: TextStyle(
+            color: Colors.blueGrey,
+            fontSize: 16,
+            fontWeight: FontWeight.normal,
+          ),
+        ),
+      );
+
+  BoxDecoration boxDecoration() => BoxDecoration(
+        borderRadius: BorderRadius.circular(8),
+        color: Colors.white,
+      );
 
   return showModalBottomSheet(
     context: context,
@@ -46,21 +51,18 @@ Future dataShowModalBottomSheet({
         margin: EdgeInsets.all(Spacers.size15),
         child: Container(
           padding: EdgeInsets.all(Spacers.size15),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8),
-            color: Colors.white,
-          ),
+          decoration: boxDecoration(),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              titleText,
+              titleText(),
               Spacers.spacer20,
-              dataBodyText,
+              dataBodyText(),
               Spacers.spacer20,
               InkWell(
                 onTap: () => Navigator.pop(context),
-                child: buttonTextClose,
+                child: buttonTextClose(),
               ),
             ],
           ),
