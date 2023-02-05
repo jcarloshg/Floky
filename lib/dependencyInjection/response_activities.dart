@@ -2,7 +2,7 @@ import 'package:floky/data/usecase/aws_amplify/response_activities/data.get_acti
 import 'package:floky/data/usecase/aws_amplify/response_activities/data.get_activity_by_ID.dart';
 import 'package:floky/data/usecase/aws_amplify/response_activities/data.get_recent_activities.dart';
 import 'package:floky/domain/bloc/response_activities/bloc.response_activities.dart';
-import 'package:floky/views/pages/response_activities/controller.response_activities.dart';
+import 'package:floky/views/pages/response_activities/controllers/controller.response_activities.dart';
 import 'package:floky/views/pages/response_activities/controllers/navigator.response_activities.dart';
 import 'package:get_it/get_it.dart';
 

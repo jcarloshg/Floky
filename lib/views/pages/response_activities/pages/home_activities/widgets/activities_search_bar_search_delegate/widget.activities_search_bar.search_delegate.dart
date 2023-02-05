@@ -1,5 +1,5 @@
 import 'package:floky/domain/entities/models/ModelProvider.dart';
-import 'package:floky/views/pages/response_activities/controller.response_activities.dart';
+import 'package:floky/views/pages/response_activities/controllers/controller.response_activities.dart';
 import 'package:floky/views/pages/response_activities/pages/home_activities/widgets/activity_card/widget.activity_card.dart';
 import 'package:floky/views/utils/utils.index.dart';
 import 'package:floky/views/widgets/widgets.index.dart';

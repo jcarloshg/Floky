@@ -21,7 +21,6 @@ class _HomeScreenState extends State<HomeScreen> {
         onTap: _onItemTapped,
         currentIndex: _selectedIndex,
         items: BottomNavigationPages.getNavigationPages(),
-        // selectedItemColor: Colors.amber[800],
       ),
     );
   }

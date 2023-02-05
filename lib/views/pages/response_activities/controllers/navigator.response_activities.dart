@@ -7,7 +7,7 @@ class ResponseActivitiesNavigator {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => ViewActivity(activity: activity),
+        builder: (context) => ViewActivityScreen(activity: activity),
       ),
     );
   }

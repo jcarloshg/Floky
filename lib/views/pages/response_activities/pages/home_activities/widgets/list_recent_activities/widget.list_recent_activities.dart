@@ -1,6 +1,6 @@
 import 'package:floky/dependencyInjection/setup_di.dart';
 import 'package:floky/domain/entities/models/ModelProvider.dart';
-import 'package:floky/views/pages/response_activities/controller.response_activities.dart';
+import 'package:floky/views/pages/response_activities/controllers/controller.response_activities.dart';
 import 'package:floky/views/pages/response_activities/pages/home_activities/widgets/list_recent_activities/widget.activities_carousel_horizontal.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
