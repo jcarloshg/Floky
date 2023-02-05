@@ -1,8 +1,9 @@
 import 'package:floky/domain/entities/models/ModelProvider.dart';
-import 'package:floky/views/pages/response_activities/widgets/activity_answers/widget.view_activity_answers.dart';
-import 'package:floky/views/pages/response_activities/widgets/activity_concept_Information_examples/widget.activity_concept_Information_examples.dart';
-import 'package:floky/views/pages/response_activities/widgets/activity_questions/widget.view_activity_body.dart';
-import 'package:floky/views/pages/response_activities/widgets/activity_header/widget.view_activity_header.dart';
+import 'package:floky/views/pages/response_activities/widgets/view_activity_answers/widget.view_activity_answers.dart';
+import 'package:floky/views/pages/response_activities/widgets/view_activity_concept_Information_examples/widget.view_activity_concept_Information_examples.dart';
+import 'package:floky/views/pages/response_activities/widgets/view_activity_header/widget.view_activity_header.dart';
+import 'package:floky/views/pages/response_activities/widgets/view_activity_questions/widget.view_activity_questions.dart';
+import 'package:floky/views/pages/response_activities/widgets/view_activity_type_image/widget.view_activity_type_image.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
 
@@ -25,43 +26,63 @@ class ViewActivityScreen extends StatelessWidget {
             horizontal: Spacers.size15,
             vertical: Spacers.size20,
           ),
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
+          child: Stack(
+            clipBehavior: Clip.none,
             children: [
-              ViewActivityHeader(
-                activityLevel: activity.activityLevel,
-                activityName: activity.name,
-                activityType: activity.activityType,
-                topicName: activity.topic.name,
-              ),
-              Spacers.spacer20,
-              Expanded(
-                child: Center(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      ViewActivityBody(
-                        question: activity.question,
-                        questionBody: activity.questionBody,
-                      ),
-                      Spacers.spacer20,
-                      ViewActivityAnswers(
-                        activityType: activity.activityType,
-                        answers: activity.answers,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Spacers.spacer20,
-              ActivityConceptInformationExamples(
-                conceptInformation: activity.topic.conceptInformation!,
-                examples: activity.topic.examples!,
-              ),
+              ViewActivityTypeImage(activityType: activity.activityType),
+              viewActivity(),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Column viewActivity() {
+    ViewActivityHeader viewActivityHeader() => ViewActivityHeader(
+          activityLevel: activity.activityLevel,
+          activityName: activity.name,
+          activityType: activity.activityType,
+          topicName: activity.topic.name,
+        );
+
+    ViewActivityQuestion viewActivityQuestion() => ViewActivityQuestion(
+          question: activity.question,
+          questionBody: activity.questionBody,
+        );
+
+    ViewActivityAnswers viewActivityAnswers() => ViewActivityAnswers(
+          activityType: activity.activityType,
+          answers: activity.answers,
+        );
+
+    ViewActivityConceptInformationExamples
+        viewActivityConceptInformationExamples() =>
+            ViewActivityConceptInformationExamples(
+              conceptInformation: activity.topic.conceptInformation!,
+              examples: activity.topic.examples!,
+            );
+
+    return Column(
+      mainAxisSize: MainAxisSize.max,
+      children: [
+        viewActivityHeader(),
+        Spacers.spacer20,
+        Expanded(
+          child: Center(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                viewActivityQuestion(),
+                Spacers.spacer20,
+                viewActivityAnswers(),
+              ],
+            ),
+          ),
+        ),
+        Spacers.spacer20,
+        viewActivityConceptInformationExamples(),
+      ],
     );
   }
 }

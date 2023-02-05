@@ -2,8 +2,8 @@ import 'package:floky/views/utils/utils.index.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/widgets.dart';
 
-class ViewActivityBody extends StatelessWidget {
-  const ViewActivityBody({
+class ViewActivityQuestion extends StatelessWidget {
+  const ViewActivityQuestion({
     super.key,
     required this.question,
     required this.questionBody,
