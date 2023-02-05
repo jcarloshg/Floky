@@ -1,7 +1,7 @@
 import 'package:floky/data/repository/configure_amplify.dart';
 import 'package:floky/dependencyInjection/setup_di.dart';
 import 'package:floky/domain/bloc/authenticate/authenticate_bloc.dart';
-import 'package:floky/views/pages/pages.index.dart';
+import 'package:floky/views/pages/home/home.index.dart';
 import 'package:floky/views/utils/utils.index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -44,9 +44,11 @@ class _MyAppState extends State<MyApp> {
           ? const Center(child: CircularProgressIndicator())
           : MaterialApp(
               debugShowCheckedModeBanner: false,
-              routes: PageIndex.getAppRoutes(),
-              initialRoute: PageIndex.initialRoute,
+              // routes: PageIndex.getAppRoutes(),
+              // routes: const {},
+              // initialRoute: PageIndex.initialRoute,
               title: 'Floky',
+              home: const HomeScreen(),
               theme: ThemeData(
                 primarySwatch: Colors.blueGrey,
                 backgroundColor: ColorsApp.greyEEEEEE,

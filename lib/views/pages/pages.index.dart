@@ -107,6 +107,16 @@ class PageIndex {
   //   screen: const ViewActivity(),
   // );
 
+  // ============================================================
+  // ============================================================
+  // use case [view_profile]
+  // ============================================================
+  // ============================================================
+  static final profileScreen = _Page(
+    route: 'ProfileScreen',
+    screen: const ProfileScreen(),
+  );
+
   //============================================================
   // ! FIX NAVIGATION
   //============================================================
@@ -148,14 +158,6 @@ class PageIndex {
     screen: const PendingActivitiesScreen(),
   );
 
-  // ============================================
-  // Profile
-  // ============================================
-  static final profileScreen = _Page(
-    route: 'ProfileScreen',
-    screen: const ProfileScreen(),
-  );
-
   static Map<String, Widget Function(BuildContext context)> getAppRoutes() {
     List<_Page> pages = [];
 
@@ -186,6 +188,13 @@ class PageIndex {
     // response_activities/response_activity
     // pages.add(viewActivity);
 
+    // ============================================================
+    // ============================================================
+    // View profile
+    // ============================================================
+    // ============================================================
+    pages.add(profileScreen);
+
     Map<String, Widget Function(BuildContext)> appRoutes = {};
 
     for (_Page page in pages) {
@@ -196,71 +205,6 @@ class PageIndex {
         },
       );
     }
-
-    // appRoutes.addAll({homeScreen.route: (BuildContext context) => homeScreen.screen});
-
-    // appRoutes.addAll(
-    //   {
-    //     homeScreen.route: (_) => homeScreen.screen,
-    //   },
-    // );
-    // appRoutes.addAll(
-    //   {
-    //     descriptionActivitie.route: (_) => descriptionActivitie.screen,
-    //   },
-    // );
-    // //============================================================
-    // // authenticate
-    // //============================================================
-    // appRoutes.addAll(
-    //   {
-    //     loginIndex.route: (_) => loginIndex.screen,
-    //   },
-    // );
-    // appRoutes.addAll(
-    //   {
-    //     loginScreen.route: (_) => loginScreen.screen,
-    //   },
-    // );
-    // appRoutes.addAll(
-    //   {
-    //     singupIndex.route: (_) => singupIndex.screen,
-    //   },
-    // );
-    // appRoutes.addAll(
-    //   {
-    //     formRegisterScreen.route: (_) => formRegisterScreen.screen,
-    //   },
-    // );
-    // appRoutes.addAll(
-    //   {
-    //     confirmAccountScreen.route: (_) => confirmAccountScreen.screen,
-    //   },
-    // );
-    // appRoutes.addAll(
-    //   {
-    //     activitiesScreen.route: (_) => activitiesScreen.screen,
-    //   },
-    // );
-    // //============================================================
-    // // authenticate
-    // //============================================================
-    // appRoutes.addAll(
-    //   {
-    //     pendingActivitiesScreen.route: (_) => pendingActivitiesScreen.screen,
-    //   },
-    // );
-    // appRoutes.addAll(
-    //   {
-    //     activitiesByCategoryScreen.route: (_) =>
-    //         activitiesByCategoryScreen.screen,
-    //   },
-    // );
-    // appRoutes.addAll(
-    //   {
-    //     profileScreen.route: (_) => profileScreen.screen,
-    //   },
-    // );
 
     return appRoutes;
   }

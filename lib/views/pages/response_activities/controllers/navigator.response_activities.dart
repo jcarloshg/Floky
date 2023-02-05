@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 
 class ResponseActivitiesNavigator {
   void goToViewActivity(BuildContext context, Activity activity) {
-    // Navigator.pushNamed(context, PageIndex.viewActivity.route);
     Navigator.push(
       context,
       MaterialPageRoute(

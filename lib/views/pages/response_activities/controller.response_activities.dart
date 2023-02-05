@@ -5,11 +5,12 @@ import 'package:floky/domain/usecase/response_activities/application/application
 import 'package:floky/views/pages/response_activities/controllers/navigator.response_activities.dart';
 
 class ResponseActivitiesController {
+  late ResponseActivities repository;
+  final ResponseActivitiesNavigator navigator;
+
   final GetRecentActivitiesData getRecentActivitiesData;
   final GetActivitiesByKeyWordData getActivitiesByKeyWordData;
   final GetActivityByIDData getActivityByIDData;
-  late ResponseActivities repository;
-  final ResponseActivitiesNavigator navigator;
 
   ResponseActivitiesController({
     required this.getRecentActivitiesData,
