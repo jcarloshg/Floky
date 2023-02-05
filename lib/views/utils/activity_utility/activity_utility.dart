@@ -18,7 +18,7 @@ class ActivityUtility {
     if (activityType == ActivityType.WRITING) return 'Escribir';
     if (activityType == ActivityType.LISTENING) return 'Escuchar';
     if (activityType == ActivityType.TALKING) return 'Hablar';
-    return 'Leer';
+    return '[UNDEFINED]';
   }
 
   static String get urlImagePlay => 'assets/activities/play.png';
@@ -29,11 +29,12 @@ class ActivityUtility {
     const String assetNameToListen = 'assets/categories/listen.png';
     const String assetNameToSpeak = 'assets/categories/speak.png';
     const String assetNameToWrite = 'assets/categories/write.png';
+    const String notImageAsset = 'assets/not_image.jpeg';
     if (activityType == ActivityType.READING) return assetNameToRead;
     if (activityType == ActivityType.LISTENING) return assetNameToListen;
     if (activityType == ActivityType.TALKING) return assetNameToSpeak;
     if (activityType == ActivityType.WRITING) return assetNameToWrite;
-    return assetNameToListen;
+    return notImageAsset;
   }
 
   static Color getCategoryBackgroundColor(ActivityType activityType) {

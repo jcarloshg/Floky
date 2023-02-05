@@ -1,6 +1,7 @@
 import 'package:floky/domain/entities/models/ModelProvider.dart';
 import 'package:floky/views/pages/response_activities/widgets/activity_answers/widget.activity_answer_listening.dart';
 import 'package:floky/views/pages/response_activities/widgets/activity_answers/widget.activity_answer_reading.dart';
+import 'package:floky/views/pages/response_activities/widgets/activity_answers/widget.activity_answer_writing.dart';
 import 'package:floky/views/utils/utils.index.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/widgets.dart';
@@ -17,6 +18,12 @@ class ViewActivityAnswers extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (activityType == ActivityType.WRITING) {
+      return ActivityAnswerWriting(
+        correctAnswer: answers.correct,
+      );
+    }
+
     if (activityType == ActivityType.LISTENING) {
       return ActivityAnswerListening(
         answersListString: answersToList(answers),
@@ -47,48 +54,4 @@ class ViewActivityAnswers extends StatelessWidget {
     answersListShuffled.shuffle();
     return answersListShuffled;
   }
-}
-
-Widget bodyListening() {
-  return Container(
-    width: double.infinity,
-    height: 50,
-    decoration: BoxDecoration(
-      border: Border.all(),
-      color: ColorsApp.listen,
-    ),
-  );
-}
-
-Widget bodyWriting() {
-  return Container(
-    width: double.infinity,
-    height: 50,
-    decoration: BoxDecoration(
-      border: Border.all(),
-      color: ColorsApp.write,
-    ),
-  );
-}
-
-Widget bodyReading(List<String> answersListString) {
-  return ListView.separated(
-    shrinkWrap: true,
-    scrollDirection: Axis.vertical,
-    physics: const NeverScrollableScrollPhysics(),
-    itemCount: answersListString.length,
-    separatorBuilder: (_, __) => Spacers.spacer5,
-    itemBuilder: (_, index) => Text(answersListString[index]),
-  );
-}
-
-Widget bodyTalking() {
-  return Container(
-    width: double.infinity,
-    height: 50,
-    decoration: BoxDecoration(
-      border: Border.all(),
-      color: ColorsApp.speak,
-    ),
-  );
 }
