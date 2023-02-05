@@ -18,10 +18,10 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: BottomNavigationPages.getPage(_selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
-        items: BottomNavigationPages.getNavigationPages(),
-        currentIndex: _selectedIndex,
-        // selectedItemColor: Colors.amber[800],
         onTap: _onItemTapped,
+        currentIndex: _selectedIndex,
+        items: BottomNavigationPages.getNavigationPages(),
+        // selectedItemColor: Colors.amber[800],
       ),
     );
   }

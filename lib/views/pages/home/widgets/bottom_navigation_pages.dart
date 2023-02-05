@@ -1,4 +1,7 @@
 import 'package:floky/views/pages/pages.index.dart';
+import 'package:floky/views/pages/pending_activities/pending_activities.screen.dart';
+import 'package:floky/views/pages/profile/profile.index.dart';
+import 'package:floky/views/pages/response_activities/pages/home_activities/home_activities.screen.dart';
 import 'package:flutter/material.dart';
 
 class ItemBarPage {
@@ -6,29 +9,31 @@ class ItemBarPage {
   final Icon icon;
   final String label;
 
-  ItemBarPage(this.page, this.icon, this.label);
+  ItemBarPage({
+    required this.page,
+    required this.icon,
+    required this.label,
+  });
 }
 
 class BottomNavigationPages {
-  static final List<ItemBarPage> _itemsBarPages = <ItemBarPage>[
+  static final List<ItemBarPage> _itemsBarPages = [
     ItemBarPage(
-      PageIndex.homeActivitiesScreen.screen,
-      const Icon(Icons.explore),
-      'Actividades',
+      icon: const Icon(Icons.explore),
+      label: 'Actividades',
+      page: const HomeActivitiesScreen(),
     ),
     ItemBarPage(
-      PageIndex.pendingActivitiesScreen.screen,
-      const Icon(Icons.pending_actions),
-      'Pendientes',
+      icon: const Icon(Icons.explore),
+      label: 'Actividades',
+      page: const PendingActivitiesScreen(),
     ),
     ItemBarPage(
-      PageIndex.profileScreen.screen,
-      const Icon(Icons.person),
-      'Perfil',
+      icon: const Icon(Icons.explore),
+      label: 'Actividades',
+      page: const ProfileScreen(),
     ),
   ];
-
-  static List<ItemBarPage> get itemsBarPages => _itemsBarPages;
 
   static Widget getPage(int index) => _itemsBarPages[index].page;
 
@@ -39,7 +44,7 @@ class BottomNavigationPages {
       final item = BottomNavigationBarItem(
         icon: itemBarPage.icon,
         label: itemBarPage.label,
-        tooltip: "ES UNA PINCHE PAGINA PRRA",
+        // tooltip: "ES UNA PINCHE PAGINA PRRA",
       );
       navigationPages.add(item);
     }
