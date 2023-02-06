@@ -1,3 +1,4 @@
+import 'package:floky/data/usecase/aws_amplify/authenticate/data.get_current_student.dart';
 import 'package:floky/data/usecase/aws_amplify/response_activities/data.get_activities_by_keyword.dart';
 import 'package:floky/data/usecase/aws_amplify/response_activities/data.get_activity_by_ID.dart';
 import 'package:floky/data/usecase/aws_amplify/response_activities/data.get_recent_activities.dart';
@@ -56,6 +57,7 @@ Future<void> responseActivities({required GetIt di}) async {
       getActivityByIDData: di<GetActivityByIDData>(),
       responseActivityData: di<ResponseActivityData>(),
       getRecentActivitiesData: di<GetRecentActivitiesData>(),
+      getCurrentStudentData: di<GetCurrentStudentData>(),
       navigator: ResponseActivitiesNavigator(),
     );
 

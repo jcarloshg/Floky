@@ -1,4 +1,5 @@
 import 'package:floky/data/usecase/aws_amplify/authenticate/authenticate.aws.dart';
+import 'package:floky/dependencyInjection/authenticate.dart';
 import 'package:floky/dependencyInjection/response_activities.dart';
 import 'package:floky/domain/bloc/authenticate/authenticate_bloc.dart';
 import 'package:floky/domain/usecase/authenticate/authenticate.usecase.dart';
@@ -15,6 +16,7 @@ Future<void> setupDI() async {
   await _view();
   await _driver();
 
+  await authenticate(di: di);
   await responseActivities(di: di);
 }
 

@@ -1,3 +1,4 @@
+import 'package:floky/data/usecase/aws_amplify/authenticate/data.get_current_student.dart';
 import 'package:floky/data/usecase/aws_amplify/response_activities/data.get_activities_by_keyword.dart';
 import 'package:floky/data/usecase/aws_amplify/response_activities/data.get_activity_by_ID.dart';
 import 'package:floky/data/usecase/aws_amplify/response_activities/data.get_recent_activities.dart';
@@ -13,12 +14,14 @@ class ResponseActivitiesController {
   final GetActivitiesByKeyWordData getActivitiesByKeyWordData;
   final ResponseActivityData responseActivityData;
   final GetActivityByIDData getActivityByIDData;
+  final GetCurrentStudentData getCurrentStudentData;
 
   ResponseActivitiesController({
     required this.getRecentActivitiesData,
     required this.getActivitiesByKeyWordData,
     required this.responseActivityData,
     required this.getActivityByIDData,
+    required this.getCurrentStudentData,
     required this.navigator,
   }) {
     repository = ResponseActivities(
@@ -26,6 +29,7 @@ class ResponseActivitiesController {
       getActivityByIDRepository: getActivityByIDData,
       responseActivityRepository: responseActivityData,
       getRecentActivitiesRepository: getRecentActivitiesData,
+      getCurrentStudentRepository: getCurrentStudentData,
     );
   }
 }

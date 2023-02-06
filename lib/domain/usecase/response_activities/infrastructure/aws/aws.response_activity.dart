@@ -10,6 +10,7 @@ class ResponseActivityAWS extends ResponseActivityRepository {
     required String answerCorrect,
     required String response,
   }) async {
+    log('into ResponseActivityAWS');
     log(activityType.toString());
     log(answerCorrect);
     log(response);

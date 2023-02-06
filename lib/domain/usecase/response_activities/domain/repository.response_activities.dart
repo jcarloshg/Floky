@@ -12,6 +12,8 @@ abstract class ResponseActivitiesRepository {
 
   // tracking alternative nominal
   Future<List<Activity>> getActivitiesByKeyWord({required String keyword});
-
   // Future<List<Activity>> getActivitiesByType();
+
+  // auxiliar methods
+  Future<Account> getCurrentStudent();
 }

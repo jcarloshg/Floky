@@ -65,6 +65,7 @@ class ResponseActivityScreen extends StatelessWidget {
             );
 
     ValidResponseButton sendResponseButton = ValidResponseButton(
+      activityType: activity.activityType,
       answerCorrect: activity.answers.correct,
     );
 
