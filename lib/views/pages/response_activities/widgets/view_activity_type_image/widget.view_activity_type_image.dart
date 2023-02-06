@@ -19,7 +19,7 @@ class ViewActivityTypeImage extends StatelessWidget {
         height: 200,
         width: 200,
         fit: BoxFit.contain,
-        opacity: const AlwaysStoppedAnimation(0.5),
+        opacity: const AlwaysStoppedAnimation(0.55),
         image: AssetImage(ActivityUtility.getURLAsset(activityType)),
       ),
     );

@@ -20,7 +20,7 @@ class ResponseActivityScreen extends StatelessWidget {
       body: SafeArea(
         child: Container(
           width: double.infinity,
-          height: double.infinity,
+          height: double.infinity, 
           padding: EdgeInsets.symmetric(
             horizontal: Spacers.size15,
             vertical: Spacers.size20,
