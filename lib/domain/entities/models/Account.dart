@@ -36,8 +36,10 @@ class Account extends Model {
   final String? _collegeName;
   final Role? _role;
   final List<Post>? _posts;
+  final ActivitiesProgress? _activitiesProgress;
   final TemporalDateTime? _createdAt;
   final TemporalDateTime? _updatedAt;
+  final String? _accountActivitiesProgressId;
 
   @override
   getInstanceType() => classType;
@@ -116,6 +118,10 @@ class Account extends Model {
     return _posts;
   }
   
+  ActivitiesProgress? get activitiesProgress {
+    return _activitiesProgress;
+  }
+  
   TemporalDateTime? get createdAt {
     return _createdAt;
   }
@@ -124,9 +130,13 @@ class Account extends Model {
     return _updatedAt;
   }
   
-  const Account._internal({required this.id, required fullName, required email, required collegeEnrollment, required collegeName, required role, posts, createdAt, updatedAt}): _fullName = fullName, _email = email, _collegeEnrollment = collegeEnrollment, _collegeName = collegeName, _role = role, _posts = posts, _createdAt = createdAt, _updatedAt = updatedAt;
+  String? get accountActivitiesProgressId {
+    return _accountActivitiesProgressId;
+  }
   
-  factory Account({String? id, required String fullName, required String email, required String collegeEnrollment, required String collegeName, required Role role, List<Post>? posts}) {
+  const Account._internal({required this.id, required fullName, required email, required collegeEnrollment, required collegeName, required role, posts, activitiesProgress, createdAt, updatedAt, accountActivitiesProgressId}): _fullName = fullName, _email = email, _collegeEnrollment = collegeEnrollment, _collegeName = collegeName, _role = role, _posts = posts, _activitiesProgress = activitiesProgress, _createdAt = createdAt, _updatedAt = updatedAt, _accountActivitiesProgressId = accountActivitiesProgressId;
+  
+  factory Account({String? id, required String fullName, required String email, required String collegeEnrollment, required String collegeName, required Role role, List<Post>? posts, ActivitiesProgress? activitiesProgress, String? accountActivitiesProgressId}) {
     return Account._internal(
       id: id == null ? UUID.getUUID() : id,
       fullName: fullName,
@@ -134,7 +144,9 @@ class Account extends Model {
       collegeEnrollment: collegeEnrollment,
       collegeName: collegeName,
       role: role,
-      posts: posts != null ? List<Post>.unmodifiable(posts) : posts);
+      posts: posts != null ? List<Post>.unmodifiable(posts) : posts,
+      activitiesProgress: activitiesProgress,
+      accountActivitiesProgressId: accountActivitiesProgressId);
   }
   
   bool equals(Object other) {
@@ -151,7 +163,9 @@ class Account extends Model {
       _collegeEnrollment == other._collegeEnrollment &&
       _collegeName == other._collegeName &&
       _role == other._role &&
-      DeepCollectionEquality().equals(_posts, other._posts);
+      DeepCollectionEquality().equals(_posts, other._posts) &&
+      _activitiesProgress == other._activitiesProgress &&
+      _accountActivitiesProgressId == other._accountActivitiesProgressId;
   }
   
   @override
@@ -169,13 +183,14 @@ class Account extends Model {
     buffer.write("collegeName=" + "$_collegeName" + ", ");
     buffer.write("role=" + (_role != null ? enumToString(_role)! : "null") + ", ");
     buffer.write("createdAt=" + (_createdAt != null ? _createdAt!.format() : "null") + ", ");
-    buffer.write("updatedAt=" + (_updatedAt != null ? _updatedAt!.format() : "null"));
+    buffer.write("updatedAt=" + (_updatedAt != null ? _updatedAt!.format() : "null") + ", ");
+    buffer.write("accountActivitiesProgressId=" + "$_accountActivitiesProgressId");
     buffer.write("}");
     
     return buffer.toString();
   }
   
-  Account copyWith({String? id, String? fullName, String? email, String? collegeEnrollment, String? collegeName, Role? role, List<Post>? posts}) {
+  Account copyWith({String? id, String? fullName, String? email, String? collegeEnrollment, String? collegeName, Role? role, List<Post>? posts, ActivitiesProgress? activitiesProgress, String? accountActivitiesProgressId}) {
     return Account._internal(
       id: id ?? this.id,
       fullName: fullName ?? this.fullName,
@@ -183,7 +198,9 @@ class Account extends Model {
       collegeEnrollment: collegeEnrollment ?? this.collegeEnrollment,
       collegeName: collegeName ?? this.collegeName,
       role: role ?? this.role,
-      posts: posts ?? this.posts);
+      posts: posts ?? this.posts,
+      activitiesProgress: activitiesProgress ?? this.activitiesProgress,
+      accountActivitiesProgressId: accountActivitiesProgressId ?? this.accountActivitiesProgressId);
   }
   
   Account.fromJson(Map<String, dynamic> json)  
@@ -199,15 +216,19 @@ class Account extends Model {
           .map((e) => Post.fromJson(new Map<String, dynamic>.from(e['serializedData'])))
           .toList()
         : null,
+      _activitiesProgress = json['activitiesProgress']?['serializedData'] != null
+        ? ActivitiesProgress.fromJson(new Map<String, dynamic>.from(json['activitiesProgress']['serializedData']))
+        : null,
       _createdAt = json['createdAt'] != null ? TemporalDateTime.fromString(json['createdAt']) : null,
-      _updatedAt = json['updatedAt'] != null ? TemporalDateTime.fromString(json['updatedAt']) : null;
+      _updatedAt = json['updatedAt'] != null ? TemporalDateTime.fromString(json['updatedAt']) : null,
+      _accountActivitiesProgressId = json['accountActivitiesProgressId'];
   
   Map<String, dynamic> toJson() => {
-    'id': id, 'fullName': _fullName, 'email': _email, 'collegeEnrollment': _collegeEnrollment, 'collegeName': _collegeName, 'role': enumToString(_role), 'posts': _posts?.map((Post? e) => e?.toJson()).toList(), 'createdAt': _createdAt?.format(), 'updatedAt': _updatedAt?.format()
+    'id': id, 'fullName': _fullName, 'email': _email, 'collegeEnrollment': _collegeEnrollment, 'collegeName': _collegeName, 'role': enumToString(_role), 'posts': _posts?.map((Post? e) => e?.toJson()).toList(), 'activitiesProgress': _activitiesProgress?.toJson(), 'createdAt': _createdAt?.format(), 'updatedAt': _updatedAt?.format(), 'accountActivitiesProgressId': _accountActivitiesProgressId
   };
   
   Map<String, Object?> toMap() => {
-    'id': id, 'fullName': _fullName, 'email': _email, 'collegeEnrollment': _collegeEnrollment, 'collegeName': _collegeName, 'role': _role, 'posts': _posts, 'createdAt': _createdAt, 'updatedAt': _updatedAt
+    'id': id, 'fullName': _fullName, 'email': _email, 'collegeEnrollment': _collegeEnrollment, 'collegeName': _collegeName, 'role': _role, 'posts': _posts, 'activitiesProgress': _activitiesProgress, 'createdAt': _createdAt, 'updatedAt': _updatedAt, 'accountActivitiesProgressId': _accountActivitiesProgressId
   };
 
   static final QueryField ID = QueryField(fieldName: "id");
@@ -219,6 +240,10 @@ class Account extends Model {
   static final QueryField POSTS = QueryField(
     fieldName: "posts",
     fieldType: ModelFieldType(ModelFieldTypeEnum.model, ofModelName: (Post).toString()));
+  static final QueryField ACTIVITIESPROGRESS = QueryField(
+    fieldName: "activitiesProgress",
+    fieldType: ModelFieldType(ModelFieldTypeEnum.model, ofModelName: (ActivitiesProgress).toString()));
+  static final QueryField ACCOUNTACTIVITIESPROGRESSID = QueryField(fieldName: "accountActivitiesProgressId");
   static var schema = Model.defineSchema(define: (ModelSchemaDefinition modelSchemaDefinition) {
     modelSchemaDefinition.name = "Account";
     modelSchemaDefinition.pluralName = "Accounts";
@@ -273,6 +298,13 @@ class Account extends Model {
       associatedKey: Post.TUTORACCOUNTID
     ));
     
+    modelSchemaDefinition.addField(ModelFieldDefinition.hasOne(
+      key: Account.ACTIVITIESPROGRESS,
+      isRequired: false,
+      ofModelName: (ActivitiesProgress).toString(),
+      associatedKey: ActivitiesProgress.ID
+    ));
+    
     modelSchemaDefinition.addField(ModelFieldDefinition.nonQueryField(
       fieldName: 'createdAt',
       isRequired: false,
@@ -285,6 +317,12 @@ class Account extends Model {
       isRequired: false,
       isReadOnly: true,
       ofType: ModelFieldType(ModelFieldTypeEnum.dateTime)
+    ));
+    
+    modelSchemaDefinition.addField(ModelFieldDefinition.field(
+      key: Account.ACCOUNTACTIVITIESPROGRESSID,
+      isRequired: false,
+      ofType: ModelFieldType(ModelFieldTypeEnum.string)
     ));
   });
 }

@@ -7,7 +7,7 @@
   "frontend": "flutter",
   "flutter": {
     "config": {
-      "ResDir": ""
+      "ResDir": "./lib/data/repository/"
     }
   }
 }

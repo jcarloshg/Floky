@@ -167,7 +167,7 @@
             "Ref": "UnauthRoleName"
           },
           "S3DeploymentBucket": "amplify-floky-staging-172728-deployment",
-          "S3DeploymentRootKey": "amplify-appsync-files/0b6258e3f1f8e8780ebc85f51f85e4187e7d95d5",
+          "S3DeploymentRootKey": "amplify-appsync-files/3c54090c0ee015c87822fa835ab76fe600228330",
           "env": "staging"
         }
       }
