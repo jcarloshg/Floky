@@ -1,4 +1,6 @@
 import 'package:floky/domain/entities/models/ModelProvider.dart';
+import 'package:floky/views/pages/response_activities/pages/response_activity/widgets/response_activity_answer/widget.response_activity_answer.dart';
+import 'package:floky/views/pages/response_activities/pages/response_activity/widgets/valid_response_button/widget.valid_response_button.dart';
 import 'package:floky/views/pages/response_activities/widgets/view_activity_concept_Information_examples/widget.view_activity_concept_Information_examples.dart';
 import 'package:floky/views/pages/response_activities/widgets/view_activity_header/widget.view_activity_header.dart';
 import 'package:floky/views/pages/response_activities/widgets/view_activity_questions/widget.view_activity_questions.dart';
@@ -20,7 +22,7 @@ class ResponseActivityScreen extends StatelessWidget {
       body: SafeArea(
         child: Container(
           width: double.infinity,
-          height: double.infinity, 
+          height: double.infinity,
           padding: EdgeInsets.symmetric(
             horizontal: Spacers.size15,
             vertical: Spacers.size20,
@@ -50,10 +52,9 @@ class ResponseActivityScreen extends StatelessWidget {
           questionBody: activity.questionBody,
         );
 
-    Container viewActivityAnswers() => Container(
-          decoration: BoxDecoration(border: Border.all()),
-          height: 100,
-          width: double.infinity,
+    ResponseActivityAnswer viewActivityAnswers() => ResponseActivityAnswer(
+          activityType: activity.activityType,
+          answers: activity.answers,
         );
 
     ViewActivityConceptInformationExamples
@@ -62,6 +63,10 @@ class ResponseActivityScreen extends StatelessWidget {
               conceptInformation: activity.topic.conceptInformation!,
               examples: activity.topic.examples!,
             );
+
+    ValidResponseButton sendResponseButton = ValidResponseButton(
+      answerCorrect: activity.answers.correct,
+    );
 
     return Column(
       mainAxisSize: MainAxisSize.max,
@@ -76,12 +81,14 @@ class ResponseActivityScreen extends StatelessWidget {
                 viewActivityQuestion(),
                 Spacers.spacer20,
                 viewActivityAnswers(),
+                Spacers.spacer20,
+                sendResponseButton,
               ],
             ),
           ),
         ),
-        Spacers.spacer20,
         viewActivityConceptInformationExamples(),
+        Spacers.spacer20,
       ],
     );
   }

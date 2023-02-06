@@ -64,7 +64,7 @@ class ViewActivityScreen extends StatelessWidget {
               examples: activity.topic.examples!,
             );
 
-    GoToResponseActivityButton goToResponseActivityButton() =>
+    final goToResponseActivityButton =
         GoToResponseActivityButton(activity: activity);
 
     return Column(
@@ -81,14 +81,14 @@ class ViewActivityScreen extends StatelessWidget {
                 Spacers.spacer20,
                 viewActivityAnswers(),
                 Spacers.spacer20,
-                goToResponseActivityButton(),
-                Spacers.spacer20,
               ],
             ),
           ),
         ),
+        goToResponseActivityButton,
         Spacers.spacer20,
         viewActivityConceptInformationExamples(),
+        Spacers.spacer20,
       ],
     );
   }

@@ -1,10 +1,11 @@
 import 'package:floky/data/repository/configure_amplify.dart';
 import 'package:floky/dependencyInjection/setup_di.dart';
-import 'package:floky/domain/bloc/authenticate/authenticate_bloc.dart';
 import 'package:floky/views/pages/home/home.index.dart';
 import 'package:floky/views/utils/themes/theme.light.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:provider/provider.dart';
+
+import 'domain/change_notifier/response_activities/change_notifier.response_activities.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -36,9 +37,12 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
+    return MultiProvider(
       providers: [
-        BlocProvider(create: (_) => di<AuthenticateBloc>()),
+        ChangeNotifierProvider(
+          create: (_) => di<ResponseActivitiesChangeNotifier>(),
+          lazy: false,
+        ),
       ],
       child: _isLoadingConfigurationAmplify
           ? const Center(child: CircularProgressIndicator())
@@ -49,5 +53,19 @@ class _MyAppState extends State<MyApp> {
               theme: Themes.lightTheme(),
             ),
     );
+
+    // // return MultiBlocProvider(
+    // //   providers: [
+    // //     BlocProvider(create: (_) => di<AuthenticateBloc>()),
+    // //   ],
+    // //   child: _isLoadingConfigurationAmplify
+    // //       ? const Center(child: CircularProgressIndicator())
+    // //       : MaterialApp(
+    // //           debugShowCheckedModeBanner: false,
+    // //           title: 'Floky',
+    // //           home: const HomeScreen(),
+    // //           theme: Themes.lightTheme(),
+    // //         ),
+    // // );
   }
 }

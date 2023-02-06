@@ -28,13 +28,22 @@ Future dataShowModalBottomSheet({
   Widget buttonTextClose() => Container(
         width: double.infinity,
         alignment: Alignment.centerRight,
-        child: const Text(
-          'Aceptar',
-          style: TextStyle(
-            color: Colors.blueGrey,
-            fontSize: 16,
-            fontWeight: FontWeight.normal,
-          ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: const [
+            Text(
+              'Aceptar',
+              style: TextStyle(
+                color: Colors.blueGrey,
+                fontSize: 16,
+                fontWeight: FontWeight.normal,
+              ),
+            ),
+            Icon(
+              Icons.arrow_right_outlined,
+              color: Colors.blueGrey,
+            ),
+          ],
         ),
       );
 
