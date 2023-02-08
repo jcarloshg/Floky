@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:floky/domain/entities/models/Account.dart';
 import 'package:floky/domain/entities/models/Activity.dart';
 import 'package:floky/domain/entities/models/ActivityType.dart';

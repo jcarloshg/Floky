@@ -1,5 +1,6 @@
 import 'package:floky/data/repository/configure_amplify.dart';
 import 'package:floky/dependencyInjection/setup_di.dart';
+import 'package:floky/views/pages/authenticate/pages/log_in/screen.log_in.dart';
 import 'package:floky/views/pages/home/home.index.dart';
 import 'package:floky/views/utils/themes/theme.light.dart';
 import 'package:flutter/material.dart';
@@ -49,23 +50,9 @@ class _MyAppState extends State<MyApp> {
           : MaterialApp(
               debugShowCheckedModeBanner: false,
               title: 'Floky',
-              home: const HomeScreen(),
+              home: const LogInScreen(),
               theme: Themes.lightTheme(),
             ),
     );
-
-    // // return MultiBlocProvider(
-    // //   providers: [
-    // //     BlocProvider(create: (_) => di<AuthenticateBloc>()),
-    // //   ],
-    // //   child: _isLoadingConfigurationAmplify
-    // //       ? const Center(child: CircularProgressIndicator())
-    // //       : MaterialApp(
-    // //           debugShowCheckedModeBanner: false,
-    // //           title: 'Floky',
-    // //           home: const HomeScreen(),
-    // //           theme: Themes.lightTheme(),
-    // //         ),
-    // // );
   }
 }
