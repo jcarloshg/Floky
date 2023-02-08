@@ -18,6 +18,7 @@ class PassInput extends StatelessWidget with InputAbstract {
       child: TextFormField(
         keyboardType: TextInputType.emailAddress,
         controller: control,
+        obscureText: true,
         validator: validateValue,
         decoration: inputDecoration(labelText: "Contraseña"),
       ),

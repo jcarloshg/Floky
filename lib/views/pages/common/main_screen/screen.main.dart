@@ -28,8 +28,7 @@ class _MainScreenState extends State<MainScreen> {
 
   Future<void> checkExistStudentLoggedIn() async {
     final logInController = di<LogInController>();
-    Account? studentLoggedIn =
-        await logInController.repository.existAStudentLoggedIn();
+    Account? studentLoggedIn = await logInController.repository.existAStudentLoggedIn();
     setState(() {
       if (studentLoggedIn != null) _existStudentLoggedIn = true;
     });

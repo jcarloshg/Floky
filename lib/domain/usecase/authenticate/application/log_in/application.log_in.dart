@@ -19,11 +19,11 @@ class LogIn extends LogInRepository {
   }
 
   @override
-  Future<Account> logInMethod({
+  Future<Account?> logInMethod({
     required String email,
     required String pass,
   }) async {
-    final Account student = await logInMethodRepository.run(
+    final Account? student = await logInMethodRepository.run(
       email: email,
       pass: pass,
     );

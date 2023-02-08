@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 
 class ColorsApp {
   //============================================================
+  // button colors
+  //============================================================
+  static Color buttonBackground = Colors.blueAccent.shade400;
+  static Color buttonBorder = Colors.blueAccent.shade400;
+
+  //============================================================
   // texto from app
   //============================================================
-  // static const Color text = Color(0xFF111111);
   static const Color text = Color(0xFF384850);
 
   //============================================================

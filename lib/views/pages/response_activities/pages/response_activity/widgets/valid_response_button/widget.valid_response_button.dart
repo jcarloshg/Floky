@@ -1,5 +1,6 @@
 import 'package:floky/domain/entities/models/ActivityType.dart';
 import 'package:floky/views/pages/response_activities/pages/response_activity/widgets/valid_response_button/behavior.valid_response_button.dart';
+import 'package:floky/views/utils/colors_app.dart';
 import 'package:flutter/material.dart';
 
 class ValidResponseButton extends StatelessWidget
@@ -35,8 +36,8 @@ class ValidResponseButton extends StatelessWidget
   }
 
   BoxDecoration boxDecoration() => BoxDecoration(
-        border: Border.all(color: Colors.blueAccent.shade400),
-        color: Colors.blueAccent,
+        border: Border.all(color: ColorsApp.buttonBorder),
+        color: ColorsApp.buttonBackground,
         borderRadius: BorderRadius.circular(4),
       );
 
