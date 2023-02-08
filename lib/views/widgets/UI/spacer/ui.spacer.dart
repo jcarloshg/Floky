@@ -2,6 +2,7 @@ import 'package:flutter/widgets.dart';
 
 class Spacers {
   static double size5 = 5;
+  static double size10 = 10;
   static double size15 = 15;
   static double size20 = 20;
   static double size30 = 30;
