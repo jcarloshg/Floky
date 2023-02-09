@@ -33,8 +33,6 @@ class _MainScreenState extends State<MainScreen> {
     Account? studentLoggedIn =
         await logInController.repository.existAStudentLoggedIn();
     setState(() {
-      log('checkExistStudentLoggedIn');
-      print(studentLoggedIn);
       if (studentLoggedIn != null) _existStudentLoggedIn = true;
     });
   }

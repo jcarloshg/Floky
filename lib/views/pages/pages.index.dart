@@ -19,7 +19,6 @@ import 'package:floky/views/pages/authenticate/singup/screens/form_register.scre
 import 'package:floky/views/pages/common/description_activitie/description_activitie.screen.dart';
 import 'package:floky/views/pages/home/home.index.dart';
 import 'package:floky/views/pages/pending_activities/pending_activities.index.dart';
-import 'package:floky/views/pages/profile/profile.index.dart';
 import 'package:floky/views/pages/response_activities/pages/pages.response_activities.dart';
 import 'package:flutter/material.dart';
 
@@ -107,16 +106,6 @@ class PageIndex {
   //   screen: const ViewActivity(),
   // );
 
-  // ============================================================
-  // ============================================================
-  // use case [view_profile]
-  // ============================================================
-  // ============================================================
-  static final profileScreen = _Page(
-    route: 'ProfileScreen',
-    screen: const ProfileScreen(),
-  );
-
   //============================================================
   // ! FIX NAVIGATION
   //============================================================
@@ -187,13 +176,6 @@ class PageIndex {
     pages.add(homeActivitiesScreen);
     // response_activities/response_activity
     // pages.add(viewActivity);
-
-    // ============================================================
-    // ============================================================
-    // View profile
-    // ============================================================
-    // ============================================================
-    pages.add(profileScreen);
 
     Map<String, Widget Function(BuildContext)> appRoutes = {};
 
