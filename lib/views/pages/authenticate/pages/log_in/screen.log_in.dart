@@ -1,3 +1,4 @@
+import 'package:floky/views/pages/authenticate/pages/log_in/widgets/error_login_message/widget.error_login_message.dart';
 import 'package:floky/views/pages/authenticate/pages/log_in/widgets/log_in_button/widget.log_in_button.dart';
 import 'package:floky/views/pages/authenticate/pages/log_in/widgets/log_in_form/widget.log_in_form.dart';
 import 'package:floky/views/utils/utils.index.dart';
@@ -49,6 +50,9 @@ class ContainerLoginForm extends StatelessWidget {
           const LogInForm(),
           Spacers.spacer10,
           const LogInButton(),
+          Spacers.spacer10,
+          const ErrorLoginMessage(),
+          Spacers.spacer10,
         ],
       ),
     );
