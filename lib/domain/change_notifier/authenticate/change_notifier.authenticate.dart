@@ -10,7 +10,17 @@ class LoginFormController {
 
 class AuthenticateChangeNotifier extends ChangeNotifier {
   //============================================================
-  //
+  // status
+  //============================================================
+  bool _isLoading = false;
+  bool get isLoading => _isLoading;
+  set isLoading(bool isLoading) {
+    _isLoading = isLoading;
+    notifyListeners();
+  }
+
+  //============================================================
+  // login
   //============================================================
   Account? currentStudent;
 

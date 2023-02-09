@@ -8,11 +8,6 @@ class GetCurrentStudentAWS extends GetCurrentStudentRepository {
   @override
   Future<Account> run() async {
     final AuthUser user = await Amplify.Auth.getCurrentUser();
-
-    log('GetCurrentStudentAWS');
-    log(user.userId);
-    log(user.username);
-
     final String studentID = user.userId;
     final List<Account> students = await Amplify.DataStore.query(
       Account.classType,

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:floky/dependencyInjection/setup_di.dart';
 import 'package:floky/domain/entities/models/ModelProvider.dart';
 import 'package:floky/views/pages/authenticate/controller/controller.log_in.dart';
@@ -28,8 +30,11 @@ class _MainScreenState extends State<MainScreen> {
 
   Future<void> checkExistStudentLoggedIn() async {
     final logInController = di<LogInController>();
-    Account? studentLoggedIn = await logInController.repository.existAStudentLoggedIn();
+    Account? studentLoggedIn =
+        await logInController.repository.existAStudentLoggedIn();
     setState(() {
+      log('checkExistStudentLoggedIn');
+      print(studentLoggedIn);
       if (studentLoggedIn != null) _existStudentLoggedIn = true;
     });
   }
