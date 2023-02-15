@@ -8,7 +8,7 @@ abstract class InputAbstract {
   }) =>
       InputDecoration(
         labelText: labelText,
-        filled: true,
-        fillColor: Colors.white,
+        // filled: true,
+        // fillColor: Colors.white,
       );
 }

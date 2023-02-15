@@ -68,7 +68,7 @@ class ContainerLoginForm extends StatelessWidget {
       );
 
   subTitle() => const Text(
-        'Ingresa tu correo electrónico y contraseña',
+        'Eres nuevo? Regístrate aquí',
         style: TextStyle(
           color: ColorsApp.text,
           fontSize: 16,

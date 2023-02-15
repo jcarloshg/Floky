@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 class LogInButton extends StatelessWidget {
   const LogInButton({super.key});
 
-  static String text = 'Ingresar';
+  static const String text = 'Ingresar';
 
   @override
   Widget build(BuildContext context) {

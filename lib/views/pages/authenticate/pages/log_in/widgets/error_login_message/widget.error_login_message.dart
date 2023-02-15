@@ -14,7 +14,7 @@ class ErrorLoginMessage extends StatelessWidget {
     if (messageError == null) return Container();
 
     return messageError.isEmpty
-        ? Container()
+        ? const SizedBox()
         : Text(
             messageError,
             style: const TextStyle(

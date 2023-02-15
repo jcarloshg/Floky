@@ -1,12 +1,11 @@
+import 'dart:developer';
+
 import 'package:floky/views/utils/abstract.input.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
 
 class EmailInput extends StatelessWidget with InputAbstract {
-  const EmailInput({
-    super.key,
-    required this.control,
-  });
+  const EmailInput({super.key, required this.control});
 
   final TextEditingController control;
 
@@ -15,12 +14,13 @@ class EmailInput extends StatelessWidget with InputAbstract {
     return Container(
       width: double.infinity,
       margin: EdgeInsets.only(top: Spacers.size5),
-      // decoration: BoxDecoration(border: Border.all()),
+      decoration: BoxDecoration(border: Border.all()),
       child: TextFormField(
         keyboardType: TextInputType.emailAddress,
+        autovalidateMode: AutovalidateMode.onUserInteraction,
         controller: control,
         autocorrect: false,
-        validator: validateValue,
+        validator: (value) => validateValue(value),
         decoration: inputDecoration(labelText: "Correo electrónico"),
       ),
     );
@@ -28,13 +28,13 @@ class EmailInput extends StatelessWidget with InputAbstract {
 
   @override
   String? validateValue(String? value) {
-    // // if (value.isEmpty) return null;
-    // if (value.length < 8) {
-    //   return 'Debe ser mínimo de 8 caracteres';
-    // }
-    // if (Validators.pass(value) == false) {
-    //   return 'Debe contener minúsculas, mayúsculas y números.';
-    // }
-    return null;
+    log(value ?? 'sakdfjslkadj');
+    if (value == null) return null;
+    if (value.isEmpty) return 'El correo es requerido.';
+    RegExp regExp = RegExp(
+      r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$',
+    );
+    final isValidEmail = regExp.hasMatch(value);
+    return isValidEmail == false ? 'El correo electrónico no es válido.' : null;
   }
 }

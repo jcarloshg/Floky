@@ -2,9 +2,16 @@ import 'package:floky/domain/entities/models/ModelProvider.dart';
 import 'package:flutter/material.dart';
 
 class LoginFormController {
-  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  final TextEditingController email = TextEditingController();
-  final TextEditingController pass = TextEditingController();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final TextEditingController _email = TextEditingController();
+  final TextEditingController _pass = TextEditingController();
+
+  GlobalKey<FormState> get formKey => _formKey;
+  TextEditingController get emailController => _email;
+  TextEditingController get passController => _pass;
+  String get emailString => emailController.text.trim();
+  String get passString => passController.text.trim();
+
   LoginFormController();
 }
 
@@ -33,9 +40,4 @@ class AuthenticateChangeNotifier extends ChangeNotifier {
   // form
   // ============================================================
   LoginFormController loginFormController = LoginFormController();
-  GlobalKey<FormState> get formKey => loginFormController.formKey;
-  TextEditingController get loginEmailController => loginFormController.email;
-  TextEditingController get loginPassController => loginFormController.pass;
-  String get loginEmailString => loginFormController.email.text.trim();
-  String get loginPassString => loginFormController.pass.text.trim();
 }
