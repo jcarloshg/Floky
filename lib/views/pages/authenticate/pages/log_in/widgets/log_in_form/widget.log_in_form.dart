@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:floky/dependencyInjection/setup_di.dart';
 import 'package:floky/views/pages/authenticate/controller/controller.log_in.dart';
 import 'package:floky/views/pages/authenticate/pages/log_in/widgets/input_email/input.email.dart';

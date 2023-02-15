@@ -16,6 +16,9 @@ class LoginFormController {
 }
 
 class AuthenticateChangeNotifier extends ChangeNotifier {
+  String? messageErroLogIn = '';
+  LoginFormController loginFormController = LoginFormController();
+
   //============================================================
   // status
   //============================================================
@@ -30,14 +33,4 @@ class AuthenticateChangeNotifier extends ChangeNotifier {
   // login
   //============================================================
   Account? currentStudent;
-
-  //============================================================
-  //errors login
-  //============================================================
-  String? messageErroLogIn = '';
-
-  // ============================================================
-  // form
-  // ============================================================
-  LoginFormController loginFormController = LoginFormController();
 }

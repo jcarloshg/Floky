@@ -28,7 +28,6 @@ class EmailInput extends StatelessWidget with InputAbstract {
 
   @override
   String? validateValue(String? value) {
-    log(value ?? 'sakdfjslkadj');
     if (value == null) return null;
     if (value.isEmpty) return 'El correo es requerido.';
     RegExp regExp = RegExp(
