@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:floky/dependencyInjection/setup_di.dart';
 import 'package:floky/views/pages/authenticate/controller/controller.log_in.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +13,8 @@ class ErrorLoginMessage extends StatelessWidget {
     final changeNotifier = logInController.changeNotifier;
     final messageError = changeNotifier.messageErroLogIn;
 
-    if (messageError == null) return Container();
+    log('ErrorLoginMessage');
+    log(messageError);
 
     return messageError.isEmpty
         ? const SizedBox()

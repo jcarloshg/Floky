@@ -35,7 +35,9 @@ authenticate({required GetIt di}) async {
     );
 
     di.registerSingleton<LogInMethodData>(
-      LogInMethodData(),
+      LogInMethodData(
+        authenticateChangeNotifier: di<AuthenticateChangeNotifier>(),
+      ),
       signalsReady: true,
     );
 

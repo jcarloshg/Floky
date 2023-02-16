@@ -16,12 +16,18 @@ class LoginFormController {
 }
 
 class AuthenticateChangeNotifier extends ChangeNotifier {
-  String? messageErroLogIn = '';
   LoginFormController loginFormController = LoginFormController();
 
   //============================================================
   // status
   //============================================================
+  String _messageErroLogIn = '';
+  String get messageErroLogIn => _messageErroLogIn;
+  set messageErroLogIn(String messageErroLogIn) {
+    _messageErroLogIn = messageErroLogIn;
+    notifyListeners();
+  }
+
   bool _isLoading = false;
   bool get isLoading => _isLoading;
   set isLoading(bool isLoading) {

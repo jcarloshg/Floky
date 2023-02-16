@@ -1,14 +1,20 @@
 import 'package:floky/views/utils/abstract.input.dart';
+import 'package:floky/views/utils/utils.index.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
 
-class PassInput extends StatelessWidget with InputAbstract {
-  const PassInput({
-    super.key,
-    required this.control,
-  });
+class PassInput extends StatefulWidget {
+  const PassInput({super.key, required this.control});
 
   final TextEditingController control;
+
+  @override
+  State<PassInput> createState() => _PassInputState();
+}
+
+class _PassInputState extends State<PassInput> with InputAbstract {
+  bool passIsHidden = true;
+  final String labelText = 'Contraseña';
 
   @override
   Widget build(BuildContext context) {
@@ -18,19 +24,39 @@ class PassInput extends StatelessWidget with InputAbstract {
       child: TextFormField(
         keyboardType: TextInputType.visiblePassword,
         autovalidateMode: AutovalidateMode.onUserInteraction,
-        controller: control,
-        obscureText: true,
+        controller: widget.control,
+        obscureText: passIsHidden,
         validator: validateValue,
-        decoration: inputDecoration(labelText: "Contraseña"),
+        decoration: inputDecoration(labelText: labelText),
       ),
     );
   }
 
   @override
   String? validateValue(String? value) {
-    if (value == null || value.isEmpty) {
-      return 'Please enter some text';
-    }
-    return null;
+    if (value == null) return null;
+    if (value.isEmpty) return 'La contraseña es requerida.';
+    RegExp regExp = RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$');
+    final isValidPass = regExp.hasMatch(value);
+    return isValidPass == false
+        ? 'Debe contener minúsculas, mayúsculas y números.'
+        : null;
   }
+
+  @override
+  InputDecoration inputDecoration({
+    required String labelText,
+  }) =>
+      InputDecoration(
+        labelText: labelText,
+        suffix: hidePasswordButton(),
+      );
+
+  void onChangeShowPass() => setState(() => passIsHidden = !passIsHidden);
+  IconButton hidePasswordButton() => IconButton(
+        onPressed: onChangeShowPass,
+        icon: Icon(
+          passIsHidden ? Icons.remove_red_eye : Icons.remove_red_eye_outlined,
+        ),
+      );
 }

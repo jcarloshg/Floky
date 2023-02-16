@@ -1,5 +1,8 @@
+import 'dart:developer';
+
 import 'package:floky/dependencyInjection/setup_di.dart';
 import 'package:floky/views/pages/authenticate/controller/controller.log_in.dart';
+import 'package:floky/views/utils/utils.index.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
 
@@ -10,25 +13,37 @@ class LogInButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final logInController = di<LogInController>();
+    final changeNotifier = logInController.changeNotifier;
+
     return InkWell(
-      onTap: () => logIn(),
-      child: Container(
-        width: double.infinity,
-        alignment: Alignment.centerRight,
-        margin: EdgeInsets.symmetric(vertical: Spacers.size10),
-        child: button(),
+      onTap: () => logInController.logIn(),
+      child: Column(
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          Container(
+            width: double.infinity,
+            // decoration: BoxDecoration(border: Border.all()),
+            alignment: Alignment.centerRight,
+            margin: EdgeInsets.symmetric(vertical: Spacers.size10),
+            child: button(),
+          ),
+          changeNotifier.isLoading
+              ? const CircularProgressIndicator(color: ColorsApp.write)
+              : const SizedBox(),
+        ],
       ),
     );
   }
 
   void logIn() {
+    log('logIn');
     try {
       final logInController = di<LogInController>();
       final changeNotifier = logInController.changeNotifier;
-      // final String email = changeNotifier.loginEmailString;
-      final String email = 'carlosj12336@gmail.com';
-      // final String pass = changeNotifier.loginPassString;
-      final String pass = 'Qazwsx123';
+      final loginFormController = changeNotifier.loginFormController;
+      final String email = loginFormController.emailString;
+      final String pass = loginFormController.passString;
       final repository = logInController.repository;
       repository.logInMethod(email: email, pass: pass);
     } catch (e) {
@@ -38,9 +53,9 @@ class LogInButton extends StatelessWidget {
   }
 
   Container button() {
-    Text buttonText() => Text(
+    Text buttonText() => const Text(
           LogInButton.text,
-          style: const TextStyle(
+          style: TextStyle(
             color: Colors.white,
             fontSize: 16,
             fontWeight: FontWeight.w600,

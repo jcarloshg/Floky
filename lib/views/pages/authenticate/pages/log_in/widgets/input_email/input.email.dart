@@ -14,7 +14,7 @@ class EmailInput extends StatelessWidget with InputAbstract {
     return Container(
       width: double.infinity,
       margin: EdgeInsets.only(top: Spacers.size5),
-      decoration: BoxDecoration(border: Border.all()),
+      // decoration: BoxDecoration(border: Border.all()),
       child: TextFormField(
         keyboardType: TextInputType.emailAddress,
         autovalidateMode: AutovalidateMode.onUserInteraction,
