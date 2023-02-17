@@ -2,14 +2,14 @@ import 'dart:developer';
 
 import 'package:floky/data/usecase/aws_amplify/authenticate/data.exist_a_student_logged_in.dart';
 import 'package:floky/data/usecase/aws_amplify/authenticate/data.log_in_method.dart';
-import 'package:floky/domain/change_notifier/authenticate/change_notifier.authenticate.dart';
+import 'package:floky/domain/change_notifier/authenticate/change_notifier.log_in.dart';
 import 'package:floky/domain/usecase/authenticate/application/log_in/application.log_in.dart';
 import 'package:floky/domain/usecase/authenticate/domain/log_in/repository.log_in.dart';
 import 'package:floky/views/pages/authenticate/controller/navigator.authenticate.dart';
 
 class LogInController {
   late LogInRepository repository;
-  final AuthenticateChangeNotifier changeNotifier;
+  final LoginChangeNotifier changeNotifier;
   final AuthenticateNavigator navigator;
 
   final ExistAStudentLoggedInData existAStudentLoggedInData;

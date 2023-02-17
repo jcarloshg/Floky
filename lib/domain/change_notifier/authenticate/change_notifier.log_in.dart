@@ -15,7 +15,7 @@ class LoginFormController {
   LoginFormController();
 }
 
-class AuthenticateChangeNotifier extends ChangeNotifier {
+class LoginChangeNotifier extends ChangeNotifier {
   LoginFormController loginFormController = LoginFormController();
 
   //============================================================

@@ -5,13 +5,13 @@ import 'package:get_it/get_it.dart';
 GetIt di = GetIt.instance;
 
 Future<void> setupDI() async {
+  await authenticate(di: di);
+  await responseActivities(di: di);
+
   // await _data();
   // await _domain();
   // await _view();
   // await _driver();
-
-  await authenticate(di: di);
-  await responseActivities(di: di);
 }
 
 // _data() async {
