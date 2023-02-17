@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 
 class Button extends StatelessWidget {
+  const Button({super.key, this.label, this.function});
+
   final String? label;
   final VoidCallback? function;
-
-  const Button({Key? key, this.label, this.function}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      // decoration: BoxDecoration(border: Border.all()),
-      padding: const EdgeInsets.symmetric(vertical: 15),
-      margin: const EdgeInsets.symmetric(horizontal: 15),
+      margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
       child: MaterialButton(
         // onPressed: (function == null) ? () {} : function!(),
         height: 45,

@@ -15,12 +15,14 @@ class RegisterButton extends StatelessWidget {
     return SizedBox(
       width: double.infinity,
       child: Row(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.end,
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           label(),
-          Spacers.spacer5,
-          button(context: context),
+          ButtonText(
+            label: labelButton,
+            function: () => goToRegisterNewAccount(context),
+          ),
         ],
       ),
     );
@@ -29,23 +31,10 @@ class RegisterButton extends StatelessWidget {
   label() => const Text(
         labelText,
         style: TextStyle(
+          // color: Colors.blueGrey.shade900,
           color: ColorsApp.text,
-          fontSize: 16,
-          fontWeight: FontWeight.w600,
-        ),
-      );
-
-  button({required BuildContext context}) => InkWell(
-        onTap: () => goToRegisterNewAccount(context),
-        child: Ink(
-          child: Text(
-            labelButton,
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w600,
-              color: ColorsApp.buttonBackground,
-            ),
-          ),
+          fontSize: 14,
+          fontWeight: FontWeight.w500,
         ),
       );
 

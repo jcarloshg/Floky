@@ -1,19 +1,36 @@
+import 'package:floky/views/pages/authenticate/pages/register_student/pages/form_register/widgets/full_name_input/input.full_name.dart';
+import 'package:floky/views/pages/authenticate/pages/register_student/pages/form_register/widgets/input_college_enrollment/input.college_enrollment.dart';
+import 'package:floky/views/pages/authenticate/widgets/input_email/input.email.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
 
 class RegisterStudentForm extends StatelessWidget {
-  const RegisterStudentForm({super.key});
+  RegisterStudentForm({super.key});
+
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  final TextEditingController fullName = TextEditingController();
+  final TextEditingController collegeEnrollment = TextEditingController();
+  final TextEditingController email = TextEditingController();
+  final TextEditingController collegeName = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(border: Border.all()),
       margin: EdgeInsets.symmetric(
         horizontal: Spacers.size15,
         vertical: Spacers.size10,
       ),
-      width: double.infinity,
-      height: 500,
+      child: Form(
+        key: formKey,
+        child: Column(
+          children: [
+            FullNameInput(control: fullName),
+            EmailInput(control: email),
+            FullNameInput(control: collegeName),
+            CollegeEnrollmentInput(control: collegeEnrollment),
+          ],
+        ),
+      ),
     );
   }
 }

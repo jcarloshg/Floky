@@ -1,4 +1,5 @@
 import 'package:floky/domain/change_notifier/authenticate/change_notifier.log_in.dart';
+import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -15,15 +16,18 @@ class ErrorLoginMessage extends StatelessWidget {
     final String messageErrorLogIn =
         authenticateChangeNotifier.messageErroLogIn;
 
-    return messageErrorLogIn.isEmpty
-        ? const SizedBox()
-        : Text(
-            messageErrorLogIn,
-            style: const TextStyle(
-              color: Colors.red,
-              fontSize: 14,
-              fontWeight: FontWeight.normal,
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: Spacers.size15),
+      child: messageErrorLogIn.isEmpty
+          ? const SizedBox()
+          : Text(
+              messageErrorLogIn,
+              style: const TextStyle(
+                color: Colors.red,
+                fontSize: 14,
+                fontWeight: FontWeight.normal,
+              ),
             ),
-          );
+    );
   }
 }

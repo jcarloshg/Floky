@@ -1,7 +1,8 @@
 import 'package:floky/dependencyInjection/setup_di.dart';
 import 'package:floky/views/pages/authenticate/controller/controller.log_in.dart';
-import 'package:floky/views/pages/authenticate/pages/log_in/widgets/input_email/input.email.dart';
-import 'package:floky/views/pages/authenticate/pages/log_in/widgets/input_pass/input.pass.dart';
+import 'package:floky/views/pages/authenticate/widgets/input_email/input.email.dart';
+import 'package:floky/views/pages/authenticate/widgets/input_pass/input.pass.dart';
+import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
 
 class LogInForm extends StatelessWidget {
@@ -13,13 +14,16 @@ class LogInForm extends StatelessWidget {
     final changeNotifier = logInController.changeNotifier;
     final loginFormController = changeNotifier.loginFormController;
 
-    return Form(
-      key: loginFormController.formKey,
-      child: Column(
-        children: [
-          EmailInput(control: loginFormController.emailController),
-          PassInput(control: loginFormController.passController),
-        ],
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: Spacers.size15),
+      child: Form(
+        key: loginFormController.formKey,
+        child: Column(
+          children: [
+            EmailInput(control: loginFormController.emailController),
+            PassInput(control: loginFormController.passController),
+          ],
+        ),
       ),
     );
   }

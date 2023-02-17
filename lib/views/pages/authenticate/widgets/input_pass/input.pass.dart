@@ -13,8 +13,10 @@ class PassInput extends StatefulWidget {
 }
 
 class _PassInputState extends State<PassInput> with InputAbstract {
-  bool passIsHidden = true;
   final String labelText = 'Contraseña';
+  bool passIsHidden = true;
+
+  void onChangeShowPass() => setState(() => passIsHidden = !passIsHidden);
 
   @override
   Widget build(BuildContext context) {
@@ -52,11 +54,13 @@ class _PassInputState extends State<PassInput> with InputAbstract {
         suffix: hidePasswordButton(),
       );
 
-  void onChangeShowPass() => setState(() => passIsHidden = !passIsHidden);
   IconButton hidePasswordButton() => IconButton(
         onPressed: onChangeShowPass,
-        icon: Icon(
-          passIsHidden ? Icons.remove_red_eye : Icons.remove_red_eye_outlined,
+        icon: Container(
+          decoration: BoxDecoration(border: Border.all()),
+          child: Icon(
+            passIsHidden ? Icons.remove_red_eye : Icons.remove_red_eye_outlined,
+          ),
         ),
       );
 }

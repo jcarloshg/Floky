@@ -12,21 +12,16 @@ class ButtonText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 15),
-      child: TextButton(
-        onPressed: function,
-        child: Center(
-          child: Text(
-            label ?? '[NotLabelButtonText]',
-            style: TextStyle(
-              color: Colors.blueGrey.shade600,
-              fontSize: 14,
-              fontWeight: FontWeight.w700,
-            ),
-          ),
+    return TextButton(
+      onPressed: function,
+      style: TextButton.styleFrom(
+        textStyle: TextStyle(
+          color: Colors.blueGrey.shade600,
+          fontSize: 14,
+          fontWeight: FontWeight.w700,
         ),
       ),
+      child: Text(label ?? '[NotLabelButtonText]'),
     );
   }
 }
