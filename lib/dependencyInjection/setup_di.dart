@@ -1,11 +1,5 @@
-import 'package:floky/data/usecase/aws_amplify/authenticate/authenticate.aws.dart';
-import 'package:floky/dependencyInjection/authenticate.dart';
+import 'package:floky/dependencyInjection/authenticate/authenticate.dart';
 import 'package:floky/dependencyInjection/response_activities.dart';
-import 'package:floky/domain/bloc/authenticate/authenticate_bloc.dart';
-import 'package:floky/domain/usecase/authenticate/authenticate.usecase.dart';
-import 'package:floky/views/pages/authenticate/reset_pass/reset_pass.controll.dart';
-import 'package:floky/views/pages/authenticate/singin/login.controller.dart';
-import 'package:floky/views/pages/authenticate/singup/singup.controller.dart';
 import 'package:get_it/get_it.dart';
 
 GetIt di = GetIt.instance;

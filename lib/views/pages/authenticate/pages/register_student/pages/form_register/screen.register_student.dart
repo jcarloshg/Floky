@@ -1,8 +1,9 @@
+import 'package:floky/views/pages/authenticate/pages/register_student/pages/form_register/widgets/form_register/widget.register_student_form.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
 
-class FormRegister extends StatelessWidget {
-  const FormRegister({super.key});
+class RegisterStudent extends StatelessWidget {
+  const RegisterStudent({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +16,7 @@ class FormRegister extends StatelessWidget {
             children: [
               Titles.title('Crea una nueva cuenta'),
               Titles.subtitle('Ingresa tus datos'),
+              const RegisterStudentForm(),
             ],
           ),
         ),
