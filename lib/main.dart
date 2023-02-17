@@ -1,11 +1,10 @@
 import 'package:floky/data/repository/configure_amplify.dart';
 import 'package:floky/dependencyInjection/setup_di.dart';
+import 'package:floky/domain/change_notifier/utils/utils.get_providers.dart';
 import 'package:floky/views/pages/common/main_screen/screen.main.dart';
 import 'package:floky/views/utils/themes/theme.light.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import 'domain/change_notifier/response_activities/change_notifier.response_activities.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -38,12 +37,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(
-          create: (_) => di<ResponseActivitiesChangeNotifier>(),
-          lazy: false,
-        ),
-      ],
+      providers: getProviders(context),
       child: _isLoadingConfigurationAmplify
           ? const Center(child: CircularProgressIndicator())
           : MaterialApp(

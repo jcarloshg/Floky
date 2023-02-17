@@ -32,7 +32,7 @@ class LogInController {
 
     log(isValidForm.toString());
     if (isValidForm == false) {
-      changeNotifier.messageErroLogIn = 'Ingresa los datos correctamente.';
+      changeNotifier.messageErroLogIn = 'Ingresa los datos correctamente';
       return;
     }
     final String email = loginFormController.emailString;

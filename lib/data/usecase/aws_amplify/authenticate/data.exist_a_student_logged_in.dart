@@ -21,8 +21,7 @@ class ExistAStudentLoggedInData extends ExistAStudentLoggedInRepository {
   }
 
   void studentIsNotLogged() {
-    authenticateChangeNotifier.messageErroLogIn =
-        'El correo o la contraseña son incorrectos';
+    authenticateChangeNotifier.messageErroLogIn = '';
   }
 
   void studentIsLogged() {
