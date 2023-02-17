@@ -13,11 +13,23 @@ class LogInMethodData extends LogInMethodRepository {
   @override
   Future<Account?> run({required String email, required String pass}) async {
     authenticateChangeNotifier.isLoading = true;
+
     final Account? student = await LogInMethodAWS().run(
       email: email,
       pass: pass,
     );
+
+    student == null ? studentIsNotLogged() : studentIsLogged();
+
     authenticateChangeNotifier.isLoading = false;
+
     return student;
+  }
+
+  void studentIsLogged() {}
+
+  void studentIsNotLogged() {
+    authenticateChangeNotifier.messageErroLogIn =
+        'El correo o contraseña son incorrectos';
   }
 }
