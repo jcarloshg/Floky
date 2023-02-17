@@ -4,11 +4,10 @@ import 'package:floky/views/pages/response_activities/pages/view_activity/screen
 import 'package:flutter/material.dart';
 
 ///
-/// HomeActivities  -> home_activities.screen.dart
-/// ViewActivity    -> screen.view_activity.dart
+/// * HomeActivities  -> home_activities.screen.dart
+/// * ViewActivity    -> screen.view_activity.dart
 ///
-/// to Response activity
-/// HomeActivitiesScreen -> ViewActivityScreen -> ResponseActivityScreen -> HomeActivitiesScreen
+/// * to Response activity - [HomeActivitiesScreen] -> [ViewActivityScreen] -> [ResponseActivityScreen] -> [HomeActivitiesScreen]
 ///
 
 class ResponseActivitiesNavigator {

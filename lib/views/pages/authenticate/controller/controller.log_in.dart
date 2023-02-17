@@ -5,16 +5,19 @@ import 'package:floky/data/usecase/aws_amplify/authenticate/data.log_in_method.d
 import 'package:floky/domain/change_notifier/authenticate/change_notifier.authenticate.dart';
 import 'package:floky/domain/usecase/authenticate/application/log_in/application.log_in.dart';
 import 'package:floky/domain/usecase/authenticate/domain/log_in/repository.log_in.dart';
+import 'package:floky/views/pages/authenticate/controller/navigator.authenticate.dart';
 
 class LogInController {
   late LogInRepository repository;
   final AuthenticateChangeNotifier changeNotifier;
+  final AuthenticateNavigator navigator;
 
   final ExistAStudentLoggedInData existAStudentLoggedInData;
   final LogInMethodData logInMethodData;
 
   LogInController({
     required this.changeNotifier,
+    required this.navigator,
     required this.existAStudentLoggedInData,
     required this.logInMethodData,
   }) {

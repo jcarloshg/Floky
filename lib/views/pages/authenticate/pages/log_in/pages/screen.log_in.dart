@@ -1,6 +1,7 @@
 import 'package:floky/views/pages/authenticate/pages/log_in/widgets/error_login_message/widget.error_login_message.dart';
 import 'package:floky/views/pages/authenticate/pages/log_in/widgets/log_in_button/widget.log_in_button.dart';
 import 'package:floky/views/pages/authenticate/pages/log_in/widgets/log_in_form/widget.log_in_form.dart';
+import 'package:floky/views/pages/authenticate/pages/log_in/widgets/register_button/widget.register_button.dart';
 import 'package:floky/views/utils/utils.index.dart';
 import 'package:floky/views/widgets/UI/spacer/ui.spacer.dart';
 import 'package:flutter/material.dart';
@@ -12,48 +13,26 @@ class LogInScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: SizedBox(
-          height: double.infinity,
-          child: Stack(
-            alignment: Alignment.center,
-            children: const [
-              ContainerLoginForm(),
+        child: Container(
+          alignment: Alignment.center,
+          width: double.infinity,
+          padding: EdgeInsets.symmetric(horizontal: Spacers.size20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              logInText(),
+              Spacers.spacer10,
+              const LogInForm(),
+              Spacers.spacer10,
+              const LogInButton(),
+              Spacers.spacer10,
+              const RegisterButton(),
+              Spacers.spacer10,
+              const ErrorLoginMessage(),
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-class ContainerLoginForm extends StatelessWidget {
-  const ContainerLoginForm({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      padding: EdgeInsets.symmetric(
-        vertical: Spacers.size30,
-        horizontal: Spacers.size20,
-      ),
-      margin: EdgeInsets.all(Spacers.size15),
-      decoration: boxDecoration(),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          logInText(),
-          Spacers.spacer5,
-          subTitle(),
-          Spacers.spacer10,
-          const LogInForm(),
-          Spacers.spacer10,
-          const LogInButton(),
-          Spacers.spacer10,
-          const ErrorLoginMessage(),
-          Spacers.spacer10,
-        ],
       ),
     );
   }
@@ -63,15 +42,6 @@ class ContainerLoginForm extends StatelessWidget {
         style: TextStyle(
           color: ColorsApp.text,
           fontSize: 24,
-          fontWeight: FontWeight.w600,
-        ),
-      );
-
-  subTitle() => const Text(
-        'Eres nuevo? Regístrate aquí',
-        style: TextStyle(
-          color: ColorsApp.text,
-          fontSize: 16,
           fontWeight: FontWeight.w600,
         ),
       );

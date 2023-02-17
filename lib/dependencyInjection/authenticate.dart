@@ -3,6 +3,7 @@ import 'package:floky/data/usecase/aws_amplify/authenticate/data.get_current_stu
 import 'package:floky/data/usecase/aws_amplify/authenticate/data.log_in_method.dart';
 import 'package:floky/domain/change_notifier/authenticate/change_notifier.authenticate.dart';
 import 'package:floky/views/pages/authenticate/controller/controller.log_in.dart';
+import 'package:floky/views/pages/authenticate/controller/navigator.authenticate.dart';
 import 'package:get_it/get_it.dart';
 
 authenticate({required GetIt di}) async {
@@ -52,6 +53,7 @@ authenticate({required GetIt di}) async {
       changeNotifier: di<AuthenticateChangeNotifier>(),
       existAStudentLoggedInData: di<ExistAStudentLoggedInData>(),
       logInMethodData: di<LogInMethodData>(),
+      navigator: AuthenticateNavigator(),
     );
 
     di.registerSingleton<LogInController>(

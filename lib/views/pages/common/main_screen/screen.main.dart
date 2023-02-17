@@ -1,9 +1,7 @@
-import 'dart:developer';
-
 import 'package:floky/dependencyInjection/setup_di.dart';
 import 'package:floky/domain/entities/models/ModelProvider.dart';
 import 'package:floky/views/pages/authenticate/controller/controller.log_in.dart';
-import 'package:floky/views/pages/authenticate/pages/log_in/screen.log_in.dart';
+import 'package:floky/views/pages/authenticate/pages/log_in/pages/screen.log_in.dart';
 import 'package:floky/views/pages/home/home.screen.dart';
 import 'package:flutter/material.dart';
 
