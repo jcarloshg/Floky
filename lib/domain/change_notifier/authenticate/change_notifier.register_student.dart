@@ -6,6 +6,8 @@ class SignUpFormController {
   final TextEditingController _collegeEnrollment = TextEditingController();
   final TextEditingController _email = TextEditingController();
   final TextEditingController _collegeName = TextEditingController();
+  final TextEditingController _pass = TextEditingController();
+  final TextEditingController _confirmPass = TextEditingController();
 
   GlobalKey<FormState> get formKey => _formKey;
 
@@ -13,11 +15,15 @@ class SignUpFormController {
   TextEditingController get collegeEnrollment => _collegeEnrollment;
   TextEditingController get email => _email;
   TextEditingController get collegeName => _collegeName;
+  TextEditingController get pass => _pass;
+  TextEditingController get confirmPass => _confirmPass;
 
   String get fullNameString => _fullName.text.trim();
   String get collegeEnrollmentString => _collegeEnrollment.text.trim();
   String get emailString => _email.text.trim();
   String get collegeNameString => _collegeName.text.trim();
+  String get passString => _pass.text.trim();
+  String get confirmPassString => _confirmPass.text.trim();
 
   SignUpFormController();
 }
