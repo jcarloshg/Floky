@@ -17,7 +17,7 @@ class RegisterStudent extends StatelessWidget {
             children: [
               Titles.title('Crea una nueva cuenta'),
               Titles.subtitle('Ingresa tus datos'),
-              RegisterStudentForm(),
+              const RegisterStudentForm(),
               const ErrorMessage(error: 'ERROR_ERROR'),
               const RegisterButton(),
             ],

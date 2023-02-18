@@ -9,6 +9,7 @@ class LoginFormController {
   GlobalKey<FormState> get formKey => _formKey;
   TextEditingController get emailController => _email;
   TextEditingController get passController => _pass;
+
   String get emailString => emailController.text.trim();
   String get passString => passController.text.trim();
 
