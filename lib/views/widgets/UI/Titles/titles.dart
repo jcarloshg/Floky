@@ -26,9 +26,9 @@ class Titles {
         subtitle ?? '[NOT_SUBTITLE]',
         textAlign: isCenter! ? TextAlign.center : TextAlign.left,
         style: const TextStyle(
-          color: Color(0xFF384850),
+          color: Color.fromARGB(255, 118, 136, 145),
           fontSize: 16,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.w500,
         ),
       ),
     );

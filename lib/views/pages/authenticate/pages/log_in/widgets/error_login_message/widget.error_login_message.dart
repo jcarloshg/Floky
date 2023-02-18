@@ -16,18 +16,8 @@ class ErrorLoginMessage extends StatelessWidget {
     final String messageErrorLogIn =
         authenticateChangeNotifier.messageErroLogIn;
 
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: Spacers.size15),
-      child: messageErrorLogIn.isEmpty
-          ? const SizedBox()
-          : Text(
-              messageErrorLogIn,
-              style: const TextStyle(
-                color: Colors.red,
-                fontSize: 14,
-                fontWeight: FontWeight.normal,
-              ),
-            ),
-    );
+    return messageErrorLogIn.isEmpty
+        ? const SizedBox()
+        : ErrorMessage(error: messageErrorLogIn);
   }
 }

@@ -15,7 +15,10 @@ class LogInForm extends StatelessWidget {
     final loginFormController = changeNotifier.loginFormController;
 
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: Spacers.size15),
+      margin: EdgeInsets.symmetric(
+        horizontal: Spacers.size15,
+        vertical: Spacers.size10,
+      ),
       child: Form(
         key: loginFormController.formKey,
         child: Column(

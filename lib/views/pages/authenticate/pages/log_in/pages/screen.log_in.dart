@@ -13,7 +13,6 @@ class LogInScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          alignment: Alignment.center,
           width: double.infinity,
           // padding: EdgeInsets.symmetric(horizontal: Spacers.size20),
           child: Column(
@@ -21,9 +20,10 @@ class LogInScreen extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Titles.title('Inicia sesión'),
-              const ErrorLoginMessage(),
               const LogInForm(),
+              const ErrorLoginMessage(),
               const LogInButton(),
+              Spacers.spacer20,
               const RegisterButton(),
             ],
           ),
