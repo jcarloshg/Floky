@@ -15,7 +15,7 @@ class Button extends StatelessWidget {
         // onPressed: (function == null) ? () {} : function!(),
         height: 45,
         onPressed: function,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
         color: Theme.of(context).primaryColor,
         child: _bodyButton(),
       ),

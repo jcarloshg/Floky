@@ -1,4 +1,5 @@
 import 'package:floky/domain/change_notifier/authenticate/change_notifier.register_student.dart';
+import 'package:floky/views/pages/authenticate/pages/register_student/controller/controller.register_student.dart';
 import 'package:get_it/get_it.dart';
 
 registerStudent({required GetIt di}) async {
@@ -21,6 +22,16 @@ _driver({required GetIt di}) async {
 }
 
 _view({required GetIt di}) async {
+  //
+
+  final registerStudentController = RegisterStudentController(
+    changeNotifier: di<RegisterStudentChangeNotifier>(),
+  );
+
+  di.registerSingleton<RegisterStudentController>(
+    registerStudentController,
+    signalsReady: true,
+  );
   return await null;
 }
 
