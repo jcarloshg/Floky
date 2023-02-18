@@ -33,11 +33,11 @@ class LogInController {
     final loginFormController = changeNotifier.loginFormController;
     final isValidForm = loginFormController.formKey.currentState?.validate();
 
-    log(isValidForm.toString());
     if (isValidForm == false) {
       changeNotifier.messageErroLogIn = 'Ingresa los datos correctamente';
       return;
     }
+
     final String email = loginFormController.emailString;
     final String pass = loginFormController.passString;
     repository.logInMethod(email: email, pass: pass);

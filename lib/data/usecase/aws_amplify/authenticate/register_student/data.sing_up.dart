@@ -5,9 +5,10 @@ import 'package:floky/domain/usecase/authenticate/domain/register_student/reposi
 import 'package:floky/domain/usecase/authenticate/infrastructure/aws/register_student/aws.sing_up.dart';
 
 class SignUpData extends SignUpRepository {
-  SignUpData({required this.registerStudentChangeNotifier});
+  SignUpData({required this.changeNotifier});
 
-  final RegisterStudentChangeNotifier registerStudentChangeNotifier;
+  final RegisterStudentChangeNotifier changeNotifier;
+  final SignUpDataParams signUpDataParams = SignUpDataParams();
 
   @override
   Future<bool> run(SignUpParams params) async {
@@ -15,4 +16,13 @@ class SignUpData extends SignUpRepository {
     log('[SignUpData] $studentDataWasRegistered');
     return studentDataWasRegistered;
   }
+}
+
+class SignUpDataParams {
+  String fullName = '';
+  String email = '';
+  String pass = '';
+  String role = '';
+  String collegeEnrollment = '';
+  String collegeName = '';
 }

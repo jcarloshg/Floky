@@ -1,22 +1,24 @@
-import 'dart:developer';
-
+import 'package:floky/data/usecase/aws_amplify/authenticate/register_student/data.confirm_user.dart';
+import 'package:floky/data/usecase/aws_amplify/authenticate/register_student/data.sing_up.dart';
 import 'package:floky/domain/change_notifier/authenticate/change_notifier.register_student.dart';
+import 'package:floky/domain/usecase/authenticate/application/register_student/application.register_student.dart';
+import 'package:floky/domain/usecase/authenticate/domain/register_student/repository.register_student.dart';
 
 class RegisterStudentController {
-  //
+  late RegisterStudentRepository repository;
+  final RegisterStudentChangeNotifier changeNotifier;
 
-  RegisterStudentChangeNotifier changeNotifier;
+  final SignUpData signUpData;
+  final ConfirmUserData confirmUserData;
 
-  RegisterStudentController({required this.changeNotifier});
-
-  void signUp() {
-    final signUpFormController = changeNotifier.signUpFormController;
-    final isValidForm = signUpFormController.formKey.currentState?.validate();
-
-    if (isValidForm == false) {
-      log('is not valid data');
-      changeNotifier.signUpMessageError = 'Ingresa los datos correctamente';
-      return;
-    }
+  RegisterStudentController({
+    required this.changeNotifier,
+    required this.signUpData,
+    required this.confirmUserData,
+  }) {
+    repository = RegisterStudent(
+      signUpRepository: signUpData,
+      confirmUserRepository: confirmUserData,
+    );
   }
 }
