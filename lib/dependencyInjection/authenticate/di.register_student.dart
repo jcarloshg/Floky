@@ -2,6 +2,7 @@ import 'package:floky/data/usecase/aws_amplify/authenticate/register_student/dat
 import 'package:floky/data/usecase/aws_amplify/authenticate/register_student/data.sing_up.dart';
 import 'package:floky/domain/change_notifier/authenticate/change_notifier.register_student.dart';
 import 'package:floky/views/pages/authenticate/pages/register_student/controller/controller.register_student.dart';
+import 'package:floky/views/pages/authenticate/pages/register_student/controller/navigator.register_student.dart';
 import 'package:get_it/get_it.dart';
 
 registerStudent({required GetIt di}) async {
@@ -38,6 +39,7 @@ _view({required GetIt di}) async {
     confirmUserData: di<ConfirmUserData>(),
     signUpData: di<SignUpData>(),
     changeNotifier: di<RegisterStudentChangeNotifier>(),
+    navigator: RegisterStudentNavigator(),
   );
 
   di.registerSingleton<RegisterStudentController>(

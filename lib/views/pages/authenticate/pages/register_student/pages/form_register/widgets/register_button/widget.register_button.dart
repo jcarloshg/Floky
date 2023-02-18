@@ -10,7 +10,7 @@ class RegisterButton extends StatelessWidget with RegisterButtonBehavior {
   Widget build(BuildContext context) {
     return Button(
       label: text,
-      function: () => singUp(),
+      function: () => singUp(context),
     );
   }
 }

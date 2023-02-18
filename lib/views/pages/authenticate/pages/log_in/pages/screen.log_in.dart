@@ -12,7 +12,7 @@ class LogInScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Container(
+        child: SizedBox(
           width: double.infinity,
           // padding: EdgeInsets.symmetric(horizontal: Spacers.size20),
           child: Column(
@@ -23,7 +23,6 @@ class LogInScreen extends StatelessWidget {
               const LogInForm(),
               const ErrorLoginMessage(),
               const LogInButton(),
-              Spacers.spacer20,
               const RegisterButton(),
             ],
           ),

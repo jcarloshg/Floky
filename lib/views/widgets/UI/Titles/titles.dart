@@ -10,7 +10,7 @@ class Titles {
         title ?? '[NOT_TITLE]',
         style: const TextStyle(
           color: Color(0xFF384850),
-          fontSize: 38,
+          fontSize: 32,
           fontWeight: FontWeight.w600,
         ),
       ),
