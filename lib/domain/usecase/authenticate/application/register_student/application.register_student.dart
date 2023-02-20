@@ -2,8 +2,8 @@ import 'package:floky/domain/usecase/authenticate/domain/register_student/reposi
 import 'package:floky/domain/usecase/authenticate/domain/register_student/repository.register_student.dart';
 import 'package:floky/domain/usecase/authenticate/domain/register_student/repository.sing_up.dart';
 
-class RegisterStudent extends RegisterStudentRepository {
-  RegisterStudent({
+class RegisterPersonalData extends RegisterStudentRepository {
+  RegisterPersonalData({
     required this.signUpRepository,
     required this.confirmUserRepository,
   });

@@ -13,7 +13,7 @@ class SignUpAWS extends SignUpRepository {
     try {
       final userAttributes = <CognitoUserAttributeKey, String>{
         CognitoUserAttributeKey.email: params.email,
-        CognitoUserAttributeKey.name: params.name,
+        CognitoUserAttributeKey.name: params.fullName,
         const CognitoUserAttributeKey.custom('role'): params.role,
       };
 

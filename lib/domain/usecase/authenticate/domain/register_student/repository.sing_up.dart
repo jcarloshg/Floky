@@ -1,15 +1,10 @@
 class SignUpParams {
-  final String name;
-  final String email;
-  final String pass;
-  final String role;
-
-  SignUpParams({
-    required this.name,
-    required this.email,
-    required this.pass,
-    required this.role,
-  });
+  String fullName = '';
+  String email = '';
+  String pass = '';
+  String role = '';
+  String collegeEnrollment = '';
+  String collegeName = '';
 }
 
 abstract class SignUpRepository {

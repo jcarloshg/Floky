@@ -1,5 +1,5 @@
-import 'package:floky/views/pages/authenticate/pages/register_student/pages/register_school_data_form/widgets/register_school_data_button/widget.register_school_data_button.dart';
-import 'package:floky/views/pages/authenticate/pages/register_student/pages/register_school_data_form/widgets/school_data_form/widget.school_data_form.dart';
+import 'package:floky/views/pages/authenticate/pages/register_student/pages/register_school_data/widgets/register_school_data_button/widget.register_school_data_button.dart';
+import 'package:floky/views/pages/authenticate/pages/register_student/pages/register_school_data/widgets/school_data_form/widget.school_data_form.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
 

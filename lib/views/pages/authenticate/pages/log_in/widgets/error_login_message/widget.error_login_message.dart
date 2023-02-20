@@ -1,4 +1,4 @@
-import 'package:floky/domain/change_notifier/authenticate/change_notifier.log_in.dart';
+import 'package:floky/domain/change_notifier/authenticate/log_in/change_notifier.log_in.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

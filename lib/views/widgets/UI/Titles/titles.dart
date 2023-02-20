@@ -4,7 +4,7 @@ class Titles {
   static Widget title(String? title) {
     return Container(
       width: double.infinity,
-      margin: const EdgeInsets.only(top: 15),
+      margin: const EdgeInsets.symmetric(vertical: 15),
       padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
       child: Text(
         title ?? '[NOT_TITLE]',
@@ -27,8 +27,8 @@ class Titles {
         textAlign: isCenter! ? TextAlign.center : TextAlign.left,
         style: const TextStyle(
           color: Color.fromARGB(255, 118, 136, 145),
-          fontSize: 18,
-          fontWeight: FontWeight.w500,
+          fontSize: 16,
+          fontWeight: FontWeight.w400,
         ),
       ),
     );

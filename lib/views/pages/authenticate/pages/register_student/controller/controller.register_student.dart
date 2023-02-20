@@ -1,6 +1,6 @@
 import 'package:floky/data/usecase/aws_amplify/authenticate/register_student/data.confirm_user.dart';
 import 'package:floky/data/usecase/aws_amplify/authenticate/register_student/data.sing_up.dart';
-import 'package:floky/domain/change_notifier/authenticate/change_notifier.register_student.dart';
+import 'package:floky/domain/change_notifier/authenticate/register_student/change_notifier.register_student.dart';
 import 'package:floky/domain/usecase/authenticate/application/register_student/application.register_student.dart';
 import 'package:floky/domain/usecase/authenticate/domain/register_student/repository.register_student.dart';
 import 'package:floky/views/pages/authenticate/pages/register_student/controller/navigator.register_student.dart';
@@ -19,7 +19,7 @@ class RegisterStudentController {
     required this.confirmUserData,
     required this.navigator,
   }) {
-    repository = RegisterStudent(
+    repository = RegisterPersonalData(
       signUpRepository: signUpData,
       confirmUserRepository: confirmUserData,
     );

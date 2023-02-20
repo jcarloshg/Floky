@@ -1,4 +1,4 @@
-import 'package:floky/views/pages/authenticate/pages/register_student/pages/form_register/screen.register_student.dart';
+import 'package:floky/views/pages/authenticate/pages/register_student/pages/register_personal_data/screen.register_personal_data.dart';
 import 'package:flutter/material.dart';
 
 class AuthenticateNavigator {
@@ -6,7 +6,7 @@ class AuthenticateNavigator {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => const RegisterStudent(),
+        builder: (context) => const RegisterPersonalData(),
       ),
     );
   }

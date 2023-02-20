@@ -7,6 +7,7 @@ class FullNameInput extends StatelessWidget with InputAbstract {
 
   final TextEditingController control;
   final String label = "Nombre completo";
+  final String messageInvalidValue = "Debe llevar nombre(s) y apellidos";
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +28,13 @@ class FullNameInput extends StatelessWidget with InputAbstract {
   @override
   String? validateValue(String? value) {
     if (value == null) return null;
+
     if (value.isEmpty) return 'El nombre completo es requerido.';
+
+    RegExp regExp = RegExp(r'^[a-zA-ZÀ-ÿ ]{2,}( {1,2}[a-zA-ZÀ-ÿ ]{2,}){2,}$');
+    final isValidFullName = regExp.hasMatch(value);
+    if (isValidFullName == false) return messageInvalidValue;
+
     return null;
   }
 }
