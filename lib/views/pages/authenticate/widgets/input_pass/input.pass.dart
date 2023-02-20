@@ -1,12 +1,18 @@
 import 'package:floky/views/utils/abstract.input.dart';
-import 'package:floky/views/utils/utils.index.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
 
 class PassInput extends StatefulWidget {
-  const PassInput({super.key, required this.control});
+  //
+
+  const PassInput({
+    super.key,
+    required this.control,
+    this.isToConfirm = false,
+  });
 
   final TextEditingController control;
+  final bool isToConfirm;
 
   @override
   State<PassInput> createState() => _PassInputState();

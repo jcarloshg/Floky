@@ -17,7 +17,8 @@ class RegisterSchoolNextScreenButtonBehavior {
       return;
     }
 
-    // final navigator = registerStudentController.navigator;
-    // navigator.goToRegisterAccount(context);
+    changeNotifier.setSchoolDataMessageError('');
+    final navigator = registerStudentController.navigator;
+    navigator.goToRegisterAccount(context);
   }
 }

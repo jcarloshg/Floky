@@ -53,6 +53,19 @@ class RegisterStudentChangeNotifier extends ChangeNotifier {
     setSchoolDataMessageError('');
   }
 
+  //============================================================
+  // screen register_account_data
+  //============================================================
+  AccountData _accountData = AccountData.emptyAccountData();
+  AccountData getAccountData() => _accountData;
+  void setAccountData(AccountData accountData) {
+    _accountData = accountData;
+    notifyListeners();
+  }
+
+  //============================================================
+  // others
+  //============================================================
   String _signUpMessageError = '';
   String get signUpMessageError => _signUpMessageError;
   set signUpMessageError(String messageErroLogIn) {

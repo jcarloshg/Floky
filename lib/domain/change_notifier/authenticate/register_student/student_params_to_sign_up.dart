@@ -49,4 +49,12 @@ class AccountData {
     required this.pass,
     required this.confirmPass,
   });
+  static AccountData emptyAccountData() {
+    return AccountData(
+      isValidData: false,
+      confirmPass: '',
+      email: '',
+      pass: '',
+    );
+  }
 }

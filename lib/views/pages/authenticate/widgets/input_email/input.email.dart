@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:floky/views/utils/abstract.input.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';

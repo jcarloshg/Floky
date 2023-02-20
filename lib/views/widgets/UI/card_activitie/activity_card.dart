@@ -1,4 +1,4 @@
-import 'package:floky/views/pages/pages.index.dart';
+// import 'package:floky/views/pages/pages.index.dart';
 import 'package:flutter/material.dart';
 
 class ActivityCard extends StatelessWidget {
@@ -24,10 +24,10 @@ class ActivityCard extends StatelessWidget {
   }
 
   _navigateDescriptionActivitie(BuildContext context) {
-    Navigator.pushNamed(
-      context,
-      PageIndex.descriptionActivitie.route,
-    );
+    // Navigator.pushNamed(
+    //   context,
+    //   PageIndex.descriptionActivitie.route,
+    // );
   }
 }
 
