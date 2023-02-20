@@ -3,8 +3,8 @@ import 'package:floky/views/pages/authenticate/pages/register_student/pages/regi
 import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
 
-class RegisterSchoolDataForm extends StatelessWidget {
-  const RegisterSchoolDataForm({super.key});
+class RegisterSchoolData extends StatelessWidget {
+  const RegisterSchoolData({super.key});
 
   final String title = 'Ingresa tu registro escolar 🏫';
   final String subtitle =
@@ -15,6 +15,8 @@ class RegisterSchoolDataForm extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: SizedBox(
+          width: double.infinity,
+          height: double.infinity,
           child: Column(
             children: [
               Titles.title(title),

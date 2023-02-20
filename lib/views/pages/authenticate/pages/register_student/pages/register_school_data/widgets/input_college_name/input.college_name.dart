@@ -4,11 +4,13 @@ import 'package:flutter/material.dart';
 
 class CollegeNameInput extends StatelessWidget with InputAbstract {
   //
-  const CollegeNameInput({super.key, required this.control});
 
   final TextEditingController control;
   final String label = "Nombre de la institución";
+  final String messageInvalidValue = 'Nombre de la institución es invalido';
   final collegeName = 'BUBAL';
+
+  const CollegeNameInput({super.key, required this.control});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +32,12 @@ class CollegeNameInput extends StatelessWidget with InputAbstract {
   @override
   String? validateValue(String? value) {
     if (value == null) return null;
-    if (value.isEmpty) return 'El $label completo es requerido.';
+    if (value.isEmpty) return 'El nombre de la institución es requerido';
+
+    RegExp regExp = RegExp(r'^[a-zA-ZÀ-ÿ ]{2,}( {1,2}[a-zA-ZÀ-ÿ ]{2,}){2,}$');
+    final isValidFullName = regExp.hasMatch(value);
+    if (isValidFullName == false) return messageInvalidValue;
+
     return null;
   }
 }
