@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:floky/views/pages/authenticate/pages/register_student/pages/register_school_data/widgets/input_college_enrollment/input.college_enrollment.dart';
 import 'package:floky/views/pages/authenticate/pages/register_student/pages/register_school_data/widgets/input_college_name/input.college_name.dart';
 import 'package:floky/views/pages/authenticate/pages/register_student/pages/register_school_data/widgets/school_data_form/behavior.school_data_form.dart';

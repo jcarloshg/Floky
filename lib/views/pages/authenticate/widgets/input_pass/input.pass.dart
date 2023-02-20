@@ -20,6 +20,7 @@ class PassInput extends StatefulWidget {
 
 class _PassInputState extends State<PassInput> with InputAbstract {
   final String labelText = 'Contraseña';
+  final String labelConfirmPassText = 'Confirmar contraseña';
   bool passIsHidden = true;
 
   void onChangeShowPass() => setState(() => passIsHidden = !passIsHidden);
@@ -35,7 +36,9 @@ class _PassInputState extends State<PassInput> with InputAbstract {
         controller: widget.control,
         obscureText: passIsHidden,
         validator: validateValue,
-        decoration: inputDecoration(labelText: labelText),
+        decoration: inputDecoration(
+          labelText: widget.isToConfirm ? labelConfirmPassText : labelText,
+        ),
       ),
     );
   }
@@ -62,11 +65,8 @@ class _PassInputState extends State<PassInput> with InputAbstract {
 
   IconButton hidePasswordButton() => IconButton(
         onPressed: onChangeShowPass,
-        icon: Container(
-          decoration: BoxDecoration(border: Border.all()),
-          child: Icon(
-            passIsHidden ? Icons.remove_red_eye : Icons.remove_red_eye_outlined,
-          ),
+        icon: Icon(
+          passIsHidden ? Icons.remove_red_eye : Icons.remove_red_eye_outlined,
         ),
       );
 }

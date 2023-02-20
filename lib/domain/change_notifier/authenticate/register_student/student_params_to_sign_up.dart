@@ -39,10 +39,10 @@ class SchoolData {
 }
 
 class AccountData {
-  final bool isValidData;
-  final String email;
-  final String pass;
-  final String confirmPass;
+  bool isValidData;
+  String email;
+  String pass;
+  String confirmPass;
   AccountData({
     required this.isValidData,
     required this.email,

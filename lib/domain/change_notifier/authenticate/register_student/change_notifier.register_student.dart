@@ -63,6 +63,13 @@ class RegisterStudentChangeNotifier extends ChangeNotifier {
     notifyListeners();
   }
 
+  String _accountDataMessageError = '';
+  String getAccountDataMessageError() => _accountDataMessageError;
+  void setAccountDataMessageError(String message) {
+    _accountDataMessageError = message;
+    notifyListeners();
+  }
+
   //============================================================
   // others
   //============================================================
