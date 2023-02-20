@@ -9,7 +9,7 @@ class CollegeEnrollmentInput extends StatelessWidget with InputAbstract {
   final String label = "Registro escolar";
   final String hintText = "ej. 201738087";
   final String helperText =
-      'NOTA! Debes seguir las recomendaciones de tu institución educativa';
+      'NOTA* Debes seguir las recomendaciones de tu institución educativa';
 
   @override
   Widget build(BuildContext context) {

@@ -11,8 +11,8 @@ class FormController extends FormControllerAbstract {
   SchoolData getData() {
     return SchoolData(
       isValidData: formKey.currentState?.validate() ?? false,
-      collegeEnrollment: '',
-      collegeName: '',
+      collegeEnrollment: collegeEnrollment.text.trim(),
+      collegeName: collegeName.text.trim(),
     );
   }
 

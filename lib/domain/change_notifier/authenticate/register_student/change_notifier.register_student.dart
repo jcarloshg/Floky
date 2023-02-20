@@ -33,6 +33,7 @@ class RegisterStudentChangeNotifier extends ChangeNotifier {
   }
 
   //============================================================
+  // screen register_school_data
   //============================================================
   SchoolData _schoolData = SchoolData.emptySchoolData();
   SchoolData getSchoolData() => _schoolData;

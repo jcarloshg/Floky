@@ -11,12 +11,13 @@ class ErrorMessage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: double.infinity,
       margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-      // decoration: BoxDecoration(border: Border.all()),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           _iconError(),
-          _textError(),
+          Expanded(child: _textError()),
         ],
       ),
     );
@@ -26,6 +27,8 @@ class ErrorMessage extends StatelessWidget {
     return Text(
       error ?? '[NOT_MESSAGE_ERRO]',
       style: TextStyle(color: Colors.red.shade300),
+      maxLines: 2,
+      overflow: TextOverflow.fade,
     );
   }
 
