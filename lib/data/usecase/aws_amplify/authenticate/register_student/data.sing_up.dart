@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:floky/domain/change_notifier/authenticate/register_student/change_notifier.register_student.dart';
 import 'package:floky/domain/usecase/authenticate/domain/register_student/repository.sing_up.dart';
 import 'package:floky/domain/usecase/authenticate/infrastructure/aws/register_student/aws.sing_up.dart';

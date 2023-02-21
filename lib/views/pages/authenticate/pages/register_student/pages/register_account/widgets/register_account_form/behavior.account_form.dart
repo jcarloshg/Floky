@@ -4,30 +4,10 @@ import 'package:floky/views/pages/authenticate/pages/register_student/controller
 import 'package:floky/views/pages/authenticate/utils/abstract.form_controller.dart';
 
 class AccountFormBehavior {
-  //
-
   updateAccountData(FormControllerAbstract formController) {
     final registerStudentController = di<RegisterStudentController>();
     final changeNotifier = registerStudentController.changeNotifier;
     final AccountData accountData = formController.getData() as AccountData;
     changeNotifier.setAccountData(accountData);
-  }
-
-  updateEmail(String email) {
-    final registerStudentController = di<RegisterStudentController>();
-    final changeNotifier = registerStudentController.changeNotifier;
-    changeNotifier.getAccountData().email = email;
-  }
-
-  updatePass(String pass) {
-    final registerStudentController = di<RegisterStudentController>();
-    final changeNotifier = registerStudentController.changeNotifier;
-    changeNotifier.getAccountData().pass = pass;
-  }
-
-  updateConfirmPass(String confirmPass) {
-    final registerStudentController = di<RegisterStudentController>();
-    final changeNotifier = registerStudentController.changeNotifier;
-    changeNotifier.getAccountData().confirmPass = confirmPass;
   }
 }

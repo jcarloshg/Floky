@@ -12,9 +12,9 @@ class RegisterPersonalData extends RegisterStudentRepository {
   final ConfirmUserRepository confirmUserRepository;
 
   @override
-  Future<void> confirmUser() async {
-    await confirmUserRepository.run();
-    return;
+  Future<bool> confirmUser(ConfirmUserParams params) async {
+    final accountWasConfirmed = await confirmUserRepository.run(params);
+    return accountWasConfirmed;
   }
 
   @override

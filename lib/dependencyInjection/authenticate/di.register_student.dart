@@ -22,7 +22,7 @@ _domain({required GetIt di}) async {
 
 _data({required GetIt di}) async {
   di.registerSingleton<ConfirmUserData>(
-    ConfirmUserData(),
+    ConfirmUserData(changeNotifier: di<RegisterStudentChangeNotifier>()),
     signalsReady: true,
   );
 

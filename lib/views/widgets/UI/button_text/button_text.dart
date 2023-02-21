@@ -15,8 +15,8 @@ class ButtonText extends StatelessWidget {
     return TextButton(
       onPressed: function,
       style: TextButton.styleFrom(
-        textStyle: TextStyle(
-          color: Colors.blueGrey.shade600,
+        textStyle: const TextStyle(
+          color: Color(0xFF384850),
           fontSize: 14,
           fontWeight: FontWeight.w700,
         ),
