@@ -11,8 +11,9 @@ class SignUpData extends SignUpRepository {
 
   @override
   Future<bool> run(SignUpParams params) async {
+    changeNotifier.isLoading = true;
     final bool studentDataWasRegistered = await SignUpAWS().run(params);
-    log('[SignUpData] $studentDataWasRegistered');
+    changeNotifier.isLoading = false;
     return studentDataWasRegistered;
   }
 }

@@ -1,5 +1,7 @@
+import 'package:floky/domain/change_notifier/authenticate/register_student/change_notifier.register_student.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'behavior.complete_register_student_button.dart';
 
 class CompleteRegisterStudentButton extends StatelessWidget
@@ -12,9 +14,15 @@ class CompleteRegisterStudentButton extends StatelessWidget
 
   @override
   Widget build(BuildContext context) {
+    final changeNotifier = Provider.of<RegisterStudentChangeNotifier>(
+      context,
+      listen: true,
+    );
+
     return Button(
       label: label,
-      function: () => completeRegisterStudent(),
+      function: () => completeRegisterStudent(context),
+      isLoading: changeNotifier.isLoading,
     );
   }
 }

@@ -1,10 +1,14 @@
 import 'package:floky/dependencyInjection/setup_di.dart';
 import 'package:floky/domain/change_notifier/authenticate/register_student/student_params_to_sign_up.dart';
+import 'package:floky/domain/entities/models/ModelProvider.dart';
 import 'package:floky/domain/usecase/authenticate/domain/register_student/repository.sing_up.dart';
 import 'package:floky/views/pages/authenticate/pages/register_student/controller/controller.register_student.dart';
+import 'package:flutter/material.dart';
 
 class CompleteRegisterStudentButtonBehavior {
-  void completeRegisterStudent() {
+  //
+
+  Future<void> completeRegisterStudent(BuildContext context) async {
     final registerStudentController = di<RegisterStudentController>();
     final changeNotifier = registerStudentController.changeNotifier;
 
@@ -35,8 +39,17 @@ class CompleteRegisterStudentButtonBehavior {
       collegeEnrollment: schoolData.collegeEnrollment,
       email: accountData.email,
       pass: accountData.pass,
-      role: 'Student',
+      role: Role.STUDENT,
     );
-    repository.signUp(signUpParams);
+
+    final studentDataWasRegistered = await repository.signUp(signUpParams);
+    if (studentDataWasRegistered == false) {
+      changeNotifier.setAccountDataMessageError(
+        'Ocurrió un error, inténtalo mas tarde',
+      );
+      return;
+    }
+
+    registerStudentController.navigator.goToConfirmarAccount(context);
   }
 }

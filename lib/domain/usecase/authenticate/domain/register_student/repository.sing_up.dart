@@ -1,10 +1,12 @@
+import 'package:floky/domain/entities/models/ModelProvider.dart';
+
 class SignUpParams {
-  String fullName = '';
-  String email = '';
-  String pass = '';
-  String role = '';
+  Role role = Role.STUDENT;
   String collegeEnrollment = '';
   String collegeName = '';
+  String email = '';
+  String fullName = '';
+  String pass = '';
   SignUpParams({
     required this.fullName,
     required this.email,

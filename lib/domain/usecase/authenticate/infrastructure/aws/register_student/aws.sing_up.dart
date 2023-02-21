@@ -10,18 +10,21 @@ class SignUpAWS extends SignUpRepository {
 
   @override
   Future<bool> run(SignUpParams params) async {
+    //
+
     try {
       final userAttributes = <CognitoUserAttributeKey, String>{
         CognitoUserAttributeKey.email: params.email,
         CognitoUserAttributeKey.name: params.fullName,
-        const CognitoUserAttributeKey.custom('role'): params.role,
       };
 
-      await Amplify.Auth.signUp(
+      final signUpResult = await Amplify.Auth.signUp(
         username: params.email,
         password: params.pass,
         options: CognitoSignUpOptions(userAttributes: userAttributes),
       );
+
+      log(signUpResult.toString());
 
       //============================================================
       // TODO add user to DinamoDB
@@ -29,6 +32,7 @@ class SignUpAWS extends SignUpRepository {
 
       return _studentDataWasRegistered;
     } on AuthException catch (e) {
+      log('error [SignUpAWS]');
       log(e.message);
       return _studentDataWasNotRegistered;
     }

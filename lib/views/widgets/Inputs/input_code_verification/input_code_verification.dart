@@ -15,15 +15,15 @@ class InputCodeVerification extends StatelessWidget {
       decoration: InputDecorations.getBoxDecoration(),
       margin: InputDecorations.getMarginInputs(),
       child: TextFormField(
-        scrollPhysics: const BouncingScrollPhysics(),
-        keyboardType: TextInputType.number,
         autocorrect: false,
         controller: controll,
-        textAlign: TextAlign.center,
-        maxLength: 6,
-        validator: (value) => _validate(value ?? ''),
-        style: _styleTextInput(),
         decoration: _inputDecoration(),
+        keyboardType: TextInputType.number,
+        maxLength: 6,
+        scrollPhysics: const BouncingScrollPhysics(),
+        style: _styleTextInput(),
+        textAlign: TextAlign.center,
+        validator: (value) => _validate(value ?? ''),
       ),
     );
   }
