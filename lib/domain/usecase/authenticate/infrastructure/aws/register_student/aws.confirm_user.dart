@@ -7,7 +7,7 @@ class ConfirmUserAWS extends ConfirmUserRepository {
   @override
   Future<bool> run(ConfirmUserParams params) async {
     try {
-      final result = await Amplify.Auth.confirmSignUp(
+      await Amplify.Auth.confirmSignUp(
         username: params.username,
         confirmationCode: params.confirmationCode,
       );

@@ -6,11 +6,7 @@ import 'package:floky/domain/usecase/authenticate/domain/register_student/reposi
 import 'package:floky/views/pages/authenticate/pages/register_student/controller/controller.register_student.dart';
 
 class ConfirmarAccountButtonBehavior {
-  void confirmAccountStudent(String code) {
-    log('ConfirmarAccountButtonBehavior');
-    log(code);
-    return;
-
+  Future<void> confirmAccountStudent(String code) async {
     final controller = di<RegisterStudentController>();
     final changeNotifier = controller.changeNotifier;
     final AccountData accountData = changeNotifier.getAccountData();
@@ -24,6 +20,16 @@ class ConfirmarAccountButtonBehavior {
       confirmationCode: confirmationCode,
     );
 
-    controller.repository.confirmUser(confirmUserParams);
+    final accountWasConfirmed =
+        await controller.repository.confirmUser(confirmUserParams);
+
+    if (accountWasConfirmed == false) {
+      changeNotifier.setConfirmarAccountMessageError(
+        'Ingresa el código correctamente.',
+      );
+      return;
+    }
+
+    // todo go to welcome screen
   }
 }

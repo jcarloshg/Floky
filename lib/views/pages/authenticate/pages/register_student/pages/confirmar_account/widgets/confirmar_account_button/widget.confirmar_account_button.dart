@@ -8,13 +8,9 @@ class ConfirmarAccountButton extends StatelessWidget
     with ConfirmarAccountButtonBehavior {
   //
 
-  const ConfirmarAccountButton({
-    super.key,
-    required this.codeVerification,
-  });
+  const ConfirmarAccountButton({super.key});
 
   final String label = 'Confirmar cuenta';
-  final String codeVerification;
 
   @override
   Widget build(BuildContext context) {
@@ -23,10 +19,14 @@ class ConfirmarAccountButton extends StatelessWidget
       listen: true,
     );
 
+    final confirmarAccountData = changeNotifier.getConfirmarAccountData();
+    final isLoading = changeNotifier.isLoading;
+    final codeVerification = confirmarAccountData.codeVerification;
+
     return Button(
       label: label,
       function: () => confirmAccountStudent(codeVerification),
-      isLoading: changeNotifier.isLoading,
+      isLoading: isLoading,
     );
   }
 }

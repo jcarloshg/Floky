@@ -58,3 +58,20 @@ class AccountData {
     );
   }
 }
+
+class ConfirmarAccountData {
+  bool isValidData;
+  String codeVerification;
+
+  ConfirmarAccountData({
+    required this.isValidData,
+    required this.codeVerification,
+  });
+
+  static ConfirmarAccountData emptyConfirmarAccountData() {
+    return ConfirmarAccountData(
+      isValidData: false,
+      codeVerification: '',
+    );
+  }
+}

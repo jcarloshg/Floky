@@ -12,8 +12,22 @@ class ConfirmUserData extends ConfirmUserRepository {
   @override
   Future<bool> run(ConfirmUserParams params) async {
     changeNotifier.isLoading = true;
+
     final accountWasConfirmed = await ConfirmUserAWS().run(params);
+
+    accountWasConfirmed ? accountConfirmed() : errorToAccountConfirmed();
+
     changeNotifier.isLoading = false;
     return accountWasConfirmed;
+  }
+
+  errorToAccountConfirmed() {
+    changeNotifier.setConfirmarAccountMessageError(
+      'Ocurrió un error. Inténtalo mas tarde.',
+    );
+  }
+
+  accountConfirmed() {
+    changeNotifier.setConfirmarAccountMessageError('');
   }
 }

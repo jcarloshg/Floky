@@ -13,10 +13,7 @@ class CodeVerificationInput extends StatelessWidget with InputAbstract {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(
-        horizontal: Spacers.size15,
-        vertical: Spacers.size10,
-      ),
+      margin: EdgeInsets.only(top: Spacers.size5),
       child: TextFormField(
         autocorrect: false,
         autovalidateMode: AutovalidateMode.onUserInteraction,

@@ -69,4 +69,22 @@ class RegisterStudentChangeNotifier extends ChangeNotifier {
     _accountDataMessageError = message;
     notifyListeners();
   }
+
+  //============================================================
+  // screen confirmar_account_data
+  //============================================================
+  ConfirmarAccountData _confirmarAccountData =
+      ConfirmarAccountData.emptyConfirmarAccountData();
+  ConfirmarAccountData getConfirmarAccountData() => _confirmarAccountData;
+  void setConfirmarAccountData(ConfirmarAccountData confirmarAccountData) {
+    _confirmarAccountData = confirmarAccountData;
+    notifyListeners();
+  }
+
+  String _confirmarAccountMessageError = '';
+  String getConfirmarAccountMessageError() => _confirmarAccountMessageError;
+  void setConfirmarAccountMessageError(String message) {
+    _confirmarAccountMessageError = message;
+    notifyListeners();
+  }
 }
