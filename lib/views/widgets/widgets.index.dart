@@ -33,6 +33,7 @@ export 'package:floky/views/widgets/UI/card_recomendation/card_recomendation.dar
 export 'package:floky/views/widgets/UI/description/description.dart';
 export 'package:floky/views/widgets/UI/divider_custom/divider_custom.dart';
 export 'package:floky/views/widgets/UI/error_message/error_message.dart';
+export 'package:floky/views/widgets/UI/image_logo/widget.image_logo.dart';
 export 'package:floky/views/widgets/UI/Loadding/loadding.dart';
 export 'package:floky/views/widgets/UI/spacer/ui.spacer.dart';
 export 'package:floky/views/widgets/UI/tag_category/tag_category.dart';

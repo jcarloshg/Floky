@@ -4,7 +4,7 @@ class Titles {
   static Widget title(String? title) {
     return Container(
       width: double.infinity,
-      margin: const EdgeInsets.symmetric(vertical: 15),
+      margin: const EdgeInsets.fromLTRB(0, 15, 0, 5),
       padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
       child: Text(
         title ?? '[NOT_TITLE]',
@@ -20,7 +20,7 @@ class Titles {
   static Widget subtitle(String? subtitle, {bool? isCenter = false}) {
     return Container(
       width: double.infinity,
-      // margin: const EdgeInsets.only(top: 5),
+      margin: const EdgeInsets.only(top: 15),
       padding: const EdgeInsets.symmetric(horizontal: 15),
       child: Text(
         subtitle ?? '[NOT_SUBTITLE]',

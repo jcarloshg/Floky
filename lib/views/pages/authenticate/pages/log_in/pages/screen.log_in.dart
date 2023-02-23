@@ -14,17 +14,19 @@ class LogInScreen extends StatelessWidget {
       body: SafeArea(
         child: SizedBox(
           width: double.infinity,
-          // padding: EdgeInsets.symmetric(horizontal: Spacers.size20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Titles.title('Inicia sesión'),
-              const LogInForm(),
-              const ErrorLoginMessage(),
-              const LogInButton(),
-              const RegisterButton(),
-            ],
+          height: double.infinity,
+          child: Center(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: const [
+                ImageLogo(),
+                // Titles.subtitle('Inicia sesión'),
+                LogInForm(),
+                ErrorLoginMessage(),
+                LogInButton(),
+                RegisterButton(),
+              ],
+            ),
           ),
         ),
       ),

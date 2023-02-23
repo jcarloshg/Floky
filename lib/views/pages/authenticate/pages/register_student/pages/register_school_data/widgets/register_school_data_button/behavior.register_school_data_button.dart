@@ -5,11 +5,11 @@ import 'package:flutter/material.dart';
 
 class RegisterSchoolNextScreenButtonBehavior {
   void registerSchoolData(BuildContext context) {
-    final registerStudentController = di<RegisterStudentController>();
-    final changeNotifier = registerStudentController.changeNotifier;
+    final controller = di<RegisterStudentController>();
+    controller.navigator.setBuildContext(context);
 
+    final changeNotifier = controller.changeNotifier;
     final SchoolData schoolData = changeNotifier.getSchoolData();
-
     if (schoolData.isValidData == false) {
       changeNotifier.setSchoolDataMessageError(
         'Debes ingresar todos tus datos institucionales correctamente',
@@ -18,7 +18,7 @@ class RegisterSchoolNextScreenButtonBehavior {
     }
 
     changeNotifier.setSchoolDataMessageError('');
-    final navigator = registerStudentController.navigator;
-    navigator.goToRegisterAccount(context);
+    final navigator = controller.navigator;
+    navigator.goToRegisterAccount();
   }
 }

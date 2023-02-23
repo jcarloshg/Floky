@@ -6,19 +6,16 @@ import 'package:flutter/material.dart';
 class LogInButton extends StatelessWidget {
   const LogInButton({super.key});
 
-  static const String text = 'Ingresar';
+  static const String text = 'Inicia sesión';
 
   @override
   Widget build(BuildContext context) {
     final logInController = di<LogInController>();
     final changeNotifier = logInController.changeNotifier;
 
-    return Container(
-      // decoration: BoxDecoration(border: Border.all()),
-      child: Button(
-        label: text,
-        function: () => logInController.logIn(),
-      ),
+    return Button(
+      label: text,
+      function: () => logInController.logIn(),
     );
   }
 }

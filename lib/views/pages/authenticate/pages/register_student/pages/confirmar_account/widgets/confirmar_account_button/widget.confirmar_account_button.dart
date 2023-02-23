@@ -25,7 +25,7 @@ class ConfirmarAccountButton extends StatelessWidget
 
     return Button(
       label: label,
-      function: () => confirmAccountStudent(codeVerification),
+      function: () => confirmAccountStudent(codeVerification, context),
       isLoading: isLoading,
     );
   }

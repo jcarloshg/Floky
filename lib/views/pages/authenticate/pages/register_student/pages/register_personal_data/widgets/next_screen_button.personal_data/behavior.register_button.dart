@@ -5,11 +5,11 @@ import 'package:flutter/material.dart';
 
 class NextScreenButtonBehavior {
   registerPersonalData(BuildContext context) {
-    final registerStudentController = di<RegisterStudentController>();
-    final changeNotifier = registerStudentController.changeNotifier;
+    final controller = di<RegisterStudentController>();
+    controller.navigator.setBuildContext(context);
 
+    final changeNotifier = controller.changeNotifier;
     final PersonalData personalData = changeNotifier.getPersonalData();
-
     if (personalData.isValidData == false) {
       changeNotifier.setPersonalDataMessageError(
         'Rellena todos los campos correctamente',
@@ -17,8 +17,8 @@ class NextScreenButtonBehavior {
       return;
     }
 
-    // is valid [PersonalDataForm]
+    // data is correct
     changeNotifier.resetPersonalDataChangeNotifier();
-    registerStudentController.navigator.goToRegisterSchoolDataForm(context);
+    controller.navigator.goToRegisterSchoolDataForm();
   }
 }

@@ -1,21 +1,34 @@
+import 'dart:developer';
+
 import 'package:floky/views/pages/authenticate/pages/register_student/pages/confirmar_account/screen.confirmar_account.dart';
 import 'package:floky/views/pages/authenticate/pages/register_student/pages/register_account/screen.register_account.dart';
+import 'package:floky/views/pages/authenticate/pages/register_student/pages/register_complete/screen.register_complete.dart';
 import 'package:floky/views/pages/authenticate/pages/register_student/pages/register_school_data/screen.register_school_data.dart';
 import 'package:flutter/material.dart';
 
 class RegisterStudentNavigator {
-  void goToRegisterSchoolDataForm(BuildContext context) {
+  //
+
+  BuildContext? buildContext;
+  void setBuildContext(BuildContext? context) {
+    buildContext = context;
+  }
+
+  void goToRegisterSchoolDataForm() {
+    log('HOLA');
+    if (buildContext == null) return;
     Navigator.push(
-      context,
+      buildContext!,
       MaterialPageRoute(
         builder: (context) => const RegisterSchoolData(),
       ),
     );
   }
 
-  void goToRegisterAccount(BuildContext context) {
+  void goToRegisterAccount() {
+    if (buildContext == null) return;
     Navigator.push(
-      context,
+      buildContext!,
       MaterialPageRoute(
         builder: (context) => const RegisterAccount(),
       ),
@@ -23,10 +36,21 @@ class RegisterStudentNavigator {
   }
 
   void goToConfirmarAccount(BuildContext context) {
+    if (buildContext == null) return;
     Navigator.push(
-      context,
+      buildContext!,
       MaterialPageRoute(
-        builder: (context) => ConfirmarAccount(),
+        builder: (context) => const ConfirmarAccount(),
+      ),
+    );
+  }
+
+  void goToRegisterComplete() {
+    if (buildContext == null) return;
+    Navigator.push(
+      buildContext!,
+      MaterialPageRoute(
+        builder: (context) => const RegisterComplete(),
       ),
     );
   }
