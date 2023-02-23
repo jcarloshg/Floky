@@ -18,13 +18,17 @@ class LogInScreen extends StatelessWidget {
           child: Center(
             child: Column(
               mainAxisSize: MainAxisSize.min,
-              children: const [
-                ImageLogo(),
+              children: [
+                const ImageLogo(),
                 // Titles.subtitle('Inicia sesión'),
                 // LogInForm(), // todo set LogInForm
-                ErrorLoginMessage(),
-                LogInButton(),
-                RegisterButton(),
+                const ErrorLoginMessage(),
+                const LogInButton(),
+                const RegisterButton(),
+                ButtonText(
+                  label: 'recordar contrasenia',
+                  function: () => {},
+                )
               ],
             ),
           ),
