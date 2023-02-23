@@ -21,7 +21,7 @@ class LogInScreen extends StatelessWidget {
               children: const [
                 ImageLogo(),
                 // Titles.subtitle('Inicia sesión'),
-                LogInForm(),
+                // LogInForm(), // todo set LogInForm
                 ErrorLoginMessage(),
                 LogInButton(),
                 RegisterButton(),

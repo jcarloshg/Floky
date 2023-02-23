@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:floky/views/pages/authenticate/pages/log_in/pages/screen.log_in.dart';
 import 'package:floky/views/pages/authenticate/pages/register_student/pages/confirmar_account/screen.confirmar_account.dart';
 import 'package:floky/views/pages/authenticate/pages/register_student/pages/register_account/screen.register_account.dart';
 import 'package:floky/views/pages/authenticate/pages/register_student/pages/register_complete/screen.register_complete.dart';
@@ -52,6 +53,15 @@ class RegisterStudentNavigator {
       MaterialPageRoute(
         builder: (context) => const RegisterComplete(),
       ),
+    );
+  }
+
+  void goToLogInScreen() {
+    if (buildContext == null) return;
+    Navigator.pushAndRemoveUntil(
+      buildContext!,
+      MaterialPageRoute(builder: (context) => const LogInScreen()),
+      (Route<dynamic> route) => false,
     );
   }
 }
