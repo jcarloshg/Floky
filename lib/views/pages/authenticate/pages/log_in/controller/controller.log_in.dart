@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:floky/dependencyInjection/global_state/global_state.dart';
 import 'package:floky/domain/change_notifier/authenticate/log_in/change_notifier.log_in.dart';
 import 'package:floky/domain/entities/models/ModelProvider.dart';
@@ -38,7 +40,8 @@ class LogInController {
       pass: pass,
     );
 
-    final existAccountLogged = accountStudent == null ? true : false;
+    final existAccountLogged = accountStudent != null ? true : false;
+    log(existAccountLogged.toString());
     if (existAccountLogged == false) {
       state.setMessageErro(
         'El correo electrónico o la contraseña son incorrectos',
@@ -47,7 +50,7 @@ class LogInController {
     }
 
     // [existAccountLogged] is true
-    // todo update global state with [accountStudent]
+    globalState.setCurrentStudent(accountStudent!);
     navigator.goToHome();
   }
 }

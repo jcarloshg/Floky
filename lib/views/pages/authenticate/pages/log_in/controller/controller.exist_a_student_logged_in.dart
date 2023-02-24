@@ -18,10 +18,16 @@ class ExistAStudentLoggedInController {
     required this.globalState,
   });
 
-  existAStudentLoggedIn() async {
+  Future<bool> existAStudentLoggedIn() async {
     final Account? studentLoggedIn = await domain.existAStudentLoggedIn();
+
     final existStudentLogged = (studentLoggedIn != null) ? true : false;
-    existStudentLogged ? navigator.goToHome() : navigator.goToLogInScreen();
-    return existStudentLogged;
+    if (existStudentLogged == false) navigator.goToLogInScreen();
+
+    final theRoleIsStudent = studentLoggedIn?.role == Role.STUDENT;
+    if (theRoleIsStudent == true) navigator.goToHome();
+    if (theRoleIsStudent == true) navigator.goToHome();
+
+    return existStudentLogged && theRoleIsStudent;
   }
 }
