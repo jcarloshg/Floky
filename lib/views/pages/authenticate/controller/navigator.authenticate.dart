@@ -20,6 +20,7 @@ class AuthenticateNavigator {
     );
   }
 
+  // to reset pass
   void goToSetUserNameScreen() {
     if (buildContext == null) return;
     Navigator.push(

@@ -3,7 +3,6 @@ import 'package:floky/data/usecase/aws_amplify/response_activities/data.get_acti
 import 'package:floky/data/usecase/aws_amplify/response_activities/data.get_activity_by_ID.dart';
 import 'package:floky/data/usecase/aws_amplify/response_activities/data.get_recent_activities.dart';
 import 'package:floky/data/usecase/aws_amplify/response_activities/data.response_activity.dart';
-import 'package:floky/domain/bloc/response_activities/bloc.response_activities.dart';
 import 'package:floky/domain/change_notifier/response_activities/change_notifier.response_activities.dart';
 import 'package:floky/views/pages/response_activities/controllers/controller.response_activities.dart';
 import 'package:floky/views/pages/response_activities/controllers/navigator.response_activities.dart';
@@ -14,8 +13,6 @@ Future<void> responseActivities({required GetIt di}) async {
   //
   // domain
   Future<void> _domain() async {
-    di.registerFactory(() => ResponseActivitiesBloc());
-
     di.registerSingleton<ResponseActivitiesChangeNotifier>(
       ResponseActivitiesChangeNotifier(),
       signalsReady: true,
