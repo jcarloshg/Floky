@@ -59,7 +59,7 @@ class RegisterStudentNavigator {
     if (buildContext == null) return;
     Navigator.pushAndRemoveUntil(
       buildContext!,
-      MaterialPageRoute(builder: (context) => const LogInScreen()),
+      MaterialPageRoute(builder: (_) => const LogInScreen()),
       (Route<dynamic> route) => false,
     );
   }

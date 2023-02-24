@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:flutter/material.dart';
 
@@ -27,6 +29,7 @@ class LogOutButtonText extends StatelessWidget {
       );
 
   Future<void> singOut() async {
+    log('HOLA');
     try {
       final signOutResult = await Amplify.Auth.signOut();
       print(signOutResult);

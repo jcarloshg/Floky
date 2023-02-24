@@ -1,3 +1,4 @@
+import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
 
 class ErrorMessage extends StatelessWidget {
@@ -14,9 +15,10 @@ class ErrorMessage extends StatelessWidget {
       width: double.infinity,
       margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           _iconError(),
+          Spacers.spacer5,
           Expanded(child: _textError()),
         ],
       ),
@@ -33,9 +35,6 @@ class ErrorMessage extends StatelessWidget {
   }
 
   Widget _iconError() {
-    return Container(
-      margin: const EdgeInsets.only(right: 5),
-      child: Icon(Icons.error, color: Colors.red.shade300),
-    );
+    return Icon(Icons.error, color: Colors.red.shade300);
   }
 }

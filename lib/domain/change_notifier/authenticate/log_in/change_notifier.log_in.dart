@@ -2,11 +2,18 @@ import 'package:floky/domain/change_notifier/authenticate/log_in/params.log_in.d
 import 'package:flutter/material.dart';
 
 class LoginChangeNotifier extends ChangeNotifier {
+  //
+
   LogInData _logInData = LogInData.getEmptyLogInData();
-  LogInData getLogInData() => _logInData;
-  void setLogInData(LogInData value) {
-    _logInData = value;
-    notifyListeners();
+  void setLogInData(LogInData value) => _logInData = value;
+
+  LogInFormController _logInFormController = LogInFormController();
+  LogInFormController getCurrentLogInFormController() => _logInFormController;
+  LogInFormController getNewLogInFormController() {
+    final LogInFormController logInFormController = LogInFormController();
+    logInFormController.setData(_logInData);
+    _logInFormController = logInFormController;
+    return _logInFormController;
   }
 
   String _messageError = '';

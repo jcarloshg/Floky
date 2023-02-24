@@ -20,7 +20,7 @@ class ExistAStudentLoggedInController {
 
   existAStudentLoggedIn() async {
     final Account? studentLoggedIn = await domain.existAStudentLoggedIn();
-    final existStudentLogged = studentLoggedIn == null ? true : false;
+    final existStudentLogged = (studentLoggedIn != null) ? true : false;
     existStudentLogged ? navigator.goToHome() : navigator.goToLogInScreen();
     return existStudentLogged;
   }

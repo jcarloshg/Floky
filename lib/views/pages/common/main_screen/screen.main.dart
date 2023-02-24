@@ -15,28 +15,26 @@ class _MainScreenState extends State<MainScreen> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback(
-      (timeStamp) => checkExistStudentLoggedIn(),
+      (_) => checkExistStudentLoggedIn(),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    final existAStudentLoggedInController =
-        di<ExistAStudentLoggedInController>();
-    existAStudentLoggedInController.navigator.setBuildContext(context);
+    final controller = di<ExistAStudentLoggedInController>();
+    controller.navigator.setBuildContext(context);
 
-    return const SizedBox(
-      height: double.infinity,
-      width: double.infinity,
-      child: Center(
-        child: ImageLogo(),
+    return const Scaffold(
+      body: SafeArea(
+        child: Center(
+          child: ImageLogo(),
+        ),
       ),
     );
   }
 
   Future<void> checkExistStudentLoggedIn() async {
-    final existAStudentLoggedInController =
-        di<ExistAStudentLoggedInController>();
-    await existAStudentLoggedInController.existAStudentLoggedIn();
+    final controller = di<ExistAStudentLoggedInController>();
+    await controller.existAStudentLoggedIn();
   }
 }

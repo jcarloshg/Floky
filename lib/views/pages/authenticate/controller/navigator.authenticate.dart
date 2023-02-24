@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:floky/views/pages/authenticate/pages/log_in/pages/screen.log_in.dart';
 import 'package:floky/views/pages/authenticate/pages/register_student/pages/register_complete/screen.register_complete.dart';
 import 'package:floky/views/pages/authenticate/pages/reset_pass/pages/set_user_name/screen.set_user_name.dart';
@@ -34,21 +32,19 @@ class AuthenticateNavigator {
 
   void goToLogInScreen() {
     if (buildContext == null) return;
-    Navigator.push(
+    Navigator.pushAndRemoveUntil(
       buildContext!,
-      MaterialPageRoute(
-        builder: (context) => const LogInScreen(),
-      ),
+      MaterialPageRoute(builder: (_) => const LogInScreen()),
+      (Route<dynamic> route) => false,
     );
   }
 
   void goToHome() {
     if (buildContext == null) return;
-    Navigator.push(
+    Navigator.pushAndRemoveUntil(
       buildContext!,
-      MaterialPageRoute(
-        builder: (context) => const HomeScreen(),
-      ),
+      MaterialPageRoute(builder: (_) => const HomeScreen()),
+      (Route<dynamic> route) => false,
     );
   }
 }

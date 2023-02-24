@@ -20,13 +20,12 @@ class LogInScreen extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 const ImageLogo(),
-                // Titles.subtitle('Inicia sesión'),
-                // LogInForm(), // todo set LogInForm
+                const LogInForm(),
                 const ErrorLoginMessage(),
                 const LogInButton(),
                 const RegisterButton(),
                 ButtonText(
-                  label: 'recordar contrasenia',
+                  label: 'Recordar contraseña',
                   function: () => {},
                 )
               ],
