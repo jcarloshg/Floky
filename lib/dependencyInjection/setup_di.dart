@@ -14,3 +14,4 @@ Future<void> setupDI() async {
   await authenticate(di: di);
   await responseActivities(di: di);
 }
+

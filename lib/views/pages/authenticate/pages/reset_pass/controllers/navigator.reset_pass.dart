@@ -1,0 +1,4 @@
+class ResetPassNavigator {
+  // goToConfirmResetPassword
+  // goToLogIn
+}
