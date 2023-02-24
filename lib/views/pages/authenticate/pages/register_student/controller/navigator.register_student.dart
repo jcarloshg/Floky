@@ -16,7 +16,6 @@ class RegisterStudentNavigator {
   }
 
   void goToRegisterSchoolDataForm() {
-    log('HOLA');
     if (buildContext == null) return;
     Navigator.push(
       buildContext!,

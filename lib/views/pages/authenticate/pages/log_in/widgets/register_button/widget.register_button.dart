@@ -1,5 +1,5 @@
 import 'package:floky/dependencyInjection/setup_di.dart';
-import 'package:floky/views/pages/authenticate/controller/controller.log_in.dart';
+import 'package:floky/views/pages/authenticate/pages/log_in/controller/controller.log_in.dart';
 import 'package:floky/views/utils/utils.index.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
@@ -40,6 +40,7 @@ class RegisterButton extends StatelessWidget {
 
   void goToRegisterNewAccount(BuildContext context) {
     final controller = di<LogInController>();
-    controller.navigator.goToRegisterNewAccount(context);
+    controller.navigator.setBuildContext(context);
+    controller.navigator.goToRegisterNewAccount();
   }
 }

@@ -1,43 +1,25 @@
-import 'package:floky/domain/entities/models/ModelProvider.dart';
+import 'package:floky/domain/change_notifier/authenticate/log_in/params.log_in.dart';
 import 'package:flutter/material.dart';
 
-class LoginFormController {
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  final TextEditingController _email = TextEditingController();
-  final TextEditingController _pass = TextEditingController();
-
-  GlobalKey<FormState> get formKey => _formKey;
-  TextEditingController get emailController => _email;
-  TextEditingController get passController => _pass;
-
-  String get emailString => emailController.text.trim();
-  String get passString => passController.text.trim();
-
-  LoginFormController();
-}
-
 class LoginChangeNotifier extends ChangeNotifier {
-  LoginFormController loginFormController = LoginFormController();
+  LogInData _logInData = LogInData.getEmptyLogInData();
+  LogInData getLogInData() => _logInData;
+  void setLogInData(LogInData value) {
+    _logInData = value;
+    notifyListeners();
+  }
 
-  //============================================================
-  // status
-  //============================================================
-  String _messageErroLogIn = '';
-  String get messageErroLogIn => _messageErroLogIn;
-  set messageErroLogIn(String messageErroLogIn) {
-    _messageErroLogIn = messageErroLogIn;
+  String _messageError = '';
+  String getMessageErro() => _messageError;
+  void setMessageErro(String messageErroLogIn) {
+    _messageError = messageErroLogIn;
     notifyListeners();
   }
 
   bool _isLoading = false;
-  bool get isLoading => _isLoading;
-  set isLoading(bool isLoading) {
+  bool getIsLoading() => _isLoading;
+  void setIsLoading(bool isLoading) {
     _isLoading = isLoading;
     notifyListeners();
   }
-
-  //============================================================
-  // login
-  //============================================================
-  Account? currentStudent;
 }

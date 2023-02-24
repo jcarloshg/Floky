@@ -13,11 +13,10 @@ class ErrorLoginMessage extends StatelessWidget {
       listen: true,
     );
 
-    final String messageErrorLogIn =
-        authenticateChangeNotifier.messageErroLogIn;
+    final String messageErro = authenticateChangeNotifier.getMessageErro();
 
-    return messageErrorLogIn.isEmpty
+    return messageErro.isEmpty
         ? const SizedBox()
-        : ErrorMessage(error: messageErrorLogIn);
+        : ErrorMessage(error: messageErro);
   }
 }

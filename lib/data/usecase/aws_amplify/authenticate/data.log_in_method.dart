@@ -1,3 +1,4 @@
+import 'package:floky/dependencyInjection/global_state/global_state.dart';
 import 'package:floky/domain/change_notifier/authenticate/log_in/change_notifier.log_in.dart';
 import 'package:floky/domain/entities/models/Account.dart';
 import 'package:floky/domain/usecase/authenticate/domain/log_in/repository.log_in_method.dart';
@@ -5,31 +6,32 @@ import 'package:floky/domain/usecase/authenticate/infrastructure/aws/log_in/aws.
 
 class LogInMethodData extends LogInMethodRepository {
   LogInMethodData({
-    required this.authenticateChangeNotifier,
+    required this.state,
+    required this.globalState,
   });
 
-  final LoginChangeNotifier authenticateChangeNotifier;
+  final GlobalState globalState;
+  final LoginChangeNotifier state;
 
   @override
   Future<Account?> run({required String email, required String pass}) async {
-    authenticateChangeNotifier.isLoading = true;
-
+    globalState.setIsLoading(true);
     final Account? student = await LogInMethodAWS().run(
       email: email,
       pass: pass,
     );
-
     student == null ? studentIsNotLogged() : studentIsLogged();
-
-    authenticateChangeNotifier.isLoading = false;
-
+    globalState.setIsLoading(true);
     return student;
   }
 
-  void studentIsLogged() {}
+  void studentIsLogged() {
+    state.setMessageErro('');
+  }
 
   void studentIsNotLogged() {
-    authenticateChangeNotifier.messageErroLogIn =
-        'El correo o contraseña son incorrectos';
+    state.setMessageErro(
+      'El correo o contraseña son incorrectos',
+    );
   }
 }
