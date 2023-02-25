@@ -35,7 +35,10 @@ class Button extends StatelessWidget {
     return Center(
       child: Text(
         label ?? '[NOT_TEXT]',
-        style: const TextStyle(color: Colors.white),
+        style: const TextStyle(
+          color: Colors.white,
+          fontSize: 14,
+        ),
       ),
     );
   }

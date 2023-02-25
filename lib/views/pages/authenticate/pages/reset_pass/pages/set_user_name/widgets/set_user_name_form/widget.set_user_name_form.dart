@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:floky/dependencyInjection/setup_di.dart';
 import 'package:floky/views/pages/authenticate/pages/reset_pass/controllers/reset_pass/change_notifier.reset_pass.dart';
 import 'package:floky/views/pages/authenticate/widgets/input_email/input.email.dart';

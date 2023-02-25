@@ -10,6 +10,7 @@ class ResetPasswordAWS extends ResetPasswordRepository {
       await Amplify.Auth.resetPassword(username: params.username);
       return true;
     } on AmplifyException catch (e) {
+      log('error [ResetPasswordAWS]');
       log(e.message);
       return false;
     }
