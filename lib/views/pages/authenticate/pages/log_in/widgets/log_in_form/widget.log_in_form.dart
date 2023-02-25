@@ -12,7 +12,7 @@ class LogInForm extends StatelessWidget {
   Widget build(BuildContext context) {
     final logInController = di<LogInController>();
     final state = logInController.state;
-    final formControl = state.logInData.getNewFormControl();
+    final formControl = state.getLogInData().getNewFormControl();
 
     return Form(
       key: formControl.formKey,

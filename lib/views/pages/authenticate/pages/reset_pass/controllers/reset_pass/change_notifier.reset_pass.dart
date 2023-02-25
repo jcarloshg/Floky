@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 class ResetPassChangeNotifier extends ChangeNotifier {
   //
 
-  ResetPassData _resetPassData = ResetPassData.getEmptyResetPassData();
+  final ResetPassData _resetPassData = ResetPassData.getEmptyResetPassData();
   ResetPassData getResetPassData() => _resetPassData;
-  void setResetPassData(ResetPassData resetPassData) =>
-      _resetPassData = resetPassData;
+  // void setResetPassData(ResetPassData resetPassData) =>
+  //     _resetPassData = resetPassData;
 
   String _messageError = '';
   String getMessageErro() => _messageError;

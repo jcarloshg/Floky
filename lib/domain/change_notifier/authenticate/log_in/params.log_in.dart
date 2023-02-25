@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 
 class LogInData {
@@ -17,7 +15,6 @@ class LogInData {
     required this.pass,
     LogInFormController? logInFormController,
   }) {
-    log('LogInData');
     logInFormController != null
         ? this.logInFormController = logInFormController
         : null;
@@ -29,29 +26,10 @@ class LogInData {
         pass: "",
       );
 
-  updateLogInData(LogInFormController logInFormController) {
+  void updateWithFormController() {
     isValidData = logInFormController.formKey.currentState?.validate() ?? false;
     email = logInFormController.emailController.text.trim();
     pass = logInFormController.passController.text.trim();
-  }
-
-  LogInData getCurrentState() {
-    try {
-      final currentFormController = logInFormController;
-      return LogInData(
-        isValidData:
-            currentFormController.formKey.currentState?.validate() ?? false,
-        email: currentFormController.emailController.text.trim(),
-        pass: currentFormController.passController.text.trim(),
-        logInFormController: currentFormController,
-      );
-    } catch (e) {
-      return LogInData(
-        isValidData: false,
-        email: email,
-        pass: pass,
-      );
-    }
   }
 
   LogInFormController getNewFormControl() {

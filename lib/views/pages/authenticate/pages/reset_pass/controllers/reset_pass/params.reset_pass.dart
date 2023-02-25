@@ -1,8 +1,5 @@
-import 'dart:developer';
-
 import 'package:floky/dependencyInjection/setup_di.dart';
 import 'package:floky/domain/change_notifier/authenticate/log_in/change_notifier.log_in.dart';
-import 'package:floky/views/pages/authenticate/pages/log_in/controller/controller.log_in.dart';
 import 'package:flutter/material.dart';
 
 class ResetPassData {
@@ -27,11 +24,17 @@ class ResetPassData {
         userName: "",
       );
 
+  void updateWithFormController() {
+    isValidData =
+        resetPassFormController.formKey.currentState?.validate() ?? false;
+    userName = resetPassFormController.userNameController.text.trim();
+  }
+
   ResetPassFormController getNewFormControl() {
     //
     // get email from login screen
     final loginChangeNotifier = di<LoginChangeNotifier>();
-    final logInData = loginChangeNotifier.logInData;
+    final logInData = loginChangeNotifier.getLogInData();
     final emailFromLogInState = logInData.email;
 
     final resetPassFormController = ResetPassFormController(

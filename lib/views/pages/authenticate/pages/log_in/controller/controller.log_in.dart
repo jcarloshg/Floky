@@ -23,8 +23,8 @@ class LogInController {
   Future<void> logIn() async {
     //
 
-    final logInData = state.logInData.getCurrentState();
-    state.logInData.updateLogInData(logInData.logInFormController);
+    state.getLogInData().updateWithFormController();
+    final logInData = state.getLogInData();
 
     final isValidForm = logInData.isValidData;
     if (isValidForm == false) {
