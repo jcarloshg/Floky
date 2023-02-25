@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:floky/dependencyInjection/setup_di.dart';
 import 'package:floky/views/pages/authenticate/pages/reset_pass/controllers/reset_pass/change_notifier.reset_pass.dart';
 import 'package:floky/views/pages/authenticate/widgets/input_email/input.email.dart';
@@ -10,11 +12,11 @@ class SetUserNameForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final control = di<ResetPassChangeNotifier>();
-    final data = control.getResetPassData();
-    final form = data.getNewFormControl();
+    final resetPassData = control.getResetPassData();
+    final formControl = resetPassData.getNewFormControl();
 
     return Form(
-      key: form.formKey,
+      key: formControl.formKey,
       child: Container(
         margin: EdgeInsets.symmetric(
           horizontal: Spacers.size15,
@@ -22,7 +24,7 @@ class SetUserNameForm extends StatelessWidget {
         ),
         child: Column(
           children: [
-            EmailInput(control: form.userNameController),
+            EmailInput(control: formControl.userNameController),
           ],
         ),
       ),

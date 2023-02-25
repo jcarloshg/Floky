@@ -4,17 +4,7 @@ import 'package:flutter/material.dart';
 class LoginChangeNotifier extends ChangeNotifier {
   //
 
-  LogInData _logInData = LogInData.getEmptyLogInData();
-  void setLogInData(LogInData value) => _logInData = value;
-
-  LogInFormController _logInFormController = LogInFormController();
-  LogInFormController getCurrentLogInFormController() => _logInFormController;
-  LogInFormController getNewLogInFormController() {
-    final LogInFormController logInFormController = LogInFormController();
-    logInFormController.setData(_logInData);
-    _logInFormController = logInFormController;
-    return _logInFormController;
-  }
+  LogInData logInData = LogInData.getEmptyLogInData();
 
   String _messageError = '';
   String getMessageErro() => _messageError;

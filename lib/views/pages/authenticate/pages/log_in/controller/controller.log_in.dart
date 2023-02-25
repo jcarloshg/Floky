@@ -23,15 +23,14 @@ class LogInController {
   Future<void> logIn() async {
     //
 
-    final logInData = state.getCurrentLogInFormController().getData();
+    final logInData = state.logInData.getCurrentState();
+    state.logInData.updateLogInData(logInData.logInFormController);
 
     final isValidForm = logInData.isValidData;
     if (isValidForm == false) {
       state.setMessageErro('Ingresa los datos correctamente');
       return;
     }
-
-    state.setLogInData(logInData);
 
     final String email = logInData.email;
     final String pass = logInData.pass;
