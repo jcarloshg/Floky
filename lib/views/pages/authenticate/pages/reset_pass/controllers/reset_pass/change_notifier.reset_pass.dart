@@ -6,8 +6,6 @@ class ResetPassChangeNotifier extends ChangeNotifier {
 
   final ResetPassData _resetPassData = ResetPassData.getEmptyResetPassData();
   ResetPassData getResetPassData() => _resetPassData;
-  // void setResetPassData(ResetPassData resetPassData) =>
-  //     _resetPassData = resetPassData;
 
   String _messageError = '';
   String getMessageErro() => _messageError;

@@ -1,4 +1,3 @@
-
 import 'package:floky/domain/change_notifier/authenticate/register_student/change_notifier.register_student.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';

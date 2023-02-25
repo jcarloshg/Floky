@@ -3,20 +3,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class ImageLogo extends StatelessWidget {
-  const ImageLogo({super.key});
+  //
+
+  const ImageLogo({
+    super.key,
+    this.svgPictureWidth = 200,
+  });
 
   final String assetName = 'assets/logo.svg';
+  final double svgPictureWidth;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      // decoration: BoxDecoration(border: Border.all()),
-      margin: EdgeInsets.symmetric(
-        horizontal: Spacers.size15,
-        // vertical: Spacers.size15,
-      ),
-      child: SvgPicture.asset(assetName, width: 200),
+      margin: EdgeInsets.symmetric(horizontal: Spacers.size15),
+      child: SvgPicture.asset(assetName, width: svgPictureWidth),
     );
   }
 }
