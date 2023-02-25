@@ -1,5 +1,5 @@
 import 'package:floky/dependencyInjection/setup_di.dart';
-import 'package:floky/domain/change_notifier/authenticate/reset_pass/change_notifier.confirm_reset_password.dart';
+import 'package:floky/views/pages/authenticate/pages/reset_pass/controllers/confirm_reset_password/change_notifier.confirm_reset_password.dart';
 import 'package:floky/domain/usecase/authenticate/domain/reset_pass/repository.confirm_reset_password.dart';
 import 'package:floky/domain/usecase/authenticate/infrastructure/aws/reset_pass/aws.confirm_reset_password.dart';
 
