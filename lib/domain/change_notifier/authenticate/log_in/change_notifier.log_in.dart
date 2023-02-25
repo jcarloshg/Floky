@@ -1,6 +1,7 @@
 import 'package:floky/domain/change_notifier/authenticate/log_in/params.log_in.dart';
 import 'package:flutter/material.dart';
 
+// todo send to folder [controller] from [log_in] on [view]
 class LoginChangeNotifier extends ChangeNotifier {
   //
 
