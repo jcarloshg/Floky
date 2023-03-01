@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 
 class ConfirmResetPasswordChangeNotifier extends ChangeNotifier {
+  //
+
   final ConfirmResetPasswordValues _confirmResetPasswordData =
       ConfirmResetPasswordValues.getEmptyConfirmResetPasswordData();
+  ConfirmResetPasswordValues getConfirmResetPasswordValues() =>
+      _confirmResetPasswordData;
 
   String _messageError = '';
   String getMessageErro() => _messageError;
@@ -24,7 +28,7 @@ class ConfirmResetPasswordValues {
   String codeVerification;
   String pass;
   String confirmPass;
-  ConfirmResetPasswordFormController confirmResetPasswordFormController =
+  ConfirmResetPasswordFormController formController =
       ConfirmResetPasswordFormController(
     codeVerification: '',
     confirmPass: '',
@@ -39,8 +43,7 @@ class ConfirmResetPasswordValues {
     ConfirmResetPasswordFormController? confirmResetPasswordFormController,
   }) {
     if (confirmResetPasswordFormController != null) {
-      this.confirmResetPasswordFormController =
-          confirmResetPasswordFormController;
+      formController = confirmResetPasswordFormController;
     }
   }
 
@@ -54,27 +57,21 @@ class ConfirmResetPasswordValues {
   }
 
   void updateWithFormController() {
-    isValidData =
-        confirmResetPasswordFormController.formKey.currentState?.validate() ??
-            false;
-
-    codeVerification = confirmResetPasswordFormController
-        .codeVerificationController.text
-        .trim();
-
-    pass = confirmResetPasswordFormController.passController.text.trim();
-
-    confirmPass =
-        confirmResetPasswordFormController.confirmPassController.text.trim();
+    isValidData = formController.formKey.currentState?.validate() ?? false;
+    codeVerification = formController.codeVerificationController.text.trim();
+    pass = formController.passController.text.trim();
+    confirmPass = formController.confirmPassController.text.trim();
   }
 
   ConfirmResetPasswordFormController getNewFormControl() {
-    final resetPassFormController = ConfirmResetPasswordFormController(
+    ConfirmResetPasswordFormController newFormController =
+        ConfirmResetPasswordFormController(
       codeVerification: codeVerification,
       confirmPass: confirmPass,
       pass: pass,
     );
-    return resetPassFormController;
+    formController = newFormController;
+    return newFormController;
   }
 }
 
