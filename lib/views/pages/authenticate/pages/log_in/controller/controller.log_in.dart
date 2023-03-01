@@ -40,7 +40,6 @@ class LogInController {
     );
 
     final existAccountLogged = accountStudent != null ? true : false;
-    log(existAccountLogged.toString());
     if (existAccountLogged == false) {
       state.setMessageErro(
         'El correo electrónico o la contraseña son incorrectos',

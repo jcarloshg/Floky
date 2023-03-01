@@ -29,12 +29,11 @@ class LogOutButtonText extends StatelessWidget {
       );
 
   Future<void> singOut() async {
-    log('HOLA');
     try {
-      final signOutResult = await Amplify.Auth.signOut();
-      print(signOutResult);
+      await Amplify.Auth.signOut();
     } on AuthException catch (e) {
-      print(e);
+      log('error [singOut]');
+      log(e.message);
     }
   }
 }

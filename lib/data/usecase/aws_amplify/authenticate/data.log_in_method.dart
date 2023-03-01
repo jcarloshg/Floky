@@ -12,8 +12,10 @@ class LogInMethodData extends LogInMethodRepository {
   @override
   Future<Account?> run({required String email, required String pass}) async {
     state.setIsLoading(true);
-    final Account? student =
-        await LogInMethodAWS().run(email: email, pass: pass);
+    final Account? student = await LogInMethodAWS().run(
+      email: email,
+      pass: pass,
+    );
     state.setIsLoading(false);
     return student;
   }

@@ -16,8 +16,9 @@ class ConfirmarAccount extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: SingleChildScrollView(
-          physics: const BouncingScrollPhysics(),
+        child: SizedBox(
+          height: double.infinity,
+          width: double.infinity,
           child: Column(
             children: [
               Titles.title(title),
@@ -27,6 +28,9 @@ class ConfirmarAccount extends StatelessWidget {
               const ConfirmarAccountErrorMessage(),
               const ConfirmarAccountButton(),
               const ConfirmarAccountResendCode(),
+              Flexible(flex: 1, child: Container()),
+              const ImageLogo(svgPictureWidth: 150),
+              Spacers.spacer30,
             ],
           ),
         ),

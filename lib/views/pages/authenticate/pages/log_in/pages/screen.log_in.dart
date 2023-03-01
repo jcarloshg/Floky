@@ -3,6 +3,7 @@ import 'package:floky/views/pages/authenticate/pages/log_in/widgets/go_to_reset_
 import 'package:floky/views/pages/authenticate/pages/log_in/widgets/log_in_button/widget.log_in_button.dart';
 import 'package:floky/views/pages/authenticate/pages/log_in/widgets/register_button/widget.register_button.dart';
 import 'package:floky/views/pages/authenticate/pages/log_in/widgets/log_in_form/widget.log_in_form.dart';
+import 'package:floky/views/pages/profile/pages/profile/widgets/log_out_button_text/widget.log_out_button_text.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
 
@@ -26,6 +27,7 @@ class LogInScreen extends StatelessWidget {
                 LogInButton(),
                 RegisterButton(),
                 GoToResetPassButton(),
+                LogOutButtonText(),
               ],
             ),
           ),
