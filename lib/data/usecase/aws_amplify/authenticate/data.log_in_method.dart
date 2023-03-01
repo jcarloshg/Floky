@@ -14,7 +14,7 @@ class LogInMethodData extends LogInMethodRepository {
     state.setIsLoading(true);
     final Account? student =
         await LogInMethodAWS().run(email: email, pass: pass);
-    state.setIsLoading(true);
+    state.setIsLoading(false);
     return student;
   }
 }

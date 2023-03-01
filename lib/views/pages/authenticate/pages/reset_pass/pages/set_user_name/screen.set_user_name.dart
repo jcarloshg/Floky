@@ -30,7 +30,6 @@ class SetUserNameScreen extends StatelessWidget {
               Flexible(flex: 1, child: Container()),
               const ImageLogo(svgPictureWidth: 150),
               Spacers.spacer30,
-              Spacers.spacer30,
             ],
           ),
         ),

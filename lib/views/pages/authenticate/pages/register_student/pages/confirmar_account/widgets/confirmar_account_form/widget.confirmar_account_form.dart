@@ -1,6 +1,6 @@
-import 'package:floky/views/pages/authenticate/pages/register_student/pages/confirmar_account/widgets/code_verification_input/input.code_verification.dart';
 import 'package:floky/views/pages/authenticate/pages/register_student/pages/confirmar_account/widgets/confirmar_account_form/behavior.confirmar_account_form.dart';
 import 'package:floky/views/pages/authenticate/pages/register_student/pages/confirmar_account/widgets/confirmar_account_form/form_contoller.dart';
+import 'package:floky/views/pages/authenticate/widgets/code_verification_input/input.code_verification.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
 
 import 'package:flutter/material.dart';

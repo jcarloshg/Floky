@@ -4,6 +4,8 @@ import 'package:floky/domain/usecase/authenticate/domain/reset_pass/repository.c
 import 'package:floky/domain/usecase/authenticate/infrastructure/aws/reset_pass/aws.confirm_reset_password.dart';
 
 class ConfirmResetPasswordData extends ConfirmResetPasswordRepository {
+  //
+
   ConfirmResetPasswordChangeNotifier get state =>
       di<ConfirmResetPasswordChangeNotifier>();
 
