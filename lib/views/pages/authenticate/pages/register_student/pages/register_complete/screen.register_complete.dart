@@ -19,19 +19,17 @@ class RegisterComplete extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Titles.title('Registro completo 🏁'),
-              Spacers.spacer20,
+              Flexible(flex: 1, child: Container()),
               const ImageLogo(),
-              Spacers.spacer20,
+              Titles.title('Registro completo 🏁'),
               Titles.subtitle(
                 'Ahora podrás adquirir una nueva habilidad que es el ingles. 📚',
               ),
-              Spacers.spacer20,
               Titles.subtitle(
                 'Inicia sesión para comenzar aprender ingles 👌',
               ),
               const GoToLoginButton(),
-              Spacers.spacer30,
+              Flexible(flex: 1, child: Container()),
             ],
           ),
         ),

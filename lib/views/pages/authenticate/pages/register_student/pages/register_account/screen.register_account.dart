@@ -14,9 +14,11 @@ class RegisterAccount extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
-        child: SingleChildScrollView(
-          physics: const BouncingScrollPhysics(),
+        child: SizedBox(
+          width: double.infinity,
+          height: double.infinity,
           child: Column(
             children: [
               Titles.title(title),
@@ -24,6 +26,9 @@ class RegisterAccount extends StatelessWidget {
               RegisterAccountForm(),
               const RegisterAccountErrorMessage(),
               const CompleteRegisterStudentButton(),
+              Flexible(flex: 1, child: Container()),
+              const ImageLogo(svgPictureWidth: 150),
+              Spacers.spacer30,
             ],
           ),
         ),

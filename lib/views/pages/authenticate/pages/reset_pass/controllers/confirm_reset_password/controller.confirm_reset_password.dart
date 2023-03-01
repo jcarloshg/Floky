@@ -51,6 +51,7 @@ class ConfirmResetPasswordController {
       return;
     }
 
-    navigator.goToLogInScreen();
+    state.setMessageErro('');
+    navigator.goToCompleteResetPass();
   }
 }

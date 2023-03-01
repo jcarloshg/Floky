@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 
 // .personal_data.dart
 
-class RegisterPersonalData extends StatelessWidget {
-  const RegisterPersonalData({super.key});
+class RegisterPersonalDataScreen extends StatelessWidget {
+  const RegisterPersonalDataScreen({super.key});
 
   final String title = 'Crea tu cuenta de estudiante 👩‍🎓👨‍🎓';
   final String subtitle = 'Cuéntanos, ¿Cual es tu nombre completo?';
@@ -26,6 +26,9 @@ class RegisterPersonalData extends StatelessWidget {
               DataForm(),
               const PersonalDataErrorMessage(),
               const NextScreenButton(),
+              Flexible(flex: 1, child: Container()),
+              const ImageLogo(svgPictureWidth: 150),
+              Spacers.spacer30,
             ],
           ),
         ),

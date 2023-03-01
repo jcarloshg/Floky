@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:floky/views/pages/authenticate/pages/reset_pass/pages/confirm_reset_pass/widgets/confirm_reset_button/widget.confirm_reset_button.dart';
 import 'package:floky/views/pages/authenticate/pages/reset_pass/pages/confirm_reset_pass/widgets/confirm_reset_error_message/widget.confirm_reset_error_message.dart';
 import 'package:floky/views/pages/authenticate/pages/reset_pass/pages/confirm_reset_pass/widgets/confirm_reset_form/widget.confirm_reset_form.dart';
