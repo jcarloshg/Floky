@@ -14,6 +14,7 @@ class ConfirmResetPasswordAWS extends ConfirmResetPasswordRepository {
       );
       return true;
     } on AmplifyException catch (e) {
+      log('error [ConfirmResetPasswordAWS]');
       log(e.message);
       return false;
     }

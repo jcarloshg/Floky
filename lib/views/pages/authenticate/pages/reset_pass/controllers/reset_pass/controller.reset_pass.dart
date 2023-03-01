@@ -18,9 +18,6 @@ class ResetPassController {
   });
 
   Future<void> resetPass() async {
-    navigator.goToConfirmResetPass();
-    return;
-
     state.getResetPassData().updateWithFormController();
     final resetPassData = state.getResetPassData();
 
