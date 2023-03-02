@@ -8,20 +8,19 @@ class LogInMethodAWS extends LogInMethodRepository {
   @override
   Future<Account?> run({required String email, required String pass}) async {
     try {
-      final signInResult = await Amplify.Auth.signIn(
-        username: email,
-        password: pass,
-      );
-
+      await Amplify.Auth.signIn(username: email, password: pass);
       final AuthUser authUser = await Amplify.Auth.getCurrentUser();
-      inspect(signInResult);
-      inspect(authUser);
+      final studentID = authUser.userId;
+      final List<Account> students = await Amplify.DataStore.query(
+        Account.classType,
+        where: Account.ID.eq(studentID),
+      );
+      final Account currentStudent = students[0];
+      return currentStudent;
     } on AuthException catch (e) {
       log('error [LogInMethodAWS]');
       log(e.message);
       return null;
     }
-
-    return null;
   }
 }

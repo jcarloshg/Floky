@@ -1,7 +1,7 @@
 import 'package:floky/views/pages/authenticate/pages/log_in/pages/screen.log_in.dart';
 import 'package:floky/views/pages/authenticate/pages/register_student/pages/register_personal_data/screen.register_personal_data.dart';
 import 'package:floky/views/pages/authenticate/pages/reset_pass/pages/set_user_name/screen.set_user_name.dart';
-import 'package:floky/views/pages/home/home.screen.dart';
+import 'package:floky/views/pages/common/home/home.screen.dart';
 import 'package:flutter/material.dart';
 
 class AuthenticateNavigator {

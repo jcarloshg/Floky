@@ -1,4 +1,4 @@
-import 'package:floky/views/pages/home/widgets/bottom_navigation_pages.dart';
+import 'package:floky/views/pages/common/home/widgets/bottom_navigation_pages.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {

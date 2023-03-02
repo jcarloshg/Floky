@@ -18,14 +18,17 @@ class _ListRecentActivitiesState extends State<ListRecentActivities> {
   @override
   void initState() {
     super.initState();
-    getRecentActivities();
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) => getRecentActivities(),
+    );
   }
 
   Future<void> getRecentActivities() async {
     final responseActivitiesController = di<ResponseActivitiesController>();
     final activities =
         await responseActivitiesController.repository.getRecentActivities();
-    setState(() => _activities = activities);
+    // todo fix this
+    // setState(() => _activities = activities);
   }
 
   @override
