@@ -1,6 +1,6 @@
-import 'package:floky/views/pages/pending_activities/pending_activities.screen.dart';
 import 'package:floky/views/pages/profile/pages/profile/profile.screen.dart';
 import 'package:floky/views/pages/response_activities/pages/home_activities/home_activities.screen.dart';
+import 'package:floky/views/pages/view_posts/pages/home_posts/screen.home_posts.dart';
 import 'package:flutter/material.dart';
 
 class ItemBarPage {
@@ -20,7 +20,7 @@ class BottomNavigationPages {
     ItemBarPage(
       icon: const Icon(Icons.note),
       label: 'Publicaciones',
-      page: const PendingActivitiesScreen(),
+      page: const HomePosts(),
     ),
     ItemBarPage(
       icon: const Icon(Icons.explore),

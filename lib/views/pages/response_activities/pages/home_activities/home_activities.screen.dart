@@ -14,7 +14,7 @@ class HomeActivitiesScreen extends StatelessWidget {
           physics: const BouncingScrollPhysics(),
           child: Column(
             children: [
-              Titles.title('Actividades 📰'),
+              Titles.title('Actividades 📝'),
               Titles.subtitle('Descubre actividades nuevas'),
               Spacers.spacer20,
               const ActivitiesSearcher(),
