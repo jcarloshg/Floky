@@ -15,12 +15,15 @@ class HomeActivitiesScreen extends StatelessWidget {
           child: Column(
             children: [
               Titles.title('Actividades 📝'),
-              Titles.subtitle('Descubre actividades nuevas'),
+              Titles.subtitle(
+                  'Resuelve actividades para mejorar en tus habilidades 🏃‍♀️🏃‍♂️'),
               Spacers.spacer20,
               const ActivitiesSearcher(),
               Spacers.spacer20,
               const ListRecentActivities(),
               Spacers.spacer20,
+              const ListRecentActivities(),
+              Spacers.spacer30,
             ],
           ),
         ),
