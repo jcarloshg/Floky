@@ -1,6 +1,6 @@
-import 'package:floky/data/usecase/aws_amplify/authenticate/data.exist_a_student_logged_in.dart';
-import 'package:floky/data/usecase/aws_amplify/authenticate/data.get_current_student.dart';
-import 'package:floky/data/usecase/aws_amplify/authenticate/data.log_in_method.dart';
+import 'package:floky/data/usecase/authenticate/data.exist_a_student_logged_in.dart';
+import 'package:floky/data/usecase/authenticate/data.get_current_student.dart';
+import 'package:floky/data/usecase/authenticate/data.log_in_method.dart';
 import 'package:floky/dependencyInjection/global_state/global_state.dart';
 import 'package:floky/domain/change_notifier/authenticate/log_in/change_notifier.log_in.dart';
 import 'package:floky/domain/usecase/authenticate/application/log_in/application.log_in.dart';

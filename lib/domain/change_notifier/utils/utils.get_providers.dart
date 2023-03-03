@@ -1,3 +1,4 @@
+import 'package:floky/data/usecase/response_activities/get_recent_activities/state.get_recent_activities.dart';
 import 'package:floky/dependencyInjection/global_state/global_state.dart';
 import 'package:floky/dependencyInjection/setup_di.dart';
 import 'package:floky/domain/change_notifier/authenticate/log_in/change_notifier.log_in.dart';
@@ -25,6 +26,11 @@ List<SingleChildWidget> getProviders(BuildContext context) {
       create: (_) => di<ResponseActivitiesChangeNotifier>(),
       lazy: false,
     ),
+    ChangeNotifierProvider(
+      create: (_) => di<GetRecentActivitiesState>(),
+      lazy: false,
+    ),
+
     //
     //
     //

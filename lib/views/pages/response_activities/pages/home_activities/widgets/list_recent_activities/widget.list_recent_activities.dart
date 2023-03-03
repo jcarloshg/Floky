@@ -5,48 +5,61 @@ import 'package:floky/views/pages/response_activities/pages/home_activities/widg
 import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
 
-class ListRecentActivities extends StatefulWidget {
+class ListRecentActivities extends StatelessWidget {
   const ListRecentActivities({super.key});
 
   @override
-  State<ListRecentActivities> createState() => _ListRecentActivitiesState();
-}
-
-class _ListRecentActivitiesState extends State<ListRecentActivities> {
-  List<Activity> _activities = [];
-
-  @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addPostFrameCallback(
-      (_) => getRecentActivities(),
-    );
-  }
-
-  Future<void> getRecentActivities() async {
-    final responseActivitiesController = di<ResponseActivitiesController>();
-    final activities =
-        await responseActivitiesController.repository.getRecentActivities();
-    // todo fix this
-    // setState(() => _activities = activities);
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return _activities.isEmpty ? loading() : viewerActivities();
-  }
-
-  Widget loading() {
-    return const Center(child: CircularProgressIndicator());
-  }
-
-  Widget viewerActivities() {
-    return Column(
-      children: [
-        Titles.subtitle('Descubre actividades nuevas'),
-        const SizedBox(height: 5),
-        ActivitiesCarouselHorizontal(activities: _activities),
-      ],
+    return Container(
+      height: 200,
+      width: double.infinity,
+      decoration: BoxDecoration(border: Border.all()),
     );
   }
 }
+
+// class ListRecentActivities extends StatefulWidget {
+//   const ListRecentActivities({super.key});
+
+//   @override
+//   State<ListRecentActivities> createState() => _ListRecentActivitiesState();
+// }
+
+// class _ListRecentActivitiesState extends State<ListRecentActivities> {
+//   List<Activity> _activities = [];
+
+//   @override
+//   void initState() {
+//     super.initState();
+//     WidgetsBinding.instance.addPostFrameCallback(
+//       (_) => getRecentActivities(),
+//     );
+//   }
+
+//   Future<void> getRecentActivities() async {
+//     final responseActivitiesController = di<ResponseActivitiesController>();
+//     final activities =
+//         await responseActivitiesController.repository.getRecentActivities();
+//     // todo fix this
+//     // setState(() => _activities = activities);
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return _activities.isEmpty ? loading() : viewerActivities();
+//   }
+
+//   Widget loading() {
+//     return const Center(child: CircularProgressIndicator());
+//   }
+
+//   Widget viewerActivities() {
+//     return Column(
+//       children: [
+//         Titles.subtitle('Descubre actividades nuevas'),
+//         const SizedBox(height: 5),
+//         ActivitiesCarouselHorizontal(activities: _activities),
+//       ],
+//     );
+//   }
+// }

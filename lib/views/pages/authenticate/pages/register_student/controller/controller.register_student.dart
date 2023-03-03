@@ -1,5 +1,5 @@
-import 'package:floky/data/usecase/aws_amplify/authenticate/register_student/data.confirm_user.dart';
-import 'package:floky/data/usecase/aws_amplify/authenticate/register_student/data.sing_up.dart';
+import 'package:floky/data/usecase/authenticate/register_student/data.confirm_user.dart';
+import 'package:floky/data/usecase/authenticate/register_student/data.sing_up.dart';
 import 'package:floky/domain/change_notifier/authenticate/register_student/change_notifier.register_student.dart';
 import 'package:floky/domain/usecase/authenticate/application/register_student/application.register_student.dart';
 import 'package:floky/domain/usecase/authenticate/domain/register_student/repository.register_student.dart';

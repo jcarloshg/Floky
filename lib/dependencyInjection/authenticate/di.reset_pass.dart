@@ -1,6 +1,6 @@
 // import 'package:floky/data/usecase/aws_amplify/authenticate/reset_pass/data.confirm_reset_password.dart';
-import 'package:floky/data/usecase/aws_amplify/authenticate/reset_pass/data.confirm_reset_password.dart';
-import 'package:floky/data/usecase/aws_amplify/authenticate/reset_pass/data.reset_pass.dart';
+import 'package:floky/data/usecase/authenticate/reset_pass/data.confirm_reset_password.dart';
+import 'package:floky/data/usecase/authenticate/reset_pass/data.reset_pass.dart';
 import 'package:floky/dependencyInjection/global_state/global_state.dart';
 import 'package:floky/views/pages/authenticate/pages/reset_pass/controllers/confirm_reset_password/change_notifier.confirm_reset_password.dart';
 import 'package:floky/domain/usecase/authenticate/application/reset_pass/application.reset_pass.dart';
