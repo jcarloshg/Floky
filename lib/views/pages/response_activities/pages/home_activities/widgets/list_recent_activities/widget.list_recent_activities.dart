@@ -37,14 +37,17 @@ class _ListRecentActivitiesState extends State<ListRecentActivities> {
       return const Center(child: CircularProgressIndicator());
     }
 
-    return Column(
-      children: [
-        Titles.subtitle('Descubre actividades nuevas'),
-        const SizedBox(height: 5),
-        ActivitiesCarouselHorizontal(
-          activities: getRecentActivitiesState.getRecentActivities(),
-        ),
-      ],
+    return Container(
+      decoration: BoxDecoration(border: Border.all()),
+      child: Column(
+        children: [
+          Titles.subtitle('Descubre actividades nuevas'),
+          const SizedBox(height: 5),
+          ActivitiesCarouselHorizontal(
+            activities: getRecentActivitiesState.getRecentActivities(),
+          ),
+        ],
+      ),
     );
   }
 }
