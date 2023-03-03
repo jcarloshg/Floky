@@ -7,6 +7,8 @@ import 'package:floky/dependencyInjection/global_state/global_state.dart';
 import 'package:floky/domain/usecase/response_activities/application/application.response_activities.dart';
 import 'package:floky/views/pages/response_activities/controllers/navigator.response_activities.dart';
 
+import '../../../../domain/usecase/response_activities/infrastructure/aws/aws.get_recent_activities.dart';
+
 class ResponseActivitiesController {
   //
 
@@ -16,7 +18,6 @@ class ResponseActivitiesController {
 
   // todo drop this
   late ResponseActivities repository;
-  final GetRecentActivitiesData getRecentActivitiesData;
   final GetActivitiesByKeyWordData getActivitiesByKeyWordData;
   final ResponseActivityData responseActivityData;
   final GetActivityByIDData getActivityByIDData;
@@ -27,7 +28,6 @@ class ResponseActivitiesController {
     required this.globalState,
     required this.navigator,
     // todo drop this
-    required this.getRecentActivitiesData,
     required this.getActivitiesByKeyWordData,
     required this.responseActivityData,
     required this.getActivityByIDData,
@@ -37,7 +37,7 @@ class ResponseActivitiesController {
       getActivitiesByKeyWordRepository: getActivitiesByKeyWordData,
       getActivityByIDRepository: getActivityByIDData,
       responseActivityRepository: responseActivityData,
-      getRecentActivitiesRepository: getRecentActivitiesData,
+      getRecentActivitiesRepository: GetRecentActivitiesAWS(),
       getCurrentStudentRepository: getCurrentStudentData,
     );
   }

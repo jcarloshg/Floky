@@ -1,4 +1,4 @@
-import 'package:floky/data/usecase/response_activities/get_recent_activities/state.get_recent_activities.dart';
+/* import 'package:floky/data/usecase/response_activities/get_recent_activities/state.get_recent_activities.dart';
 import 'package:floky/dependencyInjection/setup_di.dart';
 import 'package:floky/domain/entities/models/Activity.dart';
 import 'package:floky/domain/usecase/response_activities/domain/repository.get_recent_activities.dart';
@@ -27,3 +27,4 @@ class GetRecentActivitiesData extends GetRecentActivitiesRepository {
     return recentActivities;
   }
 }
+ */

@@ -1,6 +1,6 @@
+import 'package:floky/data/usecase/response_activities/get_recent_activities/controller.get_recent_activities.dart';
 import 'package:floky/data/usecase/response_activities/get_recent_activities/state.get_recent_activities.dart';
 import 'package:floky/dependencyInjection/setup_di.dart';
-import 'package:floky/views/pages/response_activities/controllers/controller.response_activities.dart';
 import 'package:floky/views/pages/response_activities/pages/home_activities/widgets/list_recent_activities/widget.activities_carousel_horizontal.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
@@ -19,9 +19,9 @@ class _ListRecentActivitiesState extends State<ListRecentActivities> {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback(
       (_) {
-        final responseActivitiesController = di<ResponseActivitiesController>();
-        final domain = responseActivitiesController.domain;
-        domain.getRecentActivities();
+        final GetRecentActivitiesController getRecentActivitiesController =
+            di<GetRecentActivitiesController>();
+        getRecentActivitiesController.run();
       },
     );
   }
