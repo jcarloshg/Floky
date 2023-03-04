@@ -24,12 +24,12 @@ class GetActivityByIdController {
     final Activity? activitySelected = await domain.getActivityByID(id: id);
     state.setIsLoading(false);
 
-    inspect(activitySelected);
-
     if (activitySelected == null) {
       state.setMessageErro('No se encontró la actividad');
       return;
     }
+
+    inspect(activitySelected);
 
     state.setActivitySelected(activitySelected);
     navigator.goToViewActivity(activitySelected);

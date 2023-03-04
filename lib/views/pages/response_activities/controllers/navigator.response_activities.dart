@@ -12,18 +12,18 @@ import 'package:flutter/material.dart';
 class ResponseActivitiesNavigator {
   //
 
-  BuildContext? context;
+  BuildContext? _context;
   void setBuildContext(BuildContext? context) {
-    context = context;
+    _context = context;
   }
 
   //============================================================
   // to Response activity
   //============================================================
   void goToViewActivity(Activity activity) {
-    if (context == null) return;
+    if (_context == null) return;
     Navigator.push(
-      context!,
+      _context!,
       MaterialPageRoute(
         builder: (context) => ViewActivityScreen(activity: activity),
       ),
@@ -31,9 +31,9 @@ class ResponseActivitiesNavigator {
   }
 
   void goToResponseActivity(Activity activity) {
-    if (context == null) return;
+    if (_context == null) return;
     Navigator.push(
-      context!,
+      _context!,
       MaterialPageRoute(
         builder: (context) => ResponseActivityScreen(activity: activity),
       ),
