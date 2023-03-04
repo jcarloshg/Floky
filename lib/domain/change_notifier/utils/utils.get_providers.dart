@@ -1,3 +1,4 @@
+import 'package:floky/data/usecase/response_activities/get_activity_by_id/state.get_activity_by_id.dart';
 import 'package:floky/data/usecase/response_activities/get_recent_activities/state.get_recent_activities.dart';
 import 'package:floky/dependencyInjection/global_state/global_state.dart';
 import 'package:floky/dependencyInjection/setup_di.dart';
@@ -11,29 +12,23 @@ import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 
 List<SingleChildWidget> getProviders(BuildContext context) {
+  final responseActivitiesProvider = getResponseActivitiesProviders();
+  final authenticateProviders = getAuthenticateProviders();
+
   final List<SingleChildWidget> providers = [
     ChangeNotifierProvider(
       create: (_) => di<GlobalState>(),
       lazy: false,
     ),
-    //
-    //
-    //
-    //
-    //
-    // response activities
-    ChangeNotifierProvider(
-      create: (_) => di<ResponseActivitiesChangeNotifier>(),
-      lazy: false,
-    ),
-    ChangeNotifierProvider(
-      create: (_) => di<GetRecentActivitiesState>(),
-      lazy: false,
-    ),
+    ...authenticateProviders,
+    ...responseActivitiesProvider,
+  ];
 
-    //
-    //
-    //
+  return providers;
+}
+
+List<SingleChildWidget> getAuthenticateProviders() {
+  final List<SingleChildWidget> providers = [
     //
     //
     // authenticate
@@ -41,6 +36,9 @@ List<SingleChildWidget> getProviders(BuildContext context) {
       create: (_) => di<LoginChangeNotifier>(),
       lazy: false,
     ),
+    //
+    //
+    // register_student
     ChangeNotifierProvider(
       create: (_) => di<RegisterStudentChangeNotifier>(),
       lazy: false,
@@ -57,6 +55,23 @@ List<SingleChildWidget> getProviders(BuildContext context) {
       lazy: false,
     ),
   ];
+  return providers;
+}
 
+List<SingleChildWidget> getResponseActivitiesProviders() {
+  final List<SingleChildWidget> providers = [
+    ChangeNotifierProvider(
+      create: (_) => di<ResponseActivitiesChangeNotifier>(),
+      lazy: false,
+    ),
+    ChangeNotifierProvider(
+      create: (_) => di<GetRecentActivitiesState>(),
+      lazy: false,
+    ),
+    ChangeNotifierProvider(
+      create: (_) => di<GetActivityByIdState>(),
+      lazy: false,
+    ),
+  ];
   return providers;
 }

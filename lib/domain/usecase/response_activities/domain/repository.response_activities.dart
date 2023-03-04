@@ -3,7 +3,7 @@ import 'package:floky/domain/entities/models/ModelProvider.dart';
 abstract class ResponseActivitiesRepository {
   // nominal tracking
   Future<List<Activity>> getRecentActivities();
-  Future<Activity> getActivityByID({required String id});
+  Future<Activity?> getActivityByID({required String id});
   Future<void> responseActivity({
     required ActivityType activityType,
     required String answerCorrect,

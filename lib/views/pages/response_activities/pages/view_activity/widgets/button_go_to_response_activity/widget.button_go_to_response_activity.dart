@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:floky/dependencyInjection/setup_di.dart';
 import 'package:floky/domain/entities/models/Activity.dart';
 import 'package:floky/views/pages/response_activities/controllers/controller.response_activities.dart';
@@ -33,7 +31,7 @@ class GoToResponseActivityButton extends StatelessWidget {
 
   void goToResponseActivity(BuildContext context, Activity activity) {
     final controller = di<ResponseActivitiesController>();
-    controller.navigator.goToResponseActivity(context, activity);
+    controller.navigator.goToResponseActivity(activity);
   }
 
   BoxDecoration boxDecoration() => BoxDecoration(

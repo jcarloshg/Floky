@@ -1,6 +1,6 @@
+import 'package:floky/data/usecase/response_activities/get_activity_by_id/controller.get_activity_by_id.dart';
 import 'package:floky/dependencyInjection/setup_di.dart';
 import 'package:floky/domain/entities/models/ModelProvider.dart';
-import 'package:floky/views/pages/response_activities/controllers/controller.response_activities.dart';
 import 'package:floky/views/utils/utils.index.dart';
 import 'package:flutter/material.dart';
 
@@ -18,8 +18,14 @@ class ActivityCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final getActivityByIdController = di<GetActivityByIdController>();
+    getActivityByIdController.navigator.setBuildContext(context);
+
     return InkWell(
-      onTap: () => goToViewActivity(context, activity),
+      onTap: () => getActivityByIdController.run(
+        id: activity.id,
+        context: context,
+      ),
       child: Container(
         width: ActivityCard.width,
         height: ActivityCard.height,
@@ -36,10 +42,5 @@ class ActivityCard extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  void goToViewActivity(BuildContext context, Activity activity) {
-    final controller = di<ResponseActivitiesController>();
-    controller.navigator.goToViewActivity(context, activity);
   }
 }

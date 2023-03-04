@@ -19,7 +19,7 @@ class _ListRecentActivitiesState extends State<ListRecentActivities> {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback(
       (_) {
-        final GetRecentActivitiesController getRecentActivitiesController =
+        final getRecentActivitiesController =
             di<GetRecentActivitiesController>();
         getRecentActivitiesController.run();
       },
@@ -51,80 +51,3 @@ class _ListRecentActivitiesState extends State<ListRecentActivities> {
     );
   }
 }
-
-// class ListRecentActivities extends StatelessWidget {
-//   const ListRecentActivities({super.key});
-//   @override
-//   Widget build(BuildContext context) {
-//     final responseActivitiesController = di<ResponseActivitiesController>();
-//     final domain =responseActivitiesController.domain;
-//     return FutureBuilder(
-//       future: domain.getRecentActivities(),
-//       builder: ((
-//         BuildContext context,
-//         AsyncSnapshot<List<Activity>> snapshot,
-//       ) {
-//         //
-//         final List<Activity> recentActivities = snapshot.data ?? [];
-//         final getRecentActivitiesState = Provider.of<GetRecentActivitiesState>(
-//           context,
-//           listen: true,
-//         );
-//         if (getRecentActivitiesState.getIsLoading() == true) {
-//           return const Center(child: CircularProgressIndicator());
-//         }
-//         final messageError = getRecentActivitiesState.getMessageErro();
-//         if (messageError.isNotEmpty == true) {
-//           return Text(messageError);
-//         }
-//         return ActivitiesCarouselHorizontal(activities: recentActivities,);
-//       }) ,
-//     );
-//   }
-// }
-
-// class ListRecentActivities extends StatefulWidget {
-//   const ListRecentActivities({super.key});
-
-//   @override
-//   State<ListRecentActivities> createState() => _ListRecentActivitiesState();
-// }
-
-// class _ListRecentActivitiesState extends State<ListRecentActivities> {
-//   List<Activity> _activities = [];
-
-//   @override
-//   void initState() {
-//     super.initState();
-//     WidgetsBinding.instance.addPostFrameCallback(
-//       (_) => getRecentActivities(),
-//     );
-//   }
-
-//   Future<void> getRecentActivities() async {
-//     final responseActivitiesController = di<ResponseActivitiesController>();
-//     final activities =
-//         await responseActivitiesController.repository.getRecentActivities();
-//     // todo fix this
-//     // setState(() => _activities = activities);
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return _activities.isEmpty ? loading() : viewerActivities();
-//   }
-
-//   Widget loading() {
-//     return const Center(child: CircularProgressIndicator());
-//   }
-
-//   Widget viewerActivities() {
-//     return Column(
-//       children: [
-//         Titles.subtitle('Descubre actividades nuevas'),
-//         const SizedBox(height: 5),
-//         ActivitiesCarouselHorizontal(activities: _activities),
-//       ],
-//     );
-//   }
-// }

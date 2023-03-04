@@ -6,12 +6,10 @@ import 'package:get_it/get_it.dart';
 GetIt di = GetIt.instance;
 
 Future<void> setupDI() async {
-  di.registerSingleton<GlobalState>(
-    GlobalState(),
-    signalsReady: true,
-  );
+  //
+
+  di.registerSingleton<GlobalState>(GlobalState(), signalsReady: true);
 
   await authenticate(di: di);
   await responseActivities(di: di);
 }
-

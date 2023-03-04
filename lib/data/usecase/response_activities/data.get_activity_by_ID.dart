@@ -4,8 +4,8 @@ import 'package:floky/domain/usecase/response_activities/infrastructure/aws/aws.
 
 class GetActivityByIDData extends GetActivityByIDRepository {
   @override
-  Future<Activity> run({required String id}) async {
-    final Activity activity = await GetActivityByIdAWS().run(id: id);
+  Future<Activity?> run({required String id}) async {
+    final Activity? activity = await GetActivityByIdAWS().run(id: id);
     return activity;
   }
 }

@@ -3,6 +3,7 @@ import 'package:floky/data/usecase/response_activities/data.get_activities_by_ke
 import 'package:floky/data/usecase/response_activities/data.get_activity_by_ID.dart';
 import 'package:floky/data/usecase/response_activities/data.response_activity.dart';
 import 'package:floky/dependencyInjection/global_state/global_state.dart';
+import 'package:floky/dependencyInjection/response_activities/di.get_activity_by_id.dart';
 import 'package:floky/dependencyInjection/response_activities/di.get_recent_activities.dart';
 import 'package:floky/domain/change_notifier/response_activities/change_notifier.response_activities.dart';
 import 'package:floky/domain/usecase/authenticate/infrastructure/aws.get_current_student.dart';
@@ -69,7 +70,6 @@ Future<void> responseActivities({required GetIt di}) async {
   //============================================================
   Future<void> _view() async {
     final responseActivitiesController = ResponseActivitiesController(
-      domain: responseActivities,
       globalState: di<GlobalState>(),
       navigator: ResponseActivitiesNavigator(),
       //
@@ -95,6 +95,12 @@ Future<void> responseActivities({required GetIt di}) async {
   await _view();
 
   await getRecentActivities(
+    di: di,
+    domain: responseActivities,
+    navigator: navigator,
+  );
+
+  await getActivityById(
     di: di,
     domain: responseActivities,
     navigator: navigator,

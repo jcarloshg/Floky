@@ -6,26 +6,34 @@ import 'package:flutter/material.dart';
 ///
 /// * HomeActivities  -> home_activities.screen.dart
 /// * ViewActivity    -> screen.view_activity.dart
-///
 /// * to Response activity - [HomeActivitiesScreen] -> [ViewActivityScreen] -> [ResponseActivityScreen] -> [HomeActivitiesScreen]
 ///
 
 class ResponseActivitiesNavigator {
+  //
+
+  BuildContext? context;
+  void setBuildContext(BuildContext? context) {
+    context = context;
+  }
+
   //============================================================
   // to Response activity
   //============================================================
-  void goToViewActivity(BuildContext context, Activity activity) {
+  void goToViewActivity(Activity activity) {
+    if (context == null) return;
     Navigator.push(
-      context,
+      context!,
       MaterialPageRoute(
         builder: (context) => ViewActivityScreen(activity: activity),
       ),
     );
   }
 
-  void goToResponseActivity(BuildContext context, Activity activity) {
+  void goToResponseActivity(Activity activity) {
+    if (context == null) return;
     Navigator.push(
-      context,
+      context!,
       MaterialPageRoute(
         builder: (context) => ResponseActivityScreen(activity: activity),
       ),

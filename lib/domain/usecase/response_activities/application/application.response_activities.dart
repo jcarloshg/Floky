@@ -34,8 +34,8 @@ class ResponseActivities extends ResponseActivitiesRepository {
   }
 
   @override
-  Future<Activity> getActivityByID({required String id}) async {
-    final Activity activity = await getActivityByIDRepository.run(id: id);
+  Future<Activity?> getActivityByID({required String id}) async {
+    final Activity? activity = await getActivityByIDRepository.run(id: id);
     return activity;
   }
 
