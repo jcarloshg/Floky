@@ -3,6 +3,7 @@ import 'package:floky/data/usecase/response_activities/data.get_activities_by_ke
 import 'package:floky/data/usecase/response_activities/data.get_activity_by_ID.dart';
 import 'package:floky/data/usecase/response_activities/data.response_activity.dart';
 import 'package:floky/dependencyInjection/global_state/global_state.dart';
+import 'package:floky/dependencyInjection/response_activities/di.get_activities_by_key_word.dart';
 import 'package:floky/dependencyInjection/response_activities/di.get_activity_by_id.dart';
 import 'package:floky/dependencyInjection/response_activities/di.get_recent_activities.dart';
 import 'package:floky/domain/change_notifier/response_activities/change_notifier.response_activities.dart';
@@ -101,6 +102,12 @@ Future<void> responseActivities({required GetIt di}) async {
   );
 
   await getActivityById(
+    di: di,
+    domain: responseActivities,
+    navigator: navigator,
+  );
+
+  await getActivitiesByKeyWord(
     di: di,
     domain: responseActivities,
     navigator: navigator,

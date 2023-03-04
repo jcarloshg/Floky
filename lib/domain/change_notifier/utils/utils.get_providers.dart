@@ -1,3 +1,4 @@
+import 'package:floky/data/usecase/response_activities/get_activities_by_key_word/state.get_activities_by_key_word.dart';
 import 'package:floky/data/usecase/response_activities/get_activity_by_id/state.get_activity_by_id.dart';
 import 'package:floky/data/usecase/response_activities/get_recent_activities/state.get_recent_activities.dart';
 import 'package:floky/dependencyInjection/global_state/global_state.dart';
@@ -70,6 +71,10 @@ List<SingleChildWidget> getResponseActivitiesProviders() {
     ),
     ChangeNotifierProvider(
       create: (_) => di<GetActivityByIdState>(),
+      lazy: false,
+    ),
+    ChangeNotifierProvider(
+      create: (_) => di<GetActivitiesByKeyWordState>(),
       lazy: false,
     ),
   ];
