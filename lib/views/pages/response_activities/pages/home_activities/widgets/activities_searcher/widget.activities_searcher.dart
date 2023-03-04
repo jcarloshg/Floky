@@ -10,8 +10,8 @@ class ActivitiesSearcher extends StatelessWidget {
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.symmetric(horizontal: 15),
-      child: const Column(
-        children: [
+      child: Column(
+        children: const [
           SearchInput(),
           SearchByCategories(),
         ],

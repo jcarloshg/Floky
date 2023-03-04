@@ -12,7 +12,7 @@ class LogInScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: SafeArea(
         child: SizedBox(
           width: double.infinity,
@@ -20,7 +20,7 @@ class LogInScreen extends StatelessWidget {
           child: Center(
             child: Column(
               mainAxisSize: MainAxisSize.min,
-              children: [
+              children: const [
                 ImageLogo(),
                 LogInForm(),
                 ErrorLoginMessage(),
