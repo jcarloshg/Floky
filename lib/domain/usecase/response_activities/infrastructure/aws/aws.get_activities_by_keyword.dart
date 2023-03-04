@@ -15,7 +15,7 @@ class GetActivitiesByKeyWordAWS extends GetActivitiesByKeyWordRepository {
         sortBy: [Activity.NAME.descending()],
       );
 
-      return await getTopicFromActivity(activities);
+      return await getTopicFromActivities(activities);
     } on DataStoreException {
       return [];
     }

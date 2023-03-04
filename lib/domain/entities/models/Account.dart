@@ -21,7 +21,6 @@
 
 import 'ModelProvider.dart';
 import 'package:amplify_core/amplify_core.dart';
-import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
 
 
@@ -35,7 +34,6 @@ class Account extends Model {
   final String? _collegeEnrollment;
   final String? _collegeName;
   final Role? _role;
-  final List<Post>? _posts;
   final ActivitiesProgress? _activitiesProgress;
   final TemporalDateTime? _createdAt;
   final TemporalDateTime? _updatedAt;
@@ -114,10 +112,6 @@ class Account extends Model {
     }
   }
   
-  List<Post>? get posts {
-    return _posts;
-  }
-  
   ActivitiesProgress? get activitiesProgress {
     return _activitiesProgress;
   }
@@ -134,9 +128,9 @@ class Account extends Model {
     return _accountActivitiesProgressId;
   }
   
-  const Account._internal({required this.id, required fullName, required email, required collegeEnrollment, required collegeName, required role, posts, activitiesProgress, createdAt, updatedAt, accountActivitiesProgressId}): _fullName = fullName, _email = email, _collegeEnrollment = collegeEnrollment, _collegeName = collegeName, _role = role, _posts = posts, _activitiesProgress = activitiesProgress, _createdAt = createdAt, _updatedAt = updatedAt, _accountActivitiesProgressId = accountActivitiesProgressId;
+  const Account._internal({required this.id, required fullName, required email, required collegeEnrollment, required collegeName, required role, activitiesProgress, createdAt, updatedAt, accountActivitiesProgressId}): _fullName = fullName, _email = email, _collegeEnrollment = collegeEnrollment, _collegeName = collegeName, _role = role, _activitiesProgress = activitiesProgress, _createdAt = createdAt, _updatedAt = updatedAt, _accountActivitiesProgressId = accountActivitiesProgressId;
   
-  factory Account({String? id, required String fullName, required String email, required String collegeEnrollment, required String collegeName, required Role role, List<Post>? posts, ActivitiesProgress? activitiesProgress, String? accountActivitiesProgressId}) {
+  factory Account({String? id, required String fullName, required String email, required String collegeEnrollment, required String collegeName, required Role role, ActivitiesProgress? activitiesProgress, String? accountActivitiesProgressId}) {
     return Account._internal(
       id: id == null ? UUID.getUUID() : id,
       fullName: fullName,
@@ -144,7 +138,6 @@ class Account extends Model {
       collegeEnrollment: collegeEnrollment,
       collegeName: collegeName,
       role: role,
-      posts: posts != null ? List<Post>.unmodifiable(posts) : posts,
       activitiesProgress: activitiesProgress,
       accountActivitiesProgressId: accountActivitiesProgressId);
   }
@@ -163,7 +156,6 @@ class Account extends Model {
       _collegeEnrollment == other._collegeEnrollment &&
       _collegeName == other._collegeName &&
       _role == other._role &&
-      DeepCollectionEquality().equals(_posts, other._posts) &&
       _activitiesProgress == other._activitiesProgress &&
       _accountActivitiesProgressId == other._accountActivitiesProgressId;
   }
@@ -190,7 +182,7 @@ class Account extends Model {
     return buffer.toString();
   }
   
-  Account copyWith({String? id, String? fullName, String? email, String? collegeEnrollment, String? collegeName, Role? role, List<Post>? posts, ActivitiesProgress? activitiesProgress, String? accountActivitiesProgressId}) {
+  Account copyWith({String? id, String? fullName, String? email, String? collegeEnrollment, String? collegeName, Role? role, ActivitiesProgress? activitiesProgress, String? accountActivitiesProgressId}) {
     return Account._internal(
       id: id ?? this.id,
       fullName: fullName ?? this.fullName,
@@ -198,7 +190,6 @@ class Account extends Model {
       collegeEnrollment: collegeEnrollment ?? this.collegeEnrollment,
       collegeName: collegeName ?? this.collegeName,
       role: role ?? this.role,
-      posts: posts ?? this.posts,
       activitiesProgress: activitiesProgress ?? this.activitiesProgress,
       accountActivitiesProgressId: accountActivitiesProgressId ?? this.accountActivitiesProgressId);
   }
@@ -210,12 +201,6 @@ class Account extends Model {
       _collegeEnrollment = json['collegeEnrollment'],
       _collegeName = json['collegeName'],
       _role = enumFromString<Role>(json['role'], Role.values),
-      _posts = json['posts'] is List
-        ? (json['posts'] as List)
-          .where((e) => e?['serializedData'] != null)
-          .map((e) => Post.fromJson(new Map<String, dynamic>.from(e['serializedData'])))
-          .toList()
-        : null,
       _activitiesProgress = json['activitiesProgress']?['serializedData'] != null
         ? ActivitiesProgress.fromJson(new Map<String, dynamic>.from(json['activitiesProgress']['serializedData']))
         : null,
@@ -224,11 +209,11 @@ class Account extends Model {
       _accountActivitiesProgressId = json['accountActivitiesProgressId'];
   
   Map<String, dynamic> toJson() => {
-    'id': id, 'fullName': _fullName, 'email': _email, 'collegeEnrollment': _collegeEnrollment, 'collegeName': _collegeName, 'role': enumToString(_role), 'posts': _posts?.map((Post? e) => e?.toJson()).toList(), 'activitiesProgress': _activitiesProgress?.toJson(), 'createdAt': _createdAt?.format(), 'updatedAt': _updatedAt?.format(), 'accountActivitiesProgressId': _accountActivitiesProgressId
+    'id': id, 'fullName': _fullName, 'email': _email, 'collegeEnrollment': _collegeEnrollment, 'collegeName': _collegeName, 'role': enumToString(_role), 'activitiesProgress': _activitiesProgress?.toJson(), 'createdAt': _createdAt?.format(), 'updatedAt': _updatedAt?.format(), 'accountActivitiesProgressId': _accountActivitiesProgressId
   };
   
   Map<String, Object?> toMap() => {
-    'id': id, 'fullName': _fullName, 'email': _email, 'collegeEnrollment': _collegeEnrollment, 'collegeName': _collegeName, 'role': _role, 'posts': _posts, 'activitiesProgress': _activitiesProgress, 'createdAt': _createdAt, 'updatedAt': _updatedAt, 'accountActivitiesProgressId': _accountActivitiesProgressId
+    'id': id, 'fullName': _fullName, 'email': _email, 'collegeEnrollment': _collegeEnrollment, 'collegeName': _collegeName, 'role': _role, 'activitiesProgress': _activitiesProgress, 'createdAt': _createdAt, 'updatedAt': _updatedAt, 'accountActivitiesProgressId': _accountActivitiesProgressId
   };
 
   static final QueryField ID = QueryField(fieldName: "id");
@@ -237,12 +222,9 @@ class Account extends Model {
   static final QueryField COLLEGEENROLLMENT = QueryField(fieldName: "collegeEnrollment");
   static final QueryField COLLEGENAME = QueryField(fieldName: "collegeName");
   static final QueryField ROLE = QueryField(fieldName: "role");
-  static final QueryField POSTS = QueryField(
-    fieldName: "posts",
-    fieldType: ModelFieldType(ModelFieldTypeEnum.model, ofModelName: (Post).toString()));
   static final QueryField ACTIVITIESPROGRESS = QueryField(
     fieldName: "activitiesProgress",
-    fieldType: ModelFieldType(ModelFieldTypeEnum.model, ofModelName: (ActivitiesProgress).toString()));
+    fieldType: ModelFieldType(ModelFieldTypeEnum.model, ofModelName: 'ActivitiesProgress'));
   static final QueryField ACCOUNTACTIVITIESPROGRESSID = QueryField(fieldName: "accountActivitiesProgressId");
   static var schema = Model.defineSchema(define: (ModelSchemaDefinition modelSchemaDefinition) {
     modelSchemaDefinition.name = "Account";
@@ -291,17 +273,10 @@ class Account extends Model {
       ofType: ModelFieldType(ModelFieldTypeEnum.enumeration)
     ));
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.hasMany(
-      key: Account.POSTS,
-      isRequired: false,
-      ofModelName: (Post).toString(),
-      associatedKey: Post.TUTORACCOUNTID
-    ));
-    
     modelSchemaDefinition.addField(ModelFieldDefinition.hasOne(
       key: Account.ACTIVITIESPROGRESS,
       isRequired: false,
-      ofModelName: (ActivitiesProgress).toString(),
+      ofModelName: 'ActivitiesProgress',
       associatedKey: ActivitiesProgress.ID
     ));
     
@@ -333,5 +308,10 @@ class _AccountModelType extends ModelType<Account> {
   @override
   Account fromJson(Map<String, dynamic> jsonData) {
     return Account.fromJson(jsonData);
+  }
+  
+  @override
+  String modelName() {
+    return 'Account';
   }
 }

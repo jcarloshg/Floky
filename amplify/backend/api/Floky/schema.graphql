@@ -11,7 +11,6 @@ type Account @model @auth(rules: [{allow: public}]) {
   collegeEnrollment: String!
   collegeName: String!
   role: Role!
-  posts: [Post] @hasMany(indexName: "byAccount", fields: ["id"])
   activitiesProgress: ActivitiesProgress @hasOne
 }
 
@@ -31,16 +30,16 @@ type Post @model @auth(rules: [{allow: public}]) {
   id: ID!
   title: String!
   body: String!
-  tutorAccountID: ID! @index(name: "byAccount")
   category: ActivityType!
   comments: [Comment] @hasMany(indexName: "byPost", fields: ["id"])
+  author: Account! @hasOne
 }
 
 type Comment @model @auth(rules: [{allow: public}]) {
   id: ID!
   body: String!
   postID: ID! @index(name: "byPost")
-  author: Account @hasOne
+  author: Account! @hasOne
 }
 
 type Activity @model @auth(rules: [{allow: public}]) {

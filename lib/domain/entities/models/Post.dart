@@ -32,11 +32,12 @@ class Post extends Model {
   final String id;
   final String? _title;
   final String? _body;
-  final String? _tutorAccountID;
   final ActivityType? _category;
   final List<Comment>? _comments;
+  final Account? _author;
   final TemporalDateTime? _createdAt;
   final TemporalDateTime? _updatedAt;
+  final String? _postAuthorId;
 
   @override
   getInstanceType() => classType;
@@ -72,19 +73,6 @@ class Post extends Model {
     }
   }
   
-  String get tutorAccountID {
-    try {
-      return _tutorAccountID!;
-    } catch(e) {
-      throw new AmplifyCodeGenModelException(
-          AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
-          recoverySuggestion:
-            AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
-          underlyingException: e.toString()
-          );
-    }
-  }
-  
   ActivityType get category {
     try {
       return _category!;
@@ -102,6 +90,19 @@ class Post extends Model {
     return _comments;
   }
   
+  Account get author {
+    try {
+      return _author!;
+    } catch(e) {
+      throw new AmplifyCodeGenModelException(
+          AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
+          recoverySuggestion:
+            AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
+          underlyingException: e.toString()
+          );
+    }
+  }
+  
   TemporalDateTime? get createdAt {
     return _createdAt;
   }
@@ -110,16 +111,30 @@ class Post extends Model {
     return _updatedAt;
   }
   
-  const Post._internal({required this.id, required title, required body, required tutorAccountID, required category, comments, createdAt, updatedAt}): _title = title, _body = body, _tutorAccountID = tutorAccountID, _category = category, _comments = comments, _createdAt = createdAt, _updatedAt = updatedAt;
+  String get postAuthorId {
+    try {
+      return _postAuthorId!;
+    } catch(e) {
+      throw new AmplifyCodeGenModelException(
+          AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
+          recoverySuggestion:
+            AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
+          underlyingException: e.toString()
+          );
+    }
+  }
   
-  factory Post({String? id, required String title, required String body, required String tutorAccountID, required ActivityType category, List<Comment>? comments}) {
+  const Post._internal({required this.id, required title, required body, required category, comments, required author, createdAt, updatedAt, required postAuthorId}): _title = title, _body = body, _category = category, _comments = comments, _author = author, _createdAt = createdAt, _updatedAt = updatedAt, _postAuthorId = postAuthorId;
+  
+  factory Post({String? id, required String title, required String body, required ActivityType category, List<Comment>? comments, required Account author, required String postAuthorId}) {
     return Post._internal(
       id: id == null ? UUID.getUUID() : id,
       title: title,
       body: body,
-      tutorAccountID: tutorAccountID,
       category: category,
-      comments: comments != null ? List<Comment>.unmodifiable(comments) : comments);
+      comments: comments != null ? List<Comment>.unmodifiable(comments) : comments,
+      author: author,
+      postAuthorId: postAuthorId);
   }
   
   bool equals(Object other) {
@@ -133,9 +148,10 @@ class Post extends Model {
       id == other.id &&
       _title == other._title &&
       _body == other._body &&
-      _tutorAccountID == other._tutorAccountID &&
       _category == other._category &&
-      DeepCollectionEquality().equals(_comments, other._comments);
+      DeepCollectionEquality().equals(_comments, other._comments) &&
+      _author == other._author &&
+      _postAuthorId == other._postAuthorId;
   }
   
   @override
@@ -149,30 +165,30 @@ class Post extends Model {
     buffer.write("id=" + "$id" + ", ");
     buffer.write("title=" + "$_title" + ", ");
     buffer.write("body=" + "$_body" + ", ");
-    buffer.write("tutorAccountID=" + "$_tutorAccountID" + ", ");
     buffer.write("category=" + (_category != null ? enumToString(_category)! : "null") + ", ");
     buffer.write("createdAt=" + (_createdAt != null ? _createdAt!.format() : "null") + ", ");
-    buffer.write("updatedAt=" + (_updatedAt != null ? _updatedAt!.format() : "null"));
+    buffer.write("updatedAt=" + (_updatedAt != null ? _updatedAt!.format() : "null") + ", ");
+    buffer.write("postAuthorId=" + "$_postAuthorId");
     buffer.write("}");
     
     return buffer.toString();
   }
   
-  Post copyWith({String? id, String? title, String? body, String? tutorAccountID, ActivityType? category, List<Comment>? comments}) {
+  Post copyWith({String? id, String? title, String? body, ActivityType? category, List<Comment>? comments, Account? author, String? postAuthorId}) {
     return Post._internal(
       id: id ?? this.id,
       title: title ?? this.title,
       body: body ?? this.body,
-      tutorAccountID: tutorAccountID ?? this.tutorAccountID,
       category: category ?? this.category,
-      comments: comments ?? this.comments);
+      comments: comments ?? this.comments,
+      author: author ?? this.author,
+      postAuthorId: postAuthorId ?? this.postAuthorId);
   }
   
   Post.fromJson(Map<String, dynamic> json)  
     : id = json['id'],
       _title = json['title'],
       _body = json['body'],
-      _tutorAccountID = json['tutorAccountID'],
       _category = enumFromString<ActivityType>(json['category'], ActivityType.values),
       _comments = json['comments'] is List
         ? (json['comments'] as List)
@@ -180,25 +196,32 @@ class Post extends Model {
           .map((e) => Comment.fromJson(new Map<String, dynamic>.from(e['serializedData'])))
           .toList()
         : null,
+      _author = json['author']?['serializedData'] != null
+        ? Account.fromJson(new Map<String, dynamic>.from(json['author']['serializedData']))
+        : null,
       _createdAt = json['createdAt'] != null ? TemporalDateTime.fromString(json['createdAt']) : null,
-      _updatedAt = json['updatedAt'] != null ? TemporalDateTime.fromString(json['updatedAt']) : null;
+      _updatedAt = json['updatedAt'] != null ? TemporalDateTime.fromString(json['updatedAt']) : null,
+      _postAuthorId = json['postAuthorId'];
   
   Map<String, dynamic> toJson() => {
-    'id': id, 'title': _title, 'body': _body, 'tutorAccountID': _tutorAccountID, 'category': enumToString(_category), 'comments': _comments?.map((Comment? e) => e?.toJson()).toList(), 'createdAt': _createdAt?.format(), 'updatedAt': _updatedAt?.format()
+    'id': id, 'title': _title, 'body': _body, 'category': enumToString(_category), 'comments': _comments?.map((Comment? e) => e?.toJson()).toList(), 'author': _author?.toJson(), 'createdAt': _createdAt?.format(), 'updatedAt': _updatedAt?.format(), 'postAuthorId': _postAuthorId
   };
   
   Map<String, Object?> toMap() => {
-    'id': id, 'title': _title, 'body': _body, 'tutorAccountID': _tutorAccountID, 'category': _category, 'comments': _comments, 'createdAt': _createdAt, 'updatedAt': _updatedAt
+    'id': id, 'title': _title, 'body': _body, 'category': _category, 'comments': _comments, 'author': _author, 'createdAt': _createdAt, 'updatedAt': _updatedAt, 'postAuthorId': _postAuthorId
   };
 
   static final QueryField ID = QueryField(fieldName: "id");
   static final QueryField TITLE = QueryField(fieldName: "title");
   static final QueryField BODY = QueryField(fieldName: "body");
-  static final QueryField TUTORACCOUNTID = QueryField(fieldName: "tutorAccountID");
   static final QueryField CATEGORY = QueryField(fieldName: "category");
   static final QueryField COMMENTS = QueryField(
     fieldName: "comments",
-    fieldType: ModelFieldType(ModelFieldTypeEnum.model, ofModelName: (Comment).toString()));
+    fieldType: ModelFieldType(ModelFieldTypeEnum.model, ofModelName: 'Comment'));
+  static final QueryField AUTHOR = QueryField(
+    fieldName: "author",
+    fieldType: ModelFieldType(ModelFieldTypeEnum.model, ofModelName: 'Account'));
+  static final QueryField POSTAUTHORID = QueryField(fieldName: "postAuthorId");
   static var schema = Model.defineSchema(define: (ModelSchemaDefinition modelSchemaDefinition) {
     modelSchemaDefinition.name = "Post";
     modelSchemaDefinition.pluralName = "Posts";
@@ -212,10 +235,6 @@ class Post extends Model {
           ModelOperation.DELETE,
           ModelOperation.READ
         ])
-    ];
-    
-    modelSchemaDefinition.indexes = [
-      ModelIndex(fields: const ["tutorAccountID"], name: "byAccount")
     ];
     
     modelSchemaDefinition.addField(ModelFieldDefinition.id());
@@ -233,12 +252,6 @@ class Post extends Model {
     ));
     
     modelSchemaDefinition.addField(ModelFieldDefinition.field(
-      key: Post.TUTORACCOUNTID,
-      isRequired: true,
-      ofType: ModelFieldType(ModelFieldTypeEnum.string)
-    ));
-    
-    modelSchemaDefinition.addField(ModelFieldDefinition.field(
       key: Post.CATEGORY,
       isRequired: true,
       ofType: ModelFieldType(ModelFieldTypeEnum.enumeration)
@@ -247,8 +260,15 @@ class Post extends Model {
     modelSchemaDefinition.addField(ModelFieldDefinition.hasMany(
       key: Post.COMMENTS,
       isRequired: false,
-      ofModelName: (Comment).toString(),
+      ofModelName: 'Comment',
       associatedKey: Comment.POSTID
+    ));
+    
+    modelSchemaDefinition.addField(ModelFieldDefinition.hasOne(
+      key: Post.AUTHOR,
+      isRequired: true,
+      ofModelName: 'Account',
+      associatedKey: Account.ID
     ));
     
     modelSchemaDefinition.addField(ModelFieldDefinition.nonQueryField(
@@ -264,6 +284,12 @@ class Post extends Model {
       isReadOnly: true,
       ofType: ModelFieldType(ModelFieldTypeEnum.dateTime)
     ));
+    
+    modelSchemaDefinition.addField(ModelFieldDefinition.field(
+      key: Post.POSTAUTHORID,
+      isRequired: true,
+      ofType: ModelFieldType(ModelFieldTypeEnum.string)
+    ));
   });
 }
 
@@ -273,5 +299,10 @@ class _PostModelType extends ModelType<Post> {
   @override
   Post fromJson(Map<String, dynamic> jsonData) {
     return Post.fromJson(jsonData);
+  }
+  
+  @override
+  String modelName() {
+    return 'Post';
   }
 }

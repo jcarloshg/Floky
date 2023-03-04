@@ -203,4 +203,9 @@ class _TopicModelType extends ModelType<Topic> {
   Topic fromJson(Map<String, dynamic> jsonData) {
     return Topic.fromJson(jsonData);
   }
+  
+  @override
+  String modelName() {
+    return 'Topic';
+  }
 }

@@ -31,6 +31,7 @@ class CollegeEnrollmentInput extends StatelessWidget with InputAbstract {
   String? validateValue(String? value) {
     if (value == null) return null;
     if (value.isEmpty) return 'El $label completo es requerido.';
+    return null;
   }
 
   @override

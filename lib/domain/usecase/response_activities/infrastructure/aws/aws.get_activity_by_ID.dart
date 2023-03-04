@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:floky/domain/entities/models/Activity.dart';
 import 'package:floky/domain/usecase/response_activities/domain/repository.get_activity_by_ID.dart';
+import 'package:floky/domain/usecase/response_activities/infrastructure/aws/utility.get_topic_from_activity.dart';
 
 class GetActivityByIdAWS extends GetActivityByIDRepository {
   @override
@@ -12,10 +13,12 @@ class GetActivityByIdAWS extends GetActivityByIDRepository {
         Activity.classType,
         where: Activity.ID.eq(id),
       );
+
       final Activity activitySelected = activitiesSelected[0];
-      log('activitySelected');
-      inspect(activitySelected);
-      return activitySelected;
+      final Activity activityWithTopic = await getTopicFromActivity(
+        activitySelected,
+      );
+      return activityWithTopic;
     } catch (e) {
       return null;
     }

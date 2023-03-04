@@ -70,8 +70,17 @@ class Comment extends Model {
     }
   }
   
-  Account? get author {
-    return _author;
+  Account get author {
+    try {
+      return _author!;
+    } catch(e) {
+      throw new AmplifyCodeGenModelException(
+          AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
+          recoverySuggestion:
+            AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
+          underlyingException: e.toString()
+          );
+    }
   }
   
   TemporalDateTime? get createdAt {
@@ -82,13 +91,22 @@ class Comment extends Model {
     return _updatedAt;
   }
   
-  String? get commentAuthorId {
-    return _commentAuthorId;
+  String get commentAuthorId {
+    try {
+      return _commentAuthorId!;
+    } catch(e) {
+      throw new AmplifyCodeGenModelException(
+          AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
+          recoverySuggestion:
+            AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
+          underlyingException: e.toString()
+          );
+    }
   }
   
-  const Comment._internal({required this.id, required body, required postID, author, createdAt, updatedAt, commentAuthorId}): _body = body, _postID = postID, _author = author, _createdAt = createdAt, _updatedAt = updatedAt, _commentAuthorId = commentAuthorId;
+  const Comment._internal({required this.id, required body, required postID, required author, createdAt, updatedAt, required commentAuthorId}): _body = body, _postID = postID, _author = author, _createdAt = createdAt, _updatedAt = updatedAt, _commentAuthorId = commentAuthorId;
   
-  factory Comment({String? id, required String body, required String postID, Account? author, String? commentAuthorId}) {
+  factory Comment({String? id, required String body, required String postID, required Account author, required String commentAuthorId}) {
     return Comment._internal(
       id: id == null ? UUID.getUUID() : id,
       body: body,
@@ -164,7 +182,7 @@ class Comment extends Model {
   static final QueryField POSTID = QueryField(fieldName: "postID");
   static final QueryField AUTHOR = QueryField(
     fieldName: "author",
-    fieldType: ModelFieldType(ModelFieldTypeEnum.model, ofModelName: (Account).toString()));
+    fieldType: ModelFieldType(ModelFieldTypeEnum.model, ofModelName: 'Account'));
   static final QueryField COMMENTAUTHORID = QueryField(fieldName: "commentAuthorId");
   static var schema = Model.defineSchema(define: (ModelSchemaDefinition modelSchemaDefinition) {
     modelSchemaDefinition.name = "Comment";
@@ -201,8 +219,8 @@ class Comment extends Model {
     
     modelSchemaDefinition.addField(ModelFieldDefinition.hasOne(
       key: Comment.AUTHOR,
-      isRequired: false,
-      ofModelName: (Account).toString(),
+      isRequired: true,
+      ofModelName: 'Account',
       associatedKey: Account.ID
     ));
     
@@ -222,7 +240,7 @@ class Comment extends Model {
     
     modelSchemaDefinition.addField(ModelFieldDefinition.field(
       key: Comment.COMMENTAUTHORID,
-      isRequired: false,
+      isRequired: true,
       ofType: ModelFieldType(ModelFieldTypeEnum.string)
     ));
   });
@@ -234,5 +252,10 @@ class _CommentModelType extends ModelType<Comment> {
   @override
   Comment fromJson(Map<String, dynamic> jsonData) {
     return Comment.fromJson(jsonData);
+  }
+  
+  @override
+  String modelName() {
+    return 'Comment';
   }
 }

@@ -36,12 +36,12 @@
       },
       "providerPlugin": "awscloudformation",
       "service": "AppSync",
-      "lastPushTimeStamp": "2023-02-06T05:31:48.105Z",
+      "lastPushTimeStamp": "2023-03-04T03:58:18.584Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-floky-staging-172728-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apiFloky"
       },
-      "lastPushDirHash": "gnqZFuq+lo0dQeGE2LV+79G+TCo="
+      "lastPushDirHash": "0b8GRL3qKSWaCA8uGZw2hvqQ/ek="
     }
   },
   "auth": {
@@ -81,7 +81,7 @@
         "IdentityPoolName": "testAuthIdentityPool__staging",
         "UserPoolName": "Floky"
       },
-      "lastPushTimeStamp": "2023-02-06T05:31:48.043Z",
+      "lastPushTimeStamp": "2023-03-04T03:49:59.018Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-floky-staging-172728-deployment/amplify-cfn-templates/auth/Floky-cloudformation-template.json",
         "logicalId": "authFloky"
