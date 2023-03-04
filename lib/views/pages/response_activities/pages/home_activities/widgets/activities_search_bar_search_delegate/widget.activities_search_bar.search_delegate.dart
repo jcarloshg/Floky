@@ -1,3 +1,6 @@
+import 'package:floky/data/usecase/response_activities/get_activities_by_key_word/controller.get_activities_by_key_word.dart';
+import 'package:floky/data/usecase/response_activities/get_recent_activities/state.get_recent_activities.dart';
+import 'package:floky/dependencyInjection/setup_di.dart';
 import 'package:floky/domain/entities/models/ModelProvider.dart';
 import 'package:floky/views/pages/response_activities/controllers/controller.response_activities.dart';
 import 'package:floky/views/pages/response_activities/pages/home_activities/widgets/activity_card/widget.activity_card.dart';
@@ -10,13 +13,16 @@ part 'element.activities_search_bar.search_delegate.dart';
 // ! FutureBuilder
 
 class ActivitiesSearchBarSearchDelegate extends SearchDelegate {
-  ActivitiesSearchBarSearchDelegate({required this.controller})
-      : super(
+  ActivitiesSearchBarSearchDelegate({
+    required this.controller,
+    required this.getActivitiesByKeyWordController,
+  }) : super(
           searchFieldLabel: searchFieldLabel,
           searchFieldStyle: searchFieldStyle,
         );
 
   final ResponseActivitiesController controller;
+  final GetActivitiesByKeyWordController getActivitiesByKeyWordController;
 
   @override
   List<Widget>? buildActions(BuildContext context) {
@@ -37,22 +43,9 @@ class ActivitiesSearchBarSearchDelegate extends SearchDelegate {
   }
 
   @override
-  Widget buildResults(BuildContext context) {
-    return _renderActivitiesFoundedByKeyword(
-      activitiesFounded:
-          controller.getActivitiesByKeyWordData.activitiesFoundedByKeyword,
-      queryTerm: query,
-    );
-  }
-
-  @override
   Widget buildSuggestions(BuildContext context) {
-    final Future<List<Activity>> activitiesFuture = query.isEmpty
-        ? controller.repository.getRecentActivities()
-        : controller.repository.getActivitiesByKeyWord(keyword: query);
-
     return FutureBuilder(
-      future: activitiesFuture,
+      future: getActivitiesByKeyWordController.run(keyword: query),
       builder: (
         BuildContext context,
         AsyncSnapshot<List<Activity>> snapshot,
@@ -61,6 +54,15 @@ class ActivitiesSearchBarSearchDelegate extends SearchDelegate {
         context: context,
         snapshot: snapshot,
       ),
+    );
+  }
+
+  @override
+  Widget buildResults(BuildContext context) {
+    return _renderActivitiesFoundedByKeyword(
+      activitiesFounded:
+          controller.getActivitiesByKeyWordData.activitiesFoundedByKeyword,
+      queryTerm: query,
     );
   }
 }

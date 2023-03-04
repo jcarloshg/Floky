@@ -8,17 +8,15 @@ part 'elements.search_input.dart';
 class SearchInput extends StatelessWidget {
   const SearchInput({super.key});
 
-  Future<void> getActivitiesByKeyWord() async {
-    // const String keyword = 'new keyword';
-    // await controller.getActivitiesByKeyWord(keyword: keyword);
-  }
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => showSearch(
         context: context,
-        delegate: ActivitiesSearchBarSearchDelegate(controller: di()),
+        delegate: ActivitiesSearchBarSearchDelegate(
+          controller: di(),
+          getActivitiesByKeyWordController: di(),
+        ),
       ),
       child: Container(
         width: double.infinity,
