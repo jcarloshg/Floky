@@ -3,7 +3,7 @@ part of 'widget.post_card.dart';
 BoxDecoration _boxDecoration() {
   return BoxDecoration(
     color: Colors.white,
-    borderRadius: BorderRadius.circular(4),
+    borderRadius: BorderRadius.circular(8),
     border: Border.all(
       color: ColorsApp.greyAAAAAA,
       width: 1,

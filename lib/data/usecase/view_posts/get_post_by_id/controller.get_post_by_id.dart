@@ -28,6 +28,7 @@ class GetPostByIDController extends GetPostByIDRepository {
 
     // state.setMessageErro('');
     // state.setPostByID(recentPosts);
+    navigator.goToViewPost(postByID);
     return postByID;
   }
 }
