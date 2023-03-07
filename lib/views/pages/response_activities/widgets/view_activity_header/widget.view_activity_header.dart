@@ -1,4 +1,5 @@
 import 'package:floky/domain/entities/models/ModelProvider.dart';
+import 'package:floky/views/pages/view_posts/widgets/badge_activity_type/widget.badge_activity_type.dart';
 import 'package:floky/views/utils/utils.index.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
@@ -37,7 +38,7 @@ class ViewActivityHeader extends StatelessWidget {
             ],
           ),
         ),
-        type(activityType),
+        BadgeActivityType(activityType: activityType),
       ],
     );
   }
@@ -73,28 +74,3 @@ Text topic(String topicName) => Text(
         fontWeight: FontWeight.normal,
       ),
     );
-
-Widget type(ActivityType activityType) {
-  BoxDecoration boxDecoration = BoxDecoration(
-    color: ActivityUtility.getCategoryColor(activityType),
-    borderRadius: BorderRadius.circular(30),
-  );
-
-  Text activityTypeText = Text(
-    ActivityUtility.getCategoryName(activityType),
-    style: const TextStyle(
-      color: Colors.white,
-      fontSize: 14,
-      fontWeight: FontWeight.bold,
-    ),
-  );
-
-  return Container(
-    width: 90,
-    height: 30,
-    decoration: boxDecoration,
-    child: Center(
-      child: activityTypeText,
-    ),
-  );
-}

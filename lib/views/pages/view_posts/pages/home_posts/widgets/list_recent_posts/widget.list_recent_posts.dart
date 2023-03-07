@@ -1,6 +1,7 @@
 import 'package:floky/data/usecase/view_posts/get_recent_posts/controller.get_recent_posts.dart';
 import 'package:floky/dependencyInjection/setup_di.dart';
 import 'package:floky/domain/entities/models/Post.dart';
+import 'package:floky/views/pages/view_posts/widgets/post_card/widget.post_card.dart';
 import 'package:flutter/material.dart';
 
 class ListRecentPosts extends StatelessWidget {
@@ -20,13 +21,9 @@ class ListRecentPosts extends StatelessWidget {
       ) {
         final List<Post> recentPosts = snapshot.data ?? [];
 
-        return Container(
-          height: 200,
-          width: double.infinity,
-          margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-          decoration: BoxDecoration(border: Border.all()),
-          child: Text(recentPosts.length.toString()),
-        );
+        return recentPosts.isEmpty
+            ? const Text('NADA')
+            : PostCard(post: recentPosts[0]);
       },
     );
   }
