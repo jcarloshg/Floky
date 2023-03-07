@@ -1,3 +1,4 @@
+import 'package:floky/views/pages/view_posts/pages/home_posts/widgets/list_recent_posts/widget.list_recent_posts.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
 
@@ -18,6 +19,8 @@ class HomePosts extends StatelessWidget {
             children: [
               Titles.title(title),
               Titles.subtitle(subtitle),
+              const ListRecentPosts(),
+              const ListRecentPosts(),
             ],
           ),
         ),
