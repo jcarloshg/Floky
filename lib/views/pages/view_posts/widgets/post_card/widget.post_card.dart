@@ -30,7 +30,7 @@ class PostCard extends StatelessWidget {
         children: [
           postCardHeader(),
 
-          postCardAuthor('Jose Carlos Huerta Garcia'),
+          postCardAuthor(post.author.fullName),
           // Text(post.author.fullName), // todo get
 
           Flexible(flex: 1, child: Container()),
