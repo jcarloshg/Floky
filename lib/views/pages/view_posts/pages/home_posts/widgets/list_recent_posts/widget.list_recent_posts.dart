@@ -31,6 +31,7 @@ class ListRecentPosts extends StatelessWidget {
             const SizedBox(height: 5),
             ListView.separated(
               shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
               itemCount: recentPosts.length,
               separatorBuilder: (_, __) => Spacers.spacer5,
               itemBuilder: (_, index) => PostCard(post: recentPosts[index]),
