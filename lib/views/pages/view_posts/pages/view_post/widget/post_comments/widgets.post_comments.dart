@@ -33,13 +33,16 @@ class PostComments extends StatelessWidget {
   Future _showModalFromComments(BuildContext context, String postId) {
     return showModalBottomSheet(
       context: context,
-      builder: (context) => Column(
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          Titles.title('Comentarios'),
-          ViewComments(postId: postId),
-          const CommentInput(),
-        ],
+      builder: (context) => Container(
+        height: 500,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Titles.title('Comentarios'),
+            ViewComments(postId: postId),
+            const CommentInput(),
+          ],
+        ),
       ),
     );
   }

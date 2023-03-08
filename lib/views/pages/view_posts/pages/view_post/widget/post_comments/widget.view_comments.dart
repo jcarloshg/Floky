@@ -31,10 +31,13 @@ class ViewComments extends StatelessWidget {
 
         if (isEmptyListComments.isEmpty) return const Text('no hay nada pa');
 
-        return Container(
-          height: double.infinity,
-          width: double.infinity,
-          color: ColorsApp.listen,
+        return Flexible(
+          flex: 1,
+          child: Container(
+            height: double.infinity,
+            width: double.infinity,
+            color: ColorsApp.listen,
+          ),
         );
       },
     );
