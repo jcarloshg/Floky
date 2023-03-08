@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:floky/data/usecase/view_posts/get_comments_from_post_id/controller.get_comments_from_post_id.dart';
 import 'package:floky/data/usecase/view_posts/get_post_by_id/controller.get_post_by_id.dart';
 import 'package:floky/dependencyInjection/setup_di.dart';
@@ -41,14 +43,16 @@ class ViewComments extends StatelessWidget {
     );
   }
 
-  Widget listComments(List<Comment> comments) => ListView.separated(
-        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-        itemCount: comments.length,
-        itemBuilder: (_, __) => Spacers.spacer15,
-        separatorBuilder: (_, index) => CommentCard(
-          comment: comments[index],
-        ),
-      );
+  Widget listComments(List<Comment> comments) {
+    return ListView.separated(
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+      itemCount: comments.length + 1, // todo check this >:(
+      itemBuilder: (_, __) => Spacers.spacer10,
+      separatorBuilder: (_, index) => CommentCard(
+        comment: comments[index],
+      ),
+    );
+  }
 
   Widget messageNotComments() => const SizedBox(
         height: double.infinity,
