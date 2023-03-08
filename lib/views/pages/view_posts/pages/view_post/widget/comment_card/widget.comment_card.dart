@@ -12,21 +12,47 @@ class CommentCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ConstrainedBox(
-      constraints: const BoxConstraints(minHeight: 100),
-      child: Container(
-        width: double.infinity,
-        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-        decoration: _boxDecoration(),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            authorFullName(comment.author.fullName),
-            createdDate(comment.createdAt.toString()),
-            Spacers.spacer10,
-            body(comment.body),
-          ],
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        photoAuthor(),
+        Spacers.spacer5,
+        CommentInfo(comment: comment),
+      ],
+    );
+  }
+
+  Widget photoAuthor() => const Image(
+        width: 50,
+        height: 50,
+        image: AssetImage('assets/profile/avatar.png'),
+        fit: BoxFit.contain,
+      );
+}
+
+class CommentInfo extends StatelessWidget {
+  final Comment comment;
+  const CommentInfo({super.key, required this.comment});
+
+  @override
+  Widget build(BuildContext context) {
+    return Flexible(
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(minHeight: 100),
+        child: Container(
+          width: double.infinity,
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+          decoration: _boxDecoration(),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              authorFullName(comment.author.fullName),
+              createdDate(comment.createdAt.toString()),
+              Spacers.spacer10,
+              body(comment.body),
+            ],
+          ),
         ),
       ),
     );
