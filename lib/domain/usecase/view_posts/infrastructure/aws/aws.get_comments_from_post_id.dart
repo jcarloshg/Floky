@@ -15,6 +15,7 @@ class GetCommentsFromPostIdAWS extends GetCommentsFromPostIdRepository {
       );
 
       final commentsWithAuthor = await getCommentsWithAuthor(commentsFromPost);
+
       return commentsWithAuthor;
     } catch (e) {
       log('error - GetCommentsFromPostIdAWS');

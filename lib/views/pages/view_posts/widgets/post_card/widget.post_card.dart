@@ -1,5 +1,4 @@
 import 'package:floky/data/usecase/view_posts/get_post_by_id/controller.get_post_by_id.dart';
-import 'package:floky/data/usecase/view_posts/get_recent_posts/controller.get_recent_posts.dart';
 import 'package:floky/dependencyInjection/setup_di.dart';
 import 'package:floky/domain/entities/models/ModelProvider.dart';
 import 'package:floky/views/pages/view_posts/widgets/badge_activity_type/widget.badge_activity_type.dart';

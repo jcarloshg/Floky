@@ -7,8 +7,9 @@ class CommentInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 45,
+      margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
       width: double.infinity,
+      height: 45,
       color: ColorsApp.read,
     );
   }

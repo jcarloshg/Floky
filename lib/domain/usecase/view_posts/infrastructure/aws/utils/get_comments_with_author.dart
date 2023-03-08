@@ -1,9 +1,13 @@
 import 'dart:developer';
 
 import 'package:amplify_flutter/amplify_flutter.dart';
-import 'package:floky/domain/entities/models/ModelProvider.dart';
+import 'package:floky/domain/entities/models/Account.dart';
+import 'package:floky/domain/entities/models/Comment.dart';
+// import 'package:floky/domain/entities/models/ModelProvider.dart';
 
 Future<List<Comment>> getCommentsWithAuthor(List<Comment> comments) async {
+  //
+
   final List<Comment> commentToReturn = [];
 
   try {
@@ -12,7 +16,12 @@ Future<List<Comment>> getCommentsWithAuthor(List<Comment> comments) async {
         Account.classType,
         where: Account.ID.eq(comment.commentAuthorId),
       );
-      final commentWithAuthor = comment.copyWith(author: authorsComment[0]);
+
+      //
+      final author = authorsComment[0];
+      // final createdAt = comment.createdAt;
+      final commentWithAuthor = comment.copyWith(author: author);
+      // commentWithAuthor.createdAt = createdAt;
       commentToReturn.add(commentWithAuthor);
     }
 

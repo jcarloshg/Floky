@@ -1,7 +1,7 @@
 import 'package:floky/data/usecase/view_posts/get_comments_from_post_id/controller.get_comments_from_post_id.dart';
 import 'package:floky/data/usecase/view_posts/get_post_by_id/controller.get_post_by_id.dart';
 import 'package:floky/dependencyInjection/setup_di.dart';
-import 'package:floky/domain/entities/models/ModelProvider.dart';
+import 'package:floky/domain/entities/models/Comment.dart';
 import 'package:floky/views/pages/view_posts/pages/view_post/widget/comment_card/widget.comment_card.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
@@ -33,12 +33,16 @@ class ViewComments extends StatelessWidget {
         final Widget widgetToRender =
             comments.isEmpty ? messageNotComments() : listComments(comments);
 
-        return Flexible(flex: 1, child: widgetToRender);
+        return Flexible(
+          flex: 1,
+          child: widgetToRender,
+        );
       },
     );
   }
 
   Widget listComments(List<Comment> comments) => ListView.separated(
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
         itemCount: comments.length,
         itemBuilder: (_, __) => Spacers.spacer15,
         separatorBuilder: (_, index) => CommentCard(

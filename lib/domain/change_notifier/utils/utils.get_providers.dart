@@ -1,6 +1,7 @@
 import 'package:floky/data/usecase/response_activities/get_activities_by_key_word/state.get_activities_by_key_word.dart';
 import 'package:floky/data/usecase/response_activities/get_activity_by_id/state.get_activity_by_id.dart';
 import 'package:floky/data/usecase/response_activities/get_recent_activities/state.get_recent_activities.dart';
+import 'package:floky/data/usecase/view_posts/get_comments_from_post_id/state.get_comments_from_post_id.dart';
 import 'package:floky/dependencyInjection/global_state/global_state.dart';
 import 'package:floky/dependencyInjection/setup_di.dart';
 import 'package:floky/domain/change_notifier/authenticate/log_in/change_notifier.log_in.dart';
@@ -15,6 +16,7 @@ import 'package:provider/single_child_widget.dart';
 List<SingleChildWidget> getProviders(BuildContext context) {
   final responseActivitiesProvider = getResponseActivitiesProviders();
   final authenticateProviders = getAuthenticateProviders();
+  final viewPostsProviders = getViewPostsProviders();
 
   final List<SingleChildWidget> providers = [
     ChangeNotifierProvider(
@@ -23,8 +25,19 @@ List<SingleChildWidget> getProviders(BuildContext context) {
     ),
     ...authenticateProviders,
     ...responseActivitiesProvider,
+    ...viewPostsProviders,
   ];
 
+  return providers;
+}
+
+List<SingleChildWidget> getViewPostsProviders() {
+  final List<SingleChildWidget> providers = [
+    ChangeNotifierProvider(
+      create: (_) => di<GetCommentsFromPostIdState>(),
+      lazy: false,
+    ),
+  ];
   return providers;
 }
 
