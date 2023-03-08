@@ -11,9 +11,11 @@ class PostBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       flex: 1,
-      child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-        child: Text(body),
+      child: SingleChildScrollView(
+        child: Container(
+          margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+          child: Text(body),
+        ),
       ),
     );
   }

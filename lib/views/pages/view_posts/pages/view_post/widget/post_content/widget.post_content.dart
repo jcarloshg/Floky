@@ -50,9 +50,9 @@ class PostContent extends StatelessWidget {
   Widget postBottom({required String postId}) {
     return Container(
       color: Colors.white,
-      child: const Row(
+      child: Row(
         mainAxisSize: MainAxisSize.max,
-        children: [
+        children: const [
           Expanded(child: CommentsButton()),
           Expanded(child: CommentsButton()),
         ],

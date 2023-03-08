@@ -28,11 +28,11 @@ class ViewComments extends StatelessWidget {
         BuildContext context,
         AsyncSnapshot<List<Comment>> snapshot,
       ) {
-        //
-
         final List<Comment> comments = snapshot.data ?? [];
-        Widget widgetToRender =
+
+        final Widget widgetToRender =
             comments.isEmpty ? messageNotComments() : listComments(comments);
+
         return Flexible(flex: 1, child: widgetToRender);
       },
     );
@@ -40,7 +40,7 @@ class ViewComments extends StatelessWidget {
 
   Widget listComments(List<Comment> comments) => ListView.separated(
         itemCount: comments.length,
-        itemBuilder: (_, __) => Spacers.spacer10,
+        itemBuilder: (_, __) => Spacers.spacer15,
         separatorBuilder: (_, index) => CommentCard(
           comment: comments[index],
         ),
