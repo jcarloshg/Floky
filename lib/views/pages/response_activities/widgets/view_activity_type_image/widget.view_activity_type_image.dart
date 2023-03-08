@@ -13,8 +13,8 @@ class ViewActivityTypeImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      bottom: -50,
-      right: -50,
+      bottom: -25,
+      right: -25,
       child: Image(
         height: 200,
         width: 200,

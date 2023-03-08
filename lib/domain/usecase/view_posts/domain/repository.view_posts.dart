@@ -5,6 +5,7 @@ abstract class ViewPostsRepository {
   // nominal tracking
   Future<List<Post>> getRecentPosts();
   Future<Post?> getPostByID({required String id});
+  Future<List<Comment>> getCommentsFromPostID({required String id});
   Future<bool> commentPost(CommentPostRepositoryParams params);
 
   // tracking alternative nominal

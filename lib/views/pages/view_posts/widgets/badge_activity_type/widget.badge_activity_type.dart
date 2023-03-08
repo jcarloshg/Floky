@@ -1,4 +1,4 @@
-import 'package:floky/domain/entities/models/ActivityType.dart';
+import 'package:floky/domain/entities/models/ModelProvider.dart';
 import 'package:floky/views/utils/utils.index.dart';
 import 'package:flutter/material.dart';
 

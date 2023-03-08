@@ -182,7 +182,7 @@ class Comment extends Model {
   static final QueryField POSTID = QueryField(fieldName: "postID");
   static final QueryField AUTHOR = QueryField(
     fieldName: "author",
-    fieldType: ModelFieldType(ModelFieldTypeEnum.model, ofModelName: 'Account'));
+    fieldType: ModelFieldType(ModelFieldTypeEnum.model, ofModelName: (Account).toString()));
   static final QueryField COMMENTAUTHORID = QueryField(fieldName: "commentAuthorId");
   static var schema = Model.defineSchema(define: (ModelSchemaDefinition modelSchemaDefinition) {
     modelSchemaDefinition.name = "Comment";
@@ -220,7 +220,7 @@ class Comment extends Model {
     modelSchemaDefinition.addField(ModelFieldDefinition.hasOne(
       key: Comment.AUTHOR,
       isRequired: true,
-      ofModelName: 'Account',
+      ofModelName: (Account).toString(),
       associatedKey: Account.ID
     ));
     
@@ -252,10 +252,5 @@ class _CommentModelType extends ModelType<Comment> {
   @override
   Comment fromJson(Map<String, dynamic> jsonData) {
     return Comment.fromJson(jsonData);
-  }
-  
-  @override
-  String modelName() {
-    return 'Comment';
   }
 }

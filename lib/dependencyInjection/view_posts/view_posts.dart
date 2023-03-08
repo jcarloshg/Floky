@@ -1,8 +1,10 @@
 import 'package:floky/dependencyInjection/view_posts/di.comment_post.dart';
+import 'package:floky/dependencyInjection/view_posts/di.get_comments_from_post_id.dart';
 import 'package:floky/dependencyInjection/view_posts/di.get_post_by_id.dart';
 import 'package:floky/dependencyInjection/view_posts/di.get_recent_posts.dart';
 import 'package:floky/domain/usecase/view_posts/application/application.view_posts.dart';
 import 'package:floky/domain/usecase/view_posts/infrastructure/aws/aws.comment_post.dart';
+import 'package:floky/domain/usecase/view_posts/infrastructure/aws/aws.get_comments_from_post_id.dart';
 import 'package:floky/domain/usecase/view_posts/infrastructure/aws/aws.get_post_by_ID.dart';
 import 'package:floky/domain/usecase/view_posts/infrastructure/aws/aws.get_recent_posts.dart';
 import 'package:floky/views/pages/view_posts/controllers/navigator.view_posts.dart';
@@ -17,11 +19,13 @@ Future<void> viewPosts({
   final ViewPostsApplication domain = ViewPostsApplication(
     getRecentPostsRepository: GetRecentPostsAWS(),
     getPostByIDRepository: GetPostByIDAWS(),
+    getCommentsFromPostIdRepository: GetCommentsFromPostIdAWS(),
     commentPostRepository: CommentPostAWS(),
   );
 
   await getRecentPosts(di: di, domain: domain, navigator: navigator);
   await getPostByID(di: di, domain: domain, navigator: navigator);
+  await getCommentsFromPostId(di: di, domain: domain, navigator: navigator);
   await commentPost(di: di, domain: domain, navigator: navigator);
 
   return await null;

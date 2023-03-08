@@ -276,9 +276,4 @@ class _ActivitiesProgressModelType extends ModelType<ActivitiesProgress> {
   ActivitiesProgress fromJson(Map<String, dynamic> jsonData) {
     return ActivitiesProgress.fromJson(jsonData);
   }
-  
-  @override
-  String modelName() {
-    return 'ActivitiesProgress';
-  }
 }

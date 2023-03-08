@@ -217,10 +217,10 @@ class Post extends Model {
   static final QueryField CATEGORY = QueryField(fieldName: "category");
   static final QueryField COMMENTS = QueryField(
     fieldName: "comments",
-    fieldType: ModelFieldType(ModelFieldTypeEnum.model, ofModelName: 'Comment'));
+    fieldType: ModelFieldType(ModelFieldTypeEnum.model, ofModelName: (Comment).toString()));
   static final QueryField AUTHOR = QueryField(
     fieldName: "author",
-    fieldType: ModelFieldType(ModelFieldTypeEnum.model, ofModelName: 'Account'));
+    fieldType: ModelFieldType(ModelFieldTypeEnum.model, ofModelName: (Account).toString()));
   static final QueryField POSTAUTHORID = QueryField(fieldName: "postAuthorId");
   static var schema = Model.defineSchema(define: (ModelSchemaDefinition modelSchemaDefinition) {
     modelSchemaDefinition.name = "Post";
@@ -260,14 +260,14 @@ class Post extends Model {
     modelSchemaDefinition.addField(ModelFieldDefinition.hasMany(
       key: Post.COMMENTS,
       isRequired: false,
-      ofModelName: 'Comment',
+      ofModelName: (Comment).toString(),
       associatedKey: Comment.POSTID
     ));
     
     modelSchemaDefinition.addField(ModelFieldDefinition.hasOne(
       key: Post.AUTHOR,
       isRequired: true,
-      ofModelName: 'Account',
+      ofModelName: (Account).toString(),
       associatedKey: Account.ID
     ));
     
@@ -299,10 +299,5 @@ class _PostModelType extends ModelType<Post> {
   @override
   Post fromJson(Map<String, dynamic> jsonData) {
     return Post.fromJson(jsonData);
-  }
-  
-  @override
-  String modelName() {
-    return 'Post';
   }
 }

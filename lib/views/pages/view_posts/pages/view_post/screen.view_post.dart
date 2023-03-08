@@ -1,6 +1,6 @@
 import 'package:floky/domain/entities/models/ModelProvider.dart';
 import 'package:floky/views/pages/response_activities/widgets/view_activity_type_image/widget.view_activity_type_image.dart';
-import 'package:floky/views/widgets/widgets.index.dart';
+import 'package:floky/views/pages/view_posts/pages/view_post/widget/post_content/widget.post_content.dart';
 import 'package:flutter/material.dart';
 
 class ViewPost extends StatelessWidget {
@@ -15,20 +15,24 @@ class ViewPost extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return fullScreen(
+      imageBackground: ViewActivityTypeImage(activityType: post.category),
+      postContent: PostContent(post: post),
+    );
+  }
+
+  Scaffold fullScreen({
+    required Widget imageBackground,
+    required Widget postContent,
+  }) {
     return Scaffold(
       body: SafeArea(
-        child: Container(
+        child: SizedBox(
           width: double.infinity,
           height: double.infinity,
-          padding: EdgeInsets.symmetric(
-            horizontal: Spacers.size15,
-            vertical: Spacers.size20,
-          ),
           child: Stack(
             clipBehavior: Clip.none,
-            children: [
-              ViewActivityTypeImage(activityType: post.category),
-            ],
+            children: [imageBackground, postContent],
           ),
         ),
       ),

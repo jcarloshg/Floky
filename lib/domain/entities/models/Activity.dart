@@ -264,7 +264,7 @@ class Activity extends Model {
   static final QueryField ANSWERS = QueryField(fieldName: "answers");
   static final QueryField TOPIC = QueryField(
     fieldName: "topic",
-    fieldType: ModelFieldType(ModelFieldTypeEnum.model, ofModelName: 'Topic'));
+    fieldType: ModelFieldType(ModelFieldTypeEnum.model, ofModelName: (Topic).toString()));
   static final QueryField ACTIVITYTOPICID = QueryField(fieldName: "activityTopicId");
   static var schema = Model.defineSchema(define: (ModelSchemaDefinition modelSchemaDefinition) {
     modelSchemaDefinition.name = "Activity";
@@ -322,7 +322,7 @@ class Activity extends Model {
     modelSchemaDefinition.addField(ModelFieldDefinition.hasOne(
       key: Activity.TOPIC,
       isRequired: true,
-      ofModelName: 'Topic',
+      ofModelName: (Topic).toString(),
       associatedKey: Topic.ID
     ));
     
@@ -354,10 +354,5 @@ class _ActivityModelType extends ModelType<Activity> {
   @override
   Activity fromJson(Map<String, dynamic> jsonData) {
     return Activity.fromJson(jsonData);
-  }
-  
-  @override
-  String modelName() {
-    return 'Activity';
   }
 }

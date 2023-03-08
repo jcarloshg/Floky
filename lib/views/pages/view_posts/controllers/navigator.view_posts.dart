@@ -1,5 +1,5 @@
 import 'package:floky/domain/entities/models/ModelProvider.dart';
-import 'package:floky/views/pages/view_posts/pages/view_post/widget/screen.view_post.dart';
+import 'package:floky/views/pages/view_posts/pages/view_post/screen.view_post.dart';
 import 'package:flutter/material.dart';
 
 class ViewPostsNavigator {

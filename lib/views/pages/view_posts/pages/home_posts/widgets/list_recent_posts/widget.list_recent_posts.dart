@@ -6,6 +6,8 @@ import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
 
 class ListRecentPosts extends StatelessWidget {
+  //
+
   const ListRecentPosts({super.key});
 
   @override

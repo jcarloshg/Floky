@@ -29,8 +29,6 @@ class GetActivityByIdController {
       return;
     }
 
-    inspect(activitySelected);
-
     state.setActivitySelected(activitySelected);
     navigator.goToViewActivity(activitySelected);
   }
