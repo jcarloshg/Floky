@@ -52,7 +52,7 @@ class PostCard extends StatelessWidget {
   Row postCardHeader() => Row(
         mainAxisSize: MainAxisSize.max,
         children: [
-          postCardTitle(post.title),
+          Expanded(child: postCardTitle(post.title)),
           BadgeActivityType(activityType: post.category),
         ],
       );
