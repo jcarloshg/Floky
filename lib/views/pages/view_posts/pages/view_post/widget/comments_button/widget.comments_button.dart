@@ -1,5 +1,6 @@
+import 'package:floky/data/usecase/view_posts/get_comments_from_post_id/controller.get_comments_from_post_id.dart';
 import 'package:floky/data/usecase/view_posts/get_comments_from_post_id/state.get_comments_from_post_id.dart';
-import 'package:floky/views/pages/view_posts/pages/view_post/widget/post_comments/widgets.post_comments.dart';
+import 'package:floky/dependencyInjection/setup_di.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -10,21 +11,25 @@ class CommentsButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //
+
+    return InkWell(
+      onTap: () => _goToCommentsPost(context),
+      child: button(_getLabelButton(context)),
+    );
+  }
+
+  String _getLabelButton(BuildContext context) {
     final getCommentsFromPostIdState = Provider.of<GetCommentsFromPostIdState>(
       context,
       listen: true,
     );
-
-    final numberComments =
+    final int numberComments =
         getCommentsFromPostIdState.getCommentsFormPostSelected().length;
-
-    final labelRenderIntoButton =
+    final String labelRenderIntoButton =
         numberComments == 0 ? label : '$numberComments $label';
 
-    return InkWell(
-      // onTap: () => _showModalFromComments(context),
-      child: button(labelRenderIntoButton),
-    );
+    return labelRenderIntoButton;
   }
 
   Widget button(String label) => Container(
@@ -35,9 +40,10 @@ class CommentsButton extends StatelessWidget {
         child: Text(label),
       );
 
-  Future _showModalFromComments(BuildContext context) => showModalBottomSheet(
-        // isScrollControlled: true,
-        context: context,
-        builder: (context) => const PostComments(),
-      );
+  void _goToCommentsPost(BuildContext context) {
+    final getPostByIDController = di<GetCommentsFromPostIdController>();
+    final navigator = getPostByIDController.navigator;
+    navigator.setBuildContext(context);
+    navigator.goToCommentsFromPostScreen();
+  }
 }

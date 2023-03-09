@@ -13,8 +13,9 @@ class ContentView {
       );
 
   static Widget authorFullName(String fullName) => Container(
-        width: double.infinity,
         alignment: Alignment.centerLeft,
+        margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+        width: double.infinity,
         child: Text(
           fullName,
           textAlign: TextAlign.start,
