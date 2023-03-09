@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:floky/data/usecase/view_posts/get_comments_from_post_id/controller.get_comments_from_post_id.dart';
 import 'package:floky/data/usecase/view_posts/get_comments_from_post_id/state.get_comments_from_post_id.dart';
 import 'package:floky/dependencyInjection/setup_di.dart';
@@ -13,13 +15,29 @@ class CommentsButton extends StatelessWidget {
   Widget build(BuildContext context) {
     //
 
+    final getCommentsFromPostIdController =
+        di<GetCommentsFromPostIdController>();
+    final navigator = getCommentsFromPostIdController.navigator;
+    // navigator.setBuildContext(context); // todo check this
+
     return InkWell(
-      onTap: () => _goToCommentsPost(context),
-      child: button(_getLabelButton(context)),
+      onTap: () => navigator.goToCommentsFromPostScreen(),
+      // onTap: () => log('laskdjfklsajdflk'),
+      child: const CommentsButtonTextLabel(),
     );
   }
+}
 
-  String _getLabelButton(BuildContext context) {
+class CommentsButtonTextLabel extends StatelessWidget {
+  const CommentsButtonTextLabel({super.key});
+
+  static String label = 'Comentarios 💬';
+
+  @override
+  Widget build(BuildContext context) {
+    //
+    //
+    // get number from comments
     final getCommentsFromPostIdState = Provider.of<GetCommentsFromPostIdState>(
       context,
       listen: true,
@@ -29,21 +47,19 @@ class CommentsButton extends StatelessWidget {
     final String labelRenderIntoButton =
         numberComments == 0 ? label : '$numberComments $label';
 
-    return labelRenderIntoButton;
-  }
-
-  Widget button(String label) => Container(
-        width: double.infinity,
-        alignment: Alignment.center,
-        color: Colors.white,
-        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
-        child: Text(label),
-      );
-
-  void _goToCommentsPost(BuildContext context) {
-    final getPostByIDController = di<GetCommentsFromPostIdController>();
-    final navigator = getPostByIDController.navigator;
-    navigator.setBuildContext(context);
-    navigator.goToCommentsFromPostScreen();
+    return Container(
+      width: double.infinity,
+      alignment: Alignment.center,
+      color: Colors.white,
+      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
+      child: Text(
+        labelRenderIntoButton,
+        style: const TextStyle(
+          color: Color(0xFF384850),
+          fontSize: 16,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
+    );
   }
 }

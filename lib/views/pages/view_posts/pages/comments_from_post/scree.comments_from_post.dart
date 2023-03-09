@@ -1,5 +1,5 @@
-import 'package:floky/views/pages/view_posts/pages/view_post/widget/comment_input/input.comment.dart';
-import 'package:floky/views/pages/view_posts/pages/view_post/widget/post_comments_title/widget.post_comments_title.dart';
+import 'package:floky/views/pages/view_posts/pages/comments_from_post/widgets/comment_input/input.comment.dart';
+import 'package:floky/views/pages/view_posts/pages/comments_from_post/widgets/comments_from_post_title/widget.comments_from_post_title.dart';
 import 'package:flutter/material.dart';
 
 class CommentsFromPostScreen extends StatelessWidget {
@@ -11,12 +11,22 @@ class CommentsFromPostScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: SingleChildScrollView(
-          physics: const BouncingScrollPhysics(),
+        child: SizedBox(
+          height: double.infinity,
+          width: double.infinity,
           child: Column(
-            children: const [
-              PostCommentsTitle(),
-              CommentInput(),
+            children: [
+              const CommentsFromPostTitle(),
+              // ViewComments(),
+              Flexible(
+                flex: 1,
+                child: Container(
+                  height: double.infinity,
+                  width: double.infinity,
+                  color: Colors.amber,
+                ),
+              ),
+              const CommentInput(),
             ],
           ),
         ),

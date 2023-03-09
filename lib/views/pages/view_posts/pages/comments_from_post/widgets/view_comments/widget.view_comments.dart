@@ -1,10 +1,8 @@
-import 'dart:developer';
-
 import 'package:floky/data/usecase/view_posts/get_comments_from_post_id/controller.get_comments_from_post_id.dart';
 import 'package:floky/data/usecase/view_posts/get_post_by_id/controller.get_post_by_id.dart';
 import 'package:floky/dependencyInjection/setup_di.dart';
 import 'package:floky/domain/entities/models/Comment.dart';
-import 'package:floky/views/pages/view_posts/pages/view_post/widget/comment_card/widget.comment_card.dart';
+import 'package:floky/views/pages/view_posts/pages/comments_from_post/widgets/comment_card/widget.comment_card.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
 

@@ -2,15 +2,17 @@ import 'package:floky/data/usecase/view_posts/get_comments_from_post_id/state.ge
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class PostCommentsTitle extends StatelessWidget {
-  const PostCommentsTitle({super.key});
+class CommentsFromPostTitle extends StatelessWidget {
+  const CommentsFromPostTitle({super.key});
 
   final String label = 'Comentarios 💬';
 
   @override
   Widget build(BuildContext context) {
-    final getCommentsFromPostIdState =
-        Provider.of<GetCommentsFromPostIdState>(context, listen: true);
+    final getCommentsFromPostIdState = Provider.of<GetCommentsFromPostIdState>(
+      context,
+      listen: true,
+    );
 
     final numberComments =
         getCommentsFromPostIdState.getCommentsFormPostSelected().length;

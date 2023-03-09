@@ -2,6 +2,7 @@ import 'package:floky/data/usecase/view_posts/get_comments_from_post_id/controll
 import 'package:floky/data/usecase/view_posts/get_post_by_id/controller.get_post_by_id.dart';
 import 'package:floky/dependencyInjection/setup_di.dart';
 import 'package:floky/domain/entities/models/ModelProvider.dart';
+import 'package:floky/views/pages/view_posts/pages/comments_from_post/widgets/comments_from_post_title/widget.comments_from_post_title.dart';
 import 'package:floky/views/pages/view_posts/pages/view_post/widget/comments_button/widget.comments_button.dart';
 import 'package:floky/views/pages/view_posts/pages/view_post/widget/post_body/widget.post_body.dart';
 import 'package:floky/views/pages/view_posts/widgets/badge_activity_type/widget.badge_activity_type.dart';
@@ -50,6 +51,7 @@ class _ViewPostState extends State<ViewPost> {
               postHeader(title: post.title, category: post.category),
               ContentView.authorFullName('post.author.fullName'),
               PostBody(body: post.body),
+              // const CommentsFromPostTitle(),
               const CommentsButton(),
             ],
           ),
