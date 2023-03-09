@@ -8,12 +8,15 @@ class PostsSearcherBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 30),
-      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-      decoration: _decoration(),
-      child: _placeHolder(),
+    return InkWell(
+      onTap: () => {},
+      child: Container(
+        width: double.infinity,
+        margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 30),
+        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+        decoration: _decoration(),
+        child: _placeHolder(),
+      ),
     );
   }
 
