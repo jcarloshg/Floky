@@ -1,5 +1,6 @@
 import 'package:floky/views/pages/view_posts/pages/comments_from_post/widgets/comment_input/input.comment.dart';
 import 'package:floky/views/pages/view_posts/pages/comments_from_post/widgets/comments_from_post_title/widget.comments_from_post_title.dart';
+import 'package:floky/views/pages/view_posts/pages/comments_from_post/widgets/view_comments/widget.view_comments.dart';
 import 'package:flutter/material.dart';
 
 class CommentsFromPostScreen extends StatelessWidget {
@@ -15,18 +16,10 @@ class CommentsFromPostScreen extends StatelessWidget {
           height: double.infinity,
           width: double.infinity,
           child: Column(
-            children: [
-              const CommentsFromPostTitle(),
-              // ViewComments(),
-              Flexible(
-                flex: 1,
-                child: Container(
-                  height: double.infinity,
-                  width: double.infinity,
-                  color: Colors.amber,
-                ),
-              ),
-              const CommentInput(),
+            children: const [
+              CommentsFromPostTitle(),
+              ViewComments(),
+              CommentInput(),
             ],
           ),
         ),

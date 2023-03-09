@@ -29,7 +29,12 @@ class ViewComments extends StatelessWidget {
         AsyncSnapshot<List<Comment>> snapshot,
       ) {
         final List<Comment> comments = snapshot.data ?? [];
-        return comments.isEmpty ? messageNotComments() : listComments(comments);
+
+        return Expanded(
+          flex: 1,
+          child:
+              comments.isEmpty ? messageNotComments() : listComments(comments),
+        );
       },
     );
   }
@@ -47,11 +52,9 @@ class ViewComments extends StatelessWidget {
     );
   }
 
-  Widget messageNotComments() => Container(
-        decoration: BoxDecoration(border: Border.all()),
-        // height: 300,
+  Widget messageNotComments() => const SizedBox(
         width: double.infinity,
-        child: const Center(
+        child: Center(
           child: Text(
             'No hay comentarios 😢',
             style: TextStyle(
