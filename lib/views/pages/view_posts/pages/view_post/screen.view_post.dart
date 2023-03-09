@@ -2,9 +2,16 @@ import 'package:floky/data/usecase/view_posts/get_comments_from_post_id/controll
 import 'package:floky/data/usecase/view_posts/get_post_by_id/controller.get_post_by_id.dart';
 import 'package:floky/dependencyInjection/setup_di.dart';
 import 'package:floky/domain/entities/models/ModelProvider.dart';
-import 'package:floky/views/pages/response_activities/widgets/view_activity_type_image/widget.view_activity_type_image.dart';
-import 'package:floky/views/pages/view_posts/pages/view_post/widget/post_content/widget.post_content.dart';
+import 'package:floky/views/pages/view_posts/pages/view_post/widget/post_body/widget.post_body.dart';
+import 'package:floky/views/pages/view_posts/widgets/badge_activity_type/widget.badge_activity_type.dart';
+// import 'package:floky/views/utils/utils.index.dart';
+import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
+
+import 'widget/comment_input/input.comment.dart';
+import 'widget/comments_button/widget.comments_button.dart';
+import 'widget/post_comments_title/widget.post_comments_title.dart';
+import 'widget/view_comments/widget.view_comments.dart';
 
 class ViewPost extends StatefulWidget {
   final Post post;
@@ -37,28 +44,59 @@ class _ViewPostState extends State<ViewPost> {
 
   @override
   Widget build(BuildContext context) {
-    return fullScreen(
-      imageBackground:
-          ViewActivityTypeImage(activityType: widget.post.category),
-      postContent: PostContent(post: widget.post),
-    );
-  }
+    final Post post = widget.post;
 
-  Scaffold fullScreen({
-    required Widget imageBackground,
-    required Widget postContent,
-  }) {
     return Scaffold(
       body: SafeArea(
         child: SizedBox(
-          width: double.infinity,
           height: double.infinity,
-          child: Stack(
-            clipBehavior: Clip.none,
-            children: [imageBackground, postContent],
+          width: double.infinity,
+          child: Column(
+            children: [
+              postHeader(title: post.title, category: post.category),
+              postAuthorFullName(fullName: 'post.author.fullName'),
+              postContent(post.body),
+              const CommentsButton(),
+              const CommentInput(),
+            ],
           ),
         ),
       ),
+    );
+  }
+
+  Widget postContent(String body) {
+    return Flexible(
+      flex: 1,
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            PostBody(body: body),
+            const PostCommentsTitle(),
+            const ViewComments(),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget postHeader({required String title, required ActivityType category}) {
+    return Container(
+      margin: const EdgeInsets.fromLTRB(15, 30, 15, 5),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Expanded(child: ContentView.title(title)),
+          BadgeActivityType(activityType: category),
+        ],
+      ),
+    );
+  }
+
+  Widget postAuthorFullName({required String fullName}) {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+      child: ContentView.authorFullName(fullName),
     );
   }
 }

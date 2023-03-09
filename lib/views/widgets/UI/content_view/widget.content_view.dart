@@ -12,12 +12,17 @@ class ContentView {
         ),
       );
 
-  static Text authorFullName(String fullName) => Text(
-        fullName,
-        style: const TextStyle(
-          color: Color(0xFF384850),
-          fontSize: 14,
-          fontWeight: FontWeight.w400,
+  static Widget authorFullName(String fullName) => Container(
+        width: double.infinity,
+        alignment: Alignment.centerLeft,
+        child: Text(
+          fullName,
+          textAlign: TextAlign.start,
+          style: const TextStyle(
+            color: Color(0xFF384850),
+            fontSize: 14,
+            fontWeight: FontWeight.w400,
+          ),
         ),
       );
 }

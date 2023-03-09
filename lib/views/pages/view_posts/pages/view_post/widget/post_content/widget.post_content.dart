@@ -1,4 +1,5 @@
 import 'package:floky/domain/entities/models/ModelProvider.dart';
+import 'package:floky/views/pages/view_posts/pages/view_post/widget/comment_input/input.comment.dart';
 import 'package:floky/views/pages/view_posts/pages/view_post/widget/comments_button/widget.comments_button.dart';
 import 'package:floky/views/pages/view_posts/pages/view_post/widget/post_body/widget.post_body.dart';
 import 'package:floky/views/pages/view_posts/widgets/badge_activity_type/widget.badge_activity_type.dart';
@@ -22,7 +23,9 @@ class PostContent extends StatelessWidget {
         postHeader(title: post.title, category: post.category),
         postAuthorFullName(fullName: 'Jose Carlos Huerta Garcia'),
         PostBody(body: post.body),
-        postBottom(postId: post.id),
+        // const PostComments(),
+        // postBottom(postId: post.id),
+        const CommentInput(),
       ],
     );
   }
@@ -53,7 +56,6 @@ class PostContent extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.max,
         children: const [
-          Expanded(child: CommentsButton()),
           Expanded(child: CommentsButton()),
         ],
       ),

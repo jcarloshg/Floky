@@ -22,7 +22,7 @@ class CommentsButton extends StatelessWidget {
         numberComments == 0 ? label : '$numberComments $label';
 
     return InkWell(
-      onTap: () => _showModalFromComments(context),
+      // onTap: () => _showModalFromComments(context),
       child: button(labelRenderIntoButton),
     );
   }
@@ -30,12 +30,13 @@ class CommentsButton extends StatelessWidget {
   Widget button(String label) => Container(
         width: double.infinity,
         alignment: Alignment.center,
+        color: Colors.white,
         padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
         child: Text(label),
       );
 
   Future _showModalFromComments(BuildContext context) => showModalBottomSheet(
-        isScrollControlled: true,
+        // isScrollControlled: true,
         context: context,
         builder: (context) => const PostComments(),
       );

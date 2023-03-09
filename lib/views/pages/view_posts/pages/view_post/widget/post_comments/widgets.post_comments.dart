@@ -11,7 +11,7 @@ class PostComments extends StatelessWidget {
     final double currentHeight = MediaQuery.of(context).size.height - 150;
 
     return Container(
-      height: currentHeight,
+      height: double.infinity,
       decoration: _boxDecoration(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

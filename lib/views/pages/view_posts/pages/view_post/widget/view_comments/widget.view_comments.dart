@@ -31,21 +31,16 @@ class ViewComments extends StatelessWidget {
         AsyncSnapshot<List<Comment>> snapshot,
       ) {
         final List<Comment> comments = snapshot.data ?? [];
-
-        final Widget widgetToRender =
-            comments.isEmpty ? messageNotComments() : listComments(comments);
-
-        return Flexible(
-          flex: 1,
-          child: widgetToRender,
-        );
+        return comments.isEmpty ? messageNotComments() : listComments(comments);
       },
     );
   }
 
   Widget listComments(List<Comment> comments) {
     return ListView.separated(
+      shrinkWrap: true,
       padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+      physics: const NeverScrollableScrollPhysics(),
       itemCount: comments.length + 1, // todo check this >:(
       itemBuilder: (_, __) => Spacers.spacer10,
       separatorBuilder: (_, index) => CommentCard(
@@ -54,10 +49,11 @@ class ViewComments extends StatelessWidget {
     );
   }
 
-  Widget messageNotComments() => const SizedBox(
-        height: double.infinity,
+  Widget messageNotComments() => Container(
+        decoration: BoxDecoration(border: Border.all()),
+        // height: 300,
         width: double.infinity,
-        child: Center(
+        child: const Center(
           child: Text(
             'No hay comentarios 😢',
             style: TextStyle(

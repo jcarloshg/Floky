@@ -11,15 +11,12 @@ BoxDecoration _boxDecoration() {
   );
 }
 
-Widget postCardTitle(String title) => Flexible(
-      flex: 1,
-      child: Text(
-        title,
-        style: TextStyle(
-          color: Colors.blueGrey.shade900,
-          fontSize: 16,
-          fontWeight: FontWeight.w500,
-        ),
+Widget postCardTitle(String title) => Text(
+      title,
+      style: TextStyle(
+        color: Colors.blueGrey.shade900,
+        fontSize: 16,
+        fontWeight: FontWeight.w500,
       ),
     );
 

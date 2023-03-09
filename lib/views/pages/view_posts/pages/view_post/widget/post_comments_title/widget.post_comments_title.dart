@@ -19,7 +19,9 @@ class PostCommentsTitle extends StatelessWidget {
         numberComments == 0 ? label : '$numberComments $label';
 
     return Container(
-      margin: const EdgeInsets.fromLTRB(15, 15, 15, 10),
+      width: double.infinity,
+      alignment: Alignment.centerLeft,
+      margin: const EdgeInsets.fromLTRB(30, 15, 15, 10),
       child: Text(
         labelRenderIntoButton,
         style: const TextStyle(
