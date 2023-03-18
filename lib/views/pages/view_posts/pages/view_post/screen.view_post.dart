@@ -49,7 +49,7 @@ class _ViewPostState extends State<ViewPost> {
           child: Column(
             children: [
               postHeader(title: post.title, category: post.category),
-              ContentView.authorFullName('post.author.fullName'),
+              ContentView.authorFullName(post.author.fullName),
               PostBody(body: post.body),
               // const CommentsFromPostTitle(),
               const CommentsButton(),

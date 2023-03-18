@@ -1,7 +1,9 @@
+import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:floky/domain/entities/models/ModelProvider.dart';
 import 'package:floky/views/utils/colors_app.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class CommentCard extends StatelessWidget {
   //
@@ -67,14 +69,19 @@ class CommentInfo extends StatelessWidget {
         ),
       );
 
-  Widget createdDate(String date) => Text(
-        date,
-        style: const TextStyle(
-          color: Color(0xFF384850),
-          fontSize: 12,
-          fontWeight: FontWeight.w300,
-        ),
-      );
+  Widget createdDate(String date) {
+    final DateFormat dateFormat = DateFormat("dd, MMMM yyyy");
+    final dateString = dateFormat.format(DateTime.parse(date));
+
+    return Text(
+      dateString,
+      style: const TextStyle(
+        color: Color(0xFF384850),
+        fontSize: 12,
+        fontWeight: FontWeight.w300,
+      ),
+    );
+  }
 
   Widget body(String comment) => Text(
         comment,

@@ -23,7 +23,6 @@ import 'ModelProvider.dart';
 import 'package:amplify_core/amplify_core.dart';
 import 'package:flutter/foundation.dart';
 
-
 /** This is an auto generated class representing the Comment type in your schema. */
 @immutable
 class Comment extends Model {
@@ -38,217 +37,258 @@ class Comment extends Model {
 
   @override
   getInstanceType() => classType;
-  
+
   @override
   String getId() {
     return id;
   }
-  
+
   String get body {
     try {
       return _body!;
-    } catch(e) {
+    } catch (e) {
       throw new AmplifyCodeGenModelException(
-          AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
-          recoverySuggestion:
-            AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
-          underlyingException: e.toString()
-          );
+          AmplifyExceptionMessages
+              .codeGenRequiredFieldForceCastExceptionMessage,
+          recoverySuggestion: AmplifyExceptionMessages
+              .codeGenRequiredFieldForceCastRecoverySuggestion,
+          underlyingException: e.toString());
     }
   }
-  
+
   String get postID {
     try {
       return _postID!;
-    } catch(e) {
+    } catch (e) {
       throw new AmplifyCodeGenModelException(
-          AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
-          recoverySuggestion:
-            AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
-          underlyingException: e.toString()
-          );
+          AmplifyExceptionMessages
+              .codeGenRequiredFieldForceCastExceptionMessage,
+          recoverySuggestion: AmplifyExceptionMessages
+              .codeGenRequiredFieldForceCastRecoverySuggestion,
+          underlyingException: e.toString());
     }
   }
-  
+
   Account get author {
     try {
       return _author!;
-    } catch(e) {
+    } catch (e) {
       throw new AmplifyCodeGenModelException(
-          AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
-          recoverySuggestion:
-            AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
-          underlyingException: e.toString()
-          );
+          AmplifyExceptionMessages
+              .codeGenRequiredFieldForceCastExceptionMessage,
+          recoverySuggestion: AmplifyExceptionMessages
+              .codeGenRequiredFieldForceCastRecoverySuggestion,
+          underlyingException: e.toString());
     }
   }
-  
+
   TemporalDateTime? get createdAt {
     return _createdAt;
   }
-  
+
   TemporalDateTime? get updatedAt {
     return _updatedAt;
   }
-  
+
   String get commentAuthorId {
     try {
       return _commentAuthorId!;
-    } catch(e) {
+    } catch (e) {
       throw new AmplifyCodeGenModelException(
-          AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
-          recoverySuggestion:
-            AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
-          underlyingException: e.toString()
-          );
+          AmplifyExceptionMessages
+              .codeGenRequiredFieldForceCastExceptionMessage,
+          recoverySuggestion: AmplifyExceptionMessages
+              .codeGenRequiredFieldForceCastRecoverySuggestion,
+          underlyingException: e.toString());
     }
   }
-  
-  const Comment._internal({required this.id, required body, required postID, required author, createdAt, updatedAt, required commentAuthorId}): _body = body, _postID = postID, _author = author, _createdAt = createdAt, _updatedAt = updatedAt, _commentAuthorId = commentAuthorId;
-  
-  factory Comment({String? id, required String body, required String postID, required Account author, required String commentAuthorId}) {
+
+  const Comment._internal(
+      {required this.id,
+      required body,
+      required postID,
+      required author,
+      createdAt,
+      updatedAt,
+      required commentAuthorId})
+      : _body = body,
+        _postID = postID,
+        _author = author,
+        _createdAt = createdAt,
+        _updatedAt = updatedAt,
+        _commentAuthorId = commentAuthorId;
+
+  factory Comment(
+      {String? id,
+      required String body,
+      required String postID,
+      required Account author,
+      required String commentAuthorId}) {
     return Comment._internal(
-      id: id == null ? UUID.getUUID() : id,
-      body: body,
-      postID: postID,
-      author: author,
-      commentAuthorId: commentAuthorId);
+        id: id == null ? UUID.getUUID() : id,
+        body: body,
+        postID: postID,
+        author: author,
+        commentAuthorId: commentAuthorId);
   }
-  
+
   bool equals(Object other) {
     return this == other;
   }
-  
+
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is Comment &&
-      id == other.id &&
-      _body == other._body &&
-      _postID == other._postID &&
-      _author == other._author &&
-      _commentAuthorId == other._commentAuthorId;
+        id == other.id &&
+        _body == other._body &&
+        _postID == other._postID &&
+        _author == other._author &&
+        _commentAuthorId == other._commentAuthorId;
   }
-  
+
   @override
   int get hashCode => toString().hashCode;
-  
+
   @override
   String toString() {
     var buffer = new StringBuffer();
-    
+
     buffer.write("Comment {");
     buffer.write("id=" + "$id" + ", ");
     buffer.write("body=" + "$_body" + ", ");
     buffer.write("postID=" + "$_postID" + ", ");
-    buffer.write("createdAt=" + (_createdAt != null ? _createdAt!.format() : "null") + ", ");
-    buffer.write("updatedAt=" + (_updatedAt != null ? _updatedAt!.format() : "null") + ", ");
+    buffer.write("createdAt=" +
+        (_createdAt != null ? _createdAt!.format() : "null") +
+        ", ");
+    buffer.write("updatedAt=" +
+        (_updatedAt != null ? _updatedAt!.format() : "null") +
+        ", ");
     buffer.write("commentAuthorId=" + "$_commentAuthorId");
     buffer.write("}");
-    
+
     return buffer.toString();
   }
-  
-  Comment copyWith({String? id, String? body, String? postID, Account? author, String? commentAuthorId}) {
+
+  Comment copyWith(
+      {String? id,
+      String? body,
+      String? postID,
+      Account? author,
+      String? commentAuthorId}) {
     return Comment._internal(
       id: id ?? this.id,
       body: body ?? this.body,
       postID: postID ?? this.postID,
       author: author ?? this.author,
-      commentAuthorId: commentAuthorId ?? this.commentAuthorId);
+      commentAuthorId: commentAuthorId ?? this.commentAuthorId,
+      createdAt: createdAt,
+    );
   }
-  
-  Comment.fromJson(Map<String, dynamic> json)  
-    : id = json['id'],
-      _body = json['body'],
-      _postID = json['postID'],
-      _author = json['author']?['serializedData'] != null
-        ? Account.fromJson(new Map<String, dynamic>.from(json['author']['serializedData']))
-        : null,
-      _createdAt = json['createdAt'] != null ? TemporalDateTime.fromString(json['createdAt']) : null,
-      _updatedAt = json['updatedAt'] != null ? TemporalDateTime.fromString(json['updatedAt']) : null,
-      _commentAuthorId = json['commentAuthorId'];
-  
+
+  Comment.fromJson(Map<String, dynamic> json)
+      : id = json['id'],
+        _body = json['body'],
+        _postID = json['postID'],
+        _author = json['author']?['serializedData'] != null
+            ? Account.fromJson(
+                new Map<String, dynamic>.from(json['author']['serializedData']))
+            : null,
+        _createdAt = json['createdAt'] != null
+            ? TemporalDateTime.fromString(json['createdAt'])
+            : null,
+        _updatedAt = json['updatedAt'] != null
+            ? TemporalDateTime.fromString(json['updatedAt'])
+            : null,
+        _commentAuthorId = json['commentAuthorId'];
+
   Map<String, dynamic> toJson() => {
-    'id': id, 'body': _body, 'postID': _postID, 'author': _author?.toJson(), 'createdAt': _createdAt?.format(), 'updatedAt': _updatedAt?.format(), 'commentAuthorId': _commentAuthorId
-  };
-  
+        'id': id,
+        'body': _body,
+        'postID': _postID,
+        'author': _author?.toJson(),
+        'createdAt': _createdAt?.format(),
+        'updatedAt': _updatedAt?.format(),
+        'commentAuthorId': _commentAuthorId
+      };
+
   Map<String, Object?> toMap() => {
-    'id': id, 'body': _body, 'postID': _postID, 'author': _author, 'createdAt': _createdAt, 'updatedAt': _updatedAt, 'commentAuthorId': _commentAuthorId
-  };
+        'id': id,
+        'body': _body,
+        'postID': _postID,
+        'author': _author,
+        'createdAt': _createdAt,
+        'updatedAt': _updatedAt,
+        'commentAuthorId': _commentAuthorId
+      };
 
   static final QueryField ID = QueryField(fieldName: "id");
   static final QueryField BODY = QueryField(fieldName: "body");
   static final QueryField POSTID = QueryField(fieldName: "postID");
   static final QueryField AUTHOR = QueryField(
-    fieldName: "author",
-    fieldType: ModelFieldType(ModelFieldTypeEnum.model, ofModelName: (Account).toString()));
-  static final QueryField COMMENTAUTHORID = QueryField(fieldName: "commentAuthorId");
-  static var schema = Model.defineSchema(define: (ModelSchemaDefinition modelSchemaDefinition) {
+      fieldName: "author",
+      fieldType: ModelFieldType(ModelFieldTypeEnum.model,
+          ofModelName: (Account).toString()));
+  static final QueryField COMMENTAUTHORID =
+      QueryField(fieldName: "commentAuthorId");
+  static var schema =
+      Model.defineSchema(define: (ModelSchemaDefinition modelSchemaDefinition) {
     modelSchemaDefinition.name = "Comment";
     modelSchemaDefinition.pluralName = "Comments";
-    
+
     modelSchemaDefinition.authRules = [
-      AuthRule(
-        authStrategy: AuthStrategy.PUBLIC,
-        operations: [
-          ModelOperation.CREATE,
-          ModelOperation.UPDATE,
-          ModelOperation.DELETE,
-          ModelOperation.READ
-        ])
+      AuthRule(authStrategy: AuthStrategy.PUBLIC, operations: [
+        ModelOperation.CREATE,
+        ModelOperation.UPDATE,
+        ModelOperation.DELETE,
+        ModelOperation.READ
+      ])
     ];
-    
+
     modelSchemaDefinition.indexes = [
       ModelIndex(fields: const ["postID"], name: "byPost")
     ];
-    
+
     modelSchemaDefinition.addField(ModelFieldDefinition.id());
-    
+
     modelSchemaDefinition.addField(ModelFieldDefinition.field(
-      key: Comment.BODY,
-      isRequired: true,
-      ofType: ModelFieldType(ModelFieldTypeEnum.string)
-    ));
-    
+        key: Comment.BODY,
+        isRequired: true,
+        ofType: ModelFieldType(ModelFieldTypeEnum.string)));
+
     modelSchemaDefinition.addField(ModelFieldDefinition.field(
-      key: Comment.POSTID,
-      isRequired: true,
-      ofType: ModelFieldType(ModelFieldTypeEnum.string)
-    ));
-    
+        key: Comment.POSTID,
+        isRequired: true,
+        ofType: ModelFieldType(ModelFieldTypeEnum.string)));
+
     modelSchemaDefinition.addField(ModelFieldDefinition.hasOne(
-      key: Comment.AUTHOR,
-      isRequired: true,
-      ofModelName: (Account).toString(),
-      associatedKey: Account.ID
-    ));
-    
+        key: Comment.AUTHOR,
+        isRequired: true,
+        ofModelName: (Account).toString(),
+        associatedKey: Account.ID));
+
     modelSchemaDefinition.addField(ModelFieldDefinition.nonQueryField(
-      fieldName: 'createdAt',
-      isRequired: false,
-      isReadOnly: true,
-      ofType: ModelFieldType(ModelFieldTypeEnum.dateTime)
-    ));
-    
+        fieldName: 'createdAt',
+        isRequired: false,
+        isReadOnly: true,
+        ofType: ModelFieldType(ModelFieldTypeEnum.dateTime)));
+
     modelSchemaDefinition.addField(ModelFieldDefinition.nonQueryField(
-      fieldName: 'updatedAt',
-      isRequired: false,
-      isReadOnly: true,
-      ofType: ModelFieldType(ModelFieldTypeEnum.dateTime)
-    ));
-    
+        fieldName: 'updatedAt',
+        isRequired: false,
+        isReadOnly: true,
+        ofType: ModelFieldType(ModelFieldTypeEnum.dateTime)));
+
     modelSchemaDefinition.addField(ModelFieldDefinition.field(
-      key: Comment.COMMENTAUTHORID,
-      isRequired: true,
-      ofType: ModelFieldType(ModelFieldTypeEnum.string)
-    ));
+        key: Comment.COMMENTAUTHORID,
+        isRequired: true,
+        ofType: ModelFieldType(ModelFieldTypeEnum.string)));
   });
 }
 
 class _CommentModelType extends ModelType<Comment> {
   const _CommentModelType();
-  
+
   @override
   Comment fromJson(Map<String, dynamic> jsonData) {
     return Comment.fromJson(jsonData);
