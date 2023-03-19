@@ -48,8 +48,11 @@ class _ViewPostState extends State<ViewPost> {
           width: double.infinity,
           child: Column(
             children: [
-              postHeader(title: post.title, category: post.category),
-              ContentView.authorFullName(post.author.fullName),
+              postHeader(
+                title: post.title,
+                category: post.category,
+                author: post.author.fullName,
+              ),
               PostBody(body: post.body),
               // const CommentsFromPostTitle(),
               const CommentsButton(),
@@ -60,14 +63,29 @@ class _ViewPostState extends State<ViewPost> {
     );
   }
 
-  Widget postHeader({required String title, required ActivityType category}) {
-    return Container(
-      margin: const EdgeInsets.fromLTRB(15, 30, 15, 5),
+  Widget postHeader({
+    required String title,
+    required ActivityType category,
+    required String author,
+  }) {
+    Widget titleAndActivityType = Container(
+      margin: const EdgeInsets.fromLTRB(15, 15, 15, 5),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
         children: [
           Expanded(child: ContentView.title(title)),
           BadgeActivityType(activityType: category),
+        ],
+      ),
+    );
+
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 5),
+      child: Column(
+        children: [
+          titleAndActivityType,
+          ContentView.authorFullName(author),
         ],
       ),
     );

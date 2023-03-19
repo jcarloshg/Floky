@@ -20,7 +20,6 @@ class CommentsButton extends StatelessWidget {
 
     return InkWell(
       onTap: () => navigator.goToCommentsFromPostScreen(),
-      // onTap: () => log('laskdjfklsajdflk'),
       child: const CommentsButtonTextLabel(),
     );
   }
@@ -48,7 +47,7 @@ class CommentsButtonTextLabel extends StatelessWidget {
     return Container(
       width: double.infinity,
       alignment: Alignment.center,
-      color: Colors.white,
+      // color: Colors.white,
       padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
       child: Text(
         labelRenderIntoButton,

@@ -6,11 +6,12 @@ class ColorsApp {
   //============================================================
   static Color buttonBackground = Colors.blueAccent.shade400;
   static Color buttonBorder = Colors.blueAccent.shade400;
-  
+
   //============================================================
   // texto from app
   //============================================================
-  static const Color text = Color(0xFF384850);
+  static const Color title = Color(0xFF384850);
+  static const Color text = Color.fromARGB(255, 75, 90, 97);
 
   //============================================================
   // borders
