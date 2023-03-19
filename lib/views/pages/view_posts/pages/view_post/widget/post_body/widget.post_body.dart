@@ -3,6 +3,8 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 
+import 'package:url_launcher/url_launcher.dart';
+
 class PostBody extends StatelessWidget {
   //
 
@@ -19,18 +21,22 @@ class PostBody extends StatelessWidget {
           margin: const EdgeInsets.symmetric(horizontal: 15),
           child: Html(
             data: body,
-            onLinkTap: (
-              String? url,
-              RenderContext context,
-              Map<String, String> attributes,
-              element,
-            ) {
-              final _url = Uri.parse(uri);
-              inspect(_url);
-            },
+            onLinkTap: _openLink,
           ),
         ),
       ),
     );
+  }
+
+  Future<void> _openLink(
+    String? url,
+    RenderContext context,
+    Map<String, String> attributes,
+    element,
+  ) async {
+    final uriParse = Uri.parse(url ?? '');
+    if (!await launchUrl(uriParse)) {
+      throw Exception('Could not launch $uriParse ');
+    }
   }
 }
