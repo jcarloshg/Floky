@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_html/flutter_html.dart';
 
 class PostBody extends StatelessWidget {
   //
@@ -14,7 +17,18 @@ class PostBody extends StatelessWidget {
       child: SingleChildScrollView(
         child: Container(
           margin: const EdgeInsets.symmetric(horizontal: 15),
-          child: Text(body),
+          child: Html(
+            data: body,
+            onLinkTap: (
+              String? url,
+              RenderContext context,
+              Map<String, String> attributes,
+              element,
+            ) {
+              final _url = Uri.parse(uri);
+              inspect(_url);
+            },
+          ),
         ),
       ),
     );
