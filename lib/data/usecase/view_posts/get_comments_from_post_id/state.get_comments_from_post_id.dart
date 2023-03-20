@@ -6,6 +6,7 @@ class GetCommentsFromPostIdState extends ChangeNotifier {
 
   List<Comment> _commentsFormPostSelected = [];
   List<Comment> getCommentsFormPostSelected() => _commentsFormPostSelected;
+
   void setCommentsFormPostSelected(List<Comment> comments,
       {bool notify = false}) {
     _commentsFormPostSelected = comments;
