@@ -1,4 +1,3 @@
-import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:floky/domain/entities/models/ModelProvider.dart';
 import 'package:floky/views/utils/colors_app.dart';
 import 'package:floky/views/widgets/widgets.index.dart';

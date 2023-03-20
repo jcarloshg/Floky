@@ -42,7 +42,7 @@ class PostCard extends StatelessWidget {
             postCardHeader(),
             postCardAuthor(post.author.fullName),
             Flexible(flex: 1, child: Container()),
-            postCardCreatedAt(),
+            postCardCreatedAt(post.createdAt.toString()),
           ],
         ),
       ),

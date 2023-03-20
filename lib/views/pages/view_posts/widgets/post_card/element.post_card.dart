@@ -29,9 +29,10 @@ Widget postCardAuthor(String authorFullName) => Text(
       ),
     );
 
-Widget postCardCreatedAt() {
+Widget postCardCreatedAt(String dateString) {
   DateFormat dateFormat = DateFormat("dd, MMMM yyyy");
-  String string = dateFormat.format(DateTime.now());
+  String string = dateFormat.format(DateTime.parse(dateString));
+
   return Text(
     string,
     style: TextStyle(
