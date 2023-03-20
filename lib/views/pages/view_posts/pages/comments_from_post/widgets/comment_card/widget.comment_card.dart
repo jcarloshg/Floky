@@ -70,8 +70,8 @@ class CommentInfo extends StatelessWidget {
 
   Widget createdDate(String date) {
     final DateFormat dateFormat = DateFormat("dd, MMMM yyyy");
-    // final dateString = dateFormat.format(DateTime.parse(date));
-    final dateString = dateFormat.format(DateTime.now());
+    final dateString = dateFormat.format(DateTime.parse(date));
+    // final dateString = dateFormat.format(DateTime.now());
 
     return Text(
       dateString,

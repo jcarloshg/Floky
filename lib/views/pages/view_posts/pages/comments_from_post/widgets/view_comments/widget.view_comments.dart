@@ -58,7 +58,7 @@ class _ViewCommentsState extends State<ViewComments> {
     return ListView.separated(
       shrinkWrap: true,
       padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-      physics: const NeverScrollableScrollPhysics(),
+      // physics: const NeverScrollableScrollPhysics(),
       itemCount: comments.length + 1, // todo check this >:(
       itemBuilder: (_, __) => Spacers.spacer15,
       separatorBuilder: (_, index) => CommentCard(
