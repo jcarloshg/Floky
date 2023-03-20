@@ -1,5 +1,4 @@
 import 'package:floky/data/usecase/view_posts/comment_post/controller.comment_post.dart';
-import 'package:floky/domain/usecase/view_posts/domain/repository.comment_post.dart';
 import 'package:floky/views/pages/view_posts/pages/comments_from_post/widgets/comment_input/widget.comment_input.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
