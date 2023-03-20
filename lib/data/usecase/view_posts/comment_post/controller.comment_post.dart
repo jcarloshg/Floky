@@ -61,7 +61,10 @@ class CommentPostController {
       return false;
     }
 
-    // state.setMessageErro('');
+    // reset data
+    commentPostData.comment = '';
+    // commentPostData.formController?.comment.text = '';
+
     await di<GetCommentsFromPostIdController>().run(id: postId);
     return true;
   }
