@@ -7,8 +7,6 @@ import 'package:provider/provider.dart';
 class CommentsButton extends StatelessWidget {
   const CommentsButton({super.key});
 
-  static String label = 'Comentarios 💬';
-
   @override
   Widget build(BuildContext context) {
     //
@@ -47,7 +45,7 @@ class CommentsButtonTextLabel extends StatelessWidget {
     return Container(
       width: double.infinity,
       alignment: Alignment.center,
-      // color: Colors.white,
+      color: Colors.white,
       padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
       child: Text(
         labelRenderIntoButton,

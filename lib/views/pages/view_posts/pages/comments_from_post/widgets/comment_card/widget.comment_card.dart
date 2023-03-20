@@ -17,7 +17,7 @@ class CommentCard extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         photoAuthor(),
-        Spacers.spacer5,
+        Spacers.spacer10,
         CommentInfo(comment: comment),
       ],
     );

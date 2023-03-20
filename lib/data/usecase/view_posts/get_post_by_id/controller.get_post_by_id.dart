@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:floky/data/usecase/view_posts/get_post_by_id/state.get_post_by_id.dart';
 import 'package:floky/domain/entities/models/Post.dart';
 import 'package:floky/domain/usecase/view_posts/application/application.view_posts.dart';
@@ -29,8 +27,6 @@ class GetPostByIDController extends GetPostByIDRepository {
       // state.setMessageErro('No se encontraron coincidencias');
       return null;
     }
-
-    inspect(postSelected);
 
     // state.setMessageErro('');
     state.setPostSelected(postSelected);

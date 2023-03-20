@@ -45,7 +45,7 @@ class ViewComments extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
       physics: const NeverScrollableScrollPhysics(),
       itemCount: comments.length + 1, // todo check this >:(
-      itemBuilder: (_, __) => Spacers.spacer10,
+      itemBuilder: (_, __) => Spacers.spacer15,
       separatorBuilder: (_, index) => CommentCard(
         comment: comments[index],
       ),

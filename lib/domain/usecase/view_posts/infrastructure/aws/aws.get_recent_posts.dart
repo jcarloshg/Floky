@@ -20,7 +20,6 @@ class GetRecentPostsAWS extends GetRecentPostsRepository {
             b: b.createdAt,
           ),
         );
-      // return postsWithAuthor.sort((a, b) => sortPostsByCreatedAtASC(a, b));
       return postsWithAuthor;
     } on DataStoreException {
       List<Post> voidPosts = [];

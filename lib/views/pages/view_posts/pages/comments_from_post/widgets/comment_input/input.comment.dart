@@ -1,28 +1,33 @@
-import 'package:floky/views/utils/utils.index.dart';
+import 'package:floky/data/usecase/view_posts/comment_post/controller.comment_post.dart';
+import 'package:floky/views/pages/view_posts/pages/comments_from_post/widgets/comment_input/widget.comment_input.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
 
 class CommentInput extends StatelessWidget {
-  const CommentInput({super.key});
+  const CommentInput({
+    super.key,
+    required this.commentPostController,
+  });
+
+  final CommentPostController commentPostController;
 
   @override
   Widget build(BuildContext context) {
+    final commentPostData = commentPostController.state.getCommentPostData();
+    final formControl = commentPostData.getNewFormControl();
+
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
-      decoration: BoxDecoration(
-        border: Border.all(),
-        color: Colors.white,
-      ),
       child: Row(
         mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          photoAuthor(),
-          Spacers.spacer10,
-          const Flexible(child: CommentInputValue()),
-          Spacers.spacer10,
+          Flexible(
+            child: CommentInputValue(control: formControl.comment),
+          ),
+          Spacers.spacer5,
           photoAuthor(),
         ],
       ),
@@ -30,26 +35,9 @@ class CommentInput extends StatelessWidget {
   }
 
   Widget photoAuthor() => const Image(
-        width: 25,
-        height: 25,
+        width: 35,
+        height: 35,
         image: AssetImage('assets/profile/avatar.png'),
         fit: BoxFit.contain,
       );
-}
-
-class CommentInputValue extends StatelessWidget {
-  const CommentInputValue({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      margin: EdgeInsets.only(top: Spacers.size5),
-      decoration: BoxDecoration(
-        border: Border.all(),
-        color: ColorsApp.listen,
-      ),
-      child: TextFormField(),
-    );
-  }
 }
