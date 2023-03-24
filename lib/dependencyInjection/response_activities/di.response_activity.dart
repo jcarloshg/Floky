@@ -1,5 +1,6 @@
 import 'package:floky/domain/change_notifier/response_activities/change_notifier.response_activities.dart';
 import 'package:floky/domain/usecase/response_activities/application/application.response_activities.dart';
+import 'package:floky/views/pages/response_activities/controllers/controller.response_activities.dart';
 import 'package:floky/views/pages/response_activities/controllers/navigator.response_activities.dart';
 import 'package:get_it/get_it.dart';
 
@@ -13,10 +14,10 @@ Future<void> responseActivity({
   //============================================================
   // data
   //============================================================
-  // di.registerSingleton<ResponseActivitiesChangeNotifier>(
-  //   ResponseActivitiesChangeNotifier(),
-  //   signalsReady: true,
-  // );
+  di.registerSingleton<ResponseActivitiesChangeNotifier>(
+    ResponseActivitiesChangeNotifier(),
+    signalsReady: true,
+  );
 
   //============================================================
   // domain -> this has been initialized
@@ -25,6 +26,12 @@ Future<void> responseActivity({
   //============================================================
   // view
   //============================================================
+  di.registerSingleton<ResponseActivitiesController>(
+    ResponseActivitiesController(
+      navigator: navigator,
+    ),
+    signalsReady: true,
+  );
 
   //============================================================
   // driver
