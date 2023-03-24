@@ -28,6 +28,8 @@ Future<void> responseActivity({
   //============================================================
   di.registerSingleton<ResponseActivitiesController>(
     ResponseActivitiesController(
+      domain: domain,
+      state: di<ResponseActivitiesChangeNotifier>(),
       navigator: navigator,
     ),
     signalsReady: true,
