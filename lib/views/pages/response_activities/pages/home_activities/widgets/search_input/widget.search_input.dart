@@ -14,7 +14,6 @@ class SearchInput extends StatelessWidget {
       onTap: () => showSearch(
         context: context,
         delegate: ActivitiesSearchBarSearchDelegate(
-          controller: di(),
           getActivitiesByKeyWordController: di(),
         ),
       ),

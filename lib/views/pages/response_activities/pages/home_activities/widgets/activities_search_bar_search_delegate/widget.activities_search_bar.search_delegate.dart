@@ -1,6 +1,5 @@
 import 'package:floky/data/usecase/response_activities/get_activities_by_key_word/controller.get_activities_by_key_word.dart';
 import 'package:floky/domain/entities/models/ModelProvider.dart';
-import 'package:floky/views/pages/response_activities/controllers/controller.response_activities.dart';
 import 'package:floky/views/pages/response_activities/pages/home_activities/widgets/activity_card/widget.activity_card.dart';
 import 'package:floky/views/utils/utils.index.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
@@ -12,14 +11,12 @@ part 'element.activities_search_bar.search_delegate.dart';
 
 class ActivitiesSearchBarSearchDelegate extends SearchDelegate {
   ActivitiesSearchBarSearchDelegate({
-    required this.controller,
     required this.getActivitiesByKeyWordController,
   }) : super(
           searchFieldLabel: searchFieldLabel,
           searchFieldStyle: searchFieldStyle,
         );
 
-  final ResponseActivitiesController controller;
   final GetActivitiesByKeyWordController getActivitiesByKeyWordController;
 
   @override
@@ -57,9 +54,11 @@ class ActivitiesSearchBarSearchDelegate extends SearchDelegate {
 
   @override
   Widget buildResults(BuildContext context) {
+    final activities =
+        getActivitiesByKeyWordController.state.getActivitiesByKeyWord();
+
     return _renderActivitiesFoundedByKeyword(
-      activitiesFounded:
-          controller.getActivitiesByKeyWordData.activitiesFoundedByKeyword,
+      activitiesFounded: activities,
       queryTerm: query,
     );
   }

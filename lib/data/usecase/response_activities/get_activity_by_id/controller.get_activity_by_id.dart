@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:floky/data/usecase/response_activities/get_activity_by_id/state.get_activity_by_id.dart';
 import 'package:floky/domain/entities/models/ModelProvider.dart';
 import 'package:floky/domain/usecase/response_activities/application/application.response_activities.dart';

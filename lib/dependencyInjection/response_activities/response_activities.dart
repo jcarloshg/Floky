@@ -6,6 +6,7 @@ import 'package:floky/dependencyInjection/global_state/global_state.dart';
 import 'package:floky/dependencyInjection/response_activities/di.get_activities_by_key_word.dart';
 import 'package:floky/dependencyInjection/response_activities/di.get_activity_by_id.dart';
 import 'package:floky/dependencyInjection/response_activities/di.get_recent_activities.dart';
+import 'package:floky/dependencyInjection/response_activities/di.response_activity.dart';
 import 'package:floky/domain/change_notifier/response_activities/change_notifier.response_activities.dart';
 import 'package:floky/domain/usecase/authenticate/infrastructure/aws.get_current_student.dart';
 import 'package:floky/domain/usecase/response_activities/application/application.response_activities.dart';
@@ -21,7 +22,7 @@ Future<void> responseActivities({required GetIt di}) async {
   //
 
   final ResponseActivitiesNavigator navigator = ResponseActivitiesNavigator();
-  final ResponseActivities responseActivities = ResponseActivities(
+  final ResponseActivities domain = ResponseActivities(
     getRecentActivitiesRepository: GetRecentActivitiesAWS(),
     getActivityByIDRepository: GetActivityByIdAWS(),
     responseActivityRepository: ResponseActivityAWS(),
@@ -95,21 +96,8 @@ Future<void> responseActivities({required GetIt di}) async {
   await _domain();
   await _view();
 
-  await getRecentActivities(
-    di: di,
-    domain: responseActivities,
-    navigator: navigator,
-  );
-
-  await getActivityById(
-    di: di,
-    domain: responseActivities,
-    navigator: navigator,
-  );
-
-  await getActivitiesByKeyWord(
-    di: di,
-    domain: responseActivities,
-    navigator: navigator,
-  );
+  await getRecentActivities(di: di, domain: domain, navigator: navigator);
+  await getActivityById(di: di, domain: domain, navigator: navigator);
+  await getActivitiesByKeyWord(di: di, domain: domain, navigator: navigator);
+  await responseActivity(di: di, domain: domain, navigator: navigator);
 }
