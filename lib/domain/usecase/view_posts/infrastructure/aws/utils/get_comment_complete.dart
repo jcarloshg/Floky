@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:floky/domain/entities/models/ModelProvider.dart';
 
@@ -18,6 +20,9 @@ Future<List<Comment>> getCommentComplete(List<Comment> comments) async {
       );
       commentWithAllData = commentFromQuery[0];
     }
+
+    inspect(comment);
+    inspect(commentWithAllData);
 
     commentsToReturn.add(commentWithAllData);
   }

@@ -63,7 +63,7 @@ class CommentPostController {
 
     // reset data
     commentPostData.comment = '';
-    // commentPostData.formController?.comment.text = '';
+    commentPostData.formController?.comment.text = '';
 
     await di<GetCommentsFromPostIdController>().run(id: postId);
     return true;

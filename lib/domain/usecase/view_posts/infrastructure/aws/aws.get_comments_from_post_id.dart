@@ -16,17 +16,18 @@ class GetCommentsFromPostIdAWS extends GetCommentsFromPostIdRepository {
         where: Comment.POSTID.eq(id),
       );
 
-      final List<Comment> commentsWithAllData =
-          await getCommentComplete(commentsFromPost);
+      // final List<Comment> commentsWithAllData =
+      //     await getCommentComplete(commentsFromPost);
 
-      final commentsWithAuthor =
-          await getCommentsWithAuthor(commentsWithAllData)
-            ..sort(
-              (a, b) => sortByCreatedAtAscending(
-                a: a.createdAt,
-                b: b.createdAt,
-              ),
-            );
+      inspect(commentsFromPost);
+
+      final commentsWithAuthor = await getCommentsWithAuthor(commentsFromPost)
+        ..sort(
+          (a, b) => sortByCreatedAtAscending(
+            a: a.createdAt,
+            b: b.createdAt,
+          ),
+        );
 
       return commentsWithAuthor;
     } catch (e) {

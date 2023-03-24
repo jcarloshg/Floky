@@ -30,6 +30,7 @@ class GetPostByIDController extends GetPostByIDRepository {
 
     // state.setMessageErro('');
     state.setPostSelected(postSelected);
+    // two calls into widget.post_card.dart && screen.view_post.dart
     navigator.goToViewPost(postSelected);
     return postSelected;
   }
