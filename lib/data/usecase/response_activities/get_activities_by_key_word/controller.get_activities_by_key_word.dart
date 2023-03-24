@@ -28,18 +28,18 @@ class GetActivitiesByKeyWordController
       return recentActivities;
     }
 
-    state.setIsLoading(true);
+    // state.setIsLoading(true);
     final activitiesByKeyWord =
         await domain.getActivitiesByKeyWord(keyword: keyword);
-    state.setIsLoading(false);
+    // state.setIsLoading(false);
 
     if (activitiesByKeyWord.isEmpty == true) {
-      state.setMessageErro('No se encontraron coincidencias');
+      // state.setMessageErro('No se encontraron coincidencias');
       return activitiesByKeyWord;
     }
 
-    state.setMessageErro('');
-    state.setActivitiesByKeyWord(activitiesByKeyWord);
+    // state.setMessageErro('');
+    state.setActivitiesByKeyWord(activitiesByKeyWord); // todo check this
     return activitiesByKeyWord;
   }
 }

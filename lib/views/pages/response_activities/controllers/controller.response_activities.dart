@@ -13,28 +13,28 @@ class ResponseActivitiesController {
   final ResponseActivitiesNavigator navigator;
 
   // todo drop this
-  final GlobalState globalState;
-  late ResponseActivities repository;
-  final GetActivitiesByKeyWordData getActivitiesByKeyWordData;
-  final ResponseActivityData responseActivityData;
-  final GetActivityByIDData getActivityByIDData;
-  final GetCurrentStudentData getCurrentStudentData;
+  // final GlobalState globalState;
+  // late ResponseActivities repository;
+  // final GetActivitiesByKeyWordData getActivitiesByKeyWordData;
+  // final ResponseActivityData responseActivityData;
+  // final GetActivityByIDData getActivityByIDData;
+  // final GetCurrentStudentData getCurrentStudentData;
 
   ResponseActivitiesController({
-    required this.globalState,
     required this.navigator,
     // todo drop this
-    required this.getActivitiesByKeyWordData,
-    required this.responseActivityData,
-    required this.getActivityByIDData,
-    required this.getCurrentStudentData,
+    // required this.globalState,
+    // required this.getActivitiesByKeyWordData,
+    // required this.responseActivityData,
+    // required this.getActivityByIDData,
+    // required this.getCurrentStudentData,
   }) {
-    repository = ResponseActivities(
-      getActivitiesByKeyWordRepository: getActivitiesByKeyWordData,
-      getActivityByIDRepository: getActivityByIDData,
-      responseActivityRepository: responseActivityData,
-      getRecentActivitiesRepository: GetRecentActivitiesAWS(),
-      getCurrentStudentRepository: getCurrentStudentData,
-    );
+    // repository = ResponseActivities(
+    //   getActivitiesByKeyWordRepository: getActivitiesByKeyWordData,
+    //   getActivityByIDRepository: getActivityByIDData,
+    //   responseActivityRepository: responseActivityData,
+    //   getRecentActivitiesRepository: GetRecentActivitiesAWS(),
+    //   getCurrentStudentRepository: getCurrentStudentData,
+    // );
   }
 }

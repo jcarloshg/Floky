@@ -13,7 +13,7 @@ class ActivitiesSearcher extends StatelessWidget {
       child: const Column(
         children: [
           SearchInput(),
-          SearchByCategories(),
+          // SearchByCategories(),
         ],
       ),
     );

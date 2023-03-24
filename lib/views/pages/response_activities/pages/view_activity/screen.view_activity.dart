@@ -65,7 +65,7 @@ class ViewActivityScreen extends StatelessWidget {
             );
 
     final goToResponseActivityButton =
-        GoToResponseActivityButton(activity: activity);
+        GoToResponseActivityButton(activity: activity); // change name
 
     return Column(
       mainAxisSize: MainAxisSize.max,

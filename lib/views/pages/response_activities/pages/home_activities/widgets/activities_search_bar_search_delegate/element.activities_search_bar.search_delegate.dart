@@ -24,6 +24,8 @@ Widget _renderActivitiesFoundedByKeyword({
     child: Column(
       mainAxisSize: MainAxisSize.max,
       children: [
+        // const SearchByCategories(),
+        Spacers.spacer15,
         Titles.thirdTitle('Actividades encontradas por... "$queryTerm"'),
         Spacers.spacer15,
         Flexible(
