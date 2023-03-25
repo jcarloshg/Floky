@@ -18,6 +18,7 @@ class ActivityAnswerWriting extends StatelessWidget {
       keyboardType: TextInputType.name,
       autocorrect: false,
       onChanged: (value) => setResponse(value),
+      validator: (value) => validateValue(value),
       decoration: _inputDecoration(),
     );
   }
@@ -25,6 +26,13 @@ class ActivityAnswerWriting extends StatelessWidget {
   void setResponse(String response) {
     final responseActivitiesState = responseActivitiesController.state;
     responseActivitiesState.setResponse(response);
+  }
+
+  String? validateValue(String? value) {
+    const errorSting = 'La respuesta es obligatoria';
+    if (value == null) return null;
+    if (value.isEmpty) return errorSting;
+    return (value.isEmpty) ? errorSting : null;
   }
 
   String getHelp() => '${correctAnswer.substring(0, 4)}...';
