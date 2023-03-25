@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 ///
 /// * HomeActivities  -> home_activities.screen.dart
 /// * ViewActivity    -> screen.view_activity.dart
-/// * to Response activity - [HomeActivitiesScreen] -> [ViewActivityScreen] -> [ResponseActivityScreen] -> [HomeActivitiesScreen]
 ///
 
 class ResponseActivitiesNavigator {
@@ -28,15 +27,5 @@ class ResponseActivitiesNavigator {
         builder: (context) => ViewActivityScreen(activity: activity),
       ),
     );
-  }
-
-  void goToResponseActivity(Activity activity) {
-    // if (_context == null) return;
-    // Navigator.push(
-    //   _context!,
-    //   MaterialPageRoute(
-    //     builder: (context) => ResponseActivityScreen(activity: activity),
-    //   ),
-    // );
   }
 }
