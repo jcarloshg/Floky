@@ -1,3 +1,4 @@
+import 'package:floky/dependencyInjection/setup_di.dart';
 import 'package:floky/domain/entities/models/ModelProvider.dart';
 import 'package:flutter/widgets.dart';
 
@@ -18,15 +19,16 @@ class ViewActivityAnswers extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (activityType == ActivityType.WRITING) {
-      return ActivityAnswerWriting(
-        correctAnswer: answers.correct,
-      );
-    }
-
     if (activityType == ActivityType.READING) {
       return ActivityAnswerReading(
         answersListString: answersToList(answers),
+        responseActivitiesController: di(),
+      );
+    }
+
+    if (activityType == ActivityType.WRITING) {
+      return ActivityAnswerWriting(
+        correctAnswer: answers.correct,
       );
     }
 

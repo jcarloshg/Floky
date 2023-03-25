@@ -3,12 +3,11 @@ import 'package:flutter/foundation.dart';
 class ResponseActivitiesChangeNotifier extends ChangeNotifier {
   String _response = '[NOTHING]';
 
-  String get response {
-    final String responseToReturn = _response;
-    return responseToReturn;
+  String getResponse() {
+    return _response;
   }
 
-  set response(String newResponse) {
+  void setResponse(String newResponse) {
     _response = newResponse;
     notifyListeners();
   }

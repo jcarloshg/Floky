@@ -1,16 +1,16 @@
-import 'package:floky/dependencyInjection/setup_di.dart';
-import 'package:floky/domain/entities/models/Activity.dart';
+import 'dart:developer';
+
 import 'package:floky/views/pages/response_activities/controllers/controller.response_activities.dart';
 import 'package:flutter/material.dart';
 
-class GoToResponseActivityButton extends StatelessWidget {
-  const GoToResponseActivityButton({
+class ResponseActivityButton extends StatelessWidget {
+  const ResponseActivityButton({
     super.key,
-    required this.activity,
+    required this.responseActivitiesController,
   });
 
-  final Activity activity;
-  static const String title = 'Responser actividad.';
+  final ResponseActivitiesController responseActivitiesController;
+  static const String title = 'Responser actividad';
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class GoToResponseActivityButton extends StatelessWidget {
       width: double.infinity,
       alignment: Alignment.centerRight,
       child: InkWell(
-        onTap: () => goToResponseActivity(context, activity),
+        onTap: () => responseActivitiesController.responseActivity(),
         child: Container(
           width: 200,
           height: 48,
@@ -29,11 +29,6 @@ class GoToResponseActivityButton extends StatelessWidget {
     );
   }
 
-  void goToResponseActivity(BuildContext context, Activity activity) {
-    final controller = di<ResponseActivitiesController>();
-    controller.navigator.goToResponseActivity(activity);
-  }
-
   BoxDecoration boxDecoration() => BoxDecoration(
         border: Border.all(color: Colors.blueAccent.shade400),
         color: Colors.blueAccent,
@@ -41,7 +36,7 @@ class GoToResponseActivityButton extends StatelessWidget {
       );
 
   Text text() => const Text(
-        GoToResponseActivityButton.title,
+        ResponseActivityButton.title,
         style: TextStyle(
           color: Colors.white,
           fontSize: 14,

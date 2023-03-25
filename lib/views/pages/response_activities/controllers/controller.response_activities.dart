@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:floky/domain/change_notifier/response_activities/change_notifier.response_activities.dart';
 import 'package:floky/domain/usecase/response_activities/application/application.response_activities.dart';
 import 'package:floky/views/pages/response_activities/controllers/navigator.response_activities.dart';
@@ -13,5 +15,8 @@ class ResponseActivitiesController {
     required this.navigator,
   });
 
-  void responseActivity() {}
+  void responseActivity() {
+    final String responseValue = state.getResponse();
+    log(responseValue);
+  }
 }

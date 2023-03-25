@@ -1,5 +1,6 @@
+import 'package:floky/dependencyInjection/setup_di.dart';
 import 'package:floky/domain/entities/models/ModelProvider.dart';
-import 'package:floky/views/pages/response_activities/pages/view_activity/widgets/button_go_to_response_activity/widget.button_go_to_response_activity.dart';
+import 'package:floky/views/pages/response_activities/pages/view_activity/widgets/button_response_activity/widget.button_response_activity.dart';
 import 'package:floky/views/pages/response_activities/pages/view_activity/widgets/view_activity_answers/widget.view_activity_answers.dart';
 import 'package:floky/views/pages/response_activities/widgets/view_activity_concept_Information_examples/widget.view_activity_concept_Information_examples.dart';
 import 'package:floky/views/pages/response_activities/widgets/view_activity_header/widget.view_activity_header.dart';
@@ -64,9 +65,6 @@ class ViewActivityScreen extends StatelessWidget {
               examples: activity.topic.examples!,
             );
 
-    final goToResponseActivityButton =
-        GoToResponseActivityButton(activity: activity); // change name
-
     return Column(
       mainAxisSize: MainAxisSize.max,
       children: [
@@ -85,7 +83,7 @@ class ViewActivityScreen extends StatelessWidget {
             ),
           ),
         ),
-        goToResponseActivityButton,
+        ResponseActivityButton(responseActivitiesController: di()),
         Spacers.spacer20,
         viewActivityConceptInformationExamples(),
         Spacers.spacer20,
