@@ -1,3 +1,4 @@
+import 'package:floky/views/pages/response_activities/pages/view_activity/widgets/view_activity_answers/talking/widget.talking_button.dart';
 import 'package:floky/views/utils/utils.index.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
@@ -16,22 +17,23 @@ class ActivityAnswerTalking extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Spacers.spacer20,
-        buttonPlayAudio(),
+        // buttonPlayAudio(),
+        const TalkingButton(),
         Spacers.spacer10,
         answerText(correctAnswer),
       ],
     );
   }
 
-  InkWell buttonPlayAudio() => InkWell(
-        onTap: () {},
-        child: Image(
-          height: 80,
-          width: 80,
-          fit: BoxFit.scaleDown,
-          image: AssetImage(ActivityUtility.urlImageSpeak),
-        ),
-      );
+  // InkWell buttonPlayAudio() => InkWell(
+  //       onTap: () {},
+  //       child: Image(
+  //         height: 80,
+  //         width: 80,
+  //         fit: BoxFit.scaleDown,
+  //         image: AssetImage(ActivityUtility.urlImageSpeak),
+  //       ),
+  //     );
 
   Text answerText(String answer) => Text(
         answer,

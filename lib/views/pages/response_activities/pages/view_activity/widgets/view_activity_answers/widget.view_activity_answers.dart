@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 
 import './widget.activity_answer_listening.dart';
 import './widget.activity_answer_reading.dart';
-import './widget.activity_answer_talking.dart';
+import 'talking/widget.activity_answer_talking.dart';
 import './widget.activity_answer_writing.dart';
 
 class ViewActivityAnswers extends StatelessWidget {
