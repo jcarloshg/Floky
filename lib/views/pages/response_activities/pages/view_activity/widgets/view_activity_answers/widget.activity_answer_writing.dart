@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:floky/views/pages/response_activities/controllers/controller.response_activities.dart';
 import 'package:floky/views/utils/utils.index.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +18,7 @@ class ActivityAnswerWriting extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       keyboardType: TextInputType.name,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
       autocorrect: false,
       onChanged: (value) => setResponse(value),
       validator: (value) => validateValue(value),
