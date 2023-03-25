@@ -1,3 +1,4 @@
+import 'package:floky/views/pages/response_activities/controllers/controller.response_activities.dart';
 import 'package:floky/views/utils/utils.index.dart';
 import 'package:flutter/material.dart';
 
@@ -5,17 +6,25 @@ class ActivityAnswerWriting extends StatelessWidget {
   const ActivityAnswerWriting({
     super.key,
     required this.correctAnswer,
+    required this.responseActivitiesController,
   });
 
   final String correctAnswer;
+  final ResponseActivitiesController responseActivitiesController;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       keyboardType: TextInputType.name,
       autocorrect: false,
+      onChanged: (value) => setResponse(value),
       decoration: _inputDecoration(),
     );
+  }
+
+  void setResponse(String response) {
+    final responseActivitiesState = responseActivitiesController.state;
+    responseActivitiesState.setResponse(response);
   }
 
   String getHelp() => '${correctAnswer.substring(0, 4)}...';

@@ -45,6 +45,7 @@ dependencies:
     intl: ^0.17.0
     flutter_html: ^3.0.0-alpha.6
     url_launcher: ^6.1.10
+    flutter_tts: ^3.6.3
 
 dev_dependencies:
     flutter_test:

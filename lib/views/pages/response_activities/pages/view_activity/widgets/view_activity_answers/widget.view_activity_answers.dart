@@ -29,6 +29,7 @@ class ViewActivityAnswers extends StatelessWidget {
     if (activityType == ActivityType.WRITING) {
       return ActivityAnswerWriting(
         correctAnswer: answers.correct,
+        responseActivitiesController: di(),
       );
     }
 
