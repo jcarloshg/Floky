@@ -13,14 +13,18 @@ class _TalkingButtonState extends State<TalkingButton> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(border: Border.all()),
-      child: InkWell(
-        onTap: () {},
-        child: Image(
-          height: 80,
-          width: 80,
-          fit: BoxFit.scaleDown,
-          image: AssetImage(ActivityUtility.urlImageSpeak),
-        ),
+      child: buttonTalking(),
+    );
+  }
+
+  InkWell buttonTalking() {
+    return InkWell(
+      onTap: () {},
+      child: Image(
+        height: 80,
+        width: 80,
+        fit: BoxFit.scaleDown,
+        image: AssetImage(ActivityUtility.urlImageSpeak),
       ),
     );
   }
