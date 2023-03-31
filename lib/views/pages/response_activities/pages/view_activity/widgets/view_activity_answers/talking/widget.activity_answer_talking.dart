@@ -17,8 +17,7 @@ class ActivityAnswerTalking extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Spacers.spacer20,
-        // SpeechSampleApp(),
+        Spacers.spacer10,
         const TalkingButton(),
         Spacers.spacer10,
         answerText(correctAnswer),
@@ -30,7 +29,7 @@ class ActivityAnswerTalking extends StatelessWidget {
         answer,
         style: const TextStyle(
           color: ColorsApp.text,
-          fontSize: 16,
+          fontSize: 14,
           fontWeight: FontWeight.normal,
           fontStyle: FontStyle.italic,
         ),
