@@ -1,3 +1,4 @@
+import 'package:avatar_glow/avatar_glow.dart';
 import 'package:floky/views/utils/utils.index.dart';
 import 'package:floky/views/widgets/UI/spacer/ui.spacer.dart';
 import 'package:flutter/material.dart';
@@ -56,16 +57,26 @@ class _TalkingButtonState extends State<TalkingButton> {
     required void Function() startRecord,
     required bool isListening,
   }) {
+    final image = Image(
+      height: 80,
+      width: 80,
+      fit: BoxFit.scaleDown,
+      image: AssetImage(ActivityUtility.urlImageSpeak),
+    );
+
+    final imageAvatarGlow = AvatarGlow(
+      endRadius: 75.0,
+      glowColor: ColorsApp.speak,
+      duration: Duration(milliseconds: 750),
+      repeat: true,
+      showTwoGlows: true,
+      repeatPauseDuration: Duration(milliseconds: 100),
+      child: image,
+    );
+
     return InkWell(
       onTap: () => startRecord(),
-      child: Image(
-        height: 80,
-        width: 80,
-        fit: BoxFit.scaleDown,
-        image: isListening
-            ? AssetImage(ActivityUtility.urlImagePlay)
-            : AssetImage(ActivityUtility.urlImageSpeak),
-      ),
+      child: isListening ? imageAvatarGlow : image,
     );
   }
 
