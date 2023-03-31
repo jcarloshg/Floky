@@ -1,3 +1,4 @@
+import 'package:floky/dependencyInjection/setup_di.dart';
 import 'package:floky/views/pages/response_activities/pages/view_activity/widgets/view_activity_answers/talking/widget.talking_button.dart';
 // import 'package:floky/views/pages/response_activities/pages/view_activity/widgets/view_activity_answers/talking/widget.talking_button_.dart';
 import 'package:floky/views/utils/utils.index.dart';
@@ -18,7 +19,9 @@ class ActivityAnswerTalking extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Spacers.spacer10,
-        const TalkingButton(),
+        TalkingButton(
+          responseActivitiesController: di(),
+        ),
         Spacers.spacer10,
         answerText(correctAnswer),
       ],

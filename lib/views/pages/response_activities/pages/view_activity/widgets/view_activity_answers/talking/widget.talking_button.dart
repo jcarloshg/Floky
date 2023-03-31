@@ -1,4 +1,5 @@
 import 'package:avatar_glow/avatar_glow.dart';
+import 'package:floky/views/pages/response_activities/controllers/controller.response_activities.dart';
 import 'package:floky/views/utils/utils.index.dart';
 import 'package:floky/views/widgets/UI/spacer/ui.spacer.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +8,14 @@ import 'package:speech_to_text/speech_recognition_result.dart';
 import 'package:speech_to_text/speech_to_text.dart';
 
 class TalkingButton extends StatefulWidget {
-  const TalkingButton({super.key});
+  //
+
+  const TalkingButton({
+    super.key,
+    required this.responseActivitiesController,
+  });
+
+  final ResponseActivitiesController responseActivitiesController;
 
   @override
   State<TalkingButton> createState() => _TalkingButtonState();
@@ -67,10 +75,10 @@ class _TalkingButtonState extends State<TalkingButton> {
     final imageAvatarGlow = AvatarGlow(
       endRadius: 75.0,
       glowColor: ColorsApp.speak,
-      duration: Duration(milliseconds: 750),
+      duration: const Duration(milliseconds: 750),
       repeat: true,
       showTwoGlows: true,
-      repeatPauseDuration: Duration(milliseconds: 100),
+      repeatPauseDuration: const Duration(milliseconds: 100),
       child: image,
     );
 
@@ -103,6 +111,8 @@ class _TalkingButtonState extends State<TalkingButton> {
 
   void resultListener(SpeechRecognitionResult result) {
     setState(() => response = result.recognizedWords);
+    final responseActivitiesState = widget.responseActivitiesController.state;
+    responseActivitiesState.setResponse(response);
   }
 
   void errorListener(SpeechRecognitionError error) {
