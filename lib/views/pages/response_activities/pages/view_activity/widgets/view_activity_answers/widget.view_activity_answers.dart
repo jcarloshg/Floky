@@ -2,10 +2,10 @@ import 'package:floky/dependencyInjection/setup_di.dart';
 import 'package:floky/domain/entities/models/ModelProvider.dart';
 import 'package:flutter/widgets.dart';
 
-import './widget.activity_answer_listening.dart';
-import './widget.activity_answer_reading.dart';
+import 'listening/widget.activity_answer_listening.dart';
+import 'reading/widget.activity_answer_reading.dart';
 import 'talking/widget.activity_answer_talking.dart';
-import './widget.activity_answer_writing.dart';
+import 'writing/widget.activity_answer_writing.dart';
 
 class ViewActivityAnswers extends StatelessWidget {
   const ViewActivityAnswers({
@@ -41,6 +41,7 @@ class ViewActivityAnswers extends StatelessWidget {
 
     if (activityType == ActivityType.LISTENING) {
       return ActivityAnswerListening(
+        correctAnswer: answers.correct,
         answersListString: answersToList(answers),
       );
     }

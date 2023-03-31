@@ -1,3 +1,4 @@
+import 'package:floky/views/pages/response_activities/pages/view_activity/widgets/view_activity_answers/listening/widget.listening_button.dart';
 import 'package:floky/views/utils/utils.index.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
@@ -6,28 +7,33 @@ class ActivityAnswerListening extends StatelessWidget {
   const ActivityAnswerListening({
     super.key,
     required this.answersListString,
+    required this.correctAnswer,
   });
 
   final List<String> answersListString;
+  final String correctAnswer;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        buttonPlayAudio(),
+        ListenButton(correctAnswer: correctAnswer),
+        Spacers.spacer5,
+        answerCorrectText('HOLA'),
+        Spacers.spacer10,
         listAnswers(),
       ],
     );
   }
 
-  InkWell buttonPlayAudio() => InkWell(
-        onTap: () {},
-        child: Image(
-          height: 80,
-          width: 80,
-          fit: BoxFit.scaleDown,
-          image: AssetImage(ActivityUtility.urlImagePlay),
+  Text answerCorrectText(String answer) => Text(
+        answer,
+        style: const TextStyle(
+          color: ColorsApp.text,
+          fontSize: 14,
+          fontWeight: FontWeight.normal,
+          fontStyle: FontStyle.italic,
         ),
       );
 

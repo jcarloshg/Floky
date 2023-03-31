@@ -1,5 +1,5 @@
 import 'package:floky/views/pages/response_activities/controllers/controller.response_activities.dart';
-import 'package:floky/views/pages/response_activities/pages/view_activity/widgets/view_activity_answers/utils.activity_answer_reading.dart';
+import 'package:floky/views/pages/response_activities/pages/view_activity/widgets/view_activity_answers/reading/utils.activity_answer_reading.dart';
 import 'package:flutter/material.dart';
 
 class ActivityAnswerReading extends StatefulWidget {
