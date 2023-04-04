@@ -224,7 +224,7 @@ class Account extends Model {
   static final QueryField ROLE = QueryField(fieldName: "role");
   static final QueryField ACTIVITIESPROGRESS = QueryField(
     fieldName: "activitiesProgress",
-    fieldType: ModelFieldType(ModelFieldTypeEnum.model, ofModelName: (ActivitiesProgress).toString()));
+    fieldType: ModelFieldType(ModelFieldTypeEnum.model, ofModelName: 'ActivitiesProgress'));
   static final QueryField ACCOUNTACTIVITIESPROGRESSID = QueryField(fieldName: "accountActivitiesProgressId");
   static var schema = Model.defineSchema(define: (ModelSchemaDefinition modelSchemaDefinition) {
     modelSchemaDefinition.name = "Account";
@@ -276,7 +276,7 @@ class Account extends Model {
     modelSchemaDefinition.addField(ModelFieldDefinition.hasOne(
       key: Account.ACTIVITIESPROGRESS,
       isRequired: false,
-      ofModelName: (ActivitiesProgress).toString(),
+      ofModelName: 'ActivitiesProgress',
       associatedKey: ActivitiesProgress.ID
     ));
     
@@ -308,5 +308,10 @@ class _AccountModelType extends ModelType<Account> {
   @override
   Account fromJson(Map<String, dynamic> jsonData) {
     return Account.fromJson(jsonData);
+  }
+  
+  @override
+  String modelName() {
+    return 'Account';
   }
 }
