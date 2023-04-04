@@ -167,7 +167,7 @@
             "Ref": "UnauthRoleName"
           },
           "S3DeploymentBucket": "amplify-floky-staging-172728-deployment",
-          "S3DeploymentRootKey": "amplify-appsync-files/2062440a824f8b6a64287cc21447a8ac9b449b4f",
+          "S3DeploymentRootKey": "amplify-appsync-files/eb400c2fad3647208bfaea7f4cca33349782a7eb",
           "env": "staging"
         }
       }
@@ -306,7 +306,7 @@
           }
         },
         "Handler": "index.handler",
-        "Runtime": "nodejs14.x",
+        "Runtime": "nodejs16.x",
         "Timeout": 300,
         "Role": {
           "Fn::GetAtt": [

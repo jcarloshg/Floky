@@ -58,6 +58,7 @@ type Answer {
   incorrect_1: String
   incorrect_2: String
   incorrect_3: String
+  pronunciation: String!
 }
 
 type Topic @model @auth(rules: [{allow: public}]) {

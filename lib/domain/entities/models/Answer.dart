@@ -30,6 +30,7 @@ class Answer {
   final String? _incorrect_1;
   final String? _incorrect_2;
   final String? _incorrect_3;
+  final String? _pronunciation;
 
   String get correct {
     try {
@@ -56,14 +57,28 @@ class Answer {
     return _incorrect_3;
   }
   
-  const Answer._internal({required correct, incorrect_1, incorrect_2, incorrect_3}): _correct = correct, _incorrect_1 = incorrect_1, _incorrect_2 = incorrect_2, _incorrect_3 = incorrect_3;
+  String get pronunciation {
+    try {
+      return _pronunciation!;
+    } catch(e) {
+      throw new AmplifyCodeGenModelException(
+          AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
+          recoverySuggestion:
+            AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
+          underlyingException: e.toString()
+          );
+    }
+  }
   
-  factory Answer({required String correct, String? incorrect_1, String? incorrect_2, String? incorrect_3}) {
+  const Answer._internal({required correct, incorrect_1, incorrect_2, incorrect_3, required pronunciation}): _correct = correct, _incorrect_1 = incorrect_1, _incorrect_2 = incorrect_2, _incorrect_3 = incorrect_3, _pronunciation = pronunciation;
+  
+  factory Answer({required String correct, String? incorrect_1, String? incorrect_2, String? incorrect_3, required String pronunciation}) {
     return Answer._internal(
       correct: correct,
       incorrect_1: incorrect_1,
       incorrect_2: incorrect_2,
-      incorrect_3: incorrect_3);
+      incorrect_3: incorrect_3,
+      pronunciation: pronunciation);
   }
   
   bool equals(Object other) {
@@ -77,7 +92,8 @@ class Answer {
       _correct == other._correct &&
       _incorrect_1 == other._incorrect_1 &&
       _incorrect_2 == other._incorrect_2 &&
-      _incorrect_3 == other._incorrect_3;
+      _incorrect_3 == other._incorrect_3 &&
+      _pronunciation == other._pronunciation;
   }
   
   @override
@@ -91,32 +107,35 @@ class Answer {
     buffer.write("correct=" + "$_correct" + ", ");
     buffer.write("incorrect_1=" + "$_incorrect_1" + ", ");
     buffer.write("incorrect_2=" + "$_incorrect_2" + ", ");
-    buffer.write("incorrect_3=" + "$_incorrect_3");
+    buffer.write("incorrect_3=" + "$_incorrect_3" + ", ");
+    buffer.write("pronunciation=" + "$_pronunciation");
     buffer.write("}");
     
     return buffer.toString();
   }
   
-  Answer copyWith({String? correct, String? incorrect_1, String? incorrect_2, String? incorrect_3}) {
+  Answer copyWith({String? correct, String? incorrect_1, String? incorrect_2, String? incorrect_3, String? pronunciation}) {
     return Answer._internal(
       correct: correct ?? this.correct,
       incorrect_1: incorrect_1 ?? this.incorrect_1,
       incorrect_2: incorrect_2 ?? this.incorrect_2,
-      incorrect_3: incorrect_3 ?? this.incorrect_3);
+      incorrect_3: incorrect_3 ?? this.incorrect_3,
+      pronunciation: pronunciation ?? this.pronunciation);
   }
   
   Answer.fromJson(Map<String, dynamic> json)  
     : _correct = json['correct'],
       _incorrect_1 = json['incorrect_1'],
       _incorrect_2 = json['incorrect_2'],
-      _incorrect_3 = json['incorrect_3'];
+      _incorrect_3 = json['incorrect_3'],
+      _pronunciation = json['pronunciation'];
   
   Map<String, dynamic> toJson() => {
-    'correct': _correct, 'incorrect_1': _incorrect_1, 'incorrect_2': _incorrect_2, 'incorrect_3': _incorrect_3
+    'correct': _correct, 'incorrect_1': _incorrect_1, 'incorrect_2': _incorrect_2, 'incorrect_3': _incorrect_3, 'pronunciation': _pronunciation
   };
   
   Map<String, Object?> toMap() => {
-    'correct': _correct, 'incorrect_1': _incorrect_1, 'incorrect_2': _incorrect_2, 'incorrect_3': _incorrect_3
+    'correct': _correct, 'incorrect_1': _incorrect_1, 'incorrect_2': _incorrect_2, 'incorrect_3': _incorrect_3, 'pronunciation': _pronunciation
   };
 
   static var schema = Model.defineSchema(define: (ModelSchemaDefinition modelSchemaDefinition) {
@@ -144,6 +163,12 @@ class Answer {
     modelSchemaDefinition.addField(ModelFieldDefinition.customTypeField(
       fieldName: 'incorrect_3',
       isRequired: false,
+      ofType: ModelFieldType(ModelFieldTypeEnum.string)
+    ));
+    
+    modelSchemaDefinition.addField(ModelFieldDefinition.customTypeField(
+      fieldName: 'pronunciation',
+      isRequired: true,
       ofType: ModelFieldType(ModelFieldTypeEnum.string)
     ));
   });
