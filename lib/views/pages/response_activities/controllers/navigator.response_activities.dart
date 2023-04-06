@@ -16,18 +16,27 @@ class ResponseActivitiesNavigator {
     _context = context;
   }
 
-  //============================================================
-  // to Response activity
-  //============================================================
   void goToViewActivity(Activity activity) {
     if (_context == null) return;
     Navigator.push(
       _context!,
       MaterialPageRoute(
-        // builder: (context) => ViewActivityScreen(activity: activity),
+        builder: (context) => ViewActivityScreen(activity: activity),
+      ),
+    );
+  }
+
+  void goToCheckResponseActivityScreen(
+    Activity activity,
+    bool isTheCorrectResponse,
+  ) {
+    if (_context == null) return;
+    Navigator.push(
+      _context!,
+      MaterialPageRoute(
         builder: (context) => CheckResponseActivityScreen(
           activity: activity,
-          isTheCorrectResponse: false,
+          isTheCorrectResponse: isTheCorrectResponse,
         ),
       ),
     );

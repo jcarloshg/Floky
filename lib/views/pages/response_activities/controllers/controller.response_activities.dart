@@ -38,5 +38,10 @@ class ResponseActivitiesController {
       isTheCorrectResponse: isTheCorrectResponse,
       activityType: activitySelected.activityType,
     );
+
+    navigator.goToCheckResponseActivityScreen(
+      activitySelected,
+      isTheCorrectResponse,
+    );
   }
 }

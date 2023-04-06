@@ -12,6 +12,8 @@ class ResponseActivityButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    responseActivitiesController.navigator.setBuildContext(context);
+
     return Container(
       width: double.infinity,
       alignment: Alignment.centerRight,
