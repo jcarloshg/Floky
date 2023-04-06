@@ -12,7 +12,7 @@ class ResponseActivityAWS extends ResponseActivityRepository {
   GlobalState getGlobalState() => di<GlobalState>();
 
   @override
-  Future<void> run({
+  Future<bool> run({
     required Account currentStudent,
     required bool isTheCorrectResponse,
     required ActivityType activityType,
@@ -43,8 +43,10 @@ class ResponseActivityAWS extends ResponseActivityRepository {
         activitiesProgressUpdated,
       );
       getGlobalState().setCurrentStudent(currentStudentUpdated);
+      return true;
     } catch (e) {
       log(e.toString());
+      return false;
     }
   }
 
@@ -59,16 +61,7 @@ class ResponseActivityAWS extends ResponseActivityRepository {
       return currentActivitiesProgress;
     } catch (e) {
       log(e.toString());
-      final ActivitiesProgress newActivitiesProgress = ActivitiesProgress(
-        correctListening: 0,
-        correctReading: 0,
-        correctSpeaking: 0,
-        correctWriting: 0,
-        wrongListening: 0,
-        wrongReading: 0,
-        wrongSpeaking: 0,
-        wrongWriting: 0,
-      );
+      final ActivitiesProgress newActivitiesProgress = ActivitiesProgress();
       await Amplify.DataStore.save<ActivitiesProgress>(newActivitiesProgress);
       return newActivitiesProgress;
     }
