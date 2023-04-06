@@ -1,4 +1,5 @@
 import 'package:floky/domain/entities/models/ModelProvider.dart';
+import 'package:floky/views/pages/common/home/home.screen.dart';
 import 'package:floky/views/pages/response_activities/pages/pages.response_activities.dart';
 // import 'package:floky/views/pages/response_activities/pages/response_activity/screen.response_activity.dart';
 import 'package:flutter/material.dart';
@@ -14,15 +15,6 @@ class ResponseActivitiesNavigator {
   BuildContext? _context;
   void setBuildContext(BuildContext? context) {
     _context = context;
-  }
-
-  void goToBack(Activity activity) {
-    if (_context == null) return;
-    Navigator.pushAndRemoveUntil(
-      _context!,
-      MaterialPageRoute(builder: (_) => ViewActivityScreen(activity: activity)),
-      (route) => false,
-    );
   }
 
   void goToViewActivity(Activity activity) {
@@ -48,6 +40,26 @@ class ResponseActivitiesNavigator {
           isTheCorrectResponse: isTheCorrectResponse,
         ),
       ),
+    );
+  }
+
+  void goToBack(Activity activity) {
+    if (_context == null) return;
+    Navigator.pushAndRemoveUntil(
+      _context!,
+      MaterialPageRoute(
+        builder: (_) => ViewActivityScreen(activity: activity),
+      ),
+      (route) => false,
+    );
+  }
+
+  void goToHome() {
+    if (_context == null) return;
+    Navigator.pushAndRemoveUntil(
+      _context!,
+      MaterialPageRoute(builder: (_) => const HomeScreen()),
+      (Route<dynamic> route) => false,
     );
   }
 }

@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 
 import 'widgets/check_response_activity_button/widget.check_response_activity_button.dart';
 import 'widgets/intentar_de_nuevo_button/widget.intentar_de_nuevo_button.dart';
+import 'widgets/ir_al_inicio_button/widget.ir_al_inicio_button.dart';
 import 'widgets/message_about_response/widget.message_about_response.dart';
 
 class CheckResponseActivityScreen extends StatelessWidget {
@@ -41,6 +42,10 @@ class CheckResponseActivityScreen extends StatelessWidget {
             children: [
               ViewActivityTypeImage(activityType: activity.activityType),
               viewActivity(responseCorrect),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: IrAlInicioButton(responseActivitiesController: di()),
+              )
             ],
           ),
         ),
