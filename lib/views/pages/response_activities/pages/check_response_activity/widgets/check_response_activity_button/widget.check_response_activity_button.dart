@@ -1,7 +1,13 @@
+import 'dart:math';
+
+import 'package:floky/data/usecase/response_activities/get_recent_activities/controller.get_recent_activities.dart';
+import 'package:floky/dependencyInjection/setup_di.dart';
 import 'package:floky/views/pages/response_activities/controllers/controller.response_activities.dart';
 import 'package:flutter/material.dart';
 
 class CheckResponseActivityButton extends StatelessWidget {
+  //
+
   const CheckResponseActivityButton({
     super.key,
     required this.responseActivitiesController,
@@ -12,11 +18,14 @@ class CheckResponseActivityButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //
+    responseActivitiesController.navigator.setBuildContext(context);
+
     return Container(
       width: double.infinity,
       alignment: Alignment.centerRight,
       child: InkWell(
-        onTap: () => responseActivitiesController.responseActivity(),
+        onTap: () => goToViewNewActivity(),
         child: Container(
           width: 200,
           height: 48,
@@ -25,6 +34,21 @@ class CheckResponseActivityButton extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void goToViewNewActivity() {
+    final getRecentActivitiesController = di<GetRecentActivitiesController>();
+    final getRecentActivitiesState = getRecentActivitiesController.state;
+    final getRecentActivities = getRecentActivitiesState.getRecentActivities();
+    final activitiesLength = getRecentActivities.length;
+
+    Random random = Random();
+    int min = 0, max = activitiesLength;
+    int randomIndex = min + random.nextInt(max - min);
+
+    final activityRandom = getRecentActivities[randomIndex];
+
+    responseActivitiesController.navigator.goToViewNewActivity(activityRandom);
   }
 
   BoxDecoration boxDecoration() => BoxDecoration(

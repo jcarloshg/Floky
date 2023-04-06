@@ -62,4 +62,13 @@ class ResponseActivitiesNavigator {
       (Route<dynamic> route) => false,
     );
   }
+
+  void goToViewNewActivity(Activity activity) {
+    if (_context == null) return;
+    Navigator.pushAndRemoveUntil(
+      _context!,
+      MaterialPageRoute(builder: (_) => ViewActivityScreen(activity: activity)),
+      (route) => false,
+    );
+  }
 }
