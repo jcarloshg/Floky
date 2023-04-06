@@ -1,9 +1,11 @@
+import 'package:floky/dependencyInjection/setup_di.dart';
 import 'package:floky/domain/entities/models/ModelProvider.dart';
 import 'package:floky/views/pages/response_activities/widgets/view_activity_header/widget.view_activity_header.dart';
 import 'package:floky/views/pages/response_activities/widgets/view_activity_type_image/widget.view_activity_type_image.dart';
 import 'package:floky/views/widgets/UI/spacer/ui.spacer.dart';
 import 'package:flutter/material.dart';
 
+import 'widgets/check_response_activity_button/widget.check_response_activity_button.dart';
 import 'widgets/message_about_response/widget.message_about_response.dart';
 
 class CheckResponseActivityScreen extends StatelessWidget {
@@ -53,6 +55,11 @@ class CheckResponseActivityScreen extends StatelessWidget {
           topicName: activity.topic.name,
         );
 
+    CheckResponseActivityButton checkResponseActivityButton() =>
+        CheckResponseActivityButton(
+          responseActivitiesController: di(),
+        );
+
     return Column(
       mainAxisSize: MainAxisSize.max,
       children: [
@@ -67,6 +74,8 @@ class CheckResponseActivityScreen extends StatelessWidget {
                   isTheCorrectResponse: isTheCorrectResponse,
                   responseCorrect: responseCorrect,
                 ),
+                Spacers.spacer20,
+                checkResponseActivityButton(),
               ],
             ),
           ),
