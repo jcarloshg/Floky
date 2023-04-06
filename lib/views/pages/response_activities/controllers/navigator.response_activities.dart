@@ -16,6 +16,11 @@ class ResponseActivitiesNavigator {
     _context = context;
   }
 
+  void goToBack() {
+    if (_context == null) return;
+    Navigator.pop(_context!);
+  }
+
   void goToViewActivity(Activity activity) {
     if (_context == null) return;
     Navigator.push(
