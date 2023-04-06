@@ -16,9 +16,22 @@ class ResponseActivitiesNavigator {
     _context = context;
   }
 
-  void goToBack() {
+  void goToBack(Activity activity) {
     if (_context == null) return;
-    Navigator.pop(_context!);
+
+    // Navigator.pushAndRemoveUntil(
+    //   buildContext!,
+    //   MaterialPageRoute(builder: (_) => const LogInScreen()),
+    //   (Route<dynamic> route) => false,
+    // );
+
+    // Navigator.pop(_context!);
+
+    Navigator.pushAndRemoveUntil(
+      _context!,
+      MaterialPageRoute(builder: (_) => ViewActivityScreen(activity: activity)),
+      (route) => false,
+    );
   }
 
   void goToViewActivity(Activity activity) {
