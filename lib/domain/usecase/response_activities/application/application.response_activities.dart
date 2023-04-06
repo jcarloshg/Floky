@@ -41,14 +41,14 @@ class ResponseActivities extends ResponseActivitiesRepository {
 
   @override
   Future<void> responseActivity({
+    required String studentID,
+    required bool isTheCorrectResponse,
     required ActivityType activityType,
-    required String answerCorrect,
-    required String response,
   }) async {
     await responseActivityRepository.run(
+      studentID: studentID,
+      isTheCorrectResponse: isTheCorrectResponse,
       activityType: activityType,
-      answerCorrect: answerCorrect,
-      response: response,
     );
     return;
   }

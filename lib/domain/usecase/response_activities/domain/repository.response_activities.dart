@@ -7,9 +7,9 @@ abstract class ResponseActivitiesRepository {
   Future<List<Activity>> getRecentActivities();
   Future<Activity?> getActivityByID({required String id});
   Future<void> responseActivity({
+    required String studentID,
+    required bool isTheCorrectResponse,
     required ActivityType activityType,
-    required String answerCorrect,
-    required String response,
   });
 
   // tracking alternative nominal

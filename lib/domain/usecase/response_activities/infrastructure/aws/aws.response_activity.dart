@@ -6,13 +6,10 @@ import 'package:floky/domain/usecase/response_activities/domain/repository.respo
 class ResponseActivityAWS extends ResponseActivityRepository {
   @override
   Future<void> run({
+    required String studentID,
+    required bool isTheCorrectResponse,
     required ActivityType activityType,
-    required String answerCorrect,
-    required String response,
-  }) async {
-    log('into ResponseActivityAWS');
-    log(activityType.toString());
-    log(answerCorrect);
-    log(response);
+  }) {
+    throw UnimplementedError();
   }
 }

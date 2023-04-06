@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:floky/views/pages/response_activities/controllers/controller.response_activities.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +8,7 @@ class ResponseActivityButton extends StatelessWidget {
   });
 
   final ResponseActivitiesController responseActivitiesController;
-  static const String title = 'Responser actividad';
+  static const String title = 'Responder actividad';
 
   @override
   Widget build(BuildContext context) {
