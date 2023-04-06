@@ -1,6 +1,6 @@
 import 'package:floky/domain/entities/models/ModelProvider.dart';
+import 'package:floky/views/pages/response_activities/pages/pages.response_activities.dart';
 // import 'package:floky/views/pages/response_activities/pages/response_activity/screen.response_activity.dart';
-import 'package:floky/views/pages/response_activities/pages/view_activity/screen.view_activity.dart';
 import 'package:flutter/material.dart';
 
 ///
@@ -24,7 +24,11 @@ class ResponseActivitiesNavigator {
     Navigator.push(
       _context!,
       MaterialPageRoute(
-        builder: (context) => ViewActivityScreen(activity: activity),
+        // builder: (context) => ViewActivityScreen(activity: activity),
+        builder: (context) => CheckResponseActivityScreen(
+          activity: activity,
+          isTheCorrectResponse: false,
+        ),
       ),
     );
   }
