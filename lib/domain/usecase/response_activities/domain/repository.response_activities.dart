@@ -7,7 +7,7 @@ abstract class ResponseActivitiesRepository {
   Future<List<Activity>> getRecentActivities();
   Future<Activity?> getActivityByID({required String id});
   Future<void> responseActivity({
-    required String studentID,
+    required Account currentStudent,
     required bool isTheCorrectResponse,
     required ActivityType activityType,
   });
