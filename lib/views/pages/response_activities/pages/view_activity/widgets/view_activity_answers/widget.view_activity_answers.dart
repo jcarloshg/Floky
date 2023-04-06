@@ -36,6 +36,7 @@ class ViewActivityAnswers extends StatelessWidget {
     if (activityType == ActivityType.TALKING) {
       return ActivityAnswerTalking(
         correctAnswer: answers.correct,
+        responseActivitiesController: di(),
       );
     }
 
@@ -43,6 +44,7 @@ class ViewActivityAnswers extends StatelessWidget {
       return ActivityAnswerListening(
         correctAnswer: answers.correct,
         answersListString: answersToList(answers),
+        responseActivitiesController: di(),
       );
     }
 

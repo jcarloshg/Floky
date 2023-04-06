@@ -1,4 +1,4 @@
-import 'package:floky/dependencyInjection/setup_di.dart';
+import 'package:floky/views/pages/response_activities/controllers/controller.response_activities.dart';
 import 'package:floky/views/pages/response_activities/pages/view_activity/widgets/view_activity_answers/talking/widget.talking_button.dart';
 // import 'package:floky/views/pages/response_activities/pages/view_activity/widgets/view_activity_answers/talking/widget.talking_button_.dart';
 import 'package:floky/views/utils/utils.index.dart';
@@ -9,9 +9,11 @@ class ActivityAnswerTalking extends StatelessWidget {
   const ActivityAnswerTalking({
     super.key,
     required this.correctAnswer,
+    required this.responseActivitiesController,
   });
 
   final String correctAnswer;
+  final ResponseActivitiesController responseActivitiesController;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +22,7 @@ class ActivityAnswerTalking extends StatelessWidget {
       children: [
         Spacers.spacer10,
         TalkingButton(
-          responseActivitiesController: di(),
+          responseActivitiesController: responseActivitiesController,
         ),
         Spacers.spacer10,
         answerText(correctAnswer),
