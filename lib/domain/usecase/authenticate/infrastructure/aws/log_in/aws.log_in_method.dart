@@ -1,8 +1,9 @@
 import 'dart:developer';
 
 import 'package:amplify_flutter/amplify_flutter.dart';
-import 'package:floky/domain/entities/models/Account.dart';
+import 'package:floky/domain/entities/models/ModelProvider.dart';
 import 'package:floky/domain/usecase/authenticate/domain/log_in/repository.log_in_method.dart';
+import 'package:floky/domain/usecase/authenticate/infrastructure/aws/log_in/utils/utils.getActivitiesProgress.dart';
 
 class LogInMethodAWS extends LogInMethodRepository {
   @override
@@ -16,7 +17,8 @@ class LogInMethodAWS extends LogInMethodRepository {
         where: Account.ID.eq(studentID),
       );
       final Account currentStudent = students[0];
-      return currentStudent;
+      final currentStudentUpdated = getActivitiesProgress(currentStudent);
+      return currentStudentUpdated;
     } on AuthException catch (e) {
       log('error [LogInMethodAWS]');
       log(e.message);

@@ -4,6 +4,8 @@ import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:floky/domain/entities/models/Account.dart';
 import 'package:floky/domain/usecase/authenticate/domain/log_in/repository.exist_a_student_logged_in.dart';
 
+import 'utils/utils.getActivitiesProgress.dart';
+
 class ExistAStudentLoggedInAWS extends ExistAStudentLoggedInRepository {
   @override
   Future<Account?> run() async {
@@ -16,7 +18,8 @@ class ExistAStudentLoggedInAWS extends ExistAStudentLoggedInRepository {
         where: Account.ID.eq(studentID),
       );
       final Account currentStudent = students[0];
-      return currentStudent;
+      final currentStudentUpdated = getActivitiesProgress(currentStudent);
+      return currentStudentUpdated;
     } catch (e) {
       // ignore: avoid_print
       print(e);

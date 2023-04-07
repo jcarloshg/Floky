@@ -17,7 +17,7 @@ class MessageAboutResponseWidget extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         word(isTheCorrectResponse),
-        Spacers.spacer5,
+        Spacers.spacer10,
         statement(isTheCorrectResponse, responseCorrect),
       ],
     );
@@ -79,17 +79,22 @@ class MessageAboutResponseWidget extends StatelessWidget {
       ),
     );
 
-    final word = Text(
-      responseCorrect,
-      style: TextStyle(
-        color: Colors.blueGrey.shade900,
-        fontSize: 24,
-        fontWeight: FontWeight.bold,
+    final word = Expanded(
+      child: Text(
+        responseCorrect,
+        overflow: TextOverflow.ellipsis,
+        maxLines: 5,
+        style: TextStyle(
+          color: Colors.blueGrey.shade900,
+          fontSize: 24,
+          fontWeight: FontWeight.bold,
+        ),
       ),
     );
 
     return Row(
-      crossAxisAlignment: CrossAxisAlignment.end,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      // mainAxisSize: MainAxisSize.max,
       children: [
         statementCorrect,
         word,

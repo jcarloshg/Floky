@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:floky/data/usecase/response_activities/get_activity_by_id/controller.get_activity_by_id.dart';
 import 'package:floky/data/usecase/response_activities/get_recent_activities/controller.get_recent_activities.dart';
 import 'package:floky/dependencyInjection/setup_di.dart';
 import 'package:floky/views/pages/response_activities/controllers/controller.response_activities.dart';
@@ -37,6 +38,7 @@ class CheckResponseActivityButton extends StatelessWidget {
   }
 
   void goToViewNewActivity() {
+    // get [RecentActivities] to change
     final getRecentActivitiesController = di<GetRecentActivitiesController>();
     final getRecentActivitiesState = getRecentActivitiesController.state;
     final getRecentActivities = getRecentActivitiesState.getRecentActivities();
@@ -45,9 +47,14 @@ class CheckResponseActivityButton extends StatelessWidget {
     Random random = Random();
     int min = 0, max = activitiesLength;
     int randomIndex = min + random.nextInt(max - min);
-
     final activityRandom = getRecentActivities[randomIndex];
 
+    // set [activityRandom] into [GetActivityByIdController]
+    final getActivityByIdController = di<GetActivityByIdController>();
+    final responseActivitiesChangeNotifier = getActivityByIdController.state;
+    responseActivitiesChangeNotifier.setActivitySelected(activityRandom);
+
+    // go to view new activity
     responseActivitiesController.navigator.goToViewNewActivity(activityRandom);
   }
 
