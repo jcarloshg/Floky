@@ -1,16 +1,20 @@
+import 'package:floky/dependencyInjection/global_state/global_state.dart';
 import 'package:floky/views/utils/utils.index.dart';
 import 'package:flutter/material.dart';
 
 class PersonalInfoCard extends StatelessWidget {
-  const PersonalInfoCard({super.key});
+  const PersonalInfoCard({
+    super.key,
+    required this.globalState,
+  });
+
+  final GlobalState globalState;
 
   @override
   Widget build(BuildContext context) {
-    const String name = 'Jose Carlos';
-    const String lastName = 'Huerta Garcia';
-    const String email = 'carlosblabla98@gmail.com';
-    const String registerCollage = '201738087';
-    const String collage = 'Benemérita Universidad Autónoma de Puebla';
+    //
+
+    final currentStudent = globalState.getCurrentStudent()!;
 
     double width = MediaQuery.of(context).size.width;
 
@@ -29,25 +33,31 @@ class PersonalInfoCard extends StatelessWidget {
             image: AssetImage('assets/profile/avatar.png'),
             fit: BoxFit.contain,
           ),
-          const SizedBox(width: 20),
+          const SizedBox(width: 15),
           Expanded(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                collegeName(collage),
+                collegeName(currentStudent.collegeName),
                 Column(
                   children: [
-                    personalInfo('$name $lastName'),
+                    personalInfo(currentStudent.fullName),
                     const SizedBox(height: 5),
-                    personalInfo(email),
+                    personalInfo(currentStudent.email),
                   ],
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    infoWithTitle('Matrícula', registerCollage),
-                    infoWithTitle('ID', '6544-9874'),
+                    infoWithTitle(
+                      'Matrícula',
+                      currentStudent.collegeEnrollment,
+                    ),
+                    infoWithTitle(
+                      'ID',
+                      currentStudent.id.substring(0, 8),
+                    ),
                   ],
                 )
               ],

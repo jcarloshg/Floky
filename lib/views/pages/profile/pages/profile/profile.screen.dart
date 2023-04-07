@@ -1,3 +1,4 @@
+import 'package:floky/dependencyInjection/setup_di.dart';
 import 'package:floky/views/pages/profile/pages/profile/widgets/info_card/personal_info_card.dart';
 import 'package:floky/views/pages/profile/pages/profile/widgets/log_out_button_text/widget.log_out_button_text.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
@@ -17,7 +18,7 @@ class ProfileScreen extends StatelessWidget {
               Titles.title('Perfil'),
               Titles.subtitle('Información personal y tus logros 🏆'),
               Spacers.spacer20,
-              const PersonalInfoCard(),
+              PersonalInfoCard(globalState: di()),
               Spacers.spacer20,
               const LogOutButtonText(),
               Spacers.spacer20,
