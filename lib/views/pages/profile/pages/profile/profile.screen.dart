@@ -16,8 +16,6 @@ class ProfileScreen extends StatelessWidget {
           child: Column(
             children: [
               Titles.title('Perfil'),
-              Titles.subtitle('Información personal y tus logros 🏆'),
-              Spacers.spacer20,
               PersonalInfoCard(globalState: di()),
               Spacers.spacer20,
               const LogOutButtonText(),

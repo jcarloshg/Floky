@@ -1,5 +1,6 @@
 import 'package:floky/dependencyInjection/global_state/global_state.dart';
 import 'package:floky/views/utils/utils.index.dart';
+import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
 
 class PersonalInfoCard extends StatelessWidget {
@@ -18,53 +19,59 @@ class PersonalInfoCard extends StatelessWidget {
 
     double width = MediaQuery.of(context).size.width;
 
-    return Container(
-      width: double.infinity,
-      height: width * 0.45,
-      padding: const EdgeInsets.all(15),
-      margin: const EdgeInsets.symmetric(horizontal: 15),
-      decoration: _boxDecoration(),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Image(
-            width: 70,
-            height: 70,
-            image: AssetImage('assets/profile/avatar.png'),
-            fit: BoxFit.contain,
-          ),
-          const SizedBox(width: 15),
-          Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                collegeName(currentStudent.collegeName),
-                Column(
+    return Column(
+      children: [
+        Titles.subtitle('Información personal 👩‍🎓👨‍🎓'),
+        Spacers.spacer10,
+        Container(
+          width: double.infinity,
+          height: width * 0.45,
+          padding: const EdgeInsets.all(15),
+          margin: const EdgeInsets.symmetric(horizontal: 15),
+          decoration: _boxDecoration(),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Image(
+                width: 70,
+                height: 70,
+                image: AssetImage('assets/profile/avatar.png'),
+                fit: BoxFit.contain,
+              ),
+              const SizedBox(width: 10),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    personalInfo(currentStudent.fullName),
-                    const SizedBox(height: 5),
-                    personalInfo(currentStudent.email),
+                    collegeName(currentStudent.collegeName),
+                    Column(
+                      children: [
+                        personalInfo(currentStudent.fullName),
+                        const SizedBox(height: 5),
+                        personalInfo(currentStudent.email),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        infoWithTitle(
+                          'Matrícula',
+                          currentStudent.collegeEnrollment,
+                        ),
+                        infoWithTitle(
+                          'ID',
+                          currentStudent.id.substring(0, 8),
+                        ),
+                      ],
+                    )
                   ],
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    infoWithTitle(
-                      'Matrícula',
-                      currentStudent.collegeEnrollment,
-                    ),
-                    infoWithTitle(
-                      'ID',
-                      currentStudent.id.substring(0, 8),
-                    ),
-                  ],
-                )
-              ],
-            ),
+              ),
+            ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 
