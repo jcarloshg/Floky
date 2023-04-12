@@ -27,7 +27,7 @@ class LogInScreen extends StatelessWidget {
                 LogInButton(),
                 RegisterButton(),
                 GoToResetPassButton(),
-                LogOutButtonText(),
+                // LogOutButtonText(),
               ],
             ),
           ),

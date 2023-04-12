@@ -26,7 +26,6 @@ class ExistAStudentLoggedInController {
 
     final theRoleIsStudent = studentLoggedIn?.role == Role.STUDENT;
     if (theRoleIsStudent == true) navigator.goToHome();
-    if (theRoleIsStudent == true) navigator.goToHome();
 
     return existStudentLogged && theRoleIsStudent;
   }

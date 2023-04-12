@@ -34,7 +34,7 @@ class ProfileScreen extends StatelessWidget {
                 activitiesProgress: currentStudent.activitiesProgress,
               ),
               Spacers.spacer20,
-              const LogOutButtonText(),
+              LogOutButtonText(logInController: di()),
               Spacers.spacer20,
             ],
           ),
