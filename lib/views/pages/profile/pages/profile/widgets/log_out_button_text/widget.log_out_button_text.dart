@@ -1,7 +1,6 @@
 import 'dart:developer';
 
 import 'package:amplify_flutter/amplify_flutter.dart';
-import 'package:floky/dependencyInjection/setup_di.dart';
 import 'package:floky/views/pages/authenticate/pages/log_in/controller/controller.log_in.dart';
 import 'package:flutter/material.dart';
 
