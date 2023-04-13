@@ -3,6 +3,7 @@ import 'package:floky/domain/entities/models/Activity.dart';
 import 'package:floky/domain/entities/models/ActivityType.dart';
 import 'package:floky/domain/usecase/authenticate/domain/repository.get_current_student.dart';
 import 'package:floky/domain/usecase/response_activities/domain/repository.get_activities_by_key_word.dart';
+import 'package:floky/domain/usecase/response_activities/domain/repository.get_activities_by_type.dart';
 import 'package:floky/domain/usecase/response_activities/domain/repository.get_activity_by_ID.dart';
 import 'package:floky/domain/usecase/response_activities/domain/repository.get_recent_activities.dart';
 import 'package:floky/domain/usecase/response_activities/domain/repository.response_activities.dart';
@@ -13,6 +14,7 @@ class ResponseActivities extends ResponseActivitiesRepository {
   final GetActivityByIDRepository getActivityByIDRepository;
   final ResponseActivityRepository responseActivityRepository;
   final GetActivitiesByKeyWordRepository getActivitiesByKeyWordRepository;
+  final GetActivitiesByTypeRepository getActivitiesByTypeRepository;
   final GetCurrentStudentRepository getCurrentStudentRepository;
 
   ResponseActivities({
@@ -21,6 +23,7 @@ class ResponseActivities extends ResponseActivitiesRepository {
     required this.responseActivityRepository,
     required this.getActivitiesByKeyWordRepository,
     required this.getCurrentStudentRepository,
+    required this.getActivitiesByTypeRepository,
   });
 
   //============================================================
@@ -62,6 +65,16 @@ class ResponseActivities extends ResponseActivitiesRepository {
   }) async {
     final List<Activity> activities =
         await getActivitiesByKeyWordRepository.run(keyword: keyword);
+    return activities;
+  }
+
+  @override
+  Future<List<Activity>> getActivitiesByType({
+    required ActivityType activityType,
+  }) async {
+    final List<Activity> activities = await getActivitiesByTypeRepository.run(
+      activityType: activityType,
+    );
     return activities;
   }
 

@@ -40,7 +40,7 @@ class _ListRecentActivitiesState extends State<ListRecentActivities> {
     return Column(
       children: [
         Titles.subtitle('Descubre actividades nuevas'),
-        const SizedBox(height: 5),
+        Spacers.spacer10,
         ActivitiesCarouselHorizontal(
           activities: getRecentActivitiesState.getRecentActivities(),
         ),
