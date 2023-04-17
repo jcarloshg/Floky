@@ -71,7 +71,6 @@ class Achievements extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 15),
       height: 450,
       alignment: Alignment.center,
-      decoration: BoxDecoration(border: Border.all()),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,

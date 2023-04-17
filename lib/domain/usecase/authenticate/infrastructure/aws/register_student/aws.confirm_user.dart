@@ -54,6 +54,7 @@ class ConfirmUserAWS extends ConfirmUserRepository {
       collegeName: schoolData.collegeName,
       role: Role.STUDENT,
     );
+
     await Amplify.DataStore.save<Account>(newStudent);
 
     await Amplify.Auth.signOut();

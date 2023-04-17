@@ -5,8 +5,6 @@ import 'package:floky/views/utils/utils.index.dart';
 import 'package:floky/views/widgets/widgets.index.dart';
 import 'package:flutter/material.dart';
 
-import '../activities_searcher/element.search_by_categories.dart';
-
 part 'element.activities_search_bar.search_delegate.dart';
 
 // ! FutureBuilder

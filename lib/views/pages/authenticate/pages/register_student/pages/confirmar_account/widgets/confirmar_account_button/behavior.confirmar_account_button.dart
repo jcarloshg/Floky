@@ -21,8 +21,9 @@ class ConfirmarAccountButtonBehavior {
     );
 
     // valid if accountWasConfirmed
-    final accountWasConfirmed =
-        await controller.repository.confirmUser(confirmUserParams);
+    final accountWasConfirmed = await controller.repository.confirmUser(
+      confirmUserParams,
+    );
     if (accountWasConfirmed == false) {
       changeNotifier.setConfirmarAccountMessageError(
         'Ingresa el código correctamente.',
