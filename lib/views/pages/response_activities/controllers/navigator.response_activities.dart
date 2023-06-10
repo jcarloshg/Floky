@@ -11,10 +11,23 @@ import 'package:flutter/material.dart';
 
 class ResponseActivitiesNavigator {
   //
+  final _keyViewActivity = GlobalKey();
 
   BuildContext? _context;
   void setBuildContext(BuildContext? context) {
     _context = context;
+  }
+
+  void goToViewActivityTwo(Activity activity, BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ViewActivityScreen(
+          key: _keyViewActivity,
+          activity: activity,
+        ),
+      ),
+    );
   }
 
   void goToViewActivity(Activity activity) {
@@ -22,7 +35,10 @@ class ResponseActivitiesNavigator {
     Navigator.push(
       _context!,
       MaterialPageRoute(
-        builder: (context) => ViewActivityScreen(activity: activity),
+        builder: (context) => ViewActivityScreen(
+          key: _keyViewActivity,
+          activity: activity,
+        ),
       ),
     );
   }

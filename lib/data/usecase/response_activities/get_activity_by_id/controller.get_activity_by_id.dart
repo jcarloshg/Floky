@@ -28,6 +28,8 @@ class GetActivityByIdController {
     }
 
     state.setActivitySelected(activitySelected);
-    navigator.goToViewActivity(activitySelected);
+    // navigator.goToViewActivity(activitySelected);
+    if (!context.mounted) return;
+    navigator.goToViewActivityTwo(activitySelected, context);
   }
 }
