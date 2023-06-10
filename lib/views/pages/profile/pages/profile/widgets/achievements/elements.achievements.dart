@@ -108,40 +108,40 @@ class AchievementsElements {
     return [
       CategoryBox(
         category: 'Actividades de lectura',
-        correctos: activitiesProgress.correctReading.toString(),
-        incorrectos: activitiesProgress.wrongReading.toString(),
-        total: (activitiesProgress.correctReading! +
-                activitiesProgress.wrongReading!)
+        correctos: (activitiesProgress.correctReading ?? 0).toString(),
+        incorrectos: (activitiesProgress.wrongReading ?? 0).toString(),
+        total: ((activitiesProgress.correctReading ?? 0) +
+                (activitiesProgress.wrongReading ?? 0))
             .toString(),
         background: ColorsApp.read,
         activityType: ActivityType.READING,
       ),
       CategoryBox(
         category: 'Actividades de escritura',
-        correctos: activitiesProgress.correctWriting.toString(),
-        incorrectos: activitiesProgress.wrongWriting.toString(),
-        total: (activitiesProgress.correctWriting! +
-                activitiesProgress.wrongWriting!)
+        correctos: (activitiesProgress.correctWriting ?? 0).toString(),
+        incorrectos: (activitiesProgress.wrongWriting ?? 0).toString(),
+        total: ((activitiesProgress.correctWriting ?? 0) +
+                (activitiesProgress.wrongWriting ?? 0))
             .toString(),
         background: ColorsApp.write,
         activityType: ActivityType.WRITING,
       ),
       CategoryBox(
         category: 'Actividades de hablar',
-        correctos: activitiesProgress.correctSpeaking.toString(),
-        incorrectos: activitiesProgress.wrongSpeaking.toString(),
-        total: (activitiesProgress.correctSpeaking! +
-                activitiesProgress.wrongSpeaking!)
+        correctos: (activitiesProgress.correctSpeaking ?? 0).toString(),
+        incorrectos: (activitiesProgress.wrongSpeaking ?? 0).toString(),
+        total: ((activitiesProgress.correctSpeaking ?? 0) +
+                (activitiesProgress.wrongSpeaking ?? 0))
             .toString(),
         background: ColorsApp.speak,
         activityType: ActivityType.TALKING,
       ),
       CategoryBox(
         category: 'Actividades de oído',
-        correctos: activitiesProgress.correctListening.toString(),
-        incorrectos: activitiesProgress.wrongListening.toString(),
-        total: (activitiesProgress.correctListening! +
-                activitiesProgress.wrongListening!)
+        correctos: (activitiesProgress.correctListening ?? 0).toString(),
+        incorrectos: (activitiesProgress.wrongListening ?? 0).toString(),
+        total: ((activitiesProgress.correctListening ?? 0) +
+                (activitiesProgress.wrongListening ?? 0))
             .toString(),
         background: ColorsApp.listen,
         activityType: ActivityType.LISTENING,

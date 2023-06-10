@@ -32,6 +32,9 @@ class ResponseActivityAWS extends ResponseActivityRepository {
       activityType,
     );
 
+    log('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA');
+    inspect(activitiesProgressUpdated);
+
     final Account currentStudentUpdated = currentStudent.copyWith(
       accountActivitiesProgressId: activitiesProgressUpdated.id,
       activitiesProgress: activitiesProgressUpdated,
