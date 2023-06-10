@@ -73,6 +73,7 @@ enum ActivityType {
   READING
   TALKING
   LISTENING
+  OTHER
 }
 
 enum ActivityLevel {
