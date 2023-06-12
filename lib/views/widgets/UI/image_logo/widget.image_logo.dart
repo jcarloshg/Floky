@@ -10,7 +10,7 @@ class ImageLogo extends StatelessWidget {
     this.svgPictureWidth = 200,
   });
 
-  final String assetName = 'assets/logo.svg';
+  final String assetName = 'assets/icon/logo.svg';
   final double svgPictureWidth;
 
   @override
