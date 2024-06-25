@@ -1,6 +1,6 @@
-# floky
+# Floky
 
-A new Flutter project.
+[Thesis](./201738087_HuertaGarciaJoseCarlos_TESIS.pdf)
 
 ## Architecture
 
